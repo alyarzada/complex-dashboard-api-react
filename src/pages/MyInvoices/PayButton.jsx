@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import BackButton from "../../components/UI/Buttons/BackButton";
 
 const PayButton = ({ params, children }) => {
   const navigate = useNavigate();
@@ -11,15 +11,14 @@ const PayButton = ({ params, children }) => {
   };
 
   return (
-    <Button
-      variant="contained"
-      className="bg-red-500 p-1 capitalize"
+    <BackButton
+      variant="outlined"
       onClick={() => {
         clickHandler();
       }}
     >
       {children}
-    </Button>
+    </BackButton>
   );
 };
 

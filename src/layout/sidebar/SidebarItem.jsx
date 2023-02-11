@@ -6,48 +6,42 @@ import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import { setOpenedSidebar } from "../../app/Slicers/themes";
 import { useMediaQuery, Box } from "@mui/material";
+import ManagmentSubMenuItem from "./ManagmentSubMenuItem";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import SubSidebarItem from "./SubSidebarItem";
 
 const SidebarItem = ({ sidebarItem, Icon }) => {
-  const { openedSidebar } = useSelector((state) => state.themes);
   const [openSubMenu, setOpenSubMenu] = useState(false);
-  const [linksHeight, setLinksHeight] = useState("");
+  const [linksHeight, setLinksHeight] = useState(0);
+  const { openedSidebar } = useSelector((state) => state.themes);
+  const { t } = useTranslation();
 
   const matches = useMediaQuery("(max-width:768px)");
   const dispatch = useDispatch();
-  const linksRef = useRef(null);
+  const linkRef = useRef(null);
   const linksContainerRef = useRef(null);
-  const { t } = useTranslation();
 
   useEffect(() => {
     if (sidebarItem.sublist) {
-      const linksHeight = linksRef.current.getBoundingClientRect().height;
-      if (openSubMenu) {
-        linksContainerRef.current.style.height = `${linksHeight}px`;
-      } else {
-        linksContainerRef.current.style.height = "0px";
-      }
+      setLinksHeight(linkRef.current.getBoundingClientRect().height);
     }
   }, [openSubMenu]);
 
   return (
     <li className={`text-gray-400 ${!openedSidebar && "group relative"}`}>
       <Link
-        to={sidebarItem.path ? sidebarItem.path : ""}
-        onClick={(e) => {
-          if (!sidebarItem.path) {
-            e.preventDefault();
-            setOpenSubMenu(!openSubMenu);
-          } else {
-            matches && dispatch(setOpenedSidebar());
-          }
-        }}
         className={`hover:text-text1 flex gap-x-3 shrink-0 flex-nowrap basis-0 whitespace-nowrap items-center py-3  ${
           openedSidebar
             ? "text-text2 group hover-effect rounded w-[90%] mx-auto px-4"
             : "relative group px-7"
         }`}
+        to={sidebarItem.path ? sidebarItem.path : ""}
+        onClick={(e) => {
+          if (!sidebarItem.path) {
+            e.preventDefault();
+            if (openedSidebar) setOpenSubMenu((prev) => !prev);
+          }
+          if (sidebarItem.path) matches && dispatch(setOpenedSidebar());
+        }}
       >
         <Icon className="w-[20px] group-hover:text-white" />
         {openedSidebar ? (
@@ -76,25 +70,29 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
       </Link>
       {sidebarItem.sublist ? (
         <Box
-          ref={linksContainerRef}
-          className={`transition-all duration-300 overflow-hidden ${
-            openSubMenu ? `h-[${linksHeight}px]` : "h-0"
+          className={`overflow-hidden transition-all duration-300 ${
+            openSubMenu ? "h-[" + linksHeight + "px" + "]" : "h-0"
           }`}
+          ref={linksContainerRef}
         >
           <ul
-            ref={linksRef}
-            className={`text-text1 rounded transition-all duration-300 ${
-              openedSidebar
-                ? "static"
-                : "absolute -top-1 left-[180px] bg-logoColor"
-            }`}
+            ref={linkRef}
+            className={
+              !openedSidebar
+                ? `invisible fit-content opacity-0 -translate-x-5 ${
+                    sidebarItem.sublist.length > 0 &&
+                    "group-hover:visible group-hover:transition-all group-hover:ease-out group-hover:opacity-100 group-hover:duration-[400ms] group-hover:translate-x-0 absolute rounded top-0 left-[85px] w-fit p-2 bg-logoColor"
+                  }`
+                : null
+            }
           >
             {sidebarItem.sublist.map((sublistItem, index) => {
+              const Icon = sublistItem.icon;
               return (
-                <SubSidebarItem
+                <ManagmentSubMenuItem
                   ref={{
+                    linkRef,
                     linksContainerRef,
-                    linksRef,
                   }}
                   parentHeight={setLinksHeight}
                   key={index}

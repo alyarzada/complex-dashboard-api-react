@@ -32,8 +32,6 @@ const SideBar = () => {
     t(["December"]),
   ];
 
-  console.log(sidebar);
-
   return (
     <motion.div
       className={`text-sm scroll-design z-[500] select-none ${
@@ -60,7 +58,6 @@ const SideBar = () => {
         </Link>
       </Box>
 
-      {/* today date */}
       {openedSidebar ? (
         <Box className="mb-2">
           <Typography className="mx-auto mb-6 text-sm text-center text-text1">
@@ -73,7 +70,6 @@ const SideBar = () => {
         </Box>
       ) : null}
 
-      {/* sidebar navigation list */}
       <nav className="sidebar-nav">
         {sidebar.map((sidebarItem, index) => {
           const Icon = sidebarItem.icon;
@@ -83,7 +79,6 @@ const SideBar = () => {
         })}
       </nav>
 
-      {/* navigations images */}
       <Box className="px-3 mt-8 mb-4">
         <Stack
           direction={openedSidebar ? "row" : "column"}

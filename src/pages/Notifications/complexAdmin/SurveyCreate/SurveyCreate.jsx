@@ -96,7 +96,7 @@ export default function SurveyCreate() {
         }
         />
         <Box className="my-4 py-4 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
-            <CustomSearchFilter/>
+            <CustomSearchFilter flex={true}/>
             <Formik
                 initialValues={{
                 date: ["sad", "dasd"],

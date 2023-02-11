@@ -452,7 +452,7 @@
     "Data not found": "Data not found",
     "Count of paid services": "Count of paid services",
     "Go here for detailed information on invoices for your services": "Go here for detailed information on invoices for your services",
-    "Information desk": "Information desk",
+    "Information desk": "About the complex",
     "You have a new unpaid invoice": "You have a new unpaid invoice",
     "You have been presented with a new invoice for \":service\" service worth :cost.": "You have been presented with a new invoice for \":service\" service worth :cost.",
     "Dear": "Dear",
@@ -834,6 +834,8 @@
     "Control Panel": "Control Panel",
     "Service fee": "Service fee",
     "The number of buildings included in the complex": "The number of buildings included in the complex",
-    "Port Baku": "Port Baku"
+    "Port Baku": "Port Baku",
+    "Port Baku Residence": "Port Baku",
+    "Write a comment": "Write a comment"
   }
 }

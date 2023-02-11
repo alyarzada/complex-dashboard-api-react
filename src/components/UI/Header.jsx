@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next";
 
 const Header = (props) => {
   const Icon = props.currentPage.icon;
-
   const { t } = useTranslation();
   return (
     <Stack

@@ -7,6 +7,7 @@ import {
   Badge,
   Button,
   Stack,
+  Tooltip
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -32,11 +33,14 @@ export default function Notifications() {
 
   return (
     <Box className="relative">
-      <IconButton ref={btnRef} onClick={() => setOpenMenu((prev) => !prev)}>
-        <Badge badgeContent={notifications.length} color="error">
-          <NotificationsIcon />
-        </Badge>
+    
+      <Tooltip title={t("Notifications")} arrow>
+      <IconButton>
+      <Badge badgeContent={notifications.length} color="error">
+      <NotificationsIcon />
+    </Badge>
       </IconButton>
+    </Tooltip>
 
       {openMenu ? (
         <CustomMenu

@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "../../components/UI/Header";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import SuccessButton from "../../components/UI/Buttons/SuccessButton"
 
 const Payment = () => {
   const params = useParams();
@@ -48,7 +49,7 @@ const Payment = () => {
               alignItems="center"
               className="mt-3"
             >
-              <Typography className="dark:text-white bg-rose-500 py-1 px-2 rounded">
+              <Typography className="dark:text-white bg-rose-500 shadow-lg shadow-[#F43F5E]/60 hover:shadow-[#F43F5E]/80 py-1 px-2 rounded">
                 Total:{" "}
                 {selectedInvoices.length > 0
                   ? selectedInvoices.reduce(
@@ -59,9 +60,11 @@ const Payment = () => {
                     "AZN"
                   : 0 + " " + "azn"}
               </Typography>
-              <Button className="capitalize bg-green-500" variant="contained">
-                {t("Pay")}
-              </Button>
+              <SuccessButton
+                variant="contained"
+              >
+              {t("Pay")}
+              </SuccessButton>
             </Stack>
           </Box>
         </Box>

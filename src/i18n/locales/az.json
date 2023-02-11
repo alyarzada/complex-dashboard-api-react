@@ -449,7 +449,7 @@
     "Data not found": "Məlumat tapılmadı",
     "Count of paid services": "Ödənilmiş xidmətlərin sayı",
     "Go here for detailed information on invoices for your services": "Xidmətlərinizin fakturaları barəsində ətraflı məlumat almaq üçün buraya daxil olun",
-    "Information desk": "Məlumat masası",
+    "Information desk": "Kompleks haqqında",
     "You have a new unpaid invoice": "Yeni ödənilməmiş fakturanız var",
     "You have been presented with a new invoice for \":service\" service worth :cost.": "Sizə \":service\" xidməti üçün :cost dəyərində yeni faktura təqdim edildi.",
     "Dear": "Hörmətli",
@@ -832,6 +832,8 @@
     "Members": "Üzvlər",
     "Last tasks": "Son tasklar",
     "The number of buildings included in the complex": "Kompleksə daxil olan binaların sayı",
-    "Port Baku": "Port Baku"
+    "Port Baku": "Port Baku",
+    "Write a comment": "Şərh yazın"
+
   }
 }

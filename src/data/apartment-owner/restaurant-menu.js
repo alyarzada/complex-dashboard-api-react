@@ -16,8 +16,8 @@ export const dummyMenu = [
         content: [
           {
             id: 1,
+            subcategoryId: 1,
             categoryId: 1,
-            subCategoryId: 1,
             name: "Tomat supu",
             price: 8,
             amount: 8,
@@ -29,8 +29,8 @@ export const dummyMenu = [
           },
           {
             id: 2,
+            subcategoryId: 1,
             categoryId: 1,
-            subCategoryId: 1,
             name: "Mərci supu",
             price: 8,
             amount: 8,
@@ -43,8 +43,8 @@ export const dummyMenu = [
           },
           {
             id: 3,
+            subcategoryId: 1,
             categoryId: 1,
-            subCategoryId: 1,
             name: "Toyuq Tərəvəz şorbası",
             price: 8,
             amount: 8,
@@ -57,8 +57,8 @@ export const dummyMenu = [
           },
           {
             id: 4,
+            subcategoryId: 1,
             categoryId: 1,
-            subCategoryId: 1,
             name: "Əriştə",
             price: 8,
             amount: 8,
@@ -77,8 +77,8 @@ export const dummyMenu = [
         content: [
           {
             id: 1,
+            subcategoryId: 2,
             categoryId: 1,
-            subCategoryId: 2,
             name: "Eriste 1",
             price: 8,
             amount: 8,
@@ -90,8 +90,8 @@ export const dummyMenu = [
           },
           {
             id: 2,
+            subcategoryId: 2,
             categoryId: 1,
-            subCategoryId: 2,
             name: "Eriste 2",
             price: 8,
             amount: 8,
@@ -112,8 +112,8 @@ export const dummyMenu = [
     content: [
       {
         id: 1,
-        categoryId: 2,
         subCategoryId: 0,
+        categoryId: 2,
         name: "Qızardılmış Krivetler",
         price: 6,
         amount: 6,
@@ -126,8 +126,8 @@ export const dummyMenu = [
       },
       {
         id: 2,
+        subcategoryId: 0,
         categoryId: 2,
-        subCategoryId: 0,
         name: "Qızardılmış Toyuq Filesi",
         price: 8,
         amount: 8,
@@ -140,8 +140,8 @@ export const dummyMenu = [
       },
       {
         id: 3,
+        subcategoryId: 0,
         categoryId: 2,
-        subCategoryId: 0,
         name: "Qızardılmış Kalimar",
         price: 12,
         amount: 12,
@@ -154,8 +154,8 @@ export const dummyMenu = [
       },
       {
         id: 4,
+        subcategoryId: 0,
         categoryId: 2,
-        subCategoryId: 0,
         name: "Pendirli Börək",
         price: 20,
         amount: 20,
@@ -175,8 +175,8 @@ export const dummyMenu = [
     content: [
       {
         id: 1,
+        subcategoryId: 0,
         categoryId: 3,
-        subCategoryId: 0,
         name: "Qızardılmış qızılbalıq",
         price: 20,
         amount: 20,
@@ -189,8 +189,8 @@ export const dummyMenu = [
       },
       {
         id: 2,
+        subcategoryId: 0,
         categoryId: 3,
-        subCategoryId: 0,
         name: "Kremli qızılbalıq filesi",
         price: 20,
         amount: 20,
@@ -203,8 +203,8 @@ export const dummyMenu = [
       },
       {
         id: 3,
+        subcategoryId: 0,
         categoryId: 3,
-        subCategoryId: 0,
         name: "Mal əti Tagliata",
         price: 20,
         amount: 20,
@@ -217,8 +217,8 @@ export const dummyMenu = [
       },
       {
         id: 4,
+        subcategoryId: 0,
         categoryId: 3,
-        subCategoryId: 0,
         name: "Mal əti medalyonu",
         price: 20,
         amount: 20,
@@ -238,8 +238,8 @@ export const dummyMenu = [
     content: [
       {
         id: 1,
+        subcategoryId: 0,
         categoryId: 4,
-        subCategoryId: 0,
         name: "Toyyuqlu Sezar",
         price: 20,
         amount: 20,
@@ -252,8 +252,8 @@ export const dummyMenu = [
       },
       {
         id: 2,
+        subcategoryId: 0,
         categoryId: 4,
-        subCategoryId: 0,
         name: "Krivetkali Sezar",
         price: 20,
         amount: 20,
@@ -266,8 +266,8 @@ export const dummyMenu = [
       },
       {
         id: 3,
+        subcategoryId: 0,
         categoryId: 4,
-        subCategoryId: 0,
         name: "Qızıl Balıq Salatı",
         price: 20,
         amount: 20,
@@ -280,8 +280,8 @@ export const dummyMenu = [
       },
       {
         id: 4,
+        subcategoryId: 0,
         categoryId: 4,
-        subCategoryId: 0,
         name: "Yunan Salati",
         price: 20,
         amount: 20,
@@ -301,8 +301,8 @@ export const dummyMenu = [
     content: [
       {
         id: 1,
+        subcategoryId: 0,
         categoryId: 5,
-        subCategoryId: 0,
         name: "Coca-Cola",
         price: 3,
         amount: 3,

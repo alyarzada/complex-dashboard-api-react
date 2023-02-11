@@ -1,6 +1,7 @@
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+
 import {
   Box,
   Stack,
@@ -17,6 +18,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { pushToSelectedInvoices } from "../../app/Slicers/invoices";
 import { Services } from "../MyInvoices/MyInvoices";
+import BackButton from "../../components/UI/Buttons/BackButton"
 
 const ControlPanelInvoice = () => {
   const { invoices } = useSelector((state) => state.invoice);
@@ -24,10 +26,11 @@ const ControlPanelInvoice = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const { t } = useTranslation();
 
   const payInvoiceHandle = (invoice) => {
-    dispatch(pushToSelectedInvoices(invoice));
+    pushToSelectedInvoices(invoice);
     navigate("/myinvoice/payment");
   };
 
@@ -49,8 +52,6 @@ const ControlPanelInvoice = () => {
   return (
     <Box className="mb-6">
       <Stack direction={{ xs: "column", lg: "row" }} spacing={2}>
-        {/* aktiv xidmetler */}
-
         <Box className="flex-1 bg-gradient-to-r from-bgMain to-bgSecond p-2 bg-white drop-shadow-lg">
           <Typography className="dark:text-text1 text-logoColor mb-4 capitalize font-medium">
             {t(["Active Services"])}
@@ -110,8 +111,6 @@ const ControlPanelInvoice = () => {
             </Table>
           </TableContainer>
         </Box>
-        {/* cari fakturalar */}
-
         <Box className="flex-1 bg-gradient-to-r from-bgMain to-bgSecond p-2 bg-white">
           <Box className="mb-4">
             <Typography className="dark:text-text1 text-logoColor capitalize font-medium">
@@ -158,13 +157,12 @@ const ControlPanelInvoice = () => {
                       {invoice.amount} AZN
                     </TableCell>
                     <TableCell align="center">
-                      <Button
-                        variant="contained"
-                        className="bg-rose-500 p-1 capitalize text-bgLight"
-                        onClick={() => payInvoiceHandle(invoice)}
+                      <BackButton
+                      variant="outlined"
+                      onClick={() => payInvoiceHandle(invoice)}
                       >
-                        {t("Pay")}
-                      </Button>
+                      {t("Pay")}
+                      </BackButton>
                     </TableCell>
                   </TableRow>
                 ))}

@@ -34,7 +34,7 @@ import Cookies from "js-cookie";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 import { motion } from "framer-motion";
-import formatDistance from "date-fns/formatDistance";
+import SaveAltIcon from "@mui/icons-material/SaveAlt";
 
 export const list = {
   visible: {
@@ -119,6 +119,8 @@ const EachNews = ({ news }) => {
     );
   };
 
+  console.log(news);
+
   return (
     <Box className="mb-4 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary rounded p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
       <Stack
@@ -143,21 +145,11 @@ const EachNews = ({ news }) => {
             ) : (
               <Typography>{news.userData.name}</Typography>
             )}
-            <Typography className="text-xs text-text2">
-              {(new Date(news?.created_at?.replace("T", " ")?.slice(0, -8)) ==
-                "Invalid Date") ===
-                false &&
-                formatDistance(
-                  new Date(news?.created_at?.replace("T", " ")?.slice(0, -8)),
-                  new Date(),
-                  { addSuffix: true }
-                )}{" "}
-              {t("Public")}
-            </Typography>
+            {/* <Typography className="text-xs">{news.postedTime}</Typography> */}
           </Box>
         </Stack>
 
-        <Box>
+        {/*     <Box>
           <IconButton
             onClick={() => {
               setOpenMenu((prev) => !prev);
@@ -166,33 +158,37 @@ const EachNews = ({ news }) => {
           >
             <MoreHoriz />
           </IconButton>
-        </Box>
+          </Box>*/}
 
-        {openMenu ? (
-          <CustomMenu
-            className="w-200 top-12 right-2"
-            ref={btnRef}
-            openMenu={openMenu}
-            setOpenMenu={setOpenMenu}
-          >
-            <MenuItem onClick={notify}>
-              <Save className="mr-2 text-lg" />
-              {t("Save Post")}
-            </MenuItem>
+        <Tooltip title={t("Save Post")} arrow>
+          <IconButton onClick={notify}>
+            <SaveAltIcon />
+          </IconButton>
+        </Tooltip>
 
-            <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              pauseOnHover
-              theme="light"
-            />
-          </CustomMenu>
-        ) : null}
+      {/*  <CustomMenu
+          className="w-200 top-12 right-2"
+          ref={btnRef}
+          openMenu={openMenu}
+          setOpenMenu={setOpenMenu}
+        >
+          <MenuItem onClick={notify}>
+            <Save className="mr-2 text-lg" />
+            {t("Save Post")}
+          </MenuItem>
+
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            pauseOnHover
+            theme="light"
+          />
+        </CustomMenu>*/}
       </Stack>
       <Divider className="my-4" />
       <Box>
@@ -220,11 +216,9 @@ const EachNews = ({ news }) => {
                   title=<ReactionComponent peer="peer" />
                   placement="top"
                 >
-                  <Button>
-                    <IconButton className="peer" onClick={likePostHandler}>
-                      <FavoriteBorderOutlined />
-                    </IconButton>
-                  </Button>
+                  <IconButton className="peer" onClick={likePostHandler}>
+                    <FavoriteBorderOutlined />
+                  </IconButton>
                 </Tooltip>
               </Grid>
             </Grid>
@@ -298,7 +292,7 @@ const EachNews = ({ news }) => {
               className="flex-1"
               autoComplete="off"
               id="outlined-basic"
-              label={t("Enter your comment text")}
+              label={t("Write a comment")}
               value={commentValue}
               onChange={(e) => setCommentValue(e.target.value)}
               sx={{

@@ -13,6 +13,7 @@ import {
   FormControl,
   FormLabel,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Link } from "react-router-dom";
 import CustomTextField from "../../../components/Form/CustomTextField";
@@ -22,6 +23,8 @@ import CustomComplexSelection from "../../../components/UI/CustomComplexSelectio
 import { useTranslation } from "react-i18next";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
+import BackButton from "../../../components/UI/Buttons/BackButton"
+import SuccessButton from "../../../components/UI/Buttons/SuccessButton"
 
 //multiselect
 const optionsProj = [
@@ -50,6 +53,9 @@ const NewEntryCard = () => {
       has_role: { role_id },
     },
   } = useSelector((state) => state.auth);
+
+  const navigate = useNavigate();
+
 
   return (
     <Box>
@@ -139,12 +145,21 @@ const NewEntryCard = () => {
                 direction="row"
                 justifyContent="space-between"
               >
-                <Button startIcon={<ReplyOutlinedIcon />} variant="contained">
-                  {t("geri")}
-                </Button>
-                <Button startIcon={<TaskAltOutlinedIcon />} variant="contained">
-                  {t("yarat")}
-                </Button>
+                <BackButton
+                  variant="contained"
+                  startIcon=<ReplyOutlinedIcon />
+                  onClick={() => navigate(-1)}
+                  margin="mb-0"
+                >
+                {t("Back")}
+                </BackButton>
+                <SuccessButton
+                  variant="contained"
+                  startIcon=<TaskAltOutlinedIcon />
+
+                >
+                {t("Submit")}
+                </SuccessButton>
               </Stack>
             </Form>
           )}

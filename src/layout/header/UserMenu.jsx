@@ -30,34 +30,9 @@ const userMenu = [
     path: "/profile",
   },
   {
-    icon: <TelegramIcon className="text-lg mr-2" />,
-    content: "Chat",
-    path: "/chat",
-  },
-  {
-    icon: <AdminPanelSettingsOutlinedIcon className="text-lg mr-2" />,
-    content: "Dashboard",
-    path: "/",
-  },
-  {
-    icon: <NotificationsOutlinedIcon className="text-lg mr-2" />,
-    content: "Notifications",
-    path: "/notifications",
-  },
-  {
-    icon: <CommentOutlinedIcon className="text-lg mr-2" />,
-    content: "Requests",
-    path: "/requests",
-  },
-  {
     icon: <LocalPhoneOutlinedIcon className="text-lg mr-2" />,
     content: "Contact",
     path: "/contact",
-  },
-  {
-    icon: <NewspaperOutlinedIcon className="text-lg mr-2" />,
-    content: "Complex Wall",
-    path: "/complexpanel",
   },
   {
     icon: <LogoutIcon className="text-lg mr-2" />,
@@ -82,8 +57,6 @@ const UserMenu = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const btnRef = useRef(null);
-
-  console.log(user);
 
   useEffect(() => {
     setFirstLetters(() => {

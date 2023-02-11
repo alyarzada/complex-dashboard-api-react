@@ -12,6 +12,8 @@ import CustomGenderRadio from "../../components/Form/CustomGenderRadio";
 import { updateUser } from "../../app/Slicers/auth";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
+import DefaultButton from "../../components/UI/Buttons/DefaultButton";
+
 
 const MyDetails = ({ userData }) => {
   const dispatch = useDispatch();
@@ -37,7 +39,6 @@ const MyDetails = ({ userData }) => {
             gender: "",
           }}
           onSubmit={(values) => {
-            console.log(values);
             dispatch(updateUser({ body: values, token: Cookies.get("token") }));
           }}
         >
@@ -123,17 +124,14 @@ const MyDetails = ({ userData }) => {
               <CustomGenderRadio name="gender" label={t("Gender")} />
 
               <Box className="col-span-1 md:col-span-2 flex justify-end">
-                <Button
-                  variant="contained"
-                  type="submit"
-                  color="success"
-                  className="capitalize"
-                  startIcon={
-                    <SaveIcon className="text-white dark:text-black" />
-                  }
-                >
-                  {t(["Save"])}
-                </Button>
+                <DefaultButton
+                type="submit"
+                variant="contained"
+                startIcon={<SaveIcon className="text-white dark:text-black" />}
+            >
+            {t(["Save"])}
+            
+            </DefaultButton>
               </Box>
             </Form>
           )}

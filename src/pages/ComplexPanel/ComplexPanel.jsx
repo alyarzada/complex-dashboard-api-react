@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import Body from "./Body";
 import { useScrollToUp } from "../../hooks/useScrollToUp";
 import portBakuImage from "../../assets/images/port-baku_image.jpg";
@@ -38,7 +38,7 @@ const ComplexPanel = () => {
                   component="h1"
                   className="font-semibold text-textDark4 dark:text-text1"
                 >
-                  Port Baku
+                  Port Baku Residence
                 </Typography>
                 <Typography className="text-textDark2 dark:text-text1">
                   {t(["Number of buildings in the complex"])}: 3
