@@ -8,7 +8,7 @@ import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 export const requestPanels = [
   {
     id: 1,
-    title: "All",
+    title: "All applications",
     type: "",
     icon: DraftsOutlinedIcon,
     path: "/requests",

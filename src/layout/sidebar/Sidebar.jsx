@@ -64,9 +64,6 @@ const SideBar = () => {
             {t(["Today"])}, {new Date().getDate()}{" "}
             {months[new Date().getMonth()]} {new Date().getFullYear()}
           </Typography>
-          <Typography className="px-8 text-text3 text-sm">
-            {t(["Navigation"])}
-          </Typography>
         </Box>
       ) : null}
 

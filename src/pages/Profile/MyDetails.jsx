@@ -118,7 +118,7 @@ const MyDetails = ({ userData }) => {
 
               <CustomDatePicker
                 name="birthday"
-                label={t(["Birthday"])}
+                label={t(["Date of birth"])}
                 className="mb-0"
               />
               <CustomGenderRadio name="gender" label={t("Gender")} />

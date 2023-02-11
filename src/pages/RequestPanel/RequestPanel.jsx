@@ -22,7 +22,7 @@ import {
 import { useDemoData } from "@mui/x-data-grid-generator";
 import { getAllRequests } from "../../app/Slicers/requests";
 import { Folder, NewspaperOutlined } from "@mui/icons-material";
-// import CustomDataGrid from "../../components/UI/CustomDataGrid"
+import CustomDataGrid from "../../components/UI/CustomDataGrid";
 import SearchFilter from "./SearchFilter";
 import Header from "../../components/UI/Header";
 import Buttons from "./Buttons";
