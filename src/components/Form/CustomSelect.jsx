@@ -13,15 +13,17 @@ import {
 const CustomSelect = ({
   options,
   label,
-  defaultValue,
+  defaultValue = "",
   errorMessage,
   variant,
   multiple = false,
   noTranslation,
   onlyValue,
+  className,
+  containerClassName,
   ...props
 }) => {
-  const [personName, setPersonName] = useState("" || []);
+  const [personName, setPersonName] = useState(defaultValue || []);
   const [field, meta, helpers] = useField(props);
   const { t } = useTranslation();
 
@@ -38,7 +40,7 @@ const CustomSelect = ({
   }, [personName]);
 
   return (
-    <Box className="mb-6 z-[10000]" sx={{ minWidth: 120 }}>
+    <Box className={containerClassName}>
       <FormControl
         fullWidth
         variant={variant}
@@ -54,7 +56,6 @@ const CustomSelect = ({
           {label}
         </InputLabel>
         <Select
-          // defaultValue={personName}
           labelId={`${
             variant === "filled"
               ? "demo-simple-select-filled-label"
@@ -80,7 +81,7 @@ const CustomSelect = ({
             : null}
         </Select>
         {meta.error && meta.touched ? (
-          <FormHelperText className="-ml-[1px]">{errorMessage}</FormHelperText>
+          <FormHelperText className="ml-0 mt-1">{errorMessage}</FormHelperText>
         ) : null}
       </FormControl>
     </Box>

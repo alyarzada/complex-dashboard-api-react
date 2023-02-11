@@ -42,7 +42,7 @@ const NotificationType = ({ row: { type, subject, content } }) => {
         children: notificationModal,
         className: "h-fit",
         status: "",
-        title: "",
+        title: type === "info" && "Məlumat",
         data: {
           type,
           subject,

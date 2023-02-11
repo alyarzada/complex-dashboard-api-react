@@ -34,6 +34,7 @@ import Cookies from "js-cookie";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 import { motion } from "framer-motion";
+import formatDistance from "date-fns/formatDistance";
 
 export const list = {
   visible: {
@@ -118,8 +119,6 @@ const EachNews = ({ news }) => {
     );
   };
 
-  console.log(news);
-
   return (
     <Box className="mb-4 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary rounded p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
       <Stack
@@ -144,7 +143,17 @@ const EachNews = ({ news }) => {
             ) : (
               <Typography>{news.userData.name}</Typography>
             )}
-            {/* <Typography className="text-xs">{news.postedTime}</Typography> */}
+            <Typography className="text-xs text-text2">
+              {(new Date(news?.created_at?.replace("T", " ")?.slice(0, -8)) ==
+                "Invalid Date") ===
+                false &&
+                formatDistance(
+                  new Date(news?.created_at?.replace("T", " ")?.slice(0, -8)),
+                  new Date(),
+                  { addSuffix: true }
+                )}{" "}
+              {t("Public")}
+            </Typography>
           </Box>
         </Stack>
 

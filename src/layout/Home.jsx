@@ -34,9 +34,9 @@ const Home = () => {
     } else if (role_id === 4) {
       dispatch(getDashboardPanels(adminDashboardPanels));
       dispatch(getSidebarData(adminSidebarMenu));
-    } else if(role_id === 9){
+    } else if (role_id === 9) {
       dispatch(getDashboardPanels(adminDashboardPanels));
-      dispatch(getSidebarData(adminSidebarMenu))
+      dispatch(getSidebarData(adminSidebarMenu));
     }
 
     if (user_layout_settings.darkMode) {

@@ -29,6 +29,8 @@ import {
 import DeleteBookedCinemaRoom from "../Components/DeleteBookedCinemaRoom";
 import { setModal } from "../../../../app/Slicers/modals";
 import { changeBookedCinemaStatus } from "../../../../app/Slicers/leisure/cinema";
+import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
+import { BronCinemaSchema } from "../../../../validations/leisureclub/cinemaVal";
 
 //multiselect
 const optionsCinemaTime = [
@@ -211,9 +213,10 @@ const Cinema = () => {
           start_date: "",
           duration: "",
           message: "",
-          number_of_residents: "",
-          number_of_guest: "",
+          number_of_residents: "1",
+          number_of_guest: "0",
         }}
+        validationSchema={BronCinemaSchema}
         onSubmit={(values) => {
           dispatch(
             bookCinemaRoom({
@@ -225,10 +228,17 @@ const Cinema = () => {
       >
         {() => (
           <Form>
-            <NewCustomTimePicker
+            {/* <NewCustomTimePicker
               label="Rezervasiya tarixi"
-              name="start_date"
               defaultValue={defaultDate ? defaultDate : ""}
+            /> */}
+            <CustomDatePicker
+              name="start_date"
+              label="Rezervasiya tarixi"
+              // defaultValue={defaultDate ? defaultDate : ""}
+              errorMessage="Zəhmət olmasa rezervasiya tarixini seçin"
+              containerClassName="w-full mb-6"
+              className="w-full"
             />
             <CustomSelect
               label="Bronlama vaxtı"
@@ -236,22 +246,28 @@ const Cinema = () => {
               name="duration"
               onlyValue
               noTranslation
+              containerClassName="mb-6 z-[10000] m-0"
+              errorMessage="Zəhmət olmasa bronlama vaxtını seçin"
             />
             <CustomSelect
               label="Sakinlərin sayı"
               options={optionsNumberOfResident}
               name="number_of_residents"
+              defaultValue="1"
               onlyValue
               noTranslation
+              containerClassName="mb-6 z-[10000] m-0"
             />
             <CustomSelect
               label="Qonaqların sayı"
               options={optionsNumberOfGuests}
               name="number_of_guest"
+              defaultValue="0"
               calendar
               className="mb-0"
               onlyValue
               noTranslation
+              containerClassName="mb-6 z-[10000] m-0"
             />
             <CustomTextField label="Şərhiniz" name="message" multiline />
             <Box className="flex gap-x-2 my-3 justify-end">

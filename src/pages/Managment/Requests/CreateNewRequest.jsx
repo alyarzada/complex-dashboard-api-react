@@ -3,7 +3,7 @@ import { Formik, Form } from "formik";
 import {
   Button,
   Box,
-  Snackbar,
+  Stack,
   IconButton,
   Autocomplete,
   TextField,
@@ -62,22 +62,6 @@ const CreateNewRequest = () => {
     setOpen(false);
   };
 
-  const action = (
-    <>
-      <Button color="secondary" size="small" onClick={handleClose}>
-        {t("Close")}
-      </Button>
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleClose}
-      >
-        <Close fontSize="small" />
-      </IconButton>
-    </>
-  );
-
   if (user.has_role.role_id === 8) {
     return (
       <motion.div
@@ -87,16 +71,6 @@ const CreateNewRequest = () => {
         animate="visible"
         transition={{ duration: 0.8, bounce: 0.4, type: "spring" }}
       >
-        <Snackbar
-          open={open}
-          autoHideDuration={6000}
-          onClose={handleClose}
-          message="Yeni müraciət uğurla yaradıldı"
-          action={action}
-        />
-        <Button className="mb-3 capitalize" variant="contained">
-          {t("Back")}
-        </Button>
         <Box>
           <Formik
             initialValues={{
@@ -154,13 +128,22 @@ const CreateNewRequest = () => {
                   name="message"
                   label="Your request"
                 />
-                <Button
-                  variant="contained"
-                  className="capitalize"
-                  type="submit"
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
                 >
-                  {t("Submit")}
-                </Button>
+                  <Button className="mb-3 capitalize" variant="contained">
+                    {t("Back")}
+                  </Button>
+                  <Button
+                    variant="contained"
+                    className="capitalize"
+                    type="submit"
+                  >
+                    {t("Submit")}
+                  </Button>
+                </Stack>
               </Form>
             )}
           </Formik>

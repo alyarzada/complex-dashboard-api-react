@@ -129,14 +129,6 @@ const routes = [
         element: <SentNotifications />,
       },
       {
-        path: "tasks",
-        element: <Tasks />,
-      },
-      {
-        path: "tasks/create",
-        element: <TaskCreate />,
-      },
-      {
         path: "notifications-archive",
         element: <NotificationsArchive />,
       },
@@ -231,34 +223,6 @@ const routes = [
       {
         path: "mtk-users",
         element: <MTKUsers />,
-      },
-      {
-        path: "apartments",
-        element: <Apartments />,
-      },
-      {
-        path: "complex",
-        element: <Complex />,
-      },
-      {
-        path: "housing-cooperative",
-        element: <HousingCooperative />,
-      },
-      {
-        path: "employees",
-        element: <Employees />,
-      },
-      {
-        path: "building",
-        element: <Building />,
-      },
-      {
-        path: "group-of-apartments",
-        element: <GroupOfApartments />,
-      },
-      {
-        path: "residents",
-        element: <Residents />,
       },
       {
         path: "mtk-users/create",

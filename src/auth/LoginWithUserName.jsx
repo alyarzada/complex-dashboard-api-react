@@ -45,10 +45,10 @@ const LoginWithUserName = () => {
 
             <CustomTextField
               label="Şifrənizi daxil edin"
-              type="password"
               name="password"
               variant="outlined"
-              className="mb-3  rounded"
+              className="mb-3 rounded"
+              adornments
             />
             {(errors.username || errors.password) &&
             (touched.username || touched.password) ? (

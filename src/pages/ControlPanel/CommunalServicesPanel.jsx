@@ -18,7 +18,7 @@ const CommunalServicesPanel = ({ img, title, path }) => {
           src={img}
           alt="image"
         />
-        <Typography>{t(title)}s</Typography>
+        <Typography>{t(title)}</Typography>
       </Link>
     </Grid>
   );

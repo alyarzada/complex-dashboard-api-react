@@ -20,6 +20,13 @@ const MyDetails = ({ userData }) => {
 
   return (
     <Box>
+      <Box className="mb-8 text-text3">
+        <h5>
+          <AccountCircleIcon className="mr-2" />
+          {t("My Data")}
+        </h5>
+      </Box>
+
       <Box>
         <Formik
           initialValues={{

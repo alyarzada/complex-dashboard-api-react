@@ -5,7 +5,7 @@ import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import ViewComfyAltOutlinedIcon from "@mui/icons-material/ViewComfyAltOutlined";
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
 import PoolOutlinedIcon from "@mui/icons-material/PoolOutlined";
 import CreditCardOutlinedIcon from "@mui/icons-material/CreditCardOutlined";
@@ -36,71 +36,63 @@ export const sidebarMenu = [
   },
   {
     id: 4,
-    title: "Management",
-    icon: BusinessCenterOutlinedIcon,
+    title: "Notifications",
+    icon: NotificationsOutlinedIcon,
+    path: "/notifications",
+  },
+  {
+    id: 5,
+    title: "Communal Services",
+    icon: ViewComfyAltOutlinedIcon,
+    path: "/communalservices",
+  },
+  {
+    id: 6,
+    title: "Requests",
+    icon: CommentOutlinedIcon,
+    path: "/requests",
+  },
+  {
+    id: 7,
+    title: "Leisure club",
+    icon: PoolOutlinedIcon,
     path: "",
     sublist: [
       {
-        id: 1,
-        title: "Notifications",
-        icon: NotificationsOutlinedIcon,
-        path: "/notifications",
+        title: "Meeting room",
+        path: "/meetingroom",
       },
       {
-        id: 2,
-        title: "Requests",
-      icon: CommentOutlinedIcon,
-      path: "/requests",
+        title: "Cinema",
+        path: "/cinema",
       },
       {
-        id: 3,
-        title: "Communal Services",
-        icon: ViewComfyAltOutlinedIcon,
-        path: "/communalservices",
-      },
-      {
-        id: 4,
-        title: "Leisure club",
-        icon: PoolOutlinedIcon,
-        path: "",
-        managmentSublist: [
-          {
-            title: "Meeting room",
-            path: "/meetingroom",
-          },
-          {
-            title: "Cinema",
-            path: "/cinema",
-          },
-          {
-            title: "Massage",
-            path: "/massage",
-          },
-        ],
-      },
-      {
-        id: 5,
-        title: "Card Request",
-        icon: CreditCardOutlinedIcon,
-        path: "/user-card-request",
-      },
-      {
-        id: 6,
-        title: "Tenant Registration",
-        icon: PersonAddAltOutlinedIcon,
-        path: "/user-tenant-registration",
+        title: "Massage",
+        path: "/massage",
       },
     ],
   },
-  { id: 5, title: "Contact", icon: LocalPhoneOutlinedIcon, path: "/contact" },
   {
-    id: 6,
+    id: 8,
+    title: "Card Request",
+    icon: CreditCardOutlinedIcon,
+    path: "/user-card-request",
+  },
+  {
+    id: 9,
+    title: "Tenant Registration",
+    icon: PersonAddAltOutlinedIcon,
+    path: "/user-tenant-registration",
+  },
+  { id: 10, title: "Contact", icon: LocalPhoneOutlinedIcon, path: "/contact" },
+  {
+    id: 11,
     title: "Information desk",
     icon: InfoOutlinedIcon,
     path: "/information",
   },
   {
-    id: 7,
+    id: 12,
     title: "User",
     icon: AccountCircleOutlinedIcon,
     path: "",

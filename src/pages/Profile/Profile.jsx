@@ -18,28 +18,23 @@ const Profile = () => {
   const { t } = useTranslation();
   const {
     user: {
-      user_details:{
-        gender,
-        birthday,
-      },
+      user_details: { gender, birthday },
       email,
       name,
       has_role,
       username,
       phone,
     },
-    
+
     user,
-    
   } = useSelector((state) => state.auth);
-  console.log(user)
+  console.log(user);
 
   // Reverse Birthday
   const reverseBirthday = (birthdayDate) => {
-    const reversedDate = format(new Date(birthday), 'dd/MM/yyyy');
+    const reversedDate = format(new Date(birthday), "dd/MM/yyyy");
     return reversedDate;
-  }
-   
+  };
 
   useEffect(() => {
     const words = name.split(" ");
@@ -49,8 +44,6 @@ const Profile = () => {
 
     setFirstLetters(fL);
   }, [user]);
-
-  
 
   return (
     <Box className="w-full">
@@ -93,10 +86,14 @@ const Profile = () => {
                 <span className="font-normal ml-2">{username}</span>
               </li>
               <li className="font-bold text-sm my-2">
-                {t(["Gender"])}: <span className="font-normal ml-2">{t(gender)}</span>
+                {t(["Gender"])}:{" "}
+                <span className="font-normal ml-2">{t(gender)}</span>
               </li>
               <li className="font-bold text-sm my-2">
-                {t(["Date of birth"])}: <span className="font-normal ml-2">{reverseBirthday(birthday)}</span>
+                {t(["Date of birth"])}:{" "}
+                <span className="font-normal ml-2">
+                  {reverseBirthday(birthday)}
+                </span>
               </li>
               <li className="font-bold text-sm my-2">
                 {t(["Telephone number"])}:{" "}
@@ -107,7 +104,8 @@ const Profile = () => {
                 <span className="font-normal ml-2">0554264434</span>
               </li>
               <li className="font-bold text-sm my-2">
-                {t(["Email address"])}: <span className="font-normal ml-2">{email}</span>
+                {t(["Email address"])}:{" "}
+                <span className="font-normal ml-2">{email}</span>
               </li>
             </ul>
           </Box>
@@ -117,7 +115,6 @@ const Profile = () => {
           <ProfileForm userData={user} />
         </Box>
       </Box>
-
     </Box>
   );
 };

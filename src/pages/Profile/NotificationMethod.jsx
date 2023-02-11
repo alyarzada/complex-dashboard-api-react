@@ -48,18 +48,16 @@ const NotificationMethod = () => {
             </Box>
             <CustomTextField label="Phone number" name="telegramAccount" />
             <Box className="col-span-1 md:col-span-2 flex justify-end">
-                <Button
-                  variant="contained"
-                  type="submit"
-                  color="success"
-                  className="capitalize"
-                  startIcon={
-                    <SaveIcon className="text-white dark:text-black" />
-                  }
-                >
-                  {t(["Save"])}
-                </Button>
-              </Box>
+              <Button
+                variant="contained"
+                type="submit"
+                color="success"
+                className="capitalize"
+                startIcon={<SaveIcon className="text-white dark:text-black" />}
+              >
+                {t(["Save"])}
+              </Button>
+            </Box>
           </Form>
         )}
       </Formik>

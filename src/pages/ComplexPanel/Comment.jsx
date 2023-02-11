@@ -153,20 +153,15 @@ const Comment = ({ comment, setExpandComments, postId }) => {
           >
             <FavoriteBorderOutlined />
           </IconButton> */}
-          <Grid container justifyContent="center"  style={{width:"30%"}}>
-          <Grid item>
-            <Tooltip
-              title=<ReactionComponent peer="peer" />
-              placement="top"
-            >
-              <Button>
-          <IconButton>
-          <FavoriteBorderOutlined />
-          </IconButton>
-          </Button>
-                </Tooltip>
-              </Grid>
+          <Grid container justifyContent="center" style={{ width: "30%" }}>
+            <Grid item>
+              <Tooltip title=<ReactionComponent peer="peer" /> placement="top">
+                <IconButton>
+                  <FavoriteBorderOutlined />
+                </IconButton>
+              </Tooltip>
             </Grid>
+          </Grid>
           <Typography className="text-sm">
             {comment.likes.length} {t(["Like"])}
           </Typography>

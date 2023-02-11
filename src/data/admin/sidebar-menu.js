@@ -104,7 +104,7 @@ export const adminSidebarMenu = [
         title: "Notifications",
         icon: NotificationsOutlinedIcon,
         path: "/",
-      }, 
+      },
       {
         id: 3,
         title: "Requests",

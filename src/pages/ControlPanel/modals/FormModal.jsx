@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Stack, Typography, Button } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,6 +21,7 @@ import { ServicesSchema } from "../../../validations/controlpanel/services";
 import { MaintenanceSchema } from "../../../validations/controlpanel/maintenance";
 import CustomFile from "../../../components/Form/CustomFile";
 import Cookies from "js-cookie";
+import CustomDropZone from "../../../components/Form/CustomDropZone";
 
 const electricianServices = [
   {
@@ -54,6 +55,7 @@ const accessCardsData = [
 
 const FormModal = ({ modal }) => {
   const { confirmStatus } = useSelector((state) => state.requests);
+  const [files, setFiles] = useState([]);
 
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -280,7 +282,7 @@ const FormModal = ({ modal }) => {
               : ServicesSchema
           }
         >
-          {({ errors, touched }) => (
+          {({ errors, touched, setFieldValue, isSubmitting }) => (
             <Form>
               {modal.data.requestDepartment === 6 ? (
                 <CustomSelect
@@ -318,6 +320,13 @@ const FormModal = ({ modal }) => {
                   Zəhmət olmasa, müraciətinizi daxil edin
                 </Typography>
               ) : null}
+              {/* inject here... */}
+              <CustomDropZone
+                files={files}
+                setFiles={setFiles}
+                setFieldValue={setFieldValue}
+                isSubmitting={isSubmitting}
+              />
               <Stack direction="row" justifyContent="end" spacing={1}>
                 <Button
                   variant="contained"

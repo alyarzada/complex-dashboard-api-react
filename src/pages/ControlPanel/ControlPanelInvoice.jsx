@@ -1,5 +1,5 @@
-import { useNavigate,Link } from "react-router-dom";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   Box,
@@ -24,11 +24,10 @@ const ControlPanelInvoice = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const { t } = useTranslation();
 
   const payInvoiceHandle = (invoice) => {
-    pushToSelectedInvoices(invoice);
+    dispatch(pushToSelectedInvoices(invoice));
     navigate("/myinvoice/payment");
   };
 
@@ -50,7 +49,7 @@ const ControlPanelInvoice = () => {
   return (
     <Box className="mb-6">
       <Stack direction={{ xs: "column", lg: "row" }} spacing={2}>
-      <Box className="flex-1 bg-gradient-to-r from-bgMain to-bgSecond p-2 bg-white rounded">
+        <Box className="flex-1 bg-gradient-to-r from-bgMain to-bgSecond p-2 bg-white rounded">
           <Box className="mb-4 mt-2">
             <Typography className="dark:text-logoColor text-logoColor capitalize font-medium">
               {t(["Current invoices (debts)"])}
@@ -71,7 +70,6 @@ const ControlPanelInvoice = () => {
                     align="center"
                   >
                     {t(["Amount to pay"])}
-
                   </TableCell>
                   <TableCell
                     className=" dark:text-text1 text-textDark2"
@@ -116,10 +114,10 @@ const ControlPanelInvoice = () => {
             <Typography className="dark:text-logoColor text-logoColor capitalize font-medium">
               {t(["Paid invoices"])}
             </Typography>
-            <Link to="/myinvoice" >
-            <Button className="capitalize" variant="outlined">
-              {t(["All payments"])}
-            </Button>
+            <Link to="/myinvoice">
+              <Button className="capitalize" variant="outlined">
+                {t(["All payments"])}
+              </Button>
             </Link>
           </Box>
           <TableContainer

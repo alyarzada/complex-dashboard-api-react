@@ -27,9 +27,6 @@ import ControlPanelRequestsArchive from "./ControlPanelRequestsArchive";
 const ControlPanel = () => {
   useScrollToUp();
 
-  const dispatch = useDispatch();
-  const { t } = useTranslation();
-
   const { isDraggable } = useSelector((state) => state.themes);
   const { modals } = useSelector((state) => state.modals);
   const { controlPanel } = useSelector((state) => state.data);
@@ -38,7 +35,7 @@ const ControlPanel = () => {
       has_role: { role_id },
     },
   } = useSelector((state) => state.auth);
-  const [photoImage, setPhotoImage] = useState("");
+  const dispatch = useDispatch();
 
   return (
     <Box className="w-full">

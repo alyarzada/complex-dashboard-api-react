@@ -60,68 +60,68 @@ const Body = () => {
     },
   ];
 
-  // const modalList = [
-  //   {
-  //     id: 1,
-  //     title: t("Housing cooperative"),
-  //     name: "PORT BAKU",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: t("Complex"),
-  //     name: "PORT BAKU",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: t("Building manager"),
-  //     name: "PORT BAKU",
-  //   },
-  //   {
-  //     id: 4,
-  //     title: t("Sales consultant"),
-  //     name: "PORT BAKU",
-  //   },
-  //   {
-  //     id: 5,
-  //     title: t("Leisure Club Administrator"),
-  //     name: "PORT BAKU",
-  //   },
-  //   {
-  //     id: 6,
-  //     title: t("Leisure Club Administrator"),
-  //     name: "PORT BAKU",
-  //   },
-  //   {
-  //     id: 7,
-  //     title: t("Logistic coordinator"),
-  //     name: "PORT BAKU",
-  //   },
-  //   {
-  //     id: 8,
-  //     title: t("Fit-out field inspector"),
-  //     name: "PORT BAKU",
-  //   },
-  //   {
-  //     id: 9,
-  //     title: t("Maintenance manager"),
-  //     name: "PORT BAKU",
-  //   },
-  //   {
-  //     id: 10,
-  //     title: t("Cleaning Services Supervisor"),
-  //     name: "PORT BAKU",
-  //   },
-  //   {
-  //     id: 11,
-  //     title: t("Cleaning Services Supervisor"),
-  //     name: "PORT BAKU",
-  //   },
-  //   {
-  //     id: 12,
-  //     title: t("Notes"),
-  //     name: "PORT BAKU",
-  //   },
-  // ];
+  const modalList = [
+    {
+      id: 1,
+      title: t("Housing cooperative"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 2,
+      title: t("Complex"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 3,
+      title: t("Building manager"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 4,
+      title: t("Sales consultant"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 5,
+      title: t("Leisure Club Administrator"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 6,
+      title: t("Leisure Club Administrator"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 7,
+      title: t("Logistic coordinator"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 8,
+      title: t("Fit-out field inspector"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 9,
+      title: t("Maintenance manager"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 10,
+      title: t("Cleaning Services Supervisor"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 11,
+      title: t("Cleaning Services Supervisor"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 12,
+      title: t("Notes"),
+      name: "PORT BAKU",
+    },
+  ];
 
   const words = user?.name.split(" ");
   const firstLetters = words
@@ -132,31 +132,31 @@ const Body = () => {
     dispatch(getAllNews(Cookies.get("token")));
   }, []);
 
-  // const modalData = (
-  //   <Box>
-  //     <Box>
-  //       <img
-  //         className="h-[320px] w-full object-cover object-center"
-  //         src={portBakuImg}
-  //         alt="port-baku-image"
-  //       />
-  //     </Box>
-  //     <Box>
-  //       {modalList.map((item) => (
-  //         <Stack
-  //           key={item.id}
-  //           justifyContent="space-between"
-  //           direction="row"
-  //           alignItems="center"
-  //           className="dark:text-text1 p-3"
-  //         >
-  //           <Typography>{item.title}</Typography>
-  //           <Typography>{item.name}</Typography>
-  //         </Stack>
-  //       ))}
-  //     </Box>
-  //   </Box>
-  // );
+  const modalData = (
+    <Box>
+      <Box>
+        <img
+          className="h-[320px] w-full object-cover object-center"
+          src={portBakuImg}
+          alt="port-baku-image"
+        />
+      </Box>
+      <Box>
+        {modalList.map((item) => (
+          <Stack
+            key={item.id}
+            justifyContent="space-between"
+            direction="row"
+            alignItems="center"
+            className="dark:text-text1 p-3"
+          >
+            <Typography>{item.title}</Typography>
+            <Typography>{item.name}</Typography>
+          </Stack>
+        ))}
+      </Box>
+    </Box>
+  );
 
   return (
     <Box>
@@ -237,7 +237,7 @@ const Body = () => {
             </Box>
           </Box>
 
-          {/* <Box className="rounded p-6 mb-6 dark:text-text1 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg">
+          <Box className="rounded p-6 mb-6 dark:text-text1 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg">
             <Typography
               className="cursor-pointer select-none text-logoColor hover:text-yellow-600 text-lg w-fit font-semibold"
               onClick={() =>
@@ -316,7 +316,7 @@ const Body = () => {
                 </Typography>
               </ListItem>
             </List>
-          </Box> */}
+          </Box>
 
           <Box className="rounded mb-6 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg">
             <LeafletMap />
