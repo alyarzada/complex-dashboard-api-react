@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Settings } from "../sidebar/Settings";
 import { setOpenedSidebar } from "../../app/Slicers/themes";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Tooltip } from "@mui/material";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -9,12 +9,15 @@ import Notifications from "./Notifications";
 import UserMenu from "./UserMenu";
 import Navigation from "./Navigation";
 import RestaurantCard from "./RestaurantCard";
+import { useTranslation } from "react-i18next";
 
 const Header = ({ setOpenSubMenu }) => {
   const { openedSidebar, boxed, showCardIcon } = useSelector(
     (state) => state.themes
   );
   const dispatch = useDispatch();
+
+  const { t } = useTranslation();
 
   return (
     <header
@@ -39,8 +42,8 @@ const Header = ({ setOpenSubMenu }) => {
         <Box className="flex items-center sm:gap-x-5">
           <LanguageSwitcher />
           <Notifications />
-          <Navigation />
-          <Settings />
+              <Settings />
+
           {showCardIcon ? <RestaurantCard /> : null}
           <UserMenu />
         </Box>

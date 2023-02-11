@@ -1,6 +1,7 @@
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+
 import {
   Box,
   Stack,
@@ -17,6 +18,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { pushToSelectedInvoices } from "../../app/Slicers/invoices";
 import { Services } from "../MyInvoices/MyInvoices";
+import BackButton from "../../components/UI/Buttons/BackButton";
 
 const ControlPanelInvoice = () => {
   const { invoices } = useSelector((state) => state.invoice);
@@ -24,10 +26,11 @@ const ControlPanelInvoice = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const { t } = useTranslation();
 
   const payInvoiceHandle = (invoice) => {
-    dispatch(pushToSelectedInvoices(invoice));
+    pushToSelectedInvoices(invoice);
     navigate("/myinvoice/payment");
   };
 
@@ -160,13 +163,12 @@ const ControlPanelInvoice = () => {
                       {invoice.amount} AZN
                     </TableCell>
                     <TableCell align="center">
-                      <Button
-                        variant="contained"
-                        className="bg-rose-500 p-1 capitalize text-bgLight"
+                      <BackButton
+                        variant="outlined"
                         onClick={() => payInvoiceHandle(invoice)}
                       >
                         {t("Pay")}
-                      </Button>
+                      </BackButton>
                     </TableCell>
                   </TableRow>
                 ))}

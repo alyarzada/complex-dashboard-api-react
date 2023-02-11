@@ -28,6 +28,8 @@ import { getAllNews } from "../../app/Slicers/news";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
 import { setModal } from "../../app/Slicers/modals";
+import ApartmentIcon from '@mui/icons-material/Apartment';
+import TelegramIcon from '@mui/icons-material/Telegram';
 
 const Body = () => {
   const { openedSettingBar } = useSelector((state) => state.themes);
@@ -64,62 +66,62 @@ const Body = () => {
     {
       id: 1,
       title: t("Housing cooperative"),
-      name: "PORT BAKU",
+      name: "PORT BAKU Residence",
     },
     {
       id: 2,
       title: t("Complex"),
-      name: "PORT BAKU",
+      name: "PORT BAKU Residence",
     },
     {
       id: 3,
       title: t("Building manager"),
-      name: "PORT BAKU",
+      name: "PORT BAKU Residence",
     },
     {
       id: 4,
       title: t("Sales consultant"),
-      name: "PORT BAKU",
+      name: "PORT BAKU Residence",
     },
     {
       id: 5,
       title: t("Leisure Club Administrator"),
-      name: "PORT BAKU",
+      name: "PORT BAKU Residence",
     },
     {
       id: 6,
       title: t("Leisure Club Administrator"),
-      name: "PORT BAKU",
+      name: "PORT BAKU Residence",
     },
     {
       id: 7,
       title: t("Logistic coordinator"),
-      name: "PORT BAKU",
+      name: "PORT BAKU Residence",
     },
     {
       id: 8,
       title: t("Fit-out field inspector"),
-      name: "PORT BAKU",
+      name: "PORT BAKU Residence",
     },
     {
       id: 9,
       title: t("Maintenance manager"),
-      name: "PORT BAKU",
+      name: "PORT BAKU Residence",
     },
     {
       id: 10,
       title: t("Cleaning Services Supervisor"),
-      name: "PORT BAKU",
+      name: "PORT BAKU Residence",
     },
     {
       id: 11,
       title: t("Cleaning Services Supervisor"),
-      name: "PORT BAKU",
+      name: "PORT BAKU Residence",
     },
     {
       id: 12,
       title: t("Notes"),
-      name: "PORT BAKU",
+      name: "PORT BAKU Residence",
     },
   ];
 
@@ -244,22 +246,22 @@ const Body = () => {
                 dispatch(
                   setModal({
                     isOpen: true,
-                    title: "Port Baku",
+                    title: "Port Baku Residence",
                     children: modalData,
                   })
                 )
               }
             >
-              {t("Port Baku")}
+              {t("Port Baku Residence")}
             </Typography>
             <Typography className="text-textDark2">
               {t("The number of buildings included in the complex")} : 3
             </Typography>
             <List sx={{ width: "100%", maxWidth: 360 }}>
               <ListItem className="flex items-center" alignItems="flex-start">
-                <ListItemAvatar>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                </ListItemAvatar>
+              <ListItemAvatar>
+              <ApartmentIcon/>
+              </ListItemAvatar>
                 <ListItemText
                   className="text-textDark2 dark:text-text1"
                   primary="Tower A"
@@ -267,12 +269,9 @@ const Body = () => {
               </ListItem>
               <Divider variant="inset" component="li" />
               <ListItem className="flex items-center" alignItems="flex-start">
-                <ListItemAvatar>
-                  <Avatar
-                    alt="Travis Howard"
-                    src="/static/images/avatar/2.jpg"
-                  />
-                </ListItemAvatar>
+              <ListItemAvatar>
+              <ApartmentIcon/>
+              </ListItemAvatar>
                 <ListItemText
                   className="text-textDark2 dark:text-text1"
                   primary="Tower B"
@@ -281,7 +280,7 @@ const Body = () => {
               <Divider variant="inset" component="li" />
               <ListItem className="flex items-center" alignItems="flex-start">
                 <ListItemAvatar>
-                  <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+                <ApartmentIcon/>
                 </ListItemAvatar>
                 <ListItemText
                   className="text-textDark2 dark:text-text1"

@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   MenuItem,
   Select,
-  Stack,
+  Button,
   FormControl,
   Box,
+  Typography,
   InputLabel,
   Pagination,
   useMediaQuery,
-  Typography,
 } from "@mui/material";
 import {
   DataGrid,
@@ -31,56 +31,6 @@ import ResponsiveTable from "material-ui-next-responsive-table";
 
 import { mobileColumns, desktopColumns } from "./data";
 
-const statusOptions = [
-  {
-    label: "Yeni",
-    value: "new",
-  },
-  {
-    label: "Aktiv",
-    value: "active",
-  },
-  {
-    label: "Bağlı",
-    value: "closed",
-  },
-];
-
-const departmentOptions = [
-  {
-    label: "Təmizlik",
-    value: "housekeeping",
-  },
-  {
-    label: "Mühafizə",
-    value: "security",
-  },
-  {
-    label: "Reception",
-    value: "reception",
-  },
-  {
-    label: "Texniki heyət",
-    value: "techniques",
-  },
-  {
-    label: "Logistika",
-    value: "logistik",
-  },
-  {
-    label: "İnspector",
-    value: "inspector",
-  },
-  {
-    label: "LC",
-    value: "lc",
-  },
-  {
-    label: "HSE",
-    value: "hse",
-  },
-];
-
 function CustomPagination() {
   const apiRef = useGridApiContext();
   const page = useGridSelector(apiRef, gridPageSelector);
@@ -100,9 +50,6 @@ const RequestPanel = () => {
   const { allRequests, status } = useSelector((state) => state.requests);
   const [dataTableRequests, setDataTableRequests] = useState([]);
   const matches = useMediaQuery("(min-width:768px)");
-
-  const [statusValue, setStatusValue] = useState("");
-  const [department, setDepartment] = useState("");
 
   // const { data } = useDemoData({
   //   dataSet: "Commodity",
@@ -152,85 +99,61 @@ const RequestPanel = () => {
       {/* search filter */}
       <SearchFilter />
 
-      <Box className="dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg p-3">
-        <Stack
-          className="my-6"
-          direction="row"
-          justifyContent="space-between"
-          alignaItems="center"
-        >
-          <Typography className="text-text1 font-semibold">Hamısı</Typography>
-          <Stack direction="row" justifyContent="end" spacing={2}>
-            <FormControl className="w-[150px]">
-              <InputLabel id="demo-simple-select-label">Status</InputLabel>
+      <Box className="dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg p-1">
+        <Box className="flex justify-between">
+          <Typography className="text-white">Hamısı</Typography>
+          <Box>
+            <FormControl
+              sx={{ m: 1, minWidth: 120 }}
+              size="small"
+              className="bg-slate-500"
+            >
+              <InputLabel id="demo-simple-select-autowidth-label">
+                <Folder /> Status
+              </InputLabel>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={statusValue}
-                label="Status"
-                onChange={(e) => setStatusValue(e.target.value)}
+                labelId="demo-simple-select-autowidth-label"
+                id="demo-simple-select-autowidth-label"
+                label="Age"
               >
-                {statusOptions.map((option, index) => (
-                  <MenuItem key={index} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
               </Select>
             </FormControl>
-            <FormControl className="w-[150px]">
-              <InputLabel id="demo-simple-select-label">Şöbə</InputLabel>
+            <FormControl
+              sx={{ m: 1, minWidth: 120 }}
+              size="small"
+              className="bg-slate-500"
+            >
+              <InputLabel id="demo-select-small">
+                <Folder /> Şöbə
+              </InputLabel>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={department}
-                label="Şöbə"
-                onChange={(e) => setDepartment(e.target.value)}
+                labelId="demo-select-small"
+                id="demo-select-small"
+                label="Age"
               >
-                {departmentOptions.map((option, index) => (
-                  <MenuItem key={index} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
               </Select>
             </FormControl>
-          </Stack>
-        </Stack>
-
-        <Box>
-          <Box style={{ height: 1151, width: "100%" }} className="mt-4 md:mt-0">
-            <DataGrid
-              rows={dataTableRequests}
-              columns={desktopColumns}
-              pageSize={20}
-              rowsPerPageOptions={[7]}
-              checkboxSelection
-              loading={status === "loading"}
-              components={{
-                Pagination: CustomPagination,
-              }}
-            />
-            {/* {matches ? (
-              <DataGrid
-                rows={dataTableRequests}
-                columns={desktopColumns}
-                pageSize={20}
-                rowsPerPageOptions={[7]}
-                checkboxSelection
-                loading={status === "loading"}
-                components={{
-                  Pagination: CustomPagination,
-                }}
-              />
-            ) : status === "loading" ? (
-              <Typography className="text-text1">Loading...</Typography>
-            ) : (
-              <ResponsiveTable
-                columns={mobileColumns}
-                data={dataTableRequests}
-              />
-            )} */}
           </Box>
         </Box>
+        {/* <CustomDataGrid 
+          mobileColumns={mobileColumns} 
+          status={status} 
+          rows={dataTableRequests} 
+          desktopColumns={desktopColumns}
+          width={1151}
+        /> */}
       </Box>
     </Box>
   );

@@ -27,9 +27,7 @@ const CustomDatePicker = ({
   label,
   defaultValue,
   className,
-  containerClassName,
   calendar,
-  errorMessage,
   ...props
 }) => {
   const { t } = useTranslation();
@@ -49,10 +47,10 @@ const CustomDatePicker = ({
   };
 
   return (
-    <Box className={containerClassName}>
+    <Box className={`mb-6 ${className}`}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DesktopDatePicker
-          className={className}
+          className="w-full"
           label={label}
           value={date}
           onChange={dataStartHandler}
@@ -72,8 +70,8 @@ const CustomDatePicker = ({
           )}
         />
         {meta.error && meta.touched ? (
-          <FormHelperText className="text-red-500">
-            {errorMessage}
+          <FormHelperText className="text-red-500 ml-3">
+            Tarix seçin!
           </FormHelperText>
         ) : null}
       </LocalizationProvider>

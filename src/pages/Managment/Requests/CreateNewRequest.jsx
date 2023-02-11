@@ -3,7 +3,7 @@ import { Formik, Form } from "formik";
 import {
   Button,
   Box,
-  Stack,
+  Snackbar,
   IconButton,
   Autocomplete,
   TextField,
@@ -22,6 +22,10 @@ import AdminCreateNewRequest from "../Requests/ComplexAdmin/AdminCreateNewReques
 import SendIcon from "@mui/icons-material/Send";
 import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
 import Cookies from "js-cookie";
+import CheckIcon from '@mui/icons-material/Check'; 
+import ReplyIcon from '@mui/icons-material/Reply';
+import BackButton from "../../../components/UI/Buttons/BackButton"
+import SuccessButton from "../../../components/UI/Buttons/SuccessButton"
 
 const applicationNumber = [];
 const checkedIcon = <CameraAltOutlinedIcon />;
@@ -62,6 +66,22 @@ const CreateNewRequest = () => {
     setOpen(false);
   };
 
+  const action = (
+    <>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        {t("Close")}
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <Close fontSize="small" />
+      </IconButton>
+    </>
+  );
+
   if (user.has_role.role_id === 8) {
     return (
       <motion.div
@@ -71,6 +91,20 @@ const CreateNewRequest = () => {
         animate="visible"
         transition={{ duration: 0.8, bounce: 0.4, type: "spring" }}
       >
+        <Snackbar
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleClose}
+          message="Yeni müraciət uğurla yaradıldı"
+          action={action}
+        />
+        <BackButton
+          variant="contained"
+          startIcon=<ReplyIcon className="mr-2" />
+          onClick={() => navigate(-1)}
+        >
+         {t("Back")}
+        </BackButton>
         <Box>
           <Formik
             initialValues={{
@@ -128,22 +162,13 @@ const CreateNewRequest = () => {
                   name="message"
                   label="Your request"
                 />
-                <Stack
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
+                <SuccessButton
+                  variant="contained"
+                  type="submit"
+                  startIcon=<CheckIcon />
                 >
-                  <Button className="mb-3 capitalize" variant="contained">
-                    {t("Back")}
-                  </Button>
-                  <Button
-                    variant="contained"
-                    className="capitalize"
-                    type="submit"
-                  >
-                    {t("Submit")}
-                  </Button>
-                </Stack>
+                  {t("Submit")}
+                </SuccessButton>
               </Form>
             )}
           </Formik>

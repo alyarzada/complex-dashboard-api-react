@@ -10,6 +10,10 @@ import CustomSelect from "../../../../components/Form/CustomSelect";
 import CustomTextField from "../../../../components/Form/CustomTextField";
 import NewCustomTimePicker from "../../../../components/Form/NewCustomTimePicker";
 import { format } from "date-fns";
+import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
+import BackButton from "../../../../components/UI/Buttons/BackButton";
+import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
+
 
 // icons
 import MovieIcon from "@mui/icons-material/Movie";
@@ -29,8 +33,6 @@ import {
 import DeleteBookedCinemaRoom from "../Components/DeleteBookedCinemaRoom";
 import { setModal } from "../../../../app/Slicers/modals";
 import { changeBookedCinemaStatus } from "../../../../app/Slicers/leisure/cinema";
-import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
-import { BronCinemaSchema } from "../../../../validations/leisureclub/cinemaVal";
 
 //multiselect
 const optionsCinemaTime = [
@@ -213,10 +215,9 @@ const Cinema = () => {
           start_date: "",
           duration: "",
           message: "",
-          number_of_residents: "1",
-          number_of_guest: "0",
+          number_of_residents: "",
+          number_of_guest: "",
         }}
-        validationSchema={BronCinemaSchema}
         onSubmit={(values) => {
           dispatch(
             bookCinemaRoom({
@@ -228,17 +229,10 @@ const Cinema = () => {
       >
         {() => (
           <Form>
-            {/* <NewCustomTimePicker
+            <NewCustomTimePicker
               label="Rezervasiya tarixi"
-              defaultValue={defaultDate ? defaultDate : ""}
-            /> */}
-            <CustomDatePicker
               name="start_date"
-              label="Rezervasiya tarixi"
-              // defaultValue={defaultDate ? defaultDate : ""}
-              errorMessage="Zəhmət olmasa rezervasiya tarixini seçin"
-              containerClassName="w-full mb-6"
-              className="w-full"
+              defaultValue={defaultDate ? defaultDate : ""}
             />
             <CustomSelect
               label="Bronlama vaxtı"
@@ -246,56 +240,45 @@ const Cinema = () => {
               name="duration"
               onlyValue
               noTranslation
-              containerClassName="mb-6 z-[10000] m-0"
-              errorMessage="Zəhmət olmasa bronlama vaxtını seçin"
             />
             <CustomSelect
               label="Sakinlərin sayı"
               options={optionsNumberOfResident}
               name="number_of_residents"
-              defaultValue="1"
               onlyValue
               noTranslation
-              containerClassName="mb-6 z-[10000] m-0"
             />
             <CustomSelect
               label="Qonaqların sayı"
               options={optionsNumberOfGuests}
               name="number_of_guest"
-              defaultValue="0"
               calendar
               className="mb-0"
               onlyValue
               noTranslation
-              containerClassName="mb-6 z-[10000] m-0"
             />
             <CustomTextField label="Şərhiniz" name="message" multiline />
             <Box className="flex gap-x-2 my-3 justify-end">
-              <Button
-                onClick={() =>
-                  dispatch(
-                    setModal({
-                      ...modal,
-                      isOpen: false,
-                    })
-                  )
-                }
-                type="button"
-                variant="outlined"
-                color="error"
-                className="capitalize"
+              <BackButton
+              variant="outlined"
+              onClick={() =>
+                dispatch(
+                  setModal({
+                    ...modal,
+                    isOpen: false,
+                  })
+                )
+              }
               >
-                {t("Close")}
-              </Button>
-              <LoadingButton
-                type="submit"
-                variant="contained"
-                color="success"
-                className="capitalize"
-                loading={bookCinemaStatus === "loading"}
+              {t("Close")}
+              </BackButton>
+              <SuccessButton
+              variant="contained"
+              type="submit"
+              loading={bookCinemaStatus === "loading"}
               >
-                {t("Save")}
-              </LoadingButton>
+              {t("Save")}
+              </SuccessButton>
             </Box>
           </Form>
         )}
@@ -353,22 +336,23 @@ const Cinema = () => {
       <Box className="rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
         <Box className="py-6 px-6 my-4">
           <Box className="flex justify-end mb-6">
-            <Button
+            <DefaultButton
+            variant="contained"
+            onClick={() =>
+              dispatch(
+                setModal({
+                  isOpen: true,
+                  children: bronModal,
+                  title: "Yeni bronlama",
+                })
+              )
+            }
               startIcon={<AddCircleOutlineOutlinedIcon />}
-              className="capitalize btn-danger"
-              variant="contained"
-              onClick={() =>
-                dispatch(
-                  setModal({
-                    isOpen: true,
-                    children: bronModal,
-                    title: "Yeni bronlama",
-                  })
-                )
-              }
+
             >
-              {t("New Reservation")}
-            </Button>
+            {t("New Reservation")}
+            
+            </DefaultButton>
           </Box>
 
           <Calendar

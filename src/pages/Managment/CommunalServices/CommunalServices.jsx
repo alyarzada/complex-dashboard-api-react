@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { mockData } from "../../../data/apartment-owner/communal-services";
 import CommunalServicesPanel from "../../ControlPanel/CommunalServicesPanel";
+import GoBackButton from "../../../components/UI/GoBackButton";
 import Header from "../../../components/UI/Header";
 import ViewComfyAltOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 

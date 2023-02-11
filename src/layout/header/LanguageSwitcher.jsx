@@ -80,11 +80,11 @@ export default function LanguageSwitcher() {
             />
             <span>
               {i18n.language === "az"
-                ? "Ingilis"
+                ? "English"
                 : i18n.language === "rus"
-                ? "Азербайджан"
+                ? "Azərbaycan"
                 : i18n.language === "en"
-                ? "Azerbaijan"
+                ? "Azərbaycan"
                 : ""}
             </span>
           </MenuItem>
@@ -117,11 +117,11 @@ export default function LanguageSwitcher() {
             />
             <span>
               {i18n.language === "az"
-                ? "Rus"
+                ? "Русский"
                 : i18n.language === "rus"
-                ? "Английский"
+                ? "English"
                 : i18n.language === "en"
-                ? "Russian"
+                ? "Русский"
                 : ""}
             </span>
           </MenuItem>

@@ -10,6 +10,7 @@ import CustomSearchFilter from "../../../components/UI/CustomSearchFilter";
 import ActionButtons from "../../../components/UI/ActionButtons";
 import CreditCardOutlinedIcon from "@mui/icons-material/CreditCardOutlined";
 import { useTranslation } from "react-i18next";
+import DefaultButton from "../../../components/UI/Buttons/DefaultButton";
 
 const EntryCards = () => {
   const { entryCards } = useSelector((state) => state.entryCards);
@@ -45,22 +46,22 @@ const EntryCards = () => {
         <Box className="py-4 px-6">
           <CustomSearchFilter />
           <Box className="flex flex-col mb-6 sm:flex-row justify-end gap-3 pt-6">
-            <Button
-              onClick={() => navigate("/user-card-request/access/create")}
-              className="capitalize"
-              variant="contained"
-              startIcon={<AddCircleOutlineOutlinedIcon />}
+            <DefaultButton
+            variant="contained"
+            onClick={() => navigate("/user-card-request/access/create")}
+            startIcon={<AddCircleOutlineOutlinedIcon />}
             >
-              {t("New Access card")}
-            </Button>
-            <Button
-              onClick={() => navigate("/user-card-request/parking/create")}
-              className="capitalize"
-              variant="contained"
-              startIcon={<AddCircleOutlineOutlinedIcon />}
+            {t("New Access card")}
+            
+            </DefaultButton>
+            <DefaultButton
+            variant="contained"
+            onClick={() => navigate("/user-card-request/parking/create")}
+            startIcon={<AddCircleOutlineOutlinedIcon />}
             >
-              {t("New Parking card")}
-            </Button>
+            {t("New Parking card")}
+            
+            </DefaultButton>
           </Box>
 
           <Box>
