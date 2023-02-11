@@ -35,7 +35,6 @@ const Requests = () => {
       has_role: { role_id },
     },
   } = useSelector((state) => state.auth);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -45,8 +44,6 @@ const Requests = () => {
       dispatch(getAllRequests(Cookies.get("token")));
     }
   }, []);
-
-  console.log(requestPanels);
 
   return (
     <Box className="w-full">

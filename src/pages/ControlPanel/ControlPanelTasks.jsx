@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Stack, Typography, Button } from "@mui/material";
 
 import Table from "@mui/material/Table";
+import { useTranslation } from "react-i18next";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
@@ -16,10 +17,12 @@ function createData(name, calories, fat, carbs, protein) {
 const rows = [];
 
 const ControlPanelTasks = () => {
+  const { t } = useTranslation();
+
   return (
     <Box className="p-4 bg-gradient-to-r rounded-xl	mb-6">
       <Typography className="text-slate-400	font-bold	text-lg mb-10	">
-        Son tasklar
+        {t(["Last tasks"])}
       </Typography>
       <Box>
         {rows.length !== 0 ? (
@@ -58,7 +61,7 @@ const ControlPanelTasks = () => {
           </TableContainer>
         ) : (
           <Box className="bg-amber-200 p-4 text-center rounded-lg">
-            <Typography>Melumat tapilmadi</Typography>
+            <Typography>{t(["Data not found"])}</Typography>
           </Box>
         )}
       </Box>

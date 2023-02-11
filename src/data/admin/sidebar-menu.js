@@ -107,15 +107,15 @@ export const adminSidebarMenu = [
       },
       {
         id: 3,
-        title: "Communal Services",
-        icon: ViewComfyAltOutlinedIcon,
-        path: "/communalservices",
-      },
-      {
-        id: 4,
         title: "Requests",
         icon: CommentOutlinedIcon,
         path: "/requests",
+      },
+      {
+        id: 4,
+        title: "Communal Services",
+        icon: ViewComfyAltOutlinedIcon,
+        path: "/communalservices",
       },
       {
         id: 5,

@@ -37,7 +37,6 @@ const MyDetails = ({ userData }) => {
             gender: "",
           }}
           onSubmit={(values) => {
-            console.log(values);
             dispatch(updateUser({ body: values, token: Cookies.get("token") }));
           }}
         >
@@ -117,7 +116,7 @@ const MyDetails = ({ userData }) => {
 
               <CustomDatePicker
                 name="birthday"
-                label={t(["Birthday"])}
+                label={t(["Date of birth"])}
                 className="mb-0"
               />
               <CustomGenderRadio name="gender" label={t("Gender")} />

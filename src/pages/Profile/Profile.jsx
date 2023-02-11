@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { format } from "date-fns";
 import { useSelector } from "react-redux";
 import { Box, Button, Typography, Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -12,20 +13,28 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 
 const Profile = () => {
   const [firstLetters, setFirstLetters] = useState(null);
+  const [defaultDate, setDefaultDate] = useState(null);
+  const [date, setDate] = useState(null);
   const { t } = useTranslation();
   const {
     user: {
+      user_details: { gender, birthday },
       email,
       name,
-      profil_image,
       has_role,
-      user_details,
-      last_login_at,
-      last_login_ip,
       username,
+      phone,
     },
+
     user,
   } = useSelector((state) => state.auth);
+  console.log(user);
+
+  // Reverse Birthday
+  const reverseBirthday = (birthdayDate) => {
+    const reversedDate = format(new Date(birthday), "dd/MM/yyyy");
+    return reversedDate;
+  };
 
   useEffect(() => {
     const words = name.split(" ");
@@ -42,7 +51,7 @@ const Profile = () => {
         currentPage={{ title: t(["Profile"]), icon: PersonOutlineOutlinedIcon }}
       />
       <Box className="flex flex-col md:flex-row justify-between mt-4">
-        <Box className="bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary p-6 rounded w-full h-[500px]  md:w-[30%]">
+        <Box className="bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary p-8 rounded w-full   md:w-[38%]">
           {/* first row */}
           <Box className="flex flex-col items-center">
             <Box className="relative">
@@ -69,7 +78,7 @@ const Profile = () => {
           <Box className="mt-5 text-text4">
             <ul>
               <li className="font-bold text-sm my-2">
-                {t(["Full Name"])}:{" "}
+                {t(["Apartment owner"])}:{" "}
                 <span className="font-normal ml-2">{name}</span>
               </li>
               <li className="font-bold text-sm my-2">
@@ -77,34 +86,34 @@ const Profile = () => {
                 <span className="font-normal ml-2">{username}</span>
               </li>
               <li className="font-bold text-sm my-2">
-                {t(["Last login date"])}:{" "}
-                <span className="font-normal ml-2">{last_login_at}</span>
+                {t(["Gender"])}:{" "}
+                <span className="font-normal ml-2">{t(gender)}</span>
               </li>
               <li className="font-bold text-sm my-2">
-                {t(["Last login IP"])}:{" "}
-                <span className="font-normal ml-2">{last_login_ip}</span>
+                {t(["Date of birth"])}:{" "}
+                <span className="font-normal ml-2">
+                  {reverseBirthday(birthday)}
+                </span>
               </li>
               <li className="font-bold text-sm my-2">
-                {t(["Country"])}: <span className="font-normal ml-2"></span>
+                {t(["Telephone number"])}:{" "}
+                <span className="font-normal ml-2">0554264434</span>
+              </li>
+              <li className="font-bold text-sm my-2">
+                {t(["Addition Phone number"])}:{" "}
+                <span className="font-normal ml-2">0554264434</span>
+              </li>
+              <li className="font-bold text-sm my-2">
+                {t(["Email address"])}:{" "}
+                <span className="font-normal ml-2">{email}</span>
               </li>
             </ul>
           </Box>
         </Box>
 
-        <Box className="bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary p-6 rounded w-full md:w-[68%] min-h-[500px]">
+        <Box className="bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary p-6 rounded w-full md:w-[61%] min-h-[500px]">
           <ProfileForm userData={user} />
         </Box>
-      </Box>
-      <Box className="flex justify-between items-center gap-x-1 bg-bgLight dark:bg-[#404954] py-5 px-3 sm:px-6 rounded mt-2">
-        <Link to="/">
-          <Button
-            startIcon={<ReplyIcon className="text-white dark:text-black" />}
-            variant="contained"
-            className="capitalize"
-          >
-            {t("geriqayit")}
-          </Button>
-        </Link>
       </Box>
     </Box>
   );

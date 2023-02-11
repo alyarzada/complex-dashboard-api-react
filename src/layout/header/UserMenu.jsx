@@ -83,8 +83,6 @@ const UserMenu = () => {
   const navigate = useNavigate();
   const btnRef = useRef(null);
 
-  console.log(user);
-
   useEffect(() => {
     setFirstLetters(() => {
       const words = name?.split(" ");

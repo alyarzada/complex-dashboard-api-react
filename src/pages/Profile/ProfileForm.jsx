@@ -24,7 +24,7 @@ const ProfileForm = ({ userData }) => {
             <Tab
               sx={{ minWidth: "30%" }}
               className="dark:text-text3 capitalize"
-              label={t("My Details")}
+              label={t("My Data")}
               value="1"
             />
             <Tab

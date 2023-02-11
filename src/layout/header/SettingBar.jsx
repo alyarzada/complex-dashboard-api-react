@@ -52,7 +52,7 @@ const SettingBar = (props, ref) => {
       {/* header */}
       <Box className="bg-[#313A46] dark:bg-[#C9B26D] rounded-tl-lg flex items-center justify-between px-5 py-6">
         <h5 className="text-white text-[.9rem] font-semibold">
-          {t("Settings")}
+          {t("Adjustments")}
         </h5>
         <IconButton onClick={() => dispatch(setOpenedSettingBar(false))}>
           <HighlightOffRoundedIcon className="text-white" />

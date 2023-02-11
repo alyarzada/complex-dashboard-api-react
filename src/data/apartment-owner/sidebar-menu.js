@@ -5,6 +5,7 @@ import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import ViewComfyAltOutlinedIcon from "@mui/icons-material/ViewComfyAltOutlined";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
 import PoolOutlinedIcon from "@mui/icons-material/PoolOutlined";
 import CreditCardOutlinedIcon from "@mui/icons-material/CreditCardOutlined";
@@ -18,7 +19,7 @@ export const sidebarMenu = [
   {
     id: 1,
     title: "Dashboard",
-    icon: AdminPanelSettingsOutlinedIcon,
+    icon: HomeOutlinedIcon,
     path: "/",
   },
   {

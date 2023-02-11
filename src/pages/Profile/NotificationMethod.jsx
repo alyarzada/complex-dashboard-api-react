@@ -4,6 +4,7 @@ import { Typography, Box, Button } from "@mui/material";
 import CustomTextField from "../../components/Form/CustomTextField";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+import SaveIcon from "@mui/icons-material/Save";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
 import { useTranslation } from "react-i18next";
@@ -45,16 +46,15 @@ const NotificationMethod = () => {
                 {t("Phone number for receive notification")}
               </Typography>
             </Box>
-            <CustomTextField label={t("Phone number")} name="phone" />
-            <Box className="mb-2 flex items-center text-text1 gap-x-1">
-              <SendOutlinedIcon className="text-xs" />
-              <Typography className="text-xs">
-                {t("Telegram accounts")}
-              </Typography>
-            </Box>
             <CustomTextField label="Phone number" name="telegramAccount" />
-            <Box className="flex justify-end">
-              <Button className="capitalize" variant="contained">
+            <Box className="col-span-1 md:col-span-2 flex justify-end">
+              <Button
+                variant="contained"
+                type="submit"
+                color="success"
+                className="capitalize"
+                startIcon={<SaveIcon className="text-white dark:text-black" />}
+              >
                 {t(["Save"])}
               </Button>
             </Box>

@@ -12,8 +12,6 @@ const SubMenuPanel = ({ category }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  console.log(category);
-
   return (
     <Box className="w-full">
       {category.title === "Call" ? (

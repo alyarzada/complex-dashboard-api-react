@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next";
 
 const Header = (props) => {
   const Icon = props.currentPage.icon;
-
   const { t } = useTranslation();
   return (
     <Stack
@@ -18,7 +17,7 @@ const Header = (props) => {
       <Typography
         variant="h6"
         component="h1"
-        className="font-bold text-textDark2 dark:text-text2 text-[16px] mb-1 lg:mb-6"
+        className="font-bold text-textDark2 dark:text-logoColor text-[16px] mb-1 lg:mb-6"
       >
         {t(props.currentPage.title)}
       </Typography>
