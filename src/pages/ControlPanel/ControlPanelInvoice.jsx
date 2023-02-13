@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -29,10 +29,11 @@ const ControlPanelInvoice = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const { t } = useTranslation();
 
   const payInvoiceHandle = (invoice) => {
-    dispatch(pushToSelectedInvoices(invoice));
+    pushToSelectedInvoices(invoice);
     navigate("/myinvoice/payment");
   };
 
@@ -183,6 +184,70 @@ const ControlPanelInvoice = () => {
                           <PreviewIcon className="text-logoColor text-[22px]" />
                         </IconButton>
                       </Tooltip>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Box>
+        <Box className="flex-1 bg-gradient-to-r from-bgMain to-bgSecond p-2 bg-white rounded">
+          <Box className="mb-3 flex justify-between items-center">
+            <Typography className="dark:text-logoColor text-logoColor capitalize font-medium">
+              {t(["Paid invoices"])}
+            </Typography>
+            <Link to="/myinvoice">
+              <Button className="capitalize" variant="outlined">
+                {t(["All payments"])}
+              </Button>
+            </Link>
+          </Box>
+          <TableContainer
+            className="bg-transparent h-[234px] overflow-auto custom-table-class"
+            component={Paper}
+          >
+            <Table size="small" aria-label="a dense table">
+              <TableHead>
+                <TableRow>
+                  <TableCell className=" dark:text-text1 text-textDark2">
+                    {t(["Service type"])}
+                  </TableCell>
+                  <TableCell
+                    className=" dark:text-text1 text-textDark2"
+                    align="center"
+                  >
+                    {t(["Amount to pay"])}
+                  </TableCell>
+                  <TableCell
+                    className=" dark:text-text1 text-textDark2"
+                    align="center"
+                  >
+                    {t(["Action"])}
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {invoices.map((invoice) => (
+                  <TableRow
+                    key={invoice.id}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      <Services params={invoice} />
+                    </TableCell>
+                    <TableCell
+                      className=" dark:text-text1 text-textDark2"
+                      align="center"
+                    >
+                      {invoice.amount} AZN
+                    </TableCell>
+                    <TableCell align="center">
+                      <BackButton
+                        variant="outlined"
+                        onClick={() => payInvoiceHandle(invoice)}
+                      >
+                        {t("Pay")}
+                      </BackButton>
                     </TableCell>
                   </TableRow>
                 ))}

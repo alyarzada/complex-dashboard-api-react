@@ -10,6 +10,8 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 
 const Profile = () => {
   const [firstLetters, setFirstLetters] = useState(null);
+  const [defaultDate, setDefaultDate] = useState(null);
+  const [date, setDate] = useState(null);
   const { t } = useTranslation();
   const {
     user: {
@@ -20,8 +22,16 @@ const Profile = () => {
       username,
       notifi_phone,
     },
+
     user,
   } = useSelector((state) => state.auth);
+  console.log(user);
+
+  // Reverse Birthday
+  const reverseBirthday = (birthdayDate) => {
+    const reversedDate = format(new Date(birthday), "dd/MM/yyyy");
+    return reversedDate;
+  };
 
   const personalDetails = [
     {

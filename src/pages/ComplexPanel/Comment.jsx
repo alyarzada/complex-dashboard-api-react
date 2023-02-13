@@ -148,7 +148,6 @@ const Comment = ({ comment, postId }) => {
                 </IconButton>
               </Tooltip>
             </Grid>
-          </Grid>
           <Typography className="text-sm">
             {comment.likes.length} {t(["Like"])}
           </Typography>

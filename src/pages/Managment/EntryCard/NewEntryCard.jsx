@@ -44,6 +44,8 @@ const NewEntryCard = () => {
   } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
+  const navigate = useNavigate();
+
   return (
     <Box>
       <Box className="flex justify-between mb-6">

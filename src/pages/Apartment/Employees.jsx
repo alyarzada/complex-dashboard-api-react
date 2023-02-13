@@ -61,7 +61,6 @@ const SurveyManage = () => {
     const apiRef = useGridApiContext();
     const page = useGridSelector(apiRef, gridPageSelector);
     const pageCount = useGridSelector(apiRef, gridPageCountSelector);
-
     return (
       <Pagination
         color="primary"

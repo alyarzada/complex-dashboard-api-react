@@ -15,6 +15,8 @@ const Header = () => {
   );
   const dispatch = useDispatch();
 
+  const { t } = useTranslation();
+
   return (
     <header
       className={`flex top-0 px-3 sm:px-5 transition-all ease-in-out duration-300 h-[70px] z-30 bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary ${

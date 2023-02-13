@@ -106,6 +106,8 @@ const EachNews = ({ news }) => {
     );
   };
 
+  console.log(news);
+
   return (
     <Box className="mb-4 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary rounded p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
       <Stack

@@ -50,6 +50,7 @@ const CustomSelect = ({
           {label}
         </InputLabel>
         <Select
+          // defaultValue={personName}
           labelId={`${
             variant === "filled"
               ? "demo-simple-select-filled-label"

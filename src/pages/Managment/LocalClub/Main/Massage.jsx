@@ -15,7 +15,6 @@ import Calendar from "./Calendar";
 import DeleteBookedMassage from "../Components/DeleteBookedMassage";
 import CustomTextField from "../../../../components/Form/CustomTextField";
 import CustomSelect from "../../../../components/Form/CustomSelect";
-import { BronMassageSchema } from "../../../../validations/leisureclub/massageVal";
 
 // redux;
 import { useDispatch, useSelector } from "react-redux";
@@ -122,11 +121,6 @@ const columns = [
   },
 ];
 
-const masseurs = [
-  { label: "Yuliya", value: "Yuliya" },
-  { label: "Sabina", value: "Sabina" },
-];
-
 const Massage = () => {
   useScrollToUp();
   const [eventData, setEventData] = useState(null);
@@ -204,12 +198,10 @@ const Massage = () => {
       <Formik
         initialValues={{
           start_date: "",
-          start_time: "",
-          therapist: "Yuliya",
+          therapist: "",
           massage: "",
           message: "",
         }}
-        validationSchema={BronMassageSchema}
         onSubmit={(values) => {
           const editedValues = {
             ...values,
@@ -225,50 +217,25 @@ const Massage = () => {
       >
         {() => (
           <Form>
-            {/* <NewCustomTimePicker
+            <NewCustomTimePicker
               label="Bronlama vaxti"
               name="start_date"
               defaultValue={defaultDate ? defaultDate : ""}
-            /> */}
-            {/* <CustomTextField
+            />
+            <CustomTextField
               label="Terapevt"
               name="therapist"
               masseur={masseur}
               value={masseur.name}
               disabled
               massage
-            /> */}
-            <CustomDatePicker
-              errorMessage="Zəhmət olmasa bronlama tarixini seçin"
-              name="start_date"
-              label="Bronlama tarixi"
-              containerClassName="w-full mb-6"
-              className="w-full"
-            />
-            <CustomDigitalTimePicker
-              label="Bronlama vaxtı"
-              name="start_time"
-              containerClassName="w-full mb-6"
-              className="w-full"
-              errorMessage="Zəhmət olmasa, bronlanma vaxtını seçin"
-            />
-            <CustomSelect
-              label="Terapevt"
-              name="therapist"
-              options={masseurs}
-              defaultValue="Yuliya"
-              noTranslation
-              onlyValue
-              containerClassName="mb-6 z-[10000] m-0"
             />
             <CustomSelect
               label="Masaj"
               options={optionsMassage}
               name="massage"
-              defaultValue="1"
               onlyValue
               noTranslation
-              containerClassName="mb-6 z-[10000] m-0"
             />
 
             <CustomTextField label="Şərhiniz" name="message" multiline />

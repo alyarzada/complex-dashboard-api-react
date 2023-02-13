@@ -9,6 +9,7 @@ import {
   toggleSidebarSubmenu,
 } from "../../app/Slicers/themes";
 import { useMediaQuery, Box } from "@mui/material";
+import ManagmentSubMenuItem from "./ManagmentSubMenuItem";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SubSidebarItem from "./SubSidebarItem";
 import { QrCodeScannerOutlined } from "@mui/icons-material";
@@ -21,9 +22,8 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
 
   const matches = useMediaQuery("(max-width:768px)");
   const dispatch = useDispatch();
-  const linksRef = useRef(null);
+  const linkRef = useRef(null);
   const linksContainerRef = useRef(null);
-  const { t } = useTranslation();
 
   // console.log(sidebarSubmenu);
   // console.log(typeof sidebarItem.id);
@@ -63,6 +63,14 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
             ? "text-text2 hover-effect rounded w-[90%] mx-auto px-4"
             : "relative px-7"
         }`}
+        to={sidebarItem.path ? sidebarItem.path : ""}
+        onClick={(e) => {
+          if (!sidebarItem.path) {
+            e.preventDefault();
+            if (openedSidebar) setOpenSubMenu((prev) => !prev);
+          }
+          if (sidebarItem.path) matches && dispatch(setOpenedSidebar());
+        }}
       >
         <Icon className="w-[20px] group-hover:text-white" />
         {openedSidebar ? (
@@ -98,6 +106,7 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
             !openedSidebar &&
             ` h-[${linksHeight}px] invisible group-hover:visible`
           }`}
+          ref={linksContainerRef}
         >
           <ul
             ref={linksRef}
@@ -111,11 +120,12 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
             }
           >
             {sidebarItem.sublist.map((sublistItem, index) => {
+              const Icon = sublistItem.icon;
               return (
-                <SubSidebarItem
+                <ManagmentSubMenuItem
                   ref={{
+                    linkRef,
                     linksContainerRef,
-                    linksRef,
                   }}
                   parentHeight={setLinksHeight}
                   key={index}
