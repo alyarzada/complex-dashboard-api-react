@@ -45,13 +45,6 @@ const mobileColumns = [
     label: "Şöbə",
     width: 150,
   },
-  // {
-  //   key: "message",
-  //   label: "Müraciət",
-  //   description: "This column has a value getter and is not sortable.",
-  //   sortable: false,
-  //   width: 250,
-  // },
   { key: "startTime", label: "Başlama tarixi", width: 160 },
   { key: "endTime", label: "Bitmə tarixi", width: 160 },
 ];

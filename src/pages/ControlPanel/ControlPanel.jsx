@@ -1,25 +1,20 @@
-import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Box } from "@mui/material";
 import { ReactSortable } from "react-sortablejs";
-import { useTranslation } from "react-i18next";
 import { reOrderMenus } from "../../app/Slicers/data";
 import { destroyModal } from "../../app/Slicers/modals";
 import { useScrollToUp } from "../../hooks/useScrollToUp";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import "react-toastify/dist/ReactToastify.css";
 import "./styles/style.css";
-
-// custom components
 import Header from "../../components/UI/Header";
 import ConfirmModal from "./modals/ConfirmModal";
 import FormModal from "./modals/FormModal";
 import OtherModal from "./modals/OtherModal";
 import DashboardPanel from "./DashboardPanel";
-import CustomNestedModal from "../../components/UI/CustomNestedModal";
+import CustomNestedModal from "../../components/UI/Modals/CustomNestedModal";
 import TenantRegistrationModal from "./modals/TenantRegistrationModal";
 import ControlPanelInvoice from "./ControlPanelInvoice";
-import ControlPanelTasks from "./ControlPanelTasks";
 import ControlPanelStatus from "./ControlPanelStatus";
 import ControlPanelRequests from "./ControlPanelRequests";
 import ControlPanelRequestsArchive from "./ControlPanelRequestsArchive";
@@ -28,7 +23,6 @@ const ControlPanel = () => {
   useScrollToUp();
 
   const dispatch = useDispatch();
-  const { t } = useTranslation();
 
   const { isDraggable } = useSelector((state) => state.themes);
   const { modals } = useSelector((state) => state.modals);
@@ -38,7 +32,6 @@ const ControlPanel = () => {
       has_role: { role_id },
     },
   } = useSelector((state) => state.auth);
-  const [photoImage, setPhotoImage] = useState("");
 
   return (
     <Box className="w-full">
@@ -60,7 +53,7 @@ const ControlPanel = () => {
         ))}
       </ReactSortable>
 
-      {role_id !== 8 ? <ControlPanelTasks /> : null}
+      {/* {role_id !== 8 ? <ControlPanelTasks /> : null} */}
       {role_id !== 8 ? <ControlPanelRequests /> : null}
       {role_id !== 8 ? <ControlPanelRequestsArchive /> : null}
       {role_id !== 8 ? <ControlPanelStatus /> : null}

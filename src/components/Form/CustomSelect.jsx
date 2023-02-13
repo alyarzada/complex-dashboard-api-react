@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useField } from "formik";
 import { useTranslation } from "react-i18next";
 import {
@@ -25,11 +25,7 @@ const CustomSelect = ({
   const [field, meta, helpers] = useField(props);
   const { t } = useTranslation();
 
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-
+  const handleChange = ({ target: { value } }) => {
     setPersonName(value);
   };
 
@@ -54,7 +50,6 @@ const CustomSelect = ({
           {label}
         </InputLabel>
         <Select
-          // defaultValue={personName}
           labelId={`${
             variant === "filled"
               ? "demo-simple-select-filled-label"

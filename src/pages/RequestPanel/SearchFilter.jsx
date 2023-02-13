@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import CustomSelectNew from "../../components/Form/CustomSelectNew";
-import { useSelector } from "react-redux";
 import { Formik, Form } from "formik";
 
 const SearchFilter = () => {

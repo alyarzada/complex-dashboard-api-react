@@ -1,28 +1,25 @@
-import React from "react";
 import {
   Box,
   Typography,
-  Button,
   ListItemAvatar,
   Divider,
   List,
   ListItem,
-  ListItemButton,
   Stack,
   Avatar,
-  ListItemIcon,
   ListItemText,
 } from "@mui/material";
 import Body from "./Body";
 import { useSelector, useDispatch } from "react-redux";
 import portBakuImg from "../../assets/port-baku-residence_16406207114647.jpg";
 import { useScrollToUp } from "../../hooks/useScrollToUp";
-import portBakuImage from "../../assets/images/port-baku_image.jpg";
-import portBakuAzerbaijan from "../../assets/images/port-baku_azerbaijan.jpg";
+import portBakuImage from "../../assets/logo/port-baku_image.jpg";
+import portBakuAzerbaijan from "../../assets/logo/port-baku_azerbaijan.jpg";
 import Header from "../../components/UI/Header";
-import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
 import { useTranslation } from "react-i18next";
 import { setModal } from "../../app/Slicers/modals";
+import ApartmentIcon from "@mui/icons-material/Apartment";
+import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
 
 const ComplexPanel = () => {
   useScrollToUp();
@@ -154,7 +151,7 @@ const ComplexPanel = () => {
                       component="h1"
                       className="font-semibold text-textDark4 dark:text-text1"
                     >
-                      Port Baku
+                      Port Baku Residence
                     </Typography>
                     <Typography className="text-textDark2 dark:text-text1">
                       {t(["Number of buildings in the complex"])}: 3
@@ -162,22 +159,20 @@ const ComplexPanel = () => {
                   </Box>
                 </Box>
               </Box>
-
-              {/* second column */}
-              <Box className="rounded p-6 dark:text-text1 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg flex-1">
+              <Box className="rounded p-6 dark:text-text1 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg">
                 <Typography
                   className="cursor-pointer select-none text-logoColor hover:text-yellow-600 text-lg w-fit font-semibold"
                   onClick={() =>
                     dispatch(
                       setModal({
                         isOpen: true,
-                        title: "Port Baku",
+                        title: "Port Baku Residence",
                         children: modalData,
                       })
                     )
                   }
                 >
-                  {t("Port Baku")}
+                  {t("Port Baku Residence")}
                 </Typography>
                 <Typography className="text-textDark2">
                   {t("The number of buildings included in the complex")} : 3
@@ -188,10 +183,7 @@ const ComplexPanel = () => {
                     alignItems="flex-start"
                   >
                     <ListItemAvatar>
-                      <Avatar
-                        alt="Remy Sharp"
-                        src="/static/images/avatar/1.jpg"
-                      />
+                      <ApartmentIcon />
                     </ListItemAvatar>
                     <ListItemText
                       className="text-textDark2 dark:text-text1"
@@ -204,10 +196,7 @@ const ComplexPanel = () => {
                     alignItems="flex-start"
                   >
                     <ListItemAvatar>
-                      <Avatar
-                        alt="Travis Howard"
-                        src="/static/images/avatar/2.jpg"
-                      />
+                      <ApartmentIcon />
                     </ListItemAvatar>
                     <ListItemText
                       className="text-textDark2 dark:text-text1"
@@ -220,10 +209,7 @@ const ComplexPanel = () => {
                     alignItems="flex-start"
                   >
                     <ListItemAvatar>
-                      <Avatar
-                        alt="Cindy Baker"
-                        src="/static/images/avatar/3.jpg"
-                      />
+                      <ApartmentIcon />
                     </ListItemAvatar>
                     <ListItemText
                       className="text-textDark2 dark:text-text1"
@@ -266,7 +252,6 @@ const ComplexPanel = () => {
           </Box>
         </Box>
 
-        {/* BODY */}
         <Body />
       </Box>
     </Box>

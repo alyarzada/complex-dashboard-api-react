@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import {
   Table,
@@ -10,6 +9,8 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Box,
+  Typography,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllRequests } from "../../app/Slicers/requests";

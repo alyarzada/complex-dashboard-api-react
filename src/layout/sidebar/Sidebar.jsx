@@ -4,11 +4,11 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useMediaQuery, Box, Stack, Typography } from "@mui/material";
 import SidebarItem from "./SidebarItem";
-import logo from "../../assets/images/logo_sm.png";
-import logoDark from "../../assets/images/logo.png";
-import ios from "../../assets/images/logos/ios.png";
-import android from "../../assets/images/logos/android.png";
-import qrcode from "../../assets/images/logos/qrcode.png";
+import logo from "../../assets/logo/logo_sm.png";
+import logoDark from "../../assets/logo/logo.png";
+import ios from "../../assets/logo/ios.png";
+import android from "../../assets/logo/android.png";
+import qrcode from "../../assets/logo/qrcode.png";
 
 const SideBar = () => {
   const { openedSidebar, leftLight } = useSelector((state) => state.themes);
@@ -58,6 +58,7 @@ const SideBar = () => {
         </Link>
       </Box>
 
+      {/* today date */}
       {openedSidebar ? (
         <Box className="mb-2">
           <Typography className="mx-auto mb-6 text-sm text-center text-text1">
@@ -67,15 +68,21 @@ const SideBar = () => {
         </Box>
       ) : null}
 
+      {/* sidebar navigation list */}
       <nav className="sidebar-nav">
         {sidebar.map((sidebarItem, index) => {
           const Icon = sidebarItem.icon;
           return (
-            <SidebarItem key={index} sidebarItem={sidebarItem} Icon={Icon} />
+            <SidebarItem
+              key={sidebarItem.id}
+              sidebarItem={sidebarItem}
+              Icon={Icon}
+            />
           );
         })}
       </nav>
 
+      {/* navigations images */}
       <Box className="px-3 mt-8 mb-4">
         <Stack
           direction={openedSidebar ? "row" : "column"}

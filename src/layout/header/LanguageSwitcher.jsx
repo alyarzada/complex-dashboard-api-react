@@ -1,17 +1,17 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, MenuItem } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import CustomMenu from "../../components/UI/CustomMenu";
-import az from "../../assets/sidebar/az.jpg";
-import en from "../../assets/sidebar/en.jpg";
-import rus from "../../assets/sidebar/rus-flag1.jpg";
+import CustomMenu from "../../components/UI/Modals/CustomMenu";
+import az from "../../assets/languages/az.jpg";
+import en from "../../assets/languages/en.jpg";
+import rus from "../../assets/languages/rus-flag1.jpg";
 
 export default function LanguageSwitcher() {
   const [openMenu, setOpenMenu] = useState(false);
   const { i18n } = useTranslation();
   const btnRef = useRef(null);
-  
+
   const changeLang = (lng) => {
     i18n.changeLanguage(lng);
   };

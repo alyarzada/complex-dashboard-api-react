@@ -1,19 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
-import CustomDialogModal from "../components/UI/CustomDialogModal";
-import CustomModal from "../components/UI/CustomModal";
-import CustomNestedModal from "../components/UI/CustomNestedModal";
-import {
-  setDialogModal,
-  setModal,
-  setNestedModal,
-} from "../app/Slicers/modals";
+import CustomDialogModal from "../components/UI/Modals/CustomDialogModal";
+import CustomModal from "../components/UI/Modals/CustomModal";
+import { setDialogModal, setModal } from "../app/Slicers/modals";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Modals = () => {
-  const { dialogModal, modal, nestedModal } = useSelector(
-    (state) => state.modals
-  );
+  const { dialogModal, modal } = useSelector((state) => state.modals);
   const dispatch = useDispatch();
 
   return (
@@ -50,18 +43,6 @@ const Modals = () => {
       ) : null}
 
       <ToastContainer />
-
-      {/* {nestedModal.isOpen ? (
-        <CustomNestedModal
-          handleClose={() => {
-            dispatch(setNestedModal({ ...nestedModal, isOpen: false }));
-          }}
-          children={nestedModal.children}
-          status={nestedModal.status}
-          changeStatus={nestedModal.changeStatus}
-          title={nestedModal.title}
-        />
-      ) : null} */}
     </>
   );
 };

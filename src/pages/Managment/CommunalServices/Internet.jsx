@@ -1,11 +1,7 @@
-import React from "react";
-
 import { Typography, Grid, Box } from "@mui/material";
 import { useSelector } from "react-redux";
-import { motion } from "framer-motion";
 import citynet from "../../../assets/communal/citynet_logo_1.png";
 import Header from "../../../components/UI/Header";
-import WifiIcon from "@mui/icons-material/Wifi";
 import { Home } from "@mui/icons-material";
 
 const phoneCategories = [
@@ -38,7 +34,6 @@ const Internet = () => {
                 className="max-w-[82%] max-h-[6rem] align-middle mb-6 transition-transform duration-300 group-hover:-translate-y-2"
               />
             </Box>
-
             <Typography>{title}</Typography>
           </Grid>
         ))}

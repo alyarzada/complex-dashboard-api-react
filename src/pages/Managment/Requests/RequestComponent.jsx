@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -31,7 +31,7 @@ const columns = [
   { field: "date", headerName: "Tarix", width: 200 },
 ];
 
-const RequestComponent = (props) => {
+const RequestComponent = () => {
   const params = useParams();
   const { myRequests, allRequests, status } = useSelector(
     (state) => state.requests

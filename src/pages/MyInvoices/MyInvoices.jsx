@@ -1,24 +1,18 @@
 import { useState, useRef, useEffect } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { DataGrid } from "@mui/x-data-grid";
-// components
 import Header from "../../components/UI/Header";
 import PayButton from "./PayButton";
-// icons
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
-import ReplyIcon from "@mui/icons-material/Reply";
-// redux
 import { useDispatch, useSelector } from "react-redux";
 import { setModal } from "../../app/Slicers/modals";
 import { getSelectedInvoices } from "../../app/Slicers/invoices";
-import GoBackButton from "../../components/UI/GoBackButton";
 import DefaultButton from "../../components/UI/Buttons/DefaultButton";
 
 export const Services = ({ params }) => {
   const ref = useRef(null);
-  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const modalArray = [
@@ -45,15 +39,6 @@ export const Services = ({ params }) => {
           </Box>
         ))}
       </Box>
-      {/* <Box className="flex justify-end">
-        <Button
-          variant="contained"
-          className="capitalize"
-          onClick={() => setOpenModal(false)}
-        >
-          {t(["Close"])}
-        </Button>
-      </Box> */}
     </>
   );
 
@@ -164,10 +149,8 @@ const Myİnvoices = () => {
             >
               {t(["Current invoices"])}
             </DefaultButton>
-            <DefaultButton
-              variant="outlined"
-            >
-             {t(["Paid invoices"])}
+            <DefaultButton variant="outlined">
+              {t(["Paid invoices"])}
             </DefaultButton>
           </Stack>
           <DefaultButton

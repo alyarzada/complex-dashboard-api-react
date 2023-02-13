@@ -3,15 +3,13 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Box, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useScrollToUp } from "../../../hooks/useScrollToUp";
-import GoBackButton from "../../../components/UI/GoBackButton";
 import Header from "../../../components/UI/Header";
-import ActionButtons from "../../../components/UI/ActionButtons";
+import ActionButtons from "../../../components/UI/Buttons/ActionButtons";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import CustomSearchFilter from "../../../components/UI/CustomSearchFilter";
 import { useTranslation } from "react-i18next";
 import DefaultButton from "../../../components/UI/Buttons/DefaultButton";
-
 
 const RenterRegistration = () => {
   const { tenants } = useSelector((state) => state.tenants);
@@ -66,12 +64,11 @@ const RenterRegistration = () => {
           {role_id === 4 ? <CustomSearchFilter /> : null}
           <Box className="flex flex-col mb-6 sm:flex-row justify-end pt-3">
             <DefaultButton
-            variant="contained"
-            onClick={() => navigate("/user-tenant-registration/create-new")}
-            startIcon={<AddCircleOutlineOutlinedIcon />}
+              variant="contained"
+              onClick={() => navigate("/user-tenant-registration/create-new")}
+              startIcon={<AddCircleOutlineOutlinedIcon />}
             >
-            {t("Create new")}
-            
+              {t("Create new")}
             </DefaultButton>
           </Box>
           <DataGrid

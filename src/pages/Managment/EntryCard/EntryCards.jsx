@@ -1,19 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
-import { Box, Button } from "@mui/material";
-import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import { Box } from "@mui/material";
 import { useScrollToUp } from "../../../hooks/useScrollToUp";
-import GoBackButton from "../../../components/UI/GoBackButton";
+import { useTranslation } from "react-i18next";
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import Header from "../../../components/UI/Header";
 import CustomSearchFilter from "../../../components/UI/CustomSearchFilter";
-import ActionButtons from "../../../components/UI/ActionButtons";
+import ActionButtons from "../../../components/UI/Buttons/ActionButtons";
 import CreditCardOutlinedIcon from "@mui/icons-material/CreditCardOutlined";
-import { useTranslation } from "react-i18next";
 import DefaultButton from "../../../components/UI/Buttons/DefaultButton";
 
 const EntryCards = () => {
   const { entryCards } = useSelector((state) => state.entryCards);
+
   const { t } = useTranslation();
   const navigate = useNavigate();
   useScrollToUp();
@@ -47,20 +47,18 @@ const EntryCards = () => {
           <CustomSearchFilter />
           <Box className="flex flex-col mb-6 sm:flex-row justify-end gap-3 pt-6">
             <DefaultButton
-            variant="contained"
-            onClick={() => navigate("/user-card-request/access/create")}
-            startIcon={<AddCircleOutlineOutlinedIcon />}
+              variant="contained"
+              onClick={() => navigate("/user-card-request/access/create")}
+              startIcon={<AddCircleOutlineOutlinedIcon />}
             >
-            {t("New Access card")}
-            
+              {t("New Access card")}
             </DefaultButton>
             <DefaultButton
-            variant="contained"
-            onClick={() => navigate("/user-card-request/parking/create")}
-            startIcon={<AddCircleOutlineOutlinedIcon />}
+              variant="contained"
+              onClick={() => navigate("/user-card-request/parking/create")}
+              startIcon={<AddCircleOutlineOutlinedIcon />}
             >
-            {t("New Parking card")}
-            
+              {t("New Parking card")}
             </DefaultButton>
           </Box>
 

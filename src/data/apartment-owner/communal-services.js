@@ -1,8 +1,8 @@
-import servicePayment from "../../assets/images/menu-panel/pbrlogo.png";
-import utilities from "../../assets/images/menu-panel/utilities.svg";
-import phone from "../../assets/images/menu-panel/telephone.svg";
-import internet from "../../assets/images/menu-panel/internet.svg";
-import cableTv from "../../assets/images/menu-panel/tv.svg";
+import servicePayment from "../../assets/menu-panel/pbrlogo.png";
+import utilities from "../../assets/menu-panel/utilities.svg";
+import phone from "../../assets/menu-panel/telephone.svg";
+import internet from "../../assets/menu-panel/internet.svg";
+import cableTv from "../../assets/menu-panel/tv.svg";
 
 export const mockData = [
   {

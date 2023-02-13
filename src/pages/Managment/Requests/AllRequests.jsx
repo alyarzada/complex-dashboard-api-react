@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
-import RequestDetails from "./RequestDetails";
 import { useTranslation } from "react-i18next";
 
 const variants = {

@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, Stack, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { AddCircle, Inventory } from "@mui/icons-material";

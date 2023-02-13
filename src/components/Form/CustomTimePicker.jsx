@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { TimePicker } from "@mui/x-date-pickers/TimePicker";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { useState, useEffect } from "react";
+import { TimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Box, TextField } from "@mui/material";
 import { useField } from "formik";
@@ -15,7 +14,6 @@ const CustomTimePicker = (props) => {
   }, [value]);
 
   const handleChange = (newValue) => {
-    // setValue(newValue);
     setValue(`${newValue.$H}:${newValue.$m}`);
   };
 

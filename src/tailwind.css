@@ -1,4 +1,4 @@
-  /* tailwind css */
+/* tailwind css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,6 +29,6 @@
     @apply bg-[#727cf5] px-4 py-2 h-full w-full m-0 border-r-0 rounded-r-lg shadow-md text-white font-sans font-normal shadow-[#727cf580];
   }
   .backdrop {
-    @apply fixed top-0 left-0 w-full h-full z-[100] bg-[#00000080];
+    @apply fixed top-0 left-0 w-full h-full z-[100] bg-[#00000080] backdrop-blur-lg;
   }
 }

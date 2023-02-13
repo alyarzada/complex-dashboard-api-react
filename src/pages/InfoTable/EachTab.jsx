@@ -1,15 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import {
   Stack,
   Box,
   Typography,
   ListItemText,
-  Divider,
   ListItem,
   Button,
   List,
 } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import ZoomInOutlinedIcon from "@mui/icons-material/ZoomInOutlined";
@@ -21,14 +20,13 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { useTranslation } from "react-i18next";
-import imageNotFound from "../../assets/image-not-found.jpg";
+import imageNotFound from "../../assets/tabone-slider/image-not-found.jpg";
 
 const EachTab = ({ datas }) => {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
-
   const [showModal, setShowModal] = useState(false);
   const [fullImage, setFullImage] = useState("");
+  const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
     <motion.div
@@ -55,7 +53,6 @@ const EachTab = ({ datas }) => {
                 onClick={() => {
                   setShowModal(true);
                   setFullImage("w-[40%] h-[70%]");
-                  console.log("salam");
                 }}
               />
               <Button
@@ -107,8 +104,6 @@ const EachTab = ({ datas }) => {
             >
               <CloseOutlinedIcon color="action" />
             </button>
-
-            {/* <h1 className="bg-red-400">salamammm</h1> */}
           </div>
         )}
 

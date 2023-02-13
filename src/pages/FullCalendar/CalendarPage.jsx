@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Formik, Form } from "formik";
@@ -14,7 +14,6 @@ import CustomTextField from "../../components/Form/CustomTextField";
 import CustomTimePicker from "../../components/Form/CustomTimePicker";
 import ReplyIcon from "@mui/icons-material/Reply";
 import Header from "../../components/UI/Header";
-// import "@fullcalendar/core/main.css";
 import "./styles/styles.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
@@ -22,7 +21,6 @@ import { setModal } from "../../app/Slicers/modals";
 
 const CalendarPage = () => {
   const { light } = useSelector((state) => state.themes);
-  const [eventCreateModal, setEventCreateModal] = useState(false);
   const [date, setDate] = useState(new Date());
   const [calendarEvents, setCalendarEvents] = useState([]);
   const [events, setEvents] = useState([
@@ -152,7 +150,6 @@ const CalendarPage = () => {
             start: new Date(`${values.date.dateStr} 00:00`),
           },
         ]);
-        setEventCreateModal(false);
       }}
     >
       {() => (
@@ -166,12 +163,7 @@ const CalendarPage = () => {
           <CustomTimePicker label="Başlanğıc saatı" name="startTime" />
           <CustomTimePicker label="Bitmə saatı" name="endTime" />
           <Box className="flex gap-x-2 my-3 justify-end">
-            <Button
-              onClick={() => setEventCreateModal(false)}
-              type="button"
-              variant="outlined"
-              color="error"
-            >
+            <Button type="button" variant="outlined" color="error">
               Ləğv et
             </Button>
             <Button type="submit" variant="contained" color="success">
@@ -234,13 +226,6 @@ const CalendarPage = () => {
               eventBackgroundColor="green"
               eventColor="white"
               dateClick={handleDateClick}
-              // drop={(e) => console.log(e.draggedEl)}
-              // eventDrop={this.drop}
-              // eventReceive={(e) => console.log(e)}
-              // ref={calendarComponentRef}
-              // weekends={this.state.calendarWeekends}
-              // drop={this.drop}
-              // eventReceive={this.eventReceive}
             />
           </Box>
         </Box>

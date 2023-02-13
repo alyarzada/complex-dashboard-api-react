@@ -15,7 +15,7 @@ import { addToCard } from "../../app/Slicers/restaurantMenu";
 import { setModal } from "../../app/Slicers/modals";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
-import manatWhite from "../../assets/restaurantMenus/manatWhite.png"
+import manatWhite from "../../assets/logo/manatWhite.png";
 
 const Meal = ({ item }) => {
   const { img, name, price, description, id } = item;
@@ -92,7 +92,13 @@ const Meal = ({ item }) => {
         >
           <Typography className="flex items-center text-text1">
             <span className="text-logoColor font-bold">Mebleg:</span>{" "}
-            {price * mealCounter} <img className="ml-1 mb-[3px]" src={manatWhite} width={16} height={16}/>
+            {price * mealCounter}{" "}
+            <img
+              className="ml-1 mb-[3px]"
+              src={manatWhite}
+              width={16}
+              height={16}
+            />
           </Typography>
 
           {card.includes(card.find((item) => item.id === id)) ? (
@@ -142,7 +148,13 @@ const Meal = ({ item }) => {
           />
           <Box className="h-20 flex justify-end items-center px-6 py-4">
             <Typography className="dark:text-white flex items-center font-bold text-lg">
-              {price} <img className="ml-1 mb-[3px]" src={manatWhite} width={16} height={16}/>
+              {price}{" "}
+              <img
+                className="ml-1 mb-[3px]"
+                src={manatWhite}
+                width={16}
+                height={16}
+              />
             </Typography>
           </Box>
           <Typography className="dark:text-logoColor mt-2 font-[500]">

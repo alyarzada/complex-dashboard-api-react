@@ -1,12 +1,8 @@
 import { useEffect } from "react";
 import { Box } from "@mui/material";
-
 import Contact from "./Contact";
-import { useScrollToUp } from "../../hooks/useScrollToUp";
-import GoBackButton from "../../components/UI/GoBackButton";
 import Header from "../../components/UI/Header";
 import { useTranslation } from "react-i18next";
-
 import PhoneIcon from "@mui/icons-material/Phone";
 import { getAllContacts } from "../../app/Slicers/contacts";
 import { useDispatch, useSelector } from "react-redux";

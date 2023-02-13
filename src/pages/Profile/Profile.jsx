@@ -1,20 +1,15 @@
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { useSelector } from "react-redux";
-import { Box, Button, Typography, Avatar } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Typography, Avatar } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import ProfileForm from "./ProfileForm";
 import Header from "../../components/UI/Header";
-
 import FlipCameraIosOutlinedIcon from "@mui/icons-material/FlipCameraIosOutlined";
-import ReplyIcon from "@mui/icons-material/Reply";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
 const Profile = () => {
   const [firstLetters, setFirstLetters] = useState(null);
-  const [defaultDate, setDefaultDate] = useState(null);
-  const [date, setDate] = useState(null);
   const { t } = useTranslation();
   const {
     user: {
@@ -23,17 +18,53 @@ const Profile = () => {
       name,
       has_role,
       username,
-      phone,
+      notifi_phone,
     },
-
     user,
   } = useSelector((state) => state.auth);
-  console.log(user);
 
-  // Reverse Birthday
+  const personalDetails = [
+    {
+      id: 1,
+      label: "Apartment owner",
+      value: name,
+    },
+    {
+      id: 2,
+      label: "Username",
+      value: username,
+    },
+    {
+      id: 3,
+      label: "Gender",
+      value: gender,
+    },
+    {
+      id: 4,
+      label: "Date of birth",
+      value: birthday ? reverseBirthday(birthday) : null,
+    },
+    {
+      id: 5,
+      label: "Telephone number",
+      value: notifi_phone,
+    },
+    {
+      id: 6,
+      label: "Addition Phone number",
+      value: notifi_phone,
+    },
+    {
+      id: 7,
+      label: "Email address",
+      value: email,
+    },
+  ];
+
+  console.log(gender);
+
   const reverseBirthday = (birthdayDate) => {
-    const reversedDate = format(new Date(birthday), "dd/MM/yyyy");
-    return reversedDate;
+    return format(new Date(birthdayDate), "dd/MM/yyyy");
   };
 
   useEffect(() => {
@@ -77,42 +108,33 @@ const Profile = () => {
           {/* second row */}
           <Box className="mt-5 text-text4">
             <ul>
-              <li className="font-bold text-sm my-2">
-                {t(["Apartment owner"])}:{" "}
-                <span className="font-normal ml-2">{name}</span>
-              </li>
-              <li className="font-bold text-sm my-2">
-                {t(["Username"])}:{" "}
-                <span className="font-normal ml-2">{username}</span>
-              </li>
-              <li className="font-bold text-sm my-2">
-                {t(["Gender"])}:{" "}
-                <span className="font-normal ml-2">{t(gender)}</span>
-              </li>
-              <li className="font-bold text-sm my-2">
-                {t(["Date of birth"])}:{" "}
-                <span className="font-normal ml-2">
-                  {reverseBirthday(birthday)}
-                </span>
-              </li>
-              <li className="font-bold text-sm my-2">
-                {t(["Telephone number"])}:{" "}
-                <span className="font-normal ml-2">0554264434</span>
-              </li>
-              <li className="font-bold text-sm my-2">
-                {t(["Addition Phone number"])}:{" "}
-                <span className="font-normal ml-2">0554264434</span>
-              </li>
-              <li className="font-bold text-sm my-2">
-                {t(["Email address"])}:{" "}
-                <span className="font-normal ml-2">{email}</span>
-              </li>
+              {personalDetails.map((detail) => {
+                if (detail.value === "female" || detail.value === "male") {
+                  return (
+                    <li className="font-bold text-sm my-2" key={detail.id}>
+                      {t(detail.label)}:{" "}
+                      <span className="font-normal ml-2">
+                        {t(
+                          detail.value.charAt(0).toUpperCase() +
+                            detail.value.slice(1)
+                        )}
+                      </span>
+                    </li>
+                  );
+                }
+                return (
+                  <li className="font-bold text-sm my-2" key={detail.id}>
+                    {t(detail.label)}:{" "}
+                    <span className="font-normal ml-2">{t(detail.value)}</span>
+                  </li>
+                );
+              })}
             </ul>
           </Box>
         </Box>
 
         <Box className="bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary p-6 rounded w-full md:w-[61%] min-h-[500px]">
-          <ProfileForm userData={user} />
+          <ProfileForm user={user} />
         </Box>
       </Box>
     </Box>

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   Box,
   IconButton,
@@ -7,12 +7,12 @@ import {
   Badge,
   Button,
   Stack,
-  Tooltip
+  Tooltip,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import CustomMenu from "../../components/UI/CustomMenu";
+import CustomMenu from "../../components/UI/Modals/CustomMenu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 import { getAllNotifications } from "../../app/Slicers/notifications";
@@ -21,7 +21,7 @@ import { format } from "date-fns";
 
 export default function Notifications() {
   const [openMenu, setOpenMenu] = useState(false);
-  const { notifications, status } = useSelector((state) => state.notifications);
+  const { notifications } = useSelector((state) => state.notifications);
   const { t } = useTranslation();
   const navigate = useNavigate();
   const btnRef = useRef(null);
@@ -33,14 +33,13 @@ export default function Notifications() {
 
   return (
     <Box className="relative">
-    
       <Tooltip title={t("Notifications")} arrow>
-      <IconButton>
-      <Badge badgeContent={notifications.length} color="error">
-      <NotificationsIcon />
-    </Badge>
-      </IconButton>
-    </Tooltip>
+        <IconButton onClick={() => setOpenMenu(true)}>
+          <Badge badgeContent={notifications.length} color="error">
+            <NotificationsIcon />
+          </Badge>
+        </IconButton>
+      </Tooltip>
 
       {openMenu ? (
         <CustomMenu

@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Box, Typography, Fab, useMediaQuery } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import Category from "./Category";
 import { setShowCardIcon } from "../../app/Slicers/themes";
 import { useScrollToUp } from "../../hooks/useScrollToUp";
 import Header from "../../components/UI/Header";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router-dom";
 import RestaurantMenuIcons from "@mui/icons-material/RestaurantMenu";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
@@ -49,11 +48,15 @@ const Menu = () => {
       {card.length > 0 ? (
         <Fab
           variant="extended"
-          className={`fixed ${openedSidebar ? "w-[calc(100%-266px)] md:left-[256px] ": "w-[96%] left-[2%] md:w-[calc(100%-100px)] md:left-[90px]"} right-[10px] bottom-5 lowercase bg-green-500 text-black overflow-hidden rounded-lg`}
+          className={`fixed ${
+            openedSidebar
+              ? "w-[calc(100%-266px)] md:left-[256px] "
+              : "w-[96%] left-[2%] md:w-[calc(100%-100px)] md:left-[90px]"
+          } right-[10px] bottom-5 lowercase bg-green-500 text-black overflow-hidden rounded-lg`}
           onClick={() => navigate("/restaurant-menu-orders/card")}
         >
           <Box className="animated-container w-full justify-center flex items-center">
-          <ShoppingCartCheckoutIcon className="mr-1 text-white" />
+            <ShoppingCartCheckoutIcon className="mr-1 text-white" />
             <Typography className="animated-text text-white font-semibold">
               {" "}
               <span className="capitalize text-white">Səbətinizə</span> keçin

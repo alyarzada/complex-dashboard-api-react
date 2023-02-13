@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 
@@ -7,7 +6,7 @@ const variants = {
   hidden: { opacity: 0, y: 50 },
 };
 
-const RequestComponent = (props) => {
+const RequestComponent = () => {
   const params = useParams();
   return (
     <motion.div
