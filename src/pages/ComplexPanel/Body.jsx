@@ -179,7 +179,7 @@ const Body = () => {
                     {user?.name}
                   </Typography>
                   <Typography className="text-textDark3 text-sm">
-                    {user?.has_role.role_name}
+                    {t(user?.has_role.role_name)}
                   </Typography>
                 </Box>
               </Stack>

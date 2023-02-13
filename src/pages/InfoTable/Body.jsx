@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation} from "react-i18next";
+import { Link } from "react-router-dom";
 import { Box, Typography, Tabs, Tab } from "@mui/material";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useSelector } from "react-redux";
 import ViewInArIcon from "@mui/icons-material/ViewInAr";
 import HomeIcon from "@mui/icons-material/Home";
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 import EachTab from "./EachTab";
@@ -157,6 +159,17 @@ const Body = () => {
               </div>
               {...a11yProps(3)}
             />
+            <Link to="/contact" className="text-white">
+            
+            <Tab
+              className="capitalize"
+              label=<div>
+                <LocalPhoneOutlinedIcon className="mr-0.5 w-5 mb-1" />
+                {t(["Contact"])}
+              </div>
+              {...a11yProps(4)}
+            />
+            </Link>
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>

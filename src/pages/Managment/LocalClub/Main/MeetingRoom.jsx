@@ -33,7 +33,7 @@ import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
 import CustomDigitalTimePicker from "../../../../components/Form/CustomDigitalTimePicker";
 import { BronMeetingRoomSchema } from "../../../../validations/leisureclub/meetinRoomVal";
 import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
-import CustomDataGrid from "../../../../components/UI/CustomDataGrid"
+import CustomDataGrid from "../../../../components/UI/CustomDataGrid";
 
 const optionsTime = [
   { value: "00:10", label: "10 dəqiqə" },
@@ -154,7 +154,7 @@ const MeetingRoom = () => {
       key: "delete",
       label: t("Delete"),
       width: 150,
-      render: (value,data) => {
+      render: (value, data) => {
         return <DeleteBookedRooms params={data} />;
       },
     },
@@ -496,7 +496,6 @@ const MeetingRoom = () => {
               })}
               width={630}
               status={bookedRooms.status}
-
             />
           </Box>
         </Box>

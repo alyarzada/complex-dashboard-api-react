@@ -133,10 +133,10 @@ const RequestPanel = () => {
             </FormControl>
           </Box>
         </Box>
-        <CustomDataGrid 
-          mobileColumns={mobileColumns} 
-          status={status} 
-          rows={dataTableRequests} 
+        <CustomDataGrid
+          mobileColumns={mobileColumns}
+          status={status}
+          rows={dataTableRequests}
           desktopColumns={desktopColumns}
           width={1151}
         />

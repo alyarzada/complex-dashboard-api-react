@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
-import { Box ,Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useScrollToUp } from "../../../hooks/useScrollToUp";
 import { useTranslation } from "react-i18next";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
@@ -10,7 +10,7 @@ import CustomSearchFilter from "../../../components/UI/CustomSearchFilter";
 import ActionButtons from "../../../components/UI/Buttons/ActionButtons";
 import CreditCardOutlinedIcon from "@mui/icons-material/CreditCardOutlined";
 import DefaultButton from "../../../components/UI/Buttons/DefaultButton";
-import CustomDataGrid from "../../../components/UI/CustomDataGrid"
+import CustomDataGrid from "../../../components/UI/CustomDataGrid";
 import { Link } from "react-router-dom";
 
 const EntryCards = () => {
@@ -119,12 +119,11 @@ const EntryCards = () => {
 
           <Box>
             <CustomDataGrid
-                  desktopColumns={columns}
-                  mobileColumns={mobileColumns}
-                  rows={entryCards}
-                  width={630}
-                  status={entryCards.status}
-
+              desktopColumns={columns}
+              mobileColumns={mobileColumns}
+              rows={entryCards}
+              width={630}
+              status={entryCards.status}
             />
           </Box>
         </Box>

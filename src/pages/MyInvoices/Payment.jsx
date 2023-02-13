@@ -6,7 +6,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import Header from "../../components/UI/Header";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import SuccessButton from "../../components/UI/Buttons/SuccessButton";
-import CustomDataGrid from "../../components/UI/CustomDataGrid"
+import CustomDataGrid from "../../components/UI/CustomDataGrid";
 import { Link } from "react-router-dom";
 
 const Payment = () => {
@@ -127,7 +127,6 @@ const Payment = () => {
               }))}
               width={400}
               status={selectedInvoices.status}
-
             />
             <Stack
               direction="row"
@@ -139,11 +138,11 @@ const Payment = () => {
                 Total:{" "}
                 {selectedInvoices.length > 0
                   ? selectedInvoices.reduce(
-                    (acc, item) => acc + item.amount,
-                    0
-                  ) +
-                  " " +
-                  "AZN"
+                      (acc, item) => acc + item.amount,
+                      0
+                    ) +
+                    " " +
+                    "AZN"
                   : 0 + " " + "azn"}
               </Typography>
               <SuccessButton variant="contained">{t("Pay")}</SuccessButton>

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
-import CustomDataGrid from "../../../components/UI/CustomDataGrid"
+import CustomDataGrid from "../../../components/UI/CustomDataGrid";
 import { useTranslation } from "react-i18next";
 
 const variants = {
@@ -51,9 +51,7 @@ const RequestComponent = () => {
       label: t("Applicant"),
       width: 200,
       render: (value, data) => {
-        return <Link to={`details/${data.id}`}>
-          {data.name}
-        </Link>;
+        return <Link to={`details/${data.id}`}>{data.name}</Link>;
       },
     },
     {
@@ -125,7 +123,6 @@ const RequestComponent = () => {
         rows={filteredRequests?.length > 0 ? filteredRequests : []}
         width={630}
         status={filteredRequests.status}
-
       />
     </motion.div>
   );
