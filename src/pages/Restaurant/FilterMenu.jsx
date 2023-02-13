@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";

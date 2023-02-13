@@ -10,11 +10,9 @@ import { LoadingButton } from "@mui/lab";
 import "react-toastify/dist/ReactToastify.css";
 
 // components
-import GoBackButton from "../../../../components/UI/GoBackButton";
 import Header from "../../../../components/UI/Header";
 import Calendar from "./Calendar";
 import DeleteBookedMassage from "../Components/DeleteBookedMassage";
-import NewCustomTimePicker from "../../../../components/Form/NewCustomTimePicker";
 import CustomTextField from "../../../../components/Form/CustomTextField";
 import CustomSelect from "../../../../components/Form/CustomSelect";
 import { BronMassageSchema } from "../../../../validations/leisureclub/massageVal";
@@ -34,6 +32,7 @@ import WomanIcon from "@mui/icons-material/Woman";
 import { setModal } from "../../../../app/Slicers/modals";
 import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
 import CustomDigitalTimePicker from "../../../../components/Form/CustomDigitalTimePicker";
+import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
 
 //multiselect
 const optionsMassage = [
@@ -376,9 +375,8 @@ const Massage = () => {
                 Sabina
               </Button>
             </Box>
-            <Button
+            <DefaultButton
               startIcon={<AddCircleOutlineOutlinedIcon />}
-              className="capitalize btn-danger"
               variant="contained"
               onClick={() =>
                 dispatch(
@@ -390,7 +388,7 @@ const Massage = () => {
               }
             >
               {t("New Reservation")}
-            </Button>
+            </DefaultButton>
           </Box>
 
           <Calendar

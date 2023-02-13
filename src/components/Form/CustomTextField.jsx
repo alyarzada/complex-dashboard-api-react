@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { TextField, Box, InputAdornment, IconButton } from "@mui/material";
 import { useField } from "formik";
-import InputMask from "react-input-mask";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import InputMask from "react-input-mask";
 
 const CustomTextField = ({
   component,

@@ -1,4 +1,3 @@
-import React from "react";
 import { Typography, Box, Avatar, Skeleton } from "@mui/material";
 import { useSelector } from "react-redux";
 

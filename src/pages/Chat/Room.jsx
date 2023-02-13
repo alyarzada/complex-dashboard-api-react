@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Avatar, Typography, IconButton } from "@mui/material";
 import ReplyIcon from "@mui/icons-material/Reply";
 import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";

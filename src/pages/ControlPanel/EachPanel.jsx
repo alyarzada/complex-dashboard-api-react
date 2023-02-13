@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { Typography, Box, Stack } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { appendModal } from "../../app/Slicers/modals";
 

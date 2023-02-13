@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Stack, Typography } from "@mui/material";
-import LoadingButton from "@mui/lab/LoadingButton";
 import { useSelector, useDispatch } from "react-redux";
 import { Formik, Form } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +9,7 @@ import { loginHandler } from "../app/Slicers/auth";
 import CustomTextField from "../components/Form/CustomTextField";
 import LoginIcon from "@mui/icons-material/Login";
 import Cookies from "js-cookie";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 const LoginWithUserName = () => {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const LoginWithUserName = () => {
         validateOnFocus={false}
         validationSchema={LoginSchema}
       >
-        {({ errors, touched, values, isValidating, isSubmitting }) => (
+        {({ errors, touched }) => (
           <Form>
             <CustomTextField
               name="username"
@@ -45,10 +45,10 @@ const LoginWithUserName = () => {
 
             <CustomTextField
               label="Şifrənizi daxil edin"
+              type="password"
               name="password"
               variant="outlined"
-              className="mb-3 rounded"
-              adornments
+              className="mb-3  rounded"
             />
             {(errors.username || errors.password) &&
             (touched.username || touched.password) ? (

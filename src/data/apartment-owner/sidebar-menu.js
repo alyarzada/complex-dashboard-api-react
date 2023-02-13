@@ -1,6 +1,4 @@
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
-import BusinessCenterOutlinedIcon from "@mui/icons-material/BusinessCenterOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
@@ -42,15 +40,15 @@ export const sidebarMenu = [
   },
   {
     id: 5,
-    title: "Communal Services",
-    icon: ViewComfyAltOutlinedIcon,
-    path: "/communalservices",
-  },
-  {
-    id: 6,
     title: "Requests",
     icon: CommentOutlinedIcon,
     path: "/requests",
+  },
+  {
+    id: 6,
+    title: "Communal Services",
+    icon: ViewComfyAltOutlinedIcon,
+    path: "/communalservices",
   },
   {
     id: 7,

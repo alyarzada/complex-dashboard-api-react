@@ -1,35 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useField } from "formik";
 import { useTranslation } from "react-i18next";
 import { TextField, Box, FormHelperText } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import dayjs from "dayjs";
-
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
 
 const CustomDatePicker = ({
   htmlFor,
   label,
   defaultValue,
   className,
-  containerClassName,
   calendar,
-  errorMessage,
   ...props
 }) => {
   const { t } = useTranslation();
@@ -49,14 +31,13 @@ const CustomDatePicker = ({
   };
 
   return (
-    <Box className={containerClassName}>
+    <Box className={`mb-6 ${className}`}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DesktopDatePicker
-          className={className}
+          className="w-full"
           label={label}
           value={date}
           onChange={dataStartHandler}
-          // inputFormat="YYYY/MM/DD"W
           inputFormat="DD/MM/YYYY"
           renderInput={(params) => (
             <TextField
@@ -72,8 +53,8 @@ const CustomDatePicker = ({
           )}
         />
         {meta.error && meta.touched ? (
-          <FormHelperText className="text-red-500">
-            {errorMessage}
+          <FormHelperText className="text-red-500 ml-3">
+            Tarix seçin!
           </FormHelperText>
         ) : null}
       </LocalizationProvider>

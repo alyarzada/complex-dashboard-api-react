@@ -1,20 +1,18 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation} from "react-i18next";
+import { Link } from "react-router-dom";
 import { Box, Typography, Tabs, Tab } from "@mui/material";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useSelector } from "react-redux";
-import PropTypes from "prop-types";
-import GoBackButton from "../../components/UI/GoBackButton";
-import "leaflet/dist/leaflet.css";
 import ViewInArIcon from "@mui/icons-material/ViewInAr";
 import HomeIcon from "@mui/icons-material/Home";
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 import EachTab from "./EachTab";
+import "leaflet/dist/leaflet.css";
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
+function TabPanel({ children, value, index, ...other }) {
   return (
     <div
       role="tabpanel"
@@ -32,12 +30,6 @@ function TabPanel(props) {
   );
 }
 
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
@@ -50,7 +42,7 @@ const Body = () => {
   const [value, setValue] = useState(0);
   const { informations } = useSelector((state) => state.informations);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (e, newValue) => {
     setValue(newValue);
   };
 
@@ -167,6 +159,17 @@ const Body = () => {
               </div>
               {...a11yProps(3)}
             />
+            <Link to="/contact" className="text-white">
+            
+            <Tab
+              className="capitalize"
+              label=<div>
+                <LocalPhoneOutlinedIcon className="mr-0.5 w-5 mb-1" />
+                {t(["Contact"])}
+              </div>
+              {...a11yProps(4)}
+            />
+            </Link>
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>

@@ -1,4 +1,3 @@
-import React from "react";
 import { Typography, Box } from "@mui/material";
 import { ReactSortable } from "react-sortablejs";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,9 +6,9 @@ import { useTranslation } from "react-i18next";
 import EachPanel from "./EachPanel";
 
 const DashboardPanel = ({ title, panels, id }) => {
+  const { isDraggable } = useSelector((state) => state.themes);
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { isDraggable } = useSelector((state) => state.themes);
 
   return (
     <Box className="mb-6">

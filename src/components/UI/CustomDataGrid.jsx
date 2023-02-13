@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   Box,
   Typography,
   Pagination,
   useMediaQuery,
+  Stack,
 } from "@mui/material";
 import {
   DataGrid,
@@ -15,23 +16,13 @@ import {
   useGridSelector,
 } from "@mui/x-data-grid";
 import { getAllRequests } from "../../app/Slicers/requests";
-import ResponsivePagination from "./ResponsivePagination"
+import ResponsivePagination from "./ResponsivePagination";
 import Cookies from "js-cookie";
-import Stack from '@mui/material/Stack';
-import { makeStyles } from "@material-ui/core/styles";
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
   const page = useGridSelector(apiRef, gridPageSelector);
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
-const useStyles = makeStyles(() => ({
-  ul: {
-    "& .MuiPaginationItem-root": {
-      color: "#fff"
-    }
-  }
-}));
-const classes = useStyles();
   return (
     <Pagination
       color="primary"
@@ -39,15 +30,20 @@ const classes = useStyles();
       page={page + 1}
       className="text-white"
       onChange={(event, value) => apiRef.current.setPage(value - 1)}
-      classes={{ ul: classes.ul }}
     />
   );
 }
-const RequestPanel = ({mobileColumns, desktopColumns, status, rows, width}) => {
-    const [paginationPage, setPaginationPage] = useState(1);
-    const handleChange = (event, value) => {
-        setPaginationPage(value);
-    };
+const RequestPanel = ({
+  mobileColumns,
+  desktopColumns,
+  status,
+  rows,
+  width,
+}) => {
+  const [paginationPage, setPaginationPage] = useState(1);
+  const handleChange = (event, value) => {
+    setPaginationPage(value);
+  };
   const matches = useMediaQuery("(min-width:768px)");
 
   // const { data } = useDemoData({
@@ -64,7 +60,14 @@ const RequestPanel = ({mobileColumns, desktopColumns, status, rows, width}) => {
   }, []);
   return (
     <Box>
-      <Box style={matches==false?{ height :"auto", width: "100%" }:{height:width,width:"100%"}} className="mt-4 md:mt-0">
+      <Box
+        style={
+          matches == false
+            ? { height: "auto", width: "100%" }
+            : { height: width, width: "100%" }
+        }
+        className="mt-4 md:mt-0"
+      >
         {matches ? (
           <DataGrid
             rows={rows}
@@ -80,14 +83,22 @@ const RequestPanel = ({mobileColumns, desktopColumns, status, rows, width}) => {
         ) : status === "loading" ? (
           <Typography className="text-text1">Loading...</Typography>
         ) : (
-            <Stack spacing={2} >
-                <ResponsivePagination page={paginationPage} data={rows} columns={mobileColumns}/>
-                <Pagination count={rows.length/10} page={paginationPage} onChange={handleChange} />
-            </Stack>
-        //   <ResponsiveTable
-        //     columns={mobileColumns}
-        //     data={rows}
-        //   />
+          <Stack spacing={2}>
+            <ResponsivePagination
+              page={paginationPage}
+              data={rows}
+              columns={mobileColumns}
+            />
+            <Pagination
+              count={rows.length / 10}
+              page={paginationPage}
+              onChange={handleChange}
+            />
+          </Stack>
+          //   <ResponsiveTable
+          //     columns={mobileColumns}
+          //     data={rows}
+          //   />
         )}
       </Box>
     </Box>
@@ -95,4 +106,3 @@ const RequestPanel = ({mobileColumns, desktopColumns, status, rows, width}) => {
 };
 
 export default RequestPanel;
-  

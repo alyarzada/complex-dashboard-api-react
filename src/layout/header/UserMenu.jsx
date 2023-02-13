@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   Box,
   MenuItem,
@@ -7,20 +7,15 @@ import {
   Typography,
   Divider,
 } from "@mui/material";
+import { deepOrange, deepPurple } from "@mui/material/colors";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
-import CustomMenu from "../../components/UI/CustomMenu";
+import CustomMenu from "../../components/UI/Modals/CustomMenu";
 import { logoutHandler } from "../../app/Slicers/auth";
 import Cookies from "js-cookie";
-
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
-import TelegramIcon from "@mui/icons-material/Telegram";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 
 const userMenu = [
@@ -30,34 +25,9 @@ const userMenu = [
     path: "/profile",
   },
   {
-    icon: <TelegramIcon className="text-lg mr-2" />,
-    content: "Chat",
-    path: "/chat",
-  },
-  {
-    icon: <AdminPanelSettingsOutlinedIcon className="text-lg mr-2" />,
-    content: "Dashboard",
-    path: "/",
-  },
-  {
-    icon: <NotificationsOutlinedIcon className="text-lg mr-2" />,
-    content: "Notifications",
-    path: "/notifications",
-  },
-  {
-    icon: <CommentOutlinedIcon className="text-lg mr-2" />,
-    content: "Requests",
-    path: "/requests",
-  },
-  {
     icon: <LocalPhoneOutlinedIcon className="text-lg mr-2" />,
     content: "Contact",
     path: "/contact",
-  },
-  {
-    icon: <NewspaperOutlinedIcon className="text-lg mr-2" />,
-    content: "Complex Wall",
-    path: "/complexpanel",
   },
   {
     icon: <LogoutIcon className="text-lg mr-2" />,
@@ -68,13 +38,13 @@ const userMenu = [
 const UserMenu = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [firstLetters, setFirstLetters] = useState(null);
+  const [randomColor, setRandomColor] = useState("");
   const {
     user: {
       has_role: { role_name },
       name,
       username,
     },
-    user,
     status,
   } = useSelector((state) => state.auth);
 
@@ -92,7 +62,11 @@ const UserMenu = () => {
     });
   }, [status]);
 
-  const handleClick = () => setOpenMenu((prev) => !prev);
+  useEffect(() => {
+    let hex = Math.floor(Math.random() * 0xffffff);
+    let color = "#" + hex.toString(16);
+    setRandomColor(color);
+  }, []);
 
   return (
     <Box className="relative">
@@ -102,10 +76,16 @@ const UserMenu = () => {
         justifyContent="center"
         spacing={1}
         className="bg-slate-200 dark:bg-slate-600 p-2 rounded cursor-pointer"
-        onClick={handleClick}
+        onClick={() => setOpenMenu((prev) => !prev)}
         ref={btnRef}
       >
-        <Avatar alt={firstLetters} className="cursor-pointer">
+        <Avatar
+          style={{
+            backgroundColor: randomColor,
+          }}
+          alt={firstLetters}
+          className="cursor-pointer text-text1"
+        >
           <Typography className="text-sm">{firstLetters}</Typography>
         </Avatar>
         <Box className="hidden md:flex md:flex-col md:items-center md:justify-center">

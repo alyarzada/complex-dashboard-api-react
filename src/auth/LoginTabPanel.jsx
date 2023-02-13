@@ -1,15 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { Tabs, Tab, Typography, Box } from "@mui/material";
 import LoginWithPhoneNumber from "./LoginWithPhoneNumber";
 import LoginWithUserName from "./LoginWithUserName";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/logo/logo.png";
+import { useState } from "react";
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
+function TabPanel({ children, value, index, ...other }) {
   return (
-    <div
+    <Box
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
@@ -21,15 +18,9 @@ function TabPanel(props) {
           <Typography>{children}</Typography>
         </Box>
       )}
-    </div>
+    </Box>
   );
 }
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
 
 function a11yProps(index) {
   return {
@@ -39,24 +30,31 @@ function a11yProps(index) {
 }
 
 const LoginTabPanel = () => {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
-    <Box className='color-blue w-full bg-[#0f172ac5] lg:bg-transparent px-3 rounded' sx={{
-      marginBottom: '10px',
-      paddingTop: '40px',
-      maxWidth: 'sm'
-    }}>
+    <Box
+      className="color-blue w-full bg-[#0f172ac5] lg:bg-transparent px-3 rounded"
+      sx={{
+        marginBottom: "10px",
+        paddingTop: "40px",
+        maxWidth: "sm",
+      }}
+    >
       <Box className="w-full mb-10 relative z-10">
-        <img className="w-28 lg:w-40 mx-auto block" src={logo} alt="port-baku-logo" />
+        <img
+          className="w-28 lg:w-40 mx-auto block"
+          src={logo}
+          alt="port-baku-logo"
+        />
       </Box>
-        <Typography className="text-text1 text-xl mb-4 relative z-10 text-center z-10">
-          Daxil olun
-        </Typography>
+      <Typography className="text-text1 text-xl mb-4 relative text-center z-10">
+        Daxil olun
+      </Typography>
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs

@@ -1,5 +1,4 @@
-// Tunar
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { Box } from "@mui/material";
@@ -32,6 +31,9 @@ const Home = () => {
       dispatch(getDashboardPanels(dashboardPanels));
       dispatch(getSidebarData(sidebarMenu));
     } else if (role_id === 4) {
+      dispatch(getDashboardPanels(adminDashboardPanels));
+      dispatch(getSidebarData(adminSidebarMenu));
+    } else if (role_id === 9) {
       dispatch(getDashboardPanels(adminDashboardPanels));
       dispatch(getSidebarData(adminSidebarMenu));
     } else if (role_id === 9) {

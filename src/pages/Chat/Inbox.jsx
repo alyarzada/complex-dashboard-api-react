@@ -1,6 +1,6 @@
-import React from "react";
-import { Box, Avatar, Typography } from "@mui/material";
-
+import { Box, Avatar, Typography, IconButton } from "@mui/material";
+import ReplyIcon from "@mui/icons-material/Reply";
+import { useNavigate } from "react-router-dom";
 const users = [
   {
     id: 1,
@@ -30,6 +30,7 @@ const users = [
 ];
 
 const Inbox = () => {
+  const navigate = useNavigate();
   return (
     <Box className="h-screen fixed overflow-auto bg-white w-[400px] border-r">
       <Box className="fixed w-[400px] h-[50px] p-3">
@@ -57,6 +58,13 @@ const Inbox = () => {
             <Typography className="text-xs">19:45</Typography>
           </Box>
         ))}
+        <IconButton
+          onClick={() => navigate(-1)}
+          className="bg-[#C9B26D] fixed bottom-5 left-4 z-[9999] sizeLarge drop-shadow-lg"
+          size="large"
+        >
+          <ReplyIcon className="text-white" />
+        </IconButton>
       </Box>
     </Box>
   );

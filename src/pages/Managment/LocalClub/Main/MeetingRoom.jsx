@@ -17,13 +17,11 @@ import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 // components
-import GoBackButton from "../../../../components/UI/GoBackButton";
 import Header from "../../../../components/UI/Header";
 import Calendar from "./Calendar";
 import DeleteBookedRooms from "../Components/DeleteBookedRooms";
 import CustomSelect from "../../../../components/Form/CustomSelect";
 import CustomTextField from "../../../../components/Form/CustomTextField";
-import NewCustomTimePicker from "../../../../components/Form/NewCustomTimePicker";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
@@ -34,6 +32,7 @@ import { changeBookRoomStatus } from "../../../../app/Slicers/leisure/meetingRoo
 import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
 import CustomDigitalTimePicker from "../../../../components/Form/CustomDigitalTimePicker";
 import { BronMeetingRoomSchema } from "../../../../validations/leisureclub/meetinRoomVal";
+import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
 
 const optionsTime = [
   { value: "00:10", label: "10 dəqiqə" },
@@ -371,9 +370,8 @@ const MeetingRoom = () => {
       <Box className="rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
         <Box className="py-6 px-6 my-4">
           <Box className="flex justify-end mb-6">
-            <Button
+            <DefaultButton
               startIcon={<AddCircleOutlineOutlinedIcon />}
-              className="capitalize btn-danger"
               variant="contained"
               onClick={() =>
                 dispatch(
@@ -385,7 +383,7 @@ const MeetingRoom = () => {
               }
             >
               {t("New Reservation")}
-            </Button>
+            </DefaultButton>
           </Box>
 
           <Calendar

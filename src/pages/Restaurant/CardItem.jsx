@@ -10,8 +10,8 @@ import { setDialogModal } from "../../app/Slicers/modals";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import DeleteIcon from "@mui/icons-material/Delete";
-import manatLogoColor from "../../assets/restaurantMenus/manatLogoColor.png"
-import manatWhite from "../../assets/restaurantMenus/manatWhite.png"
+import manatLogoColor from "../../assets/logo/manatLogoColor.png";
+import manatWhite from "../../assets/logo/manatWhite.png";
 
 const CardItem = ({ item }) => {
   const { dialogModal } = useSelector((state) => state.modals);
@@ -38,7 +38,15 @@ const CardItem = ({ item }) => {
             // src={manatWhite}
             className="rounded-[50%] w-12 h-12  xmd:w-24 xmd:h-24 object-cover object-center"
           />
-          <Typography className="xmd:hidden items-center justify-center flex text-xs text-[#C9B26D] ">{item.price} <img className="ml-1 mb-[1px]" src={manatLogoColor} width={9} height={9} /></Typography>
+          <Typography className="xmd:hidden items-center justify-center flex text-xs text-[#C9B26D] ">
+            {item.price}{" "}
+            <img
+              className="ml-1 mb-[1px]"
+              src={manatLogoColor}
+              width={9}
+              height={9}
+            />
+          </Typography>
         </Box>
         <Box className="xmd:flex items-center w-[30%]">
           <Typography className="text-text1 hidden xmd:block mb-1 w-full text-sm xmd:text-base text-center">
@@ -59,15 +67,32 @@ const CardItem = ({ item }) => {
               +
             </Typography>
           </Box>
-
         </Box>
         <Typography className=" hidden xmd:flex items-center justify-center text-sm xmd:text-base text-text1 text-center w-[20%]">
-          <span className="inline-block mr-1 text-sm xmd:text-base font-semibold">Qiymət:</span>{" "}
-          {item.price} <img className="ml-1 mb-[3px]" src={manatWhite} width={10} height={10} />
+          <span className="inline-block mr-1 text-sm xmd:text-base font-semibold">
+            Qiymət:
+          </span>{" "}
+          {item.price}{" "}
+          <img
+            className="ml-1 mb-[3px]"
+            src={manatWhite}
+            width={10}
+            height={10}
+          />
         </Typography>
         <Typography className="text-sm xmd:text-base text-text1 justify-center flex items-center text-center xmd:w-[20%] w-[40%]">
-          <span className="inline-block mr-1 text-sm xmd:text-base  font-semibold">Məbləğ:</span>{" "}
-          <span className="flex items-center">{item.amount} <img className="ml-1 mb-[3px]" src={manatWhite} width={10} height={10} /></span>
+          <span className="inline-block mr-1 text-sm xmd:text-base  font-semibold">
+            Məbləğ:
+          </span>{" "}
+          <span className="flex items-center">
+            {item.amount}{" "}
+            <img
+              className="ml-1 mb-[3px]"
+              src={manatWhite}
+              width={10}
+              height={10}
+            />
+          </span>
         </Typography>
         <IconButton
           onClick={() => {

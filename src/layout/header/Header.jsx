@@ -2,12 +2,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Settings } from "../sidebar/Settings";
 import { setOpenedSidebar } from "../../app/Slicers/themes";
 import { Box, IconButton } from "@mui/material";
-
 import LanguageSwitcher from "./LanguageSwitcher";
 import MenuIcon from "@mui/icons-material/Menu";
 import Notifications from "./Notifications";
 import UserMenu from "./UserMenu";
-import Navigation from "./Navigation";
 import RestaurantCard from "./RestaurantCard";
 
 const Header = ({ setOpenSubMenu }) => {
@@ -39,8 +37,8 @@ const Header = ({ setOpenSubMenu }) => {
         <Box className="flex items-center sm:gap-x-5">
           <LanguageSwitcher />
           <Notifications />
-          <Navigation />
           <Settings />
+
           {showCardIcon ? <RestaurantCard /> : null}
           <UserMenu />
         </Box>

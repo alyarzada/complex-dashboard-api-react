@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Box, Stack, Button, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "../../components/UI/Header";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import SuccessButton from "../../components/UI/Buttons/SuccessButton";
 
 const Payment = () => {
   const params = useParams();
@@ -14,9 +15,27 @@ const Payment = () => {
   const { t } = useTranslation();
 
   const columns = [
-    { field: "id", headerName: "ID", width: 40 },
-    { field: "service", headerName: t(["Service"]), width: 250 },
-    { field: "amount", headerName: t(["Amount"]), width: 240 },
+    {
+      field: "id",
+      headerName: "ID",
+      flex: 1,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      field: "service",
+      headerName: t(["Service"]),
+      flex: 12,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      field: "amount",
+      headerName: t(["Amount"]),
+      flex: 3,
+      align: "center",
+      headerAlign: "center",
+    },
   ];
 
   return (
@@ -48,7 +67,7 @@ const Payment = () => {
               alignItems="center"
               className="mt-3"
             >
-              <Typography className="dark:text-white bg-rose-500 py-1 px-2 rounded">
+              <Typography className="dark:text-white bg-rose-500 shadow-lg shadow-[#F43F5E]/60 hover:shadow-[#F43F5E]/80 py-1 px-2 rounded">
                 Total:{" "}
                 {selectedInvoices.length > 0
                   ? selectedInvoices.reduce(
@@ -59,9 +78,7 @@ const Payment = () => {
                     "AZN"
                   : 0 + " " + "azn"}
               </Typography>
-              <Button className="capitalize bg-green-500" variant="contained">
-                {t("Pay")}
-              </Button>
+              <SuccessButton variant="contained">{t("Pay")}</SuccessButton>
             </Stack>
           </Box>
         </Box>

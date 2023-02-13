@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { filterMenu, getAllMenu } from "../../app/Slicers/restaurantMenu";
