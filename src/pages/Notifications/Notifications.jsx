@@ -19,6 +19,7 @@ import {
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import NotificationType from "./NotificationType";
 import NotificationSubject from "./NotificationSubject";
+import CustomDataGrid from "../../components/UI/CustomDataGrid"
 
 import DraftsOutlinedIcon from "@mui/icons-material/DraftsOutlined";
 import MarkunreadOutlinedIcon from "@mui/icons-material/MarkunreadOutlined";
@@ -86,7 +87,23 @@ const Notifications = () => {
       }
     }
   }, [i18n.language]);
-
+  const mobileColumns = [
+    {
+      key: `subject`,
+      label: t("Subject"),
+      width: 100,
+    },
+    {
+      key: "type",
+      label: t("Type"),
+      width: 100,
+    },
+    {
+      key: "created_at",
+      label: t("Created"),
+      width: 150,
+    }
+  ];
   return (
     <div className="w-full">
       <Header
@@ -117,7 +134,9 @@ const Notifications = () => {
           </IconButton>
         </Stack>
         <Box>
-          <DataGrid
+          <CustomDataGrid
+            mobileColumns={mobileColumns} 
+            status={status} 
             rows={notifications
               ?.map((item) => {
                 return {
@@ -132,20 +151,8 @@ const Notifications = () => {
                   created_at: format(item?.created_at, "dd MMMM yyyy, HH:mm"),
                 };
               })}
-            columns={columns}
-            pageSize={10}
-            rowsPerPageOptions={[10]}
-            checkboxSelection
-            autoHeight
-            loading={status === "loading"}
-            components={{
-              Pagination: CustomPagination,
-              // Toolbar: GridToolbar,
-            }}
-            onSelectionModelChange={(newSelectionModel) =>
-              setSelectionModel(newSelectionModel)
-            }
-            selectionModel={selectionModel}
+            desktopColumns={columns}
+            width={1170}
           />
         </Box>
       </Box>

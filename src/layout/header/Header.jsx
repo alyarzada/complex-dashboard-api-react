@@ -7,9 +7,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Notifications from "./Notifications";
 import UserMenu from "./UserMenu";
 import RestaurantCard from "./RestaurantCard";
-import { setSideabarSubmenu } from "../../app/Slicers/themes";
 
-const Header = () => {
+const Header = ({ setOpenSubMenu }) => {
   const { openedSidebar, boxed, showCardIcon } = useSelector(
     (state) => state.themes
   );
@@ -29,12 +28,7 @@ const Header = () => {
           className="cursor-pointer text-bgSecond dark:text-text1"
           onClick={() => {
             dispatch(setOpenedSidebar());
-            dispatch(
-              setSideabarSubmenu({
-                open: false,
-                id: null,
-              })
-            );
+            setOpenSubMenu(false);
           }}
         >
           <MenuIcon className="text-textDark2" />
