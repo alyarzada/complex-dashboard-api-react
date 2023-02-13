@@ -27,7 +27,6 @@ import SearchFilter from "./SearchFilter";
 import Header from "../../components/UI/Header";
 import Buttons from "./Buttons";
 import Cookies from "js-cookie";
-import ResponsiveTable from "material-ui-next-responsive-table";
 import { mobileColumns, desktopColumns } from "./data";
 
 function CustomPagination() {
@@ -134,13 +133,13 @@ const RequestPanel = () => {
             </FormControl>
           </Box>
         </Box>
-        {/* <CustomDataGrid 
-          mobileColumns={mobileColumns} 
-          status={status} 
-          rows={dataTableRequests} 
+        <CustomDataGrid
+          mobileColumns={mobileColumns}
+          status={status}
+          rows={dataTableRequests}
           desktopColumns={desktopColumns}
           width={1151}
-        /> */}
+        />
       </Box>
     </Box>
   );

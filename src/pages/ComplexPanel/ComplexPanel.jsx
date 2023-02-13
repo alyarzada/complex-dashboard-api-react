@@ -190,7 +190,11 @@ const ComplexPanel = () => {
                       primary="Tower A"
                     />
                   </ListItem>
-                  <Divider variant="inset" component="li" className="ml-[17px]" />
+                  <Divider
+                    variant="inset"
+                    component="li"
+                    className="ml-[17px]"
+                  />
                   <ListItem
                     className="flex items-center"
                     alignItems="flex-start"
@@ -203,7 +207,11 @@ const ComplexPanel = () => {
                       primary="Tower B"
                     />
                   </ListItem>
-                  <Divider variant="inset" component="li" className="ml-[17px]"/>
+                  <Divider
+                    variant="inset"
+                    component="li"
+                    className="ml-[17px]"
+                  />
                   <ListItem
                     className="flex items-center"
                     alignItems="flex-start"

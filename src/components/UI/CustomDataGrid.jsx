@@ -18,6 +18,7 @@ import {
 import { getAllRequests } from "../../app/Slicers/requests";
 import ResponsivePagination from "./ResponsivePagination";
 import Cookies from "js-cookie";
+import Stack from "@mui/material/Stack";
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
@@ -44,6 +45,18 @@ const RequestPanel = ({
   const handleChange = (event, value) => {
     setPaginationPage(value);
   };
+  // const useStyles = makeStyles(() => ({
+  //   ul: {
+  //     "& .MuiPaginationItem-root": {
+  //       color: "#fff",
+  //       borderRadius:25
+  //     },
+  //     "& .MuiPaginationItem-roudned": {
+  //       rounded: true
+  //     },
+  //   }
+  // }));
+  // const classes = useStyles();
   const matches = useMediaQuery("(min-width:768px)");
 
   // const { data } = useDemoData({
@@ -64,9 +77,9 @@ const RequestPanel = ({
         style={
           matches == false
             ? { height: "auto", width: "100%" }
-            : { height: width, width: "100%" }
+            : { width: "100%" }
         }
-        className="mt-4 md:mt-0"
+        className="mt-4 pb-5 md:mt-0"
       >
         {matches ? (
           <DataGrid
@@ -76,6 +89,7 @@ const RequestPanel = ({
             rowsPerPageOptions={[7]}
             checkboxSelection
             loading={status === "loading"}
+            autoHeight
             components={{
               Pagination: CustomPagination,
             }}
@@ -90,7 +104,8 @@ const RequestPanel = ({
               columns={mobileColumns}
             />
             <Pagination
-              count={rows.length / 10}
+              // classes={{ ul: classes.ul }}
+              count={parseInt(rows.length / 10)}
               page={paginationPage}
               onChange={handleChange}
             />

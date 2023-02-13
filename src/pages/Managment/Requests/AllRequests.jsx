@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import {Typography} from "@mui/material"
+import CustomDataGrid from "../../../components/UI/CustomDataGrid"
 
 const variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
@@ -42,7 +44,31 @@ const AllRequests = () => {
     },
     { field: "Start date", headerName: t("Date"), width: 200 },
   ];
-
+  const mobileColumns = [
+    {
+      key: "name",
+      label: t("Applicant"),
+      width: 200,
+      render: (value,data) => {
+        return <Link to={`details/${data.id}`}>
+            {data.name}
+          </Link>;
+      },
+    },
+    {
+      key: "request",
+      label: t("Request"),
+      width: 100,
+      render: (value,data) => (
+        <Link to={`details/${data.id}`}>{data.request}</Link>
+      ),
+    },
+    {
+      key: "Start date",
+      label: t("Date"),
+      width: 150,
+    },
+  ];
   useEffect(() => {
     if (role_id === 8) {
       const data = myRequests?.map((item) => {
@@ -74,14 +100,13 @@ const AllRequests = () => {
       animate="visible"
       className="dark:bg-gradient-to-r bg-bgLight drop-shadow-lg dark:from-mainPrimary dark:to-mainSecondary text-text1 min-h-full rounded p-3"
     >
-      <DataGrid
-        columns={columns}
+      <CustomDataGrid
+        desktopColumns={columns}
+        mobileColumns={mobileColumns}
         rows={allData?.length > 0 ? allData : []}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        className="lastTask-scrollbar"
-        autoHeight
-        loading={status === "loading"}
+        width={630}
+        status={allData.status}
+
       />
     </motion.div>
   );
