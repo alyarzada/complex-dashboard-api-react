@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
+import CustomDataGrid from "../../../components/UI/CustomDataGrid"
+import { useTranslation } from "react-i18next";
 
 const variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
@@ -32,6 +34,7 @@ const columns = [
 ];
 
 const RequestComponent = () => {
+  const { t, i18n } = useTranslation();
   const params = useParams();
   const { myRequests, allRequests, status } = useSelector(
     (state) => state.requests
@@ -42,6 +45,31 @@ const RequestComponent = () => {
       has_role: { role_id },
     },
   } = useSelector((state) => state.auth);
+  const mobileColumns = [
+    {
+      key: "name",
+      label: t("Applicant"),
+      width: 200,
+      render: (value, data) => {
+        return <Link to={`details/${data.id}`}>
+          {data.name}
+        </Link>;
+      },
+    },
+    {
+      key: "request",
+      label: t("Request"),
+      width: 100,
+      render: (value, data) => (
+        <Link to={`details/${data.id}`}>{data.request}</Link>
+      ),
+    },
+    {
+      key: "Start date",
+      label: t("Date"),
+      width: 150,
+    },
+  ];
 
   useEffect(() => {
     if (role_id === 8) {
@@ -82,7 +110,7 @@ const RequestComponent = () => {
       animate="visible"
       className="dark:bg-gradient-to-r bg-bgLight drop-shadow-lg dark:from-mainPrimary dark:to-mainSecondary text-text1 min-h-full rounded p-3"
     >
-      <DataGrid
+      {/* <DataGrid
         columns={columns}
         rows={filteredRequests?.length > 0 ? filteredRequests : []}
         pageSize={5}
@@ -90,6 +118,14 @@ const RequestComponent = () => {
         className="lastTask-scrollbar"
         autoHeight
         loading={status === "loading"}
+      /> */}
+      <CustomDataGrid
+        desktopColumns={columns}
+        mobileColumns={mobileColumns}
+        rows={filteredRequests?.length > 0 ? filteredRequests : []}
+        width={630}
+        status={filteredRequests.status}
+
       />
     </motion.div>
   );

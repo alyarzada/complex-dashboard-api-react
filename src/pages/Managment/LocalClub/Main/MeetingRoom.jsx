@@ -33,6 +33,7 @@ import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
 import CustomDigitalTimePicker from "../../../../components/Form/CustomDigitalTimePicker";
 import { BronMeetingRoomSchema } from "../../../../validations/leisureclub/meetinRoomVal";
 import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
+import CustomDataGrid from "../../../../components/UI/CustomDataGrid"
 
 const optionsTime = [
   { value: "00:10", label: "10 dəqiqə" },
@@ -117,6 +118,47 @@ const columns = [
 ];
 
 const MeetingRoom = () => {
+  const { t } = useTranslation();
+  const mobileColumns = [
+    {
+      key: "start_date",
+      label: "Başlama vaxtı",
+      width: 200,
+    },
+    {
+      key: "end_date",
+      label: "Bitmə vaxtı",
+      width: 100,
+    },
+    {
+      key: "duration",
+      label: "Terapevt",
+      width: 100,
+    },
+    {
+      key: "meeting_room",
+      label: "İclas otağı",
+      width: 100,
+    },
+    {
+      key: "status",
+      label: "Status",
+      width: 100,
+    },
+    {
+      key: "created_time",
+      label: "Yaradıldı",
+      width: 100,
+    },
+    {
+      key: "delete",
+      label: t("Delete"),
+      width: 150,
+      render: (value,data) => {
+        return <DeleteBookedRooms params={data} />;
+      },
+    },
+  ];
   useScrollToUp();
   const { bookedRooms, bookRoomStatus } = useSelector(
     (state) => state.meetingRoom
@@ -131,7 +173,6 @@ const MeetingRoom = () => {
 
   const today = new Date();
   const dispatch = useDispatch();
-  const { t } = useTranslation();
 
   useEffect(() => {
     light ? setTheme("dark") : setTheme("light");
@@ -412,7 +453,7 @@ const MeetingRoom = () => {
           />
 
           <Box className="mb-10">
-            <DataGrid
+            {/* <DataGrid
               pageSize={5}
               rowsPerPageOptions={[10]}
               autoHeight
@@ -433,6 +474,29 @@ const MeetingRoom = () => {
                 };
               })}
               columns={columns}
+            /> */}
+            <CustomDataGrid
+              desktopColumns={columns}
+              mobileColumns={mobileColumns}
+              rows={bookedRooms.map((item) => {
+                return {
+                  id: item.id,
+                  start_date: item.start_date.slice(0, -3),
+                  end_date: item.end_date.slice(0, -3),
+                  meeting_room: item.rdata.meeting_room,
+                  duration: "",
+                  // Number(item.start_date.substring(10).slice(0, -3)) -
+                  // Number(item.end_date.substring(10).slice(0, -3)),
+                  status: "",
+                  created_time: item?.created_at
+                    ?.replace("T", " ")
+                    ?.slice(0, -11),
+                  delete: "",
+                };
+              })}
+              width={630}
+              status={bookedRooms.status}
+
             />
           </Box>
         </Box>

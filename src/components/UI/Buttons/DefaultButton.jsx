@@ -11,13 +11,13 @@ const DefaultButton = ({
     <Button
       className={`capitalize ${
         variant === "contained"
-          ? "dark:bg-[#14213D] dark:shadow-logoColor/40  dark:hover:shadow-logoColor/50"
+          ? "dark:bg-[#14213D] dark:shadow-lg dark:shadow-logoColor/40  dark:hover:shadow-logoColor/50"
           : variant === "outlined"
           ? "dark:border dark:border-[#2B3759] dark:hover:border-logoColor dark:shadow-white/80 dark:text-text1"
           : ""
       }`}
       onClick={onClick}
-      sx={{ boxShadow: variant === "contained" && `1px 2px 3px 0px #c9b26d65` }}
+      sx={{ boxShadow: 3 }}
       variant={variant}
       startIcon={startIcon}
       type={type}

@@ -18,7 +18,7 @@ import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOu
 // components
 import Header from "../../../../components/UI/Header";
 import Calendar from "./Calendar";
-
+import CustomDataGrid from "../../../../components/UI/CustomDataGrid"
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -137,8 +137,43 @@ const columns = [
 ];
 
 const Cinema = () => {
+  const { t } = useTranslation();
   useScrollToUp();
-
+  const mobileColumns = [
+    {
+      key: "start_date",
+      label: "Başlama vaxtı",
+      width: 200,
+    },
+    {
+      key: "end_date",
+      label: "Bitmə vaxtı",
+      width: 100,
+    },
+    {
+      key: "duration",
+      label: "Müddət",
+      width: 100,
+    },
+    {
+      key: "status",
+      label: "Status",
+      width: 100,
+    },
+    {
+      key: "created_time",
+      label: "Yaradıldı",
+      width: 100,
+    },
+    {
+      key: "delete",
+      label: t("Delete"),
+      width: 150,
+      render: (value,data) => {
+        return <DeleteBookedCinemaRoom params={data} />;
+      },
+    },
+  ];
   const [eventData, setEventData] = useState(null);
   const [date, setDate] = useState(new Date());
   const [defaultDate, setDefaultDate] = useState(null);
@@ -149,7 +184,6 @@ const Cinema = () => {
 
   const today = new Date();
   const dispatch = useDispatch();
-  const { t } = useTranslation();
 
   const handleEventClick = (e) => {
     setEventData(e.event._def);
@@ -373,9 +407,8 @@ const Cinema = () => {
           <Calendar
             events={bookedCinemaRooms.map((item) => {
               return {
-                title: `${item.start_date.substring(10).slice(0, -3)} ${
-                  item.rtype === 1 ? "(R1)" : "(R2)"
-                } Bronlanıb`,
+                title: `${item.start_date.substring(10).slice(0, -3)} ${item.rtype === 1 ? "(R1)" : "(R2)"
+                  } Bronlanıb`,
                 date: item.start_date.slice(0, -9),
                 className: "bg-green-500 rounded p-1 m-1",
                 startStr:
@@ -393,7 +426,7 @@ const Cinema = () => {
           />
 
           <Box className="mb-10">
-            <DataGrid
+            {/* <DataGrid
               pageSize={5}
               rowsPerPageOptions={[10]}
               autoHeight
@@ -409,7 +442,26 @@ const Cinema = () => {
                   delete: "",
                 };
               })}
+            /> */}
+            <CustomDataGrid
+              desktopColumns={columns}
+              mobileColumns={mobileColumns}
+              rows={bookedCinemaRooms.map((item) => {
+                return {
+                  id: item.id,
+                  start_date: item.start_date,
+                  end_date: item.end_date,
+                  duration: "",
+                  status: "",
+                  // created_time: item.created_at.replace("T", " ").slice(0, -11),
+                  delete: "",
+                };
+              })}
+              width={630}
+              status={bookedCinemaRooms.status}
+
             />
+
           </Box>
         </Box>
       </Box>

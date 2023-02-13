@@ -16,6 +16,7 @@ import DeleteBookedMassage from "../Components/DeleteBookedMassage";
 import CustomTextField from "../../../../components/Form/CustomTextField";
 import CustomSelect from "../../../../components/Form/CustomSelect";
 import { BronMassageSchema } from "../../../../validations/leisureclub/massageVal";
+import CustomDataGrid from "../../../../components/UI/CustomDataGrid"
 
 // redux;
 import { useDispatch, useSelector } from "react-redux";
@@ -198,7 +199,46 @@ const Massage = () => {
   useEffect(() => {
     dispatch(getBookedMassage(Cookies.get("token")));
   }, []);
-
+  const mobileColumns = [
+    {
+      key: "start_date",
+      label: "Başlama vaxtı",
+      width: 200,
+    },
+    {
+      key: "end_date",
+      label: "Bitmə vaxtı",
+      width: 100,
+    },
+    {
+      key: "duration",
+      label: "Müddət",
+      width: 100,
+    },
+    {
+      key: "therapist",
+      label: "Terapevt",
+      width: 100,
+    },
+    {
+      key: "status",
+      label: "Status",
+      width: 100,
+    },
+    {
+      key: "created_time",
+      label: "Yaradıldı",
+      width: 100,
+    },
+    {
+      key: "delete",
+      label: t("Delete"),
+      width: 150,
+      render: (value,data) => {
+        return <DeleteBookedMassage params={data} />;
+      },
+    },
+  ];
   const bronModal = (
     <Box>
       <Formik
@@ -414,7 +454,7 @@ const Massage = () => {
           />
 
           <Box className="mb-10">
-            <DataGrid
+            {/* <DataGrid
               sx={{
                 align: "center",
               }}
@@ -442,6 +482,33 @@ const Massage = () => {
                 };
               })}
               columns={columns}
+            /> */}
+            <CustomDataGrid
+              desktopColumns={columns}
+              mobileColumns={mobileColumns}
+              rows={bookedMassage.map((item) => {
+                console.log(
+                  item?.created_at
+                    ? item?.created_at?.replace("T", " ").slice(0, -11)
+                    : null
+                );
+                return {
+                  id: item.id,
+                  start_date: item.start_date,
+                  end_date: item.end_date,
+                  duration: "",
+                  therapist: item.therapist,
+                  status: item.status,
+                  // created_time: item?.created_at
+                  //   ? item?.created_at?.replace("T", " ").slice(0, -11)
+                  //   : null,
+                  created_time: "",
+                  delete: "",
+                };
+              })}
+              width={630}
+              status={bookedMassage.status}
+
             />
           </Box>
         </Box>

@@ -73,11 +73,7 @@ const SideBar = () => {
         {sidebar.map((sidebarItem, index) => {
           const Icon = sidebarItem.icon;
           return (
-            <SidebarItem
-              key={sidebarItem.id}
-              sidebarItem={sidebarItem}
-              Icon={Icon}
-            />
+            <SidebarItem key={index} sidebarItem={sidebarItem} Icon={Icon} />
           );
         })}
       </nav>

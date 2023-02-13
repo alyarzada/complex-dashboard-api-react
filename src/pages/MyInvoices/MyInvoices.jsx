@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { DataGrid } from "@mui/x-data-grid";
 import Header from "../../components/UI/Header";
 import PayButton from "./PayButton";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
@@ -10,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setModal } from "../../app/Slicers/modals";
 import { getSelectedInvoices } from "../../app/Slicers/invoices";
 import DefaultButton from "../../components/UI/Buttons/DefaultButton";
+import CustomDataGrid from "../../components/UI/CustomDataGrid"
 
 export const Services = ({ params }) => {
   const ref = useRef(null);
@@ -131,7 +131,63 @@ const Myİnvoices = () => {
       renderCell: (params) => <PayButton params={params}>{t("Pay")}</PayButton>,
     },
   ];
+const mobileColumns = [
+    {
+      key: "apartment",
+      label: "Müraciət sahibi",
+      width: 200,
+      render: (value,  data) => {
+        return (
+          <Typography>
+            {t("Apartment")} - {data.apartment}
+          </Typography>
+        );
+      },
+    },
+    {
+      key: "service",
+      label: t(["Service"]),
+      width: 150,
+      render: (value,data) => <Services params={data} />,
+    },
+    {
+      key: "amount",
+      label: t(["Amount"]),
+      width: 250,
+      render: (value,data) => (
+        <Typography className="text-red-500 font-medium text-sm">
+          {data.amount} AZN
+        </Typography>
+      ),
+    },
+    {
+      key: "status",
+      label: t("Status"),
+      width: 100,
+      render: (value,data) => {
+        console.log(data)
+        if (data.status === "Not paid") {
+          return(
+            <Typography className="bg-logoColor rounded p-1 text-sm flex justify-center capitalize w-[70px]">
+              {data.status}
+            </Typography>
+          )
+        }
+     }
+    },
+    {
+      key: "creationDate",
+      label: t(["Created at"]),
+      width: 220,
 
+    },
+    { 
+      key: "operation", 
+      label: t(["Action"]), 
+      width: 160 ,
+      render: (value,data) => <Link to="/myinvoice/payment"><PayButton params={value}>{t("Pay")}</PayButton></Link>
+    },
+  ];
   return (
     <Box>
       <Header currentPage={{ title: "My Invoices", icon: ReceiptLongIcon }} />
@@ -161,25 +217,15 @@ const Myİnvoices = () => {
           </DefaultButton>
         </Stack>
 
-        <Box className="px-6 mt-3" style={{ height: 630, width: "100%" }}>
-          <DataGrid
+        <Box className="px-6 mt-3" style={{ width: "100%" }}>
+          <CustomDataGrid
+            desktopColumns={columns}
+            mobileColumns={mobileColumns}
             rows={invoices}
-            columns={columns}
-            pageSize={10}
-            rowsPerPageOptions={[10]}
-            checkboxSelection
-            onSelectionModelChange={(newSelectionModel) =>
-              setSelectionModel(newSelectionModel)
-            }
-            selectionModel={selectionModel}
-            sx={{
-              "& .MuiDataGrid-virtualScrollerRenderZone": {
-                transform: disableTransform
-                  ? "none !important"
-                  : "translate3d(0px, 0px, 0px) !important",
-              },
-            }}
+            width={630}
+            status={invoices.status}
           />
+          
         </Box>
       </Box>
     </Box>
