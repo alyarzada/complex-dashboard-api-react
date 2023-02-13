@@ -1,13 +1,11 @@
-import React from "react";
 import { Checkbox, Autocomplete, TextField } from "@mui/material";
 import { CheckBoxOutlineBlank, CheckBox } from "@mui/icons-material";
 import { useField } from "formik";
 
-const icon = <CheckBoxOutlineBlank fontSize="small" />;
-const checkedIcon = <CheckBox fontSize="small" />;
-
 const CustomSelectNew = ({ className, options, multiple, ...props }) => {
   const [field, meta, helpers] = useField(props);
+  const icon = <CheckBoxOutlineBlank fontSize="small" />;
+  const checkedIcon = <CheckBox fontSize="small" />;
 
   return (
     <Autocomplete
@@ -36,7 +34,6 @@ const CustomSelectNew = ({ className, options, multiple, ...props }) => {
           style={{ paddingTop: 6 }}
           {...params}
           label="Zəhmət olmasa seçin"
-          //   placeholder="Favorites"
         />
       )}
       {...props}

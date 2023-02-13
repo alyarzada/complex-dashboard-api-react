@@ -1,18 +1,14 @@
-import React from "react";
 import { Box, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { appendModal } from "../../app/Slicers/modals";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const SubMenuPanel = ({ category }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
-
-  console.log(category);
 
   return (
     <Box className="w-full">

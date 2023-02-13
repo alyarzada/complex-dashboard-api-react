@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Box, TextField, Button } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
 import InputMask from "react-input-mask";
@@ -25,15 +25,6 @@ const CreditCard = ({
 
   return (
     <Box id="PaymentForm">
-      {/* <Box className={className}>
-        <Cards
-          cvc={values.cvc}
-          expiry={values.expiry}
-          focused={values.focus}
-          name={values.name}
-          number={values.number}
-        />
-      </Box> */}
       <form className={margin} onSubmit={submitHandle}>
         <TextField
           sx={{

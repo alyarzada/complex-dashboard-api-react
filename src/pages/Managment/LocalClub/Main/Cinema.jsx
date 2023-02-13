@@ -16,7 +16,6 @@ import MovieIcon from "@mui/icons-material/Movie";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 
 // components
-import GoBackButton from "../../../../components/UI/GoBackButton";
 import Header from "../../../../components/UI/Header";
 import Calendar from "./Calendar";
 
@@ -31,6 +30,7 @@ import { setModal } from "../../../../app/Slicers/modals";
 import { changeBookedCinemaStatus } from "../../../../app/Slicers/leisure/cinema";
 import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
 import { BronCinemaSchema } from "../../../../validations/leisureclub/cinemaVal";
+import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
 
 //multiselect
 const optionsCinemaTime = [
@@ -353,9 +353,8 @@ const Cinema = () => {
       <Box className="rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
         <Box className="py-6 px-6 my-4">
           <Box className="flex justify-end mb-6">
-            <Button
+            <DefaultButton
               startIcon={<AddCircleOutlineOutlinedIcon />}
-              className="capitalize btn-danger"
               variant="contained"
               onClick={() =>
                 dispatch(
@@ -368,7 +367,7 @@ const Cinema = () => {
               }
             >
               {t("New Reservation")}
-            </Button>
+            </DefaultButton>
           </Box>
 
           <Calendar

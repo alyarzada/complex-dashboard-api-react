@@ -1,5 +1,3 @@
-import React, { useLayoutEffect } from "react";
-import { Box } from "@mui/material";
 import { motion } from "framer-motion";
 
 const variants = {

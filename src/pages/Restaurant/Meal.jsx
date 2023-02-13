@@ -15,13 +15,10 @@ import { addToCard } from "../../app/Slicers/restaurantMenu";
 import { setModal } from "../../app/Slicers/modals";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
-import manatWhite from "../../assets/restaurantMenus/manatWhite.png";
-import soup from "../../assets/restaurantMenus/25097.jpg";
+import manatWhite from "../../assets/logo/manatWhite.png";
 
-const Meal = ({
-  item: { img, name, price, description, id, categoryId, subCategoryId },
-  item,
-}) => {
+const Meal = ({ item }) => {
+  const { img, name, price, description, id } = item;
   const [mealCounter, setMealCounter] = useState(1);
   const [value, setValue] = useState(2);
   const [hover, setHover] = useState(false);
@@ -57,27 +54,6 @@ const Meal = ({
     );
     toast(t("Məhsul səbətinizə əlavə edildi !"));
   };
-
-  function findObject(array, id, categoryId, subCategoryId) {
-    for (let i = 0; i < array.length; i++) {
-      if (
-        array[i].id === id &&
-        array[i].categoryId === categoryId &&
-        array[i].subCategoryId === subCategoryId
-      ) {
-        console.log("hello", array[i]);
-        return array[i];
-      }
-      if (Array.isArray(array[i])) {
-        let result = findObject(array[i], id, categoryId, subCategoryId);
-        if (result) {
-          console.log(array[i]);
-          return result;
-        }
-      }
-    }
-    return null;
-  }
 
   const modalData = (
     <Box className="flex flex-col md:flex-row gap-x-3">
@@ -125,7 +101,7 @@ const Meal = ({
             />
           </Typography>
 
-          {card.includes(findObject(card, id, categoryId, subCategoryId)) ? (
+          {card.includes(card.find((item) => item.id === id)) ? (
             <Typography className="bg-red-500 text-white p-2 rounded">
               Bu məhsul səbətdə var!
             </Typography>

@@ -11,7 +11,6 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { Box, Stack, IconButton, Pagination } from "@mui/material";
 import { useScrollToUp } from "../../hooks/useScrollToUp";
-import GoBackButton from "../../components/UI/GoBackButton";
 import Header from "../../components/UI/Header";
 import {
   getAllNotifications,
@@ -68,7 +67,7 @@ const Notifications = () => {
         color="primary"
         count={pageCount}
         page={page + 1}
-        onChange={(event, value) => apiRef.current.setPage(value - 1)}
+        onChange={(e, value) => apiRef.current.setPage(value - 1)}
       />
     );
   }

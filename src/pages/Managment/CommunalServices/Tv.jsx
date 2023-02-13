@@ -1,11 +1,8 @@
-import React from "react";
 import { Typography, Grid, Box } from "@mui/material";
 import { useSelector } from "react-redux";
-import { motion } from "framer-motion";
+import { Home } from "@mui/icons-material";
 import bbtv from "../../../assets/communal/bbtv.png";
 import Header from "../../../components/UI/Header";
-import { Home } from "@mui/icons-material";
-import LiveTvIcon from "@mui/icons-material/LiveTv";
 
 const phoneCategories = [
   {

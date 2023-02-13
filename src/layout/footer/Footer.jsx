@@ -1,10 +1,8 @@
 import { useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
-import GoBackButton from "../../components/UI/GoBackButton";
+import GoBackButton from "../../components/UI/Buttons/GoBackButton";
 import { Box } from "@mui/material";
 
 const Footer = () => {
-  const { t } = useTranslation();
   const { light } = useSelector((state) => state.themes);
 
   return (

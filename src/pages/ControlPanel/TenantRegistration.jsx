@@ -1,13 +1,12 @@
-import React from "react";
 import { Formik, Form, FieldArray } from "formik";
 import { Box, Button, Typography, IconButton } from "@mui/material";
-import { v4 as uuidv4 } from "uuid";
+import { useTranslation } from "react-i18next";
 import CustomTextField from "../../components/Form/CustomTextField";
 import CustomFile from "../../components/Form/CustomFile";
 import CustomDateRangePicker from "../../components/Form/CustomDateRangePicker";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import { useTranslation } from "react-i18next";
+import { v4 as uuidv4 } from "uuid";
 
 const TenantRegistration = () => {
   const { t } = useTranslation();

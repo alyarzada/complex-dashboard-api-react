@@ -24,6 +24,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import SearchIcon from "@mui/icons-material/Search";
+import DefaultButton from "../../../components/UI/Buttons/DefaultButton";
 
 const Requests = () => {
   const { t } = useTranslation();
@@ -82,14 +83,13 @@ const Requests = () => {
             ))}
           </Select>
         </FormControl>
-        <Button
+        <DefaultButton
           startIcon={<AddCircleOutlineOutlinedIcon />}
-          className="capitalize"
           variant="contained"
           onClick={() => navigate("/requests/createnewrequest")}
         >
           {t("New Request")}
-        </Button>
+        </DefaultButton>
       </Stack>
       <Stack direction={{ xs: "column-reverse", lg: "row" }} spacing={2}>
         <Box className="flex-1">

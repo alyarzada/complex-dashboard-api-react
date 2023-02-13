@@ -21,8 +21,6 @@ const NativePickers = ({
     helpers.setValue(data);
   }, [data]);
 
-  console.log(defaultValue);
-
   return (
     <TextField
       id="datetime-local"

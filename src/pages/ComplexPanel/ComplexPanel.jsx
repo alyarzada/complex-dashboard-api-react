@@ -1,58 +1,257 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
+import {
+  Box,
+  Typography,
+  ListItemAvatar,
+  Divider,
+  List,
+  ListItem,
+  Stack,
+  Avatar,
+  ListItemText,
+} from "@mui/material";
 import Body from "./Body";
+import { useSelector, useDispatch } from "react-redux";
+import portBakuImg from "../../assets/port-baku-residence_16406207114647.jpg";
 import { useScrollToUp } from "../../hooks/useScrollToUp";
-import portBakuImage from "../../assets/images/port-baku_image.jpg";
-import portBakuAzerbaijan from "../../assets/images/port-baku_azerbaijan.jpg";
+import portBakuImage from "../../assets/logo/port-baku_image.jpg";
+import portBakuAzerbaijan from "../../assets/logo/port-baku_azerbaijan.jpg";
 import Header from "../../components/UI/Header";
-import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
 import { useTranslation } from "react-i18next";
+import { setModal } from "../../app/Slicers/modals";
+import ApartmentIcon from "@mui/icons-material/Apartment";
+import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
 
 const ComplexPanel = () => {
   useScrollToUp();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const { news } = useSelector((state) => state.news);
+
+  const modalList = [
+    {
+      id: 1,
+      title: t("Housing cooperative"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 2,
+      title: t("Complex"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 3,
+      title: t("Building manager"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 4,
+      title: t("Sales consultant"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 5,
+      title: t("Leisure Club Administrator"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 6,
+      title: t("Leisure Club Administrator"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 7,
+      title: t("Logistic coordinator"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 8,
+      title: t("Fit-out field inspector"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 9,
+      title: t("Maintenance manager"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 10,
+      title: t("Cleaning Services Supervisor"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 11,
+      title: t("Cleaning Services Supervisor"),
+      name: "PORT BAKU",
+    },
+    {
+      id: 12,
+      title: t("Notes"),
+      name: "PORT BAKU",
+    },
+  ];
+
+  const modalData = (
+    <Box>
+      <Box>
+        <img
+          className="h-[320px] w-full object-cover object-center"
+          src={portBakuImg}
+          alt="port-baku-image"
+        />
+      </Box>
+      <Box>
+        {modalList.map((item) => (
+          <Stack
+            key={item.id}
+            justifyContent="space-between"
+            direction="row"
+            alignItems="center"
+            className="dark:text-text1 p-3"
+          >
+            <Typography>{item.title}</Typography>
+            <Typography>{item.name}</Typography>
+          </Stack>
+        ))}
+      </Box>
+    </Box>
+  );
 
   return (
-    <Box className="flex flex-col items-center w-full">
-      <Box className="w-full xl:w-[72%]">
+    <Box className="flex flex-col items-center">
+      <Box className="w-full">
+        <Header
+          currentPage={{
+            title: t("Complex Wall"),
+            icon: NewspaperOutlinedIcon,
+          }}
+        />
         <Box>
           <Box className="rounded mb-6">
-            <Box>
-              <img
-                className="rounded-t"
-                src={portBakuImage}
-                alt="port-baku-image"
-              />
-            </Box>
-            <Box className="relative rounded-b h-28 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg">
-              <Box className="absolute -top-5 left-1 md:left-7">
-                <img
-                  className="w-36 h-36 border-4 rounded-[50%]"
-                  src={portBakuAzerbaijan}
-                  alt="port-baku-azerbaijan"
-                />
+            <Box className="flex gap-[10px] p-[10px] h-[100%] flex-col lg:flex-row">
+              <Box className="w-full lg:w-[70%]">
+                <Box className="w-[100%] h-[284px]">
+                  <img
+                    className="rounded-t w-full object-fit h-full"
+                    src={portBakuImage}
+                    alt="port-baku-image"
+                  />
+                </Box>
+
+                <Box className="relative rounded-b h-[138px] dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg ">
+                  <Box className="absolute -top-5 left-1 md:left-7">
+                    <img
+                      className="w-36 h-36 border-4 rounded-[50%]"
+                      src={portBakuAzerbaijan}
+                      alt="port-baku-azerbaijan"
+                    />
+                  </Box>
+                  <Box className="ml-[160px] md:ml-48  py-1 md:py-3 ">
+                    <Typography
+                      variant="h5"
+                      component="h1"
+                      className="font-semibold text-textDark4 dark:text-text1"
+                    >
+                      Port Baku Residence
+                    </Typography>
+                    <Typography className="text-textDark2 dark:text-text1">
+                      {t(["Number of buildings in the complex"])}: 3
+                    </Typography>
+                  </Box>
+                </Box>
               </Box>
-              <Box className="ml-[160px] md:ml-48  py-1 md:py-3">
+              <Box className="rounded p-6 dark:text-text1 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg">
                 <Typography
-                  variant="h5"
-                  component="h1"
-                  className="font-semibold text-textDark4 dark:text-text1"
+                  className="cursor-pointer select-none text-logoColor hover:text-yellow-600 text-lg w-fit font-semibold"
+                  onClick={() =>
+                    dispatch(
+                      setModal({
+                        isOpen: true,
+                        title: "Port Baku Residence",
+                        children: modalData,
+                      })
+                    )
+                  }
                 >
-                  Port Baku
+                  {t("Port Baku Residence")}
                 </Typography>
-                <Typography className="text-textDark2 dark:text-text1">
-                  {t(["Number of buildings in the complex"])}: 3
+                <Typography className="text-textDark2">
+                  {t("The number of buildings included in the complex")} : 3
                 </Typography>
+                <List sx={{ width: "100%", maxWidth: 360 }}>
+                  <ListItem
+                    className="flex items-center"
+                    alignItems="flex-start"
+                  >
+                    <ListItemAvatar>
+                      <ApartmentIcon />
+                    </ListItemAvatar>
+                    <ListItemText
+                      className="text-textDark2 dark:text-text1"
+                      primary="Tower A"
+                    />
+                  </ListItem>
+                  <Divider variant="inset" component="li" />
+                  <ListItem
+                    className="flex items-center"
+                    alignItems="flex-start"
+                  >
+                    <ListItemAvatar>
+                      <ApartmentIcon />
+                    </ListItemAvatar>
+                    <ListItemText
+                      className="text-textDark2 dark:text-text1"
+                      primary="Tower B"
+                    />
+                  </ListItem>
+                  <Divider variant="inset" component="li" />
+                  <ListItem
+                    className="flex items-center"
+                    alignItems="flex-start"
+                  >
+                    <ListItemAvatar>
+                      <ApartmentIcon />
+                    </ListItemAvatar>
+                    <ListItemText
+                      className="text-textDark2 dark:text-text1"
+                      primary="Tower C"
+                    />
+                  </ListItem>
+                </List>
+                <List className="ml-6">
+                  <ListItem
+                    className="flex items-center ml-5 "
+                    alignItems="flex-start"
+                  >
+                    <ListItemText
+                      className="text-textDark2 dark:text-text1 "
+                      primary={t("Total posts")}
+                    />
+                    <Typography className="bg-logoColor rounded text-sm text-white text-center w-[25px]">
+                      {news.length}
+                    </Typography>
+                  </ListItem>
+                  <Divider variant="" component="li" />
+                  <ListItem
+                    className="flex items-center ml-5"
+                    alignItems="flex-start"
+                  >
+                    <ListItemText
+                      className="text-textDark2 dark:text-text1"
+                      primary={t("Total comments")}
+                    />
+                    <Typography className="bg-logoColor rounded text-sm text-white text-center w-[25px]">
+                      {news.reduce(
+                        (acc, item) => item.comments.length + acc,
+                        0
+                      )}
+                    </Typography>
+                  </ListItem>
+                </List>
               </Box>
             </Box>
           </Box>
-          <Header
-            currentPage={{
-              title: t("Complex Wall"),
-              icon: NewspaperOutlinedIcon,
-            }}
-          />
         </Box>
+
         <Body />
       </Box>
     </Box>

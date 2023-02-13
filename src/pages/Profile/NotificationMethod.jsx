@@ -1,12 +1,12 @@
-import React from "react";
 import { Formik, Form } from "formik";
 import { Typography, Box, Button } from "@mui/material";
 import CustomTextField from "../../components/Form/CustomTextField";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
-import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
+import SaveIcon from "@mui/icons-material/Save";
 import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
 import { useTranslation } from "react-i18next";
+import DefaultButton from "../../components/UI/Buttons/DefaultButton";
 
 const initialValues = {
   email: "",
@@ -45,18 +45,15 @@ const NotificationMethod = () => {
                 {t("Phone number for receive notification")}
               </Typography>
             </Box>
-            <CustomTextField label={t("Phone number")} name="phone" />
-            <Box className="mb-2 flex items-center text-text1 gap-x-1">
-              <SendOutlinedIcon className="text-xs" />
-              <Typography className="text-xs">
-                {t("Telegram accounts")}
-              </Typography>
-            </Box>
             <CustomTextField label="Phone number" name="telegramAccount" />
-            <Box className="flex justify-end">
-              <Button className="capitalize" variant="contained">
+            <Box className="col-span-1 md:col-span-2 flex justify-end">
+              <DefaultButton
+                variant="contained"
+                type="submit"
+                startIcon={<SaveIcon className="text-white dark:text-black" />}
+              >
                 {t(["Save"])}
-              </Button>
+              </DefaultButton>
             </Box>
           </Form>
         )}

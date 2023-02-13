@@ -4,11 +4,11 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useMediaQuery, Box, Stack, Typography } from "@mui/material";
 import SidebarItem from "./SidebarItem";
-import logo from "../../assets/images/logo_sm.png";
-import logoDark from "../../assets/images/logo.png";
-import ios from "../../assets/images/logos/ios.png";
-import android from "../../assets/images/logos/android.png";
-import qrcode from "../../assets/images/logos/qrcode.png";
+import logo from "../../assets/logo/logo_sm.png";
+import logoDark from "../../assets/logo/logo.png";
+import ios from "../../assets/logo/ios.png";
+import android from "../../assets/logo/android.png";
+import qrcode from "../../assets/logo/qrcode.png";
 
 const SideBar = () => {
   const { openedSidebar, leftLight } = useSelector((state) => state.themes);
@@ -31,8 +31,6 @@ const SideBar = () => {
     t(["November"]),
     t(["December"]),
   ];
-
-  console.log(sidebar);
 
   return (
     <motion.div
@@ -67,9 +65,6 @@ const SideBar = () => {
             {t(["Today"])}, {new Date().getDate()}{" "}
             {months[new Date().getMonth()]} {new Date().getFullYear()}
           </Typography>
-          <Typography className="px-8 text-text3 text-sm">
-            {t(["Navigation"])}
-          </Typography>
         </Box>
       ) : null}
 
@@ -78,7 +73,11 @@ const SideBar = () => {
         {sidebar.map((sidebarItem, index) => {
           const Icon = sidebarItem.icon;
           return (
-            <SidebarItem key={index} sidebarItem={sidebarItem} Icon={Icon} />
+            <SidebarItem
+              key={sidebarItem.id}
+              sidebarItem={sidebarItem}
+              Icon={Icon}
+            />
           );
         })}
       </nav>

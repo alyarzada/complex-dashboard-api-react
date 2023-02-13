@@ -3,12 +3,13 @@ import React, { useState, forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
-import { setOpenedSidebar } from "../../app/Slicers/themes";
+import { setOpenedSidebar, setSideabarSubmenu } from "../../app/Slicers/themes";
 import { useMediaQuery } from "@mui/material";
 
-const SubSidebarItem = ({ sublistItem, Icon }) => {
-  const { openedSidebar } = useSelector((state) => state.themes);
-  const [openSubMenu, setOpenSubMenu] = useState(false);
+const SubSidebarItem = ({ sublistItem }) => {
+  const { openedSidebar, sidebarSubmenu } = useSelector(
+    (state) => state.themes
+  );
   const [onHover, setOnHover] = useState(false);
 
   const { t } = useTranslation();
@@ -26,7 +27,7 @@ const SubSidebarItem = ({ sublistItem, Icon }) => {
         onClick={(e) => {
           if (!sublistItem.path) {
             e.preventDefault();
-            setOpenSubMenu(!openSubMenu);
+            dispatch(setSideabarSubmenu(!sidebarSubmenu));
           }
           if (sublistItem.path) matches && dispatch(setOpenedSidebar());
         }}

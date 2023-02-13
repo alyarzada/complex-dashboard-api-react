@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useField } from "formik";
 import {
   FormLabel,
@@ -18,8 +18,8 @@ const CustomGenderRadio = (props) => {
     helpers.setValue(value);
   }, [value]);
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
+  const handleChange = (e) => {
+    setValue(e.target.value);
   };
 
   return (

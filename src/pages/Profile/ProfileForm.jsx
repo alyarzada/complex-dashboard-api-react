@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useState } from "react";
 import { Box, Tab } from "@mui/material";
 import { TabContext, TabPanel, TabList } from "@mui/lab";
 import MyDetails from "./MyDetails";
@@ -7,12 +6,11 @@ import MyPassword from "./MyPassword";
 import NotificationMethod from "./NotificationMethod";
 import { useTranslation } from "react-i18next";
 
-const ProfileForm = ({ userData }) => {
+const ProfileForm = ({ user }) => {
   const [value, setValue] = useState("1");
-
   const { t } = useTranslation();
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (e, newValue) => {
     setValue(newValue);
   };
 
@@ -24,7 +22,7 @@ const ProfileForm = ({ userData }) => {
             <Tab
               sx={{ minWidth: "30%" }}
               className="dark:text-text3 capitalize"
-              label={t("My Details")}
+              label={t("My Data")}
               value="1"
             />
             <Tab
@@ -43,7 +41,7 @@ const ProfileForm = ({ userData }) => {
         </Box>
 
         <TabPanel value="1" className="p-0 mt-5">
-          <MyDetails userData={userData} />
+          <MyDetails user={user} />
         </TabPanel>
         <TabPanel value="2" className="p-0 mt-5">
           <MyPassword />

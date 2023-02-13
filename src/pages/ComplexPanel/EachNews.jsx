@@ -6,35 +6,30 @@ import {
   Typography,
   IconButton,
   Divider,
-  MenuItem,
   TextField,
   Grid,
-  Button,
   Tooltip,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import {
   QuestionAnswerOutlined,
   FavoriteBorderOutlined,
-  Save,
-  MoreHoriz,
   SendOutlined,
   CollectionsOutlined,
   EmojiEmotionsOutlined,
 } from "@mui/icons-material";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ReactionComponent from "../../components/UI/ReactionComponent";
+import ReactionComponent from "../../components/UI/ReactionEmojies/ReactionComponent";
 import Skeleton from "@mui/material/Skeleton";
 import Comment from "./Comment";
-import CustomMenu from "../../components/UI/CustomMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { postComment, likePost } from "../../app/Slicers/news";
 import Cookies from "js-cookie";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 import { motion } from "framer-motion";
-import formatDistance from "date-fns/formatDistance";
+import SaveAltIcon from "@mui/icons-material/SaveAlt";
 
 export const list = {
   visible: {
@@ -57,15 +52,12 @@ export const list = {
 
 const EachNews = ({ news }) => {
   const { status } = useSelector((state) => state.news);
-  const [openMenu, setOpenMenu] = useState(false);
-  const [like, setLike] = useState(false);
   const [expandComments, setExpandComments] = useState(false);
   const [commentValue, setCommentValue] = useState("");
   const [openEmoji, setOpenEmoji] = useState(false);
   const { light } = useSelector((state) => state.themes);
 
   const { t } = useTranslation();
-  const btnRef = useRef(null);
   const dispatch = useDispatch();
 
   const words = news?.userData?.name.split(" ");
@@ -74,7 +66,7 @@ const EachNews = ({ news }) => {
     .reduce((acc, item) => acc + item, "");
 
   const notify = () =>
-    toast("🦄 Wow so easy!", {
+    toast("Post yadda saxlanıldı", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -106,11 +98,6 @@ const EachNews = ({ news }) => {
   };
 
   const likePostHandler = () => {
-    // setLike((prev) => {
-    //   if (prev === 0) {
-    //   }
-    // });
-
     dispatch(
       likePost({
         body: { likeType: 0, likeId: news.id, likeEmoji: 1 },
@@ -143,56 +130,14 @@ const EachNews = ({ news }) => {
             ) : (
               <Typography>{news.userData.name}</Typography>
             )}
-            <Typography className="text-xs text-text2">
-              {(new Date(news?.created_at?.replace("T", " ")?.slice(0, -8)) ==
-                "Invalid Date") ===
-                false &&
-                formatDistance(
-                  new Date(news?.created_at?.replace("T", " ")?.slice(0, -8)),
-                  new Date(),
-                  { addSuffix: true }
-                )}{" "}
-              {t("Public")}
-            </Typography>
           </Box>
         </Stack>
 
-        <Box>
-          <IconButton
-            onClick={() => {
-              setOpenMenu((prev) => !prev);
-            }}
-            ref={btnRef}
-          >
-            <MoreHoriz />
+        <Tooltip title={t("Save Post")} arrow>
+          <IconButton onClick={notify}>
+            <SaveAltIcon />
           </IconButton>
-        </Box>
-
-        {openMenu ? (
-          <CustomMenu
-            className="w-200 top-12 right-2"
-            ref={btnRef}
-            openMenu={openMenu}
-            setOpenMenu={setOpenMenu}
-          >
-            <MenuItem onClick={notify}>
-              <Save className="mr-2 text-lg" />
-              {t("Save Post")}
-            </MenuItem>
-
-            <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              pauseOnHover
-              theme="light"
-            />
-          </CustomMenu>
-        ) : null}
+        </Tooltip>
       </Stack>
       <Divider className="my-4" />
       <Box>
@@ -204,9 +149,6 @@ const EachNews = ({ news }) => {
           </Typography>
         )}
 
-        {/* <Box>
-          <img className="w-full" src={news.img} alt="image" />
-        </Box> */}
         <Divider className="my-4" />
         <Stack direction="row" spacing={2} className="mb-3">
           <Stack
@@ -220,11 +162,9 @@ const EachNews = ({ news }) => {
                   title=<ReactionComponent peer="peer" />
                   placement="top"
                 >
-                  <Button>
-                    <IconButton className="peer" onClick={likePostHandler}>
-                      <FavoriteBorderOutlined />
-                    </IconButton>
-                  </Button>
+                  <IconButton className="peer" onClick={likePostHandler}>
+                    <FavoriteBorderOutlined />
+                  </IconButton>
                 </Tooltip>
               </Grid>
             </Grid>
@@ -298,7 +238,7 @@ const EachNews = ({ news }) => {
               className="flex-1"
               autoComplete="off"
               id="outlined-basic"
-              label={t("Enter your comment text")}
+              label={t("Write a comment")}
               value={commentValue}
               onChange={(e) => setCommentValue(e.target.value)}
               sx={{
@@ -325,7 +265,6 @@ const EachNews = ({ news }) => {
               initial={{ y: 0 }}
               animate={{ y: 10 }}
               transition={{ ease: "easeOut", duration: 0.5 }}
-              // style={{position:"absolute", right:"0", zIndex:99999}}
             >
               <Picker
                 data={data}
