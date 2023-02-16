@@ -222,10 +222,5 @@ div[class^="MuiExpansionPanelSummary-content"] {
 }
 
 .custom-radial-gradient {
-  background-image: linear-gradient(
-    to top right,
-    #061e33 60%,
-    #203c55 80%,
-    #061e33 90%
-  );
+  background: radial-gradient(circle at 100% 50%, #007bff, #0000ff);
 }

@@ -28,12 +28,14 @@ import Header from "../../components/UI/Header";
 import Buttons from "./Buttons";
 import Cookies from "js-cookie";
 import { mobileColumns, desktopColumns } from "./data";
+import { useScrollToUp } from "../../hooks/useScrollToUp";
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
   const page = useGridSelector(apiRef, gridPageSelector);
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
-
+  {
+  }
   return (
     <Pagination
       color="primary"
@@ -50,6 +52,7 @@ const RequestPanel = () => {
 
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  useScrollToUp();
 
   useEffect(() => {
     dispatch(getAllRequests(Cookies.get("token")));

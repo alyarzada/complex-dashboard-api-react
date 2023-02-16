@@ -34,6 +34,8 @@ import { setModal } from "../../../../app/Slicers/modals";
 import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
 import CustomDigitalTimePicker from "../../../../components/Form/CustomDigitalTimePicker";
 import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
+import BackButton from "../../../../components/UI/Buttons/BackButton";
+import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
 
 //multiselect
 const optionsMassage = [
@@ -313,7 +315,7 @@ const Massage = () => {
 
             <CustomTextField label="Şərhiniz" name="message" multiline />
             <Box className="flex gap-x-2 my-3 justify-end">
-              <Button
+              <BackButton
                 onClick={() =>
                   dispatch(
                     setModal({
@@ -324,20 +326,16 @@ const Massage = () => {
                 }
                 type="button"
                 variant="outlined"
-                color="error"
-                className="capitalize"
               >
                 {t("Close")}
-              </Button>
-              <LoadingButton
+              </BackButton>
+              <SuccessButton
+                loading={bookMassageStatus === "loading"}
                 type="submit"
                 variant="contained"
-                color="success"
-                className="capitalize"
-                loading={bookMassageStatus === "loading"}
               >
                 {t("Save")}
-              </LoadingButton>
+              </SuccessButton>
             </Box>
           </Form>
         )}

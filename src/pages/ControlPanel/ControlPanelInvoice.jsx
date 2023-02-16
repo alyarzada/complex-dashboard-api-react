@@ -22,6 +22,7 @@ import { Services } from "../MyInvoices/MyInvoices";
 import BackButton from "../../components/UI/Buttons/BackButton";
 import DefaultButton from "../../components/UI/Buttons/DefaultButton";
 import PreviewIcon from "@mui/icons-material/Preview";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 
 const ControlPanelInvoice = () => {
   const { invoices } = useSelector((state) => state.invoice);
@@ -204,9 +205,9 @@ const ControlPanelInvoice = () => {
                       className=" dark:text-text1 text-textDark2"
                       align="center"
                     >
-                      <Tooltip title="Çekə bax">
-                        <IconButton onClick={() => navigate("/invoice-bill")}>
-                          <PreviewIcon className="text-logoColor text-[22px]" />
+                      <Tooltip title={t(["See the invoice"])}>
+                        <IconButton onClick={() => console.log("print")}>
+                          <RemoveRedEyeIcon className="text-logoColor text-[22px]" />
                         </IconButton>
                       </Tooltip>
                     </TableCell>

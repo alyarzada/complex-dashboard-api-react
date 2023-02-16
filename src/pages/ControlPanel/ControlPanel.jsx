@@ -22,7 +22,6 @@ const ControlPanel = () => {
   useScrollToUp();
 
   const dispatch = useDispatch();
-  const { t } = useTranslation();
 
   const { isDraggable } = useSelector((state) => state.themes);
   const { modals } = useSelector((state) => state.modals);

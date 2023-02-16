@@ -20,7 +20,6 @@ export const Services = ({ params }) => {
     { key: "Kompleks", value: "Port Baku" },
     { key: "Bina", value: "Tower B" },
     { key: "Blok", value: "B" },
-    { key: "Mənzil", value: params.apartment },
     { key: "Xidmət", value: params.service },
     { key: "Xidmət haqqı", value: `${params.amount} AZN` },
     { key: "Ödəniləcək məbləğ", value: `${params.amount} AZN` },
@@ -92,6 +91,7 @@ const Myİnvoices = () => {
           {params.row.amount} AZN
         </Typography>
       ),
+      flex: 1,
     },
     {
       field: "status",
@@ -101,9 +101,10 @@ const Myİnvoices = () => {
       headerAlign: "center",
       renderCell: (params) => (
         <Typography className="bg-logoColor rounded p-1 text-sm">
-          {params.row.status}
+          {t(params.row.status)}
         </Typography>
       ),
+      flex: 1,
     },
     {
       field: "creationDate",
@@ -111,6 +112,7 @@ const Myİnvoices = () => {
       flex: 1,
       align: "center",
       headerAlign: "center",
+      flex: 1,
     },
     {
       field: "operation",
@@ -119,21 +121,10 @@ const Myİnvoices = () => {
       align: "center",
       headerAlign: "center",
       renderCell: (params) => <PayButton params={params}>{t("Pay")}</PayButton>,
+      flex: 1,
     },
   ];
   const mobileColumns = [
-    {
-      key: "apartment",
-      label: "Müraciət sahibi",
-      width: 200,
-      render: (value, data) => {
-        return (
-          <Typography>
-            {t("Apartment")} - {data.apartment}
-          </Typography>
-        );
-      },
-    },
     {
       key: "service",
       label: t(["Service"]),

@@ -5,11 +5,13 @@ import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setOpenedSidebar,
+  setSideabarSubmenu,
   toggleSidebarSubmenu,
 } from "../../app/Slicers/themes";
 import { useMediaQuery, Box } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SubSidebarItem from "./SubSidebarItem";
+import { QrCodeScannerOutlined } from "@mui/icons-material";
 
 const SidebarItem = ({ sidebarItem, Icon }) => {
   const { openedSidebar, sidebarSubmenu } = useSelector(

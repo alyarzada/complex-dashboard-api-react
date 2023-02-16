@@ -19,10 +19,10 @@ import CustomDateRangePicker from "../../../../components/Form/CustomDateRangePi
 import CustomSelect from "../../../../components/Form/CustomSelect";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
-import { LocalizationProvider } from "@mui/x-date-pickers-pro";
-import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
-import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import CustomComplexSelection from "../../../../components/UI/CustomComplexSelection";
+import BackButton from "../../../../components/UI/Buttons/BackButton";
+import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
+import { useNavigate } from "react-router-dom";
 
 const optionsProj = [
   { label: "Port Baku Residence", value: "portbaku" },
@@ -36,6 +36,8 @@ const optionsProj = [
 
 const AdminCreateNew = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
   return (
     <Box>
       <Header
@@ -105,15 +107,21 @@ const AdminCreateNew = () => {
                   direction="row"
                   justifyContent="space-between"
                 >
-                  <Button startIcon={<ReplyOutlinedIcon />} variant="contained">
-                    {t("Back")}
-                  </Button>
-                  <Button
-                    startIcon={<TaskAltOutlinedIcon />}
+                  <BackButton
                     variant="contained"
+                    startIcon=<ReplyOutlinedIcon />
+                    margin="m-0"
+                    onClick={() => navigate(-1)}
+                  >
+                    {t("Back")}
+                  </BackButton>
+                  <SuccessButton
+                    variant="contained"
+                    startIcon=<TaskAltOutlinedIcon />
+                    type="submit"
                   >
                     {t("Submit")}
-                  </Button>
+                  </SuccessButton>
                 </Stack>
               </Form>
             )}
