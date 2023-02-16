@@ -155,7 +155,7 @@ export const dashboardPanels = [
           {
             img: meeting,
             title: "Meeting room",
-            link: "/meeting-room",
+            link: "/meetingroom",
           },
           {
             img: cinema,

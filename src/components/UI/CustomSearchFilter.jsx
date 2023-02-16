@@ -47,7 +47,7 @@ const CustomSearchFilter = ({
           className={
             flex == true
               ? "w-full mb-5"
-              : "flex w-full justify-between items-center"
+              : "flex mb-5 w-full justify-between items-center"
           }
         >
           <Typography
@@ -137,7 +137,7 @@ const CustomSearchFilter = ({
             />
           </Box>
         </Box>
-        <Box className={hidden2 == true ? "hidden" : "w-full mb-5"}>
+        <Box className={hidden2 == true ? "hidden" : "w-full"}>
           <Box
             className={
               flex == true

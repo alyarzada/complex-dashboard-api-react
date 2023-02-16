@@ -60,6 +60,7 @@ const SurveyManage = () => {
     const apiRef = useGridApiContext();
     const page = useGridSelector(apiRef, gridPageSelector);
     const pageCount = useGridSelector(apiRef, gridPageCountSelector);
+
     return (
       <Pagination
         color="primary"
@@ -83,7 +84,7 @@ const SurveyManage = () => {
           icon: EmojiObjectsOutlinedIcon,
         }}
       />
-      <Box className="my-4 py-4 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="my-4 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="lg:flex justify-between items-center ">
           <Typography className="font-semibold text-textDark2 dark:text-text2 text-[16px] my-5 flex gap-1 items-center">
             Sehifede

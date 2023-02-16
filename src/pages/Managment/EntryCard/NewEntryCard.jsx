@@ -44,8 +44,6 @@ const NewEntryCard = () => {
   } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
-  const navigate = useNavigate();
-
   return (
     <Box>
       <Box className="flex justify-between mb-6">
@@ -77,7 +75,7 @@ const NewEntryCard = () => {
         </Box>
       </Box>
 
-      <Box className="dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary">
+      <Box className="bg-bgLight dark:bg-bgMain">
         <Formik
           initialValues={{
             request: "",

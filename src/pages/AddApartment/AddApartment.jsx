@@ -83,7 +83,7 @@ const AddApartment = () => {
       <Header
         currentPage={{ title: t(["Apartments"]), icon: ApartmentOutlinedIcon }}
       />
-      <Box className="my-4 py-4 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="my-4 py-4 px-6 rounded bg-bgLight dark:bg-bgMain w-full drop-shadow-lg">
         <Box className="flex">
           <Formik
             initialValues={{
@@ -179,7 +179,7 @@ const AddApartment = () => {
                     );
                   })}
 
-                  <Box className="my-4 pl-3 flex items-center gap-3 py-4 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize dark:to-mainSecondary w-full">
+                  <Box className="my-4 pl-3 flex items-center gap-3 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize  w-full">
                     <PublicIcon /> {t(["Apartment plan"])}
                   </Box>
                   <Box>
@@ -213,7 +213,7 @@ const AddApartment = () => {
                       </Typography>
                     </Box>
                   </Box>
-                  <Box className="my-4 pl-3 flex items-center gap-3 py-4 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize dark:to-mainSecondary w-full">
+                  <Box className="my-4 pl-3 flex items-center gap-3 py-4 px-6 rounded bg-bgLight drop-shadow-lg   font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize  w-full">
                     <PanoramaOutlinedIcon /> {t(["Notification method"])}
                   </Box>
                   <Box>
@@ -223,7 +223,7 @@ const AddApartment = () => {
                           {t(["Photo"])}
                         </Typography>
                       </Box>
-                      <Box className="flex items-center rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize dark:to-mainSecondary w-full">
+                      <Box className="flex items-center rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize  w-full">
                         <Button className="capitalize" variant="contained">
                           <CustomFile
                             variant="contained"
@@ -241,7 +241,7 @@ const AddApartment = () => {
                       </Typography>
                     </Box>
                   </Box>
-                  <Box className="my-4 pl-3 flex items-center gap-3 py-4 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize dark:to-mainSecondary w-full">
+                  <Box className="my-4 pl-3 flex items-center gap-3 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize dark:to-mainSecondary w-full">
                     <PanoramaOutlinedIcon /> {t(["Photos"])}
                   </Box>
                   <Box className="w-full flex-wrap md:flex">
@@ -253,7 +253,7 @@ const AddApartment = () => {
                               {t(["Photo"])} {item.id}
                             </Typography>
                           </Box>
-                          <Box className="flex  items-center rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize dark:to-mainSecondary w-full">
+                          <Box className="flex  items-center rounded  drop-shadow-lg  bg-bgLight dark:bg-bgMain font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize  w-full">
                             <Button className="capitalize" variant="contained">
                               <CustomFile
                                 className="mb-0"
@@ -273,7 +273,7 @@ const AddApartment = () => {
                       );
                     })}
                   </Box>
-                  <Box className="my-4 pl-3 flex items-center gap-3 py-4 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize dark:to-mainSecondary w-full">
+                  <Box className="my-4 pl-3 flex items-center gap-3 py-4 px-6 rounded bg-bgLight drop-shadow-lg font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize  w-full">
                     <AccountCircleIcon /> {t(["Additional information"])}
                   </Box>
                   <Box>

@@ -50,6 +50,7 @@ const SurveyManage = () => {
     const apiRef = useGridApiContext();
     const page = useGridSelector(apiRef, gridPageSelector);
     const pageCount = useGridSelector(apiRef, gridPageCountSelector);
+
     return (
       <Pagination
         color="primary"
@@ -73,7 +74,7 @@ const SurveyManage = () => {
           icon: EmojiObjectsOutlinedIcon,
         }}
       />
-      <Box className="my-4 py-4 px-6 lg:flex gap-5 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="my-4 py-4 px-6 lg:flex gap-5 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="lg:w-[30%]">
           <CustomSearchFilter hidden2={true} hidden3={true} flex={false} />
         </Box>

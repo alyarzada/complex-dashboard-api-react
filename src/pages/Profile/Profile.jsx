@@ -10,8 +10,6 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 
 const Profile = () => {
   const [firstLetters, setFirstLetters] = useState(null);
-  const [defaultDate, setDefaultDate] = useState(null);
-  const [date, setDate] = useState(null);
   const { t } = useTranslation();
   const {
     user: {
@@ -22,16 +20,8 @@ const Profile = () => {
       username,
       notifi_phone,
     },
-
     user,
   } = useSelector((state) => state.auth);
-  console.log(user);
-
-  // Reverse Birthday
-  const reverseBirthday = (birthdayDate) => {
-    const reversedDate = format(new Date(birthday), "dd/MM/yyyy");
-    return reversedDate;
-  };
 
   const personalDetails = [
     {
@@ -92,7 +82,7 @@ const Profile = () => {
         currentPage={{ title: t(["Profile"]), icon: PersonOutlineOutlinedIcon }}
       />
       <Box className="flex flex-col md:flex-row justify-between mt-4">
-        <Box className="bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary p-8 rounded w-full   md:w-[38%]">
+        <Box className=" drop-shadow-lg bg-bgLight dark:bg-bgMain p-8 rounded w-full   md:w-[38%]">
           {/* first row */}
           <Box className="flex flex-col items-center">
             <Box className="relative">
@@ -143,7 +133,7 @@ const Profile = () => {
           </Box>
         </Box>
 
-        <Box className="bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary p-6 rounded w-full md:w-[61%] min-h-[500px]">
+        <Box className=" drop-shadow-lg bg-bgLight dark:bg-bgMain p-6 rounded w-full md:w-[61%] min-h-[500px]">
           <ProfileForm user={user} />
         </Box>
       </Box>

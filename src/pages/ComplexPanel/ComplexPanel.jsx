@@ -6,7 +6,6 @@ import {
   List,
   ListItem,
   Stack,
-  Avatar,
   ListItemText,
 } from "@mui/material";
 import Body from "./Body";
@@ -137,7 +136,7 @@ const ComplexPanel = () => {
                   />
                 </Box>
 
-                <Box className="relative rounded-b h-[138px] dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg ">
+                <Box className="relative rounded-b h-[138px] bg-bgLight dark:bg-bgMain  drop-shadow-lg ">
                   <Box className="absolute -top-5 left-1 md:left-7">
                     <img
                       className="w-36 h-36 border-4 rounded-[50%]"
@@ -159,7 +158,7 @@ const ComplexPanel = () => {
                   </Box>
                 </Box>
               </Box>
-              <Box className="rounded p-6 dark:text-text1 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg">
+              <Box className="rounded p-6 dark:text-text1 dark:bg-bgMain bg-white drop-shadow-lg flex-1">
                 <Typography
                   className="cursor-pointer select-none text-logoColor hover:text-yellow-600 text-lg w-fit font-semibold"
                   onClick={() =>
@@ -179,47 +178,70 @@ const ComplexPanel = () => {
                 </Typography>
                 <List sx={{ width: "100%", maxWidth: 360 }}>
                   <ListItem
-                    className="flex items-center"
+                    className="flex items-center text-sm"
                     alignItems="flex-start"
                   >
-                    <ListItemAvatar>
+                    <ListItemAvatar className="min-w-[36px]">
                       <ApartmentIcon />
                     </ListItemAvatar>
                     <ListItemText
-                      className="text-textDark2 dark:text-text1"
+                      className="mb-0 text-textDark2 dark:text-text1 text-sm"
                       primary="Tower A"
+                      sx={{
+                        "& .MuiTypography-root": {
+                          fontSize: "14px",
+                        },
+                      }}
                     />
                   </ListItem>
-                  <Divider variant="inset" component="li" />
+                  <Divider
+                    variant="inset"
+                    component="li"
+                    className="ml-[17px]"
+                  />
                   <ListItem
-                    className="flex items-center"
+                    className="flex items-center text-sm"
                     alignItems="flex-start"
                   >
-                    <ListItemAvatar>
+                    <ListItemAvatar className="min-w-[36px]">
                       <ApartmentIcon />
                     </ListItemAvatar>
                     <ListItemText
-                      className="text-textDark2 dark:text-text1"
+                      className="mb-0 text-textDark2 dark:text-text1 text-sm"
                       primary="Tower B"
+                      sx={{
+                        "& .MuiTypography-root": {
+                          fontSize: "14px",
+                        },
+                      }}
                     />
                   </ListItem>
-                  <Divider variant="inset" component="li" />
+                  <Divider
+                    variant="inset"
+                    component="li"
+                    className="ml-[17px]"
+                  />
                   <ListItem
-                    className="flex items-center"
+                    className="flex items-center text-sm"
                     alignItems="flex-start"
                   >
-                    <ListItemAvatar>
+                    <ListItemAvatar className="min-w-[36px]">
                       <ApartmentIcon />
                     </ListItemAvatar>
                     <ListItemText
-                      className="text-textDark2 dark:text-text1"
+                      className="mb-0 text-textDark2 dark:text-text1 text-sm"
                       primary="Tower C"
+                      sx={{
+                        "& .MuiTypography-root": {
+                          fontSize: "14px",
+                        },
+                      }}
                     />
                   </ListItem>
                 </List>
                 <List className="ml-6">
                   <ListItem
-                    className="flex items-center ml-5 "
+                    className="flex items-center ml-4 "
                     alignItems="flex-start"
                   >
                     <ListItemText
@@ -232,7 +254,7 @@ const ComplexPanel = () => {
                   </ListItem>
                   <Divider variant="" component="li" />
                   <ListItem
-                    className="flex items-center ml-5"
+                    className="flex items-center ml-4"
                     alignItems="flex-start"
                   >
                     <ListItemText

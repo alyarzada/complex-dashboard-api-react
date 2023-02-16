@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -29,11 +29,10 @@ const ControlPanelInvoice = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const { t } = useTranslation();
 
   const payInvoiceHandle = (invoice) => {
-    pushToSelectedInvoices(invoice);
+    dispatch(pushToSelectedInvoices(invoice));
     navigate("/myinvoice/payment");
   };
 
@@ -56,7 +55,7 @@ const ControlPanelInvoice = () => {
     <Box className="mb-6">
       <Stack direction={{ xs: "column", lg: "row" }} spacing={2}>
         {/* Current invoices */}
-        <Box className="flex-1 bg-gradient-to-r from-bgMain to-bgSecond p-2 bg-white rounded">
+        <Box className="flex-1 bg-bgLight dark:bg-bgMain p-3  rounded">
           <Box className="mb-3 flex justify-between items-center">
             <Typography className="dark:text-logoColor text-logoColor capitalize font-medium">
               {t(["Current invoices (debts)"])}
@@ -70,8 +69,21 @@ const ControlPanelInvoice = () => {
             </DefaultButton>
           </Box>
           <TableContainer
-            className="bg-transparent h-[240px] overflow-auto custom-table-class"
+            className="bg-transparent h-[240px] overflow-auto"
             component={Paper}
+            sx={{
+              "&::-webkit-scrollbar": {
+                width: 3.5,
+              },
+              "&::-webkit-scrollbar-track": {
+                backgroundColor: "transparent",
+                borderRadius: 2,
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "gray",
+                borderRadius: 2,
+              },
+            }}
           >
             <Table size="small" aria-label="a dense table">
               <TableHead>
@@ -123,7 +135,7 @@ const ControlPanelInvoice = () => {
           </TableContainer>
         </Box>
         {/* Paid invoices */}
-        <Box className="flex-1 bg-gradient-to-r p-2 from-bgMain to-bgSecond bg-white rounded">
+        <Box className="flex-1 p-2 dark:bg-bgMain bg-white rounded">
           <Box className="mb-3 flex justify-between items-center">
             <Typography className="dark:text-logoColor text-logoColor capitalize font-medium">
               {t(["Paid invoices"])}
@@ -137,8 +149,21 @@ const ControlPanelInvoice = () => {
             </DefaultButton>
           </Box>
           <TableContainer
-            className="bg-transparent h-[240px] overflow-auto custom-table-class"
+            className="bg-transparent h-[240px] overflow-auto"
             component={Paper}
+            sx={{
+              "&::-webkit-scrollbar": {
+                width: 3.5,
+              },
+              "&::-webkit-scrollbar-track": {
+                backgroundColor: "transparent",
+                borderRadius: 2,
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "gray",
+                borderRadius: 2,
+              },
+            }}
           >
             <Table size="small" aria-label="a dense table">
               <TableHead>
@@ -180,74 +205,10 @@ const ControlPanelInvoice = () => {
                       align="center"
                     >
                       <Tooltip title="Çekə bax">
-                        <IconButton onClick={() => console.log("print")}>
+                        <IconButton onClick={() => navigate("/invoice-bill")}>
                           <PreviewIcon className="text-logoColor text-[22px]" />
                         </IconButton>
                       </Tooltip>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Box>
-        <Box className="flex-1 bg-gradient-to-r from-bgMain to-bgSecond p-2 bg-white rounded">
-          <Box className="mb-3 flex justify-between items-center">
-            <Typography className="dark:text-logoColor text-logoColor capitalize font-medium">
-              {t(["Paid invoices"])}
-            </Typography>
-            <Link to="/myinvoice">
-              <Button className="capitalize" variant="outlined">
-                {t(["All payments"])}
-              </Button>
-            </Link>
-          </Box>
-          <TableContainer
-            className="bg-transparent h-[234px] overflow-auto custom-table-class"
-            component={Paper}
-          >
-            <Table size="small" aria-label="a dense table">
-              <TableHead>
-                <TableRow>
-                  <TableCell className=" dark:text-text1 text-textDark2">
-                    {t(["Service type"])}
-                  </TableCell>
-                  <TableCell
-                    className=" dark:text-text1 text-textDark2"
-                    align="center"
-                  >
-                    {t(["Amount to pay"])}
-                  </TableCell>
-                  <TableCell
-                    className=" dark:text-text1 text-textDark2"
-                    align="center"
-                  >
-                    {t(["Action"])}
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {invoices.map((invoice) => (
-                  <TableRow
-                    key={invoice.id}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
-                    <TableCell component="th" scope="row">
-                      <Services params={invoice} />
-                    </TableCell>
-                    <TableCell
-                      className=" dark:text-text1 text-textDark2"
-                      align="center"
-                    >
-                      {invoice.amount} AZN
-                    </TableCell>
-                    <TableCell align="center">
-                      <BackButton
-                        variant="outlined"
-                        onClick={() => payInvoiceHandle(invoice)}
-                      >
-                        {t("Pay")}
-                      </BackButton>
                     </TableCell>
                   </TableRow>
                 ))}

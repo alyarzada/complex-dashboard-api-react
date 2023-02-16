@@ -5,14 +5,11 @@ import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setOpenedSidebar,
-  setSideabarSubmenu,
   toggleSidebarSubmenu,
 } from "../../app/Slicers/themes";
 import { useMediaQuery, Box } from "@mui/material";
-import ManagmentSubMenuItem from "./ManagmentSubMenuItem";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SubSidebarItem from "./SubSidebarItem";
-import { QrCodeScannerOutlined } from "@mui/icons-material";
 
 const SidebarItem = ({ sidebarItem, Icon }) => {
   const { openedSidebar, sidebarSubmenu } = useSelector(
@@ -22,23 +19,16 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
 
   const matches = useMediaQuery("(max-width:768px)");
   const dispatch = useDispatch();
-  const linkRef = useRef(null);
+  const linksRef = useRef(null);
   const linksContainerRef = useRef(null);
-
-  // console.log(sidebarSubmenu);
-  // console.log(typeof sidebarItem.id);
-
-  console.log(sidebarSubmenu);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (sidebarItem.sublist) {
       const linksHeight = linksRef.current.getBoundingClientRect().height;
       if (sidebarSubmenu.open && sidebarSubmenu.id == sidebarItem.id) {
-        console.log(true);
         linksContainerRef.current.style.height = `${linksHeight}px`;
       } else {
-        console.log(sidebarSubmenu.open);
-
         linksContainerRef.current.style.height = "0px";
       }
     }
@@ -52,9 +42,7 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
           if (!sidebarItem.path) {
             e.preventDefault();
             dispatch(toggleSidebarSubmenu(sidebarItem.id));
-            console.log("yees");
           } else {
-            console.log("fucke");
             matches && dispatch(setOpenedSidebar());
           }
         }}
@@ -63,14 +51,6 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
             ? "text-text2 hover-effect rounded w-[90%] mx-auto px-4"
             : "relative px-7"
         }`}
-        to={sidebarItem.path ? sidebarItem.path : ""}
-        onClick={(e) => {
-          if (!sidebarItem.path) {
-            e.preventDefault();
-            if (openedSidebar) setOpenSubMenu((prev) => !prev);
-          }
-          if (sidebarItem.path) matches && dispatch(setOpenedSidebar());
-        }}
       >
         <Icon className="w-[20px] group-hover:text-white" />
         {openedSidebar ? (
@@ -106,7 +86,6 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
             !openedSidebar &&
             ` h-[${linksHeight}px] invisible group-hover:visible`
           }`}
-          ref={linksContainerRef}
         >
           <ul
             ref={linksRef}
@@ -120,12 +99,11 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
             }
           >
             {sidebarItem.sublist.map((sublistItem, index) => {
-              const Icon = sublistItem.icon;
               return (
-                <ManagmentSubMenuItem
+                <SubSidebarItem
                   ref={{
-                    linkRef,
                     linksContainerRef,
+                    linksRef,
                   }}
                   parentHeight={setLinksHeight}
                   key={index}

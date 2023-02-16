@@ -47,7 +47,7 @@ const NestedModal = (
       exit={{ opacity: 0 }}
     >
       <motion.div
-        className="w-[94%] sm:w-[80%] md:w-[48%] bg-[#fff] dark:bg-[#020a15]
+        className="w-[94%] sm:w-[80%] md:w-[48%] bg-bgLight dark:bg-[#020a15]
       shadow-lg rounded-xl"
         initial="hidden"
         animate="visible"

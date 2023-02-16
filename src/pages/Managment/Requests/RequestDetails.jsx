@@ -76,7 +76,7 @@ const RequestDetails = () => {
   }, []);
 
   return (
-    <Box className="bg-gradient-to-r from:bg-bgMain to:bg-bgSecond p-6">
+    <Box className=" bg-bgLight dark:bg-bgMain p-6">
       <Box className="mt-6">
         {myRequestDetails?.comments?.map((comment) => {
           const words = comment.userData.name.split(" ");
@@ -111,7 +111,7 @@ const RequestDetails = () => {
           );
         })}
       </Box>
-      <Box className="text-text1 drop-shadow-xl border border-slate-600 bg-gradient-to-r from:bg-bgMain to:bg-bgSecond rounded p-4">
+      <Box className="text-text1 drop-shadow-xl border border-slate-600  bg-bgLight dark:bg-bgMain to:bg-bgSecond rounded p-4">
         <Box className="mb-6">
           <Formik
             initialValues={{

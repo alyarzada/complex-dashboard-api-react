@@ -176,7 +176,7 @@ export default function Reports() {
   return (
     <Box className="w-full">
       <Header currentPage={{ title: t(["Reports"]), icon: ShowChartSharp }} />
-      <Box className="my-4 py-4 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="my-4 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="flex flex-col sm:flex-row justify-start gap-3">
           <Button
             className="capitalize"
@@ -195,7 +195,7 @@ export default function Reports() {
         </Box>
       </Box>
       <Box
-        className="flex flex-col my-4 py-4 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full"
+        className="flex flex-col my-4 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full"
         sx={{ justifyContent: "space-between", alignItems: "center " }}
       >
         <Box className="md:flex flex-col w-full sm:flex-row justify-between items-center">
@@ -241,8 +241,8 @@ export default function Reports() {
           </Box>
         </Box>
         <Box
-          className="sm:flex flex-col sm:flex-row  w-full h-[240px] text-textDark bg-bgLight  drop-shadow-lg hover:drop-shadow-xl 
-          dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary dark:text-white justify-around
+          className="sm:flex flex-col sm:flex-row  w-full h-[240px] text-textDark   drop-shadow-lg hover:drop-shadow-xl 
+          bg-bgLight dark:bg-bgMain dark:text-white justify-around
         items-center text-text5"
         >
           <Box className="flex flex-col">
@@ -278,8 +278,8 @@ export default function Reports() {
           </Typography>
           <TableContainer
             component={Paper}
-            className=" rounded-none text-textDark bg-bgLight  drop-shadow-lg hover:drop-shadow-xl 
-            dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary dark:text-white
+            className=" rounded-none text-textDark   drop-shadow-lg hover:drop-shadow-xl 
+            bg-bgLight dark:bg-bgMain dark:text-white
           items-center text-text5"
           >
             <Table sx={{ minWidth: 400 }} aria-label="simple table">
@@ -345,8 +345,8 @@ export default function Reports() {
           </Box>
         </Box>
         <Box
-          className="h-full p-5 text-textDark bg-bgLight  drop-shadow-lg hover:drop-shadow-xl 
-            dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary dark:text-white
+          className="h-full p-5 text-textDark   drop-shadow-lg hover:drop-shadow-xl 
+            bg-bgLight dark:bg-bgMain dark:text-white
           items-center text-text5"
         >
           <ReportsFilter />

@@ -6,6 +6,8 @@ import { DataGrid } from "@mui/x-data-grid";
 import Header from "../../components/UI/Header";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import SuccessButton from "../../components/UI/Buttons/SuccessButton";
+import CustomDataGrid from "../../components/UI/CustomDataGrid";
+import { Link } from "react-router-dom";
 
 const Payment = () => {
   const params = useParams();
@@ -37,14 +39,67 @@ const Payment = () => {
       headerAlign: "center",
     },
   ];
-
+  const mobileColumns = [
+    {
+      key: "name",
+      label: "Müraciət sahibi",
+      width: 200,
+      render: (value, data) => {
+        return (
+          <Link to={`/requests/details/${data.id}`}>
+            {value + " - " + data.message}
+          </Link>
+        );
+      },
+    },
+    {
+      key: "status",
+      label: "Status",
+      width: 100,
+      render: (value) => {
+        if (value === 1) {
+          return (
+            <Typography className="text-xs bg-yellow-600 text-white py-1 px-2 rounded">
+              Aşağı
+            </Typography>
+          );
+        } else if (value === 2) {
+          return (
+            <Typography className="text-xs bg-red-500 text-white py-1 px-2 rounded">
+              Yüksək
+            </Typography>
+          );
+        } else {
+          return (
+            <Typography className="text-xs bg-green-600 text-white py-1 px-2 rounded">
+              Normal
+            </Typography>
+          );
+        }
+      },
+    },
+    {
+      key: "requestDepartments",
+      label: "Şöbə",
+      width: 150,
+    },
+    // {
+    //   key: "message",
+    //   label: "Müraciət",
+    //   description: "This column has a value getter and is not sortable.",
+    //   sortable: false,
+    //   width: 250,
+    // },
+    { key: "startTime", label: "Başlama tarixi", width: 160 },
+    { key: "endTime", label: "Bitmə tarixi", width: 160 },
+  ];
   return (
     <Box>
       <Header currentPage={{ title: "My Invoices", icon: ReceiptLongIcon }} />
       <Box className="flex drop-shadow-lg rounded bg-white dark:bg-transparent">
         <Box className="flex-1">
-          <Box style={{ height: 400, width: "100%" }}>
-            <DataGrid
+          <Box style={{ width: "100%" }}>
+            {/* <DataGrid
               rows={selectedInvoices.map((item) => ({
                 id: item.id,
                 service: item.service,
@@ -60,6 +115,18 @@ const Payment = () => {
                     : "translate3d(0px, 0px, 0px) !important",
                 },
               }}
+            /> */}
+
+            <CustomDataGrid
+              desktopColumns={columns}
+              mobileColumns={mobileColumns}
+              rows={selectedInvoices.map((item) => ({
+                id: item.id,
+                service: item.service,
+                amount: item.amount + " " + "AZN",
+              }))}
+              width={400}
+              status={selectedInvoices.status}
             />
             <Stack
               direction="row"
@@ -67,12 +134,7 @@ const Payment = () => {
               alignItems="center"
               className="mt-3"
             >
-              <Typography
-                sx={{
-                  boxShadow: 3,
-                }}
-                className="dark:text-white bg-rose-500 shadow-[#F43F5E] hover:shadow-[#F43F5E]/80 py-1 px-2 rounded"
-              >
+              <Typography className="dark:text-white bg-rose-500 shadow-lg shadow-[#F43F5E]/60 hover:shadow-[#F43F5E]/80 py-1 px-2 rounded">
                 Total:{" "}
                 {selectedInvoices.length > 0
                   ? selectedInvoices.reduce(

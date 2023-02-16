@@ -15,6 +15,8 @@ import Calendar from "./Calendar";
 import DeleteBookedMassage from "../Components/DeleteBookedMassage";
 import CustomTextField from "../../../../components/Form/CustomTextField";
 import CustomSelect from "../../../../components/Form/CustomSelect";
+import { BronMassageSchema } from "../../../../validations/leisureclub/massageVal";
+import CustomDataGrid from "../../../../components/UI/CustomDataGrid";
 
 // redux;
 import { useDispatch, useSelector } from "react-redux";
@@ -121,6 +123,11 @@ const columns = [
   },
 ];
 
+const masseurs = [
+  { label: "Yuliya", value: "Yuliya" },
+  { label: "Sabina", value: "Sabina" },
+];
+
 const Massage = () => {
   useScrollToUp();
   const [eventData, setEventData] = useState(null);
@@ -192,16 +199,57 @@ const Massage = () => {
   useEffect(() => {
     dispatch(getBookedMassage(Cookies.get("token")));
   }, []);
-
+  const mobileColumns = [
+    {
+      key: "start_date",
+      label: "Başlama vaxtı",
+      width: 200,
+    },
+    {
+      key: "end_date",
+      label: "Bitmə vaxtı",
+      width: 100,
+    },
+    {
+      key: "duration",
+      label: "Müddət",
+      width: 100,
+    },
+    {
+      key: "therapist",
+      label: "Terapevt",
+      width: 100,
+    },
+    {
+      key: "status",
+      label: "Status",
+      width: 100,
+    },
+    {
+      key: "created_time",
+      label: "Yaradıldı",
+      width: 100,
+    },
+    {
+      key: "delete",
+      label: t("Delete"),
+      width: 150,
+      render: (value, data) => {
+        return <DeleteBookedMassage params={data} />;
+      },
+    },
+  ];
   const bronModal = (
     <Box>
       <Formik
         initialValues={{
           start_date: "",
-          therapist: "",
+          start_time: "",
+          therapist: "Yuliya",
           massage: "",
           message: "",
         }}
+        validationSchema={BronMassageSchema}
         onSubmit={(values) => {
           const editedValues = {
             ...values,
@@ -217,25 +265,50 @@ const Massage = () => {
       >
         {() => (
           <Form>
-            <NewCustomTimePicker
+            {/* <NewCustomTimePicker
               label="Bronlama vaxti"
               name="start_date"
               defaultValue={defaultDate ? defaultDate : ""}
-            />
-            <CustomTextField
+            /> */}
+            {/* <CustomTextField
               label="Terapevt"
               name="therapist"
               masseur={masseur}
               value={masseur.name}
               disabled
               massage
+            /> */}
+            <CustomDatePicker
+              errorMessage="Zəhmət olmasa bronlama tarixini seçin"
+              name="start_date"
+              label="Bronlama tarixi"
+              containerClassName="w-full mb-6"
+              className="w-full"
+            />
+            <CustomDigitalTimePicker
+              label="Bronlama vaxtı"
+              name="start_time"
+              containerClassName="w-full mb-6"
+              className="w-full"
+              errorMessage="Zəhmət olmasa, bronlanma vaxtını seçin"
+            />
+            <CustomSelect
+              label="Terapevt"
+              name="therapist"
+              options={masseurs}
+              defaultValue="Yuliya"
+              noTranslation
+              onlyValue
+              containerClassName="mb-6 z-[10000] m-0"
             />
             <CustomSelect
               label="Masaj"
               options={optionsMassage}
               name="massage"
+              defaultValue="1"
               onlyValue
               noTranslation
+              containerClassName="mb-6 z-[10000] m-0"
             />
 
             <CustomTextField label="Şərhiniz" name="message" multiline />
@@ -319,7 +392,7 @@ const Massage = () => {
       <Header
         currentPage={{ title: "Massage", icon: AdminPanelSettingsOutlinedIcon }}
       />
-      <Box className="rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="py-6 px-6 my-4">
           <Box className="flex justify-between mb-6">
             <Box>
@@ -381,7 +454,7 @@ const Massage = () => {
           />
 
           <Box className="mb-10">
-            <DataGrid
+            {/* <DataGrid
               sx={{
                 align: "center",
               }}
@@ -409,6 +482,32 @@ const Massage = () => {
                 };
               })}
               columns={columns}
+            /> */}
+            <CustomDataGrid
+              desktopColumns={columns}
+              mobileColumns={mobileColumns}
+              rows={bookedMassage.map((item) => {
+                console.log(
+                  item?.created_at
+                    ? item?.created_at?.replace("T", " ").slice(0, -11)
+                    : null
+                );
+                return {
+                  id: item.id,
+                  start_date: item.start_date,
+                  end_date: item.end_date,
+                  duration: "",
+                  therapist: item.therapist,
+                  status: item.status,
+                  // created_time: item?.created_at
+                  //   ? item?.created_at?.replace("T", " ").slice(0, -11)
+                  //   : null,
+                  created_time: "",
+                  delete: "",
+                };
+              })}
+              width={630}
+              status={bookedMassage.status}
             />
           </Box>
         </Box>

@@ -1,4 +1,5 @@
-import ResponsiveTable from "material-ui-next-responsive-table";
+import React from "react";
+import ResponsiveTable from "./ResponsiveTable/index";
 
 const ResponsivePagination = ({ data, columns, page }) => {
   return (

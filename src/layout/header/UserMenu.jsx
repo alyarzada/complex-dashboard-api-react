@@ -7,7 +7,6 @@ import {
   Typography,
   Divider,
 } from "@mui/material";
-import { deepOrange, deepPurple } from "@mui/material/colors";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -75,7 +74,7 @@ const UserMenu = () => {
         alignItems="center"
         justifyContent="center"
         spacing={1}
-        className="bg-slate-200 dark:bg-slate-600 p-2 rounded cursor-pointer"
+        className="bg-slate-200 dark:bg-bgSecond p-2 rounded cursor-pointer"
         onClick={() => setOpenMenu((prev) => !prev)}
         ref={btnRef}
       >

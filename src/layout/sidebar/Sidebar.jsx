@@ -13,9 +13,7 @@ import qrcode from "../../assets/logo/qrcode.png";
 const SideBar = () => {
   const { openedSidebar, leftLight } = useSelector((state) => state.themes);
   const { sidebar } = useSelector((state) => state.data);
-
   const { t } = useTranslation();
-  const matches = useMediaQuery("(max-width:768px)");
 
   const months = [
     t(["January"]),
@@ -33,20 +31,12 @@ const SideBar = () => {
   ];
 
   return (
-    <motion.div
-      className={`text-sm scroll-design z-[500] select-none ${
-        openedSidebar ? "overflow-auto" : "overflow-hidden md:overflow-visible"
-      }   h-screen z-10 fixed left-0 top-[70px] md:top-0 ${
-        leftLight === "light"
-          ? "bg-bgLight drop-shadow-lg"
-          : "bg-gradient-to-r from-mainPrimary to-mainSecondary"
-      }`}
-      animate={
-        matches
-          ? { x: openedSidebar ? "0" : "-100%", width: "250px" }
-          : { width: openedSidebar ? "250px" : "80px" }
-      }
-      transition={{ type: "spring", duration: 0.5 }}
+    <Box
+      className={`print:hidden transition-all duration-400 text-sm scroll-design z-[500] select-none h-screen fixed left-0 top-[70px] md:top-0 ${
+        openedSidebar
+          ? "translate-x-0 md:w-[250px] exl:w-[300px] overflow-auto"
+          : "-translate-x-full md:translate-x-0 md:w-[80px] exl:w-[100px] overflow-hidden md:overflow-visible"
+      } ${leftLight === "light" ? "bg-bgLight drop-shadow-lg" : "bg-bgMain"}`}
     >
       <Box className="mb-6 mt-3 h-16" onClick={() => window.scrollTo(0, 0)}>
         <Link to="/">
@@ -58,6 +48,7 @@ const SideBar = () => {
         </Link>
       </Box>
 
+      {/* today date */}
       {openedSidebar ? (
         <Box className="mb-2">
           <Typography className="mx-auto mb-6 text-sm text-center text-text1">
@@ -67,6 +58,7 @@ const SideBar = () => {
         </Box>
       ) : null}
 
+      {/* sidebar navigation list */}
       <nav className="sidebar-nav">
         {sidebar.map((sidebarItem, index) => {
           const Icon = sidebarItem.icon;
@@ -80,6 +72,7 @@ const SideBar = () => {
         })}
       </nav>
 
+      {/* navigations images */}
       <Box className="px-3 mt-8 mb-4">
         <Stack
           direction={openedSidebar ? "row" : "column"}
@@ -107,7 +100,7 @@ const SideBar = () => {
           />
         </Box>
       </Box>
-    </motion.div>
+    </Box>
   );
 };
 

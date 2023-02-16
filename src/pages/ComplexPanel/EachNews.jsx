@@ -20,7 +20,7 @@ import {
 } from "@mui/icons-material";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ReactionComponent from "../../components/UI/ReactionEmojies/ReactionComponent";
+import EmojiesContainer from "../../components/UI/ReactionEmojies/EmojiesContainer";
 import Skeleton from "@mui/material/Skeleton";
 import Comment from "./Comment";
 import { useDispatch, useSelector } from "react-redux";
@@ -106,10 +106,8 @@ const EachNews = ({ news }) => {
     );
   };
 
-  console.log(news);
-
   return (
-    <Box className="mb-4 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary rounded p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
+    <Box className="mb-4 dark:bg-bgMain rounded p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
       <Stack
         direction="row"
         justifyContent="space-between"
@@ -160,10 +158,7 @@ const EachNews = ({ news }) => {
           >
             <Grid container justifyContent="center" style={{ width: "30%" }}>
               <Grid item>
-                <Tooltip
-                  title=<ReactionComponent peer="peer" />
-                  placement="top"
-                >
+                <Tooltip title=<EmojiesContainer peer="peer" /> placement="top">
                   <IconButton className="peer" onClick={likePostHandler}>
                     <FavoriteBorderOutlined />
                   </IconButton>

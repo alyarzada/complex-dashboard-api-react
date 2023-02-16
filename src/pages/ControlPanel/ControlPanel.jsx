@@ -1,13 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { ReactSortable } from "react-sortablejs";
 import { reOrderMenus } from "../../app/Slicers/data";
 import { destroyModal } from "../../app/Slicers/modals";
 import { useScrollToUp } from "../../hooks/useScrollToUp";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
+import { useTranslation } from "react-i18next";
 import "react-toastify/dist/ReactToastify.css";
 import "./styles/style.css";
-import Header from "../../components/UI/Header";
 import ConfirmModal from "./modals/ConfirmModal";
 import FormModal from "./modals/FormModal";
 import OtherModal from "./modals/OtherModal";
@@ -23,6 +22,7 @@ const ControlPanel = () => {
   useScrollToUp();
 
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const { isDraggable } = useSelector((state) => state.themes);
   const { modals } = useSelector((state) => state.modals);
@@ -35,12 +35,15 @@ const ControlPanel = () => {
 
   return (
     <Box className="w-full">
-      <Header
-        currentPage={{
-          title: "Dashboard",
-          icon: AdminPanelSettingsOutlinedIcon,
-        }}
-      />
+      <Box>
+        <Typography
+          variant="h6"
+          component="h1"
+          className="font-bold text-textDark2 dark:text-logoColor text-[16px] mb-1 lg:mb-6"
+        >
+          {t("Dashboard")}
+        </Typography>
+      </Box>
       {role_id === 8 ? <ControlPanelInvoice /> : null}
       <ReactSortable
         list={controlPanel.map((menu) => ({ ...menu, chosen: true }))}
@@ -54,9 +57,9 @@ const ControlPanel = () => {
       </ReactSortable>
 
       {/* {role_id !== 8 ? <ControlPanelTasks /> : null} */}
-      {role_id !== 8 ? <ControlPanelRequests /> : null}
-      {role_id !== 8 ? <ControlPanelRequestsArchive /> : null}
-      {role_id !== 8 ? <ControlPanelStatus /> : null}
+      {role_id === 4 ? <ControlPanelRequests /> : null}
+      {role_id === 4 ? <ControlPanelRequestsArchive /> : null}
+      {role_id === 4 ? <ControlPanelStatus /> : null}
 
       {modals.length > 0
         ? modals.map((modal, index) => (

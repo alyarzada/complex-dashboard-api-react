@@ -33,12 +33,12 @@ const ControlPanelRequestsArchive = () => {
   }, [allRequests]);
 
   return (
-    <Box className="p-4 bg-gradient-to-r rounded-xl	mb-6">
+    <Box className="p-4 bg-bgLight dark:bg-bgMain rounded-xl	mb-6">
       <Typography className="text-slate-400	font-bold	text-lg mb-10	">
         {t("Archive of Requests")}
       </Typography>
       <Box>
-        <TableContainer className="bg-gradient-to-r" component={Paper}>
+        <TableContainer className="bg-bgLight dark:bg-bgMain" component={Paper}>
           <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
             <TableHead>
               <TableRow>

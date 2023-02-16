@@ -138,7 +138,7 @@
   }
 }
 
-.active {
+.active{
   background-color: red !important;
 }
 
@@ -147,7 +147,7 @@
 }
 
 .hover-effect::after {
-  background: #c9b26d;
+  background: #C9B26D;
   border-radius: 0.4rem;
   content: "";
   display: block;

@@ -36,8 +36,8 @@ const PhotoEdit = () => {
         }}
       />
 
-      <Box className="my-4 p-5 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
-        <Box className="mb-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
+      <Box className="my-4 p-5 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
+        <Box className="mb-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-logoColor dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
           <FilterOutlinedIcon /> {t(["Photos"])}
         </Box>
         <Formik
@@ -59,7 +59,7 @@ const PhotoEdit = () => {
                           {t(["Photo"])} {item.id}
                         </Typography>
                       </Box>
-                      <Box className="flex  items-center rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize dark:to-mainSecondary w-full">
+                      <Box className="flex  items-center rounded  drop-shadow-lg bg-bgLight  dark:bg-bgMain font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize w-full">
                         <Button className="capitalize" variant="contained">
                           <CustomFile
                             className="mb-0"

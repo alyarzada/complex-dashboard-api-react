@@ -159,11 +159,11 @@ const Tasks = () => {
         <Button className="capitalize bg-[#0acf97]" variant="contained">
           pdfe kocur
         </Button>
-        <Button className="capitalize bg-[#c9b26d]" variant="contained">
+        <Button className="capitalize bg-logoColor" variant="contained">
           arxiv
         </Button>
       </Box>
-      <Box className="py-6 px-6 my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="py-6 px-6 my-4 rounded drop-shadow-lg bg-bgLight  dark:bg-bgMain w-full">
         <Box className="w-full flex flex-col sm:flex-row justify-end">
           <Link to="/tasks/create">
             <Button

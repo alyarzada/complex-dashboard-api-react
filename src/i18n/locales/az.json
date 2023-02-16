@@ -20,7 +20,9 @@
     "hi": "salam",
     "No notification!": "Bildiriş yoxdur!",
     "menu": "Menyular",
+    "Menu categories": "Menyu kateqoriyaları",
     "My oders": "Mənim sifarişlərim",
+    "Orders": "Sifarişlər",
     "Number": "Say",
     "Choose": "Seçin",
     "On page 10 Show Results": "Səhifədə 10 nəticə göstər",
@@ -840,6 +842,5 @@
     "The number of buildings included in the complex": "Kompleksə daxil olan binaların sayı",
     "Port Baku": "Port Baku",
     "Write a comment": "Şərh yazın"
-
   }
 }
