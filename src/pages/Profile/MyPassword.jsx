@@ -74,9 +74,7 @@ const MyPassword = () => {
                 <DefaultButton
                   variant="contained"
                   type="submit"
-                  startIcon={
-                    <SaveIcon className="text-white dark:text-black" />
-                  }
+                  startIcon={<SaveIcon className="dark:text-white" />}
                 >
                   {t(["Save"])}
                 </DefaultButton>

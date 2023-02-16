@@ -17,7 +17,9 @@ const columns = [
   {
     field: "name",
     headerName: "Applicant",
-    width: 200,
+    flex: 1,
+    headerAlign: "center",
+    align: "center",
     renderCell: (params) => {
       return <Link to={`details/${params.row.id}`}>{params.row.name}</Link>;
     },
@@ -25,12 +27,20 @@ const columns = [
   {
     field: "request",
     headerName: "Müraciət",
-    width: 400,
+    flex: 3,
+    headerAlign: "center",
+    align: "center",
     renderCell: (params) => (
       <Link to={`details/${params.row.id}`}>{params.row.request}</Link>
     ),
   },
-  { field: "date", headerName: "Tarix", width: 200 },
+  {
+    field: "date",
+    headerName: "Tarix",
+    flex: 1,
+    headerAlign: "center",
+    align: "center",
+  },
 ];
 
 const RequestComponent = () => {
@@ -45,6 +55,30 @@ const RequestComponent = () => {
       has_role: { role_id },
     },
   } = useSelector((state) => state.auth);
+  const mobileColumns = [
+    {
+      key: "name",
+      label: t("Applicant"),
+      width: 200,
+      render: (value, data) => {
+        return <Link to={`details/${data.id}`}>{data.name}</Link>;
+      },
+    },
+    {
+      key: "request",
+      label: t("Request"),
+      width: 100,
+      render: (value, data) => (
+        <Link to={`details/${data.id}`}>{data.request}</Link>
+      ),
+    },
+    {
+      key: "Start date",
+      label: t("Date"),
+      width: 150,
+    },
+  ];
+
   const mobileColumns = [
     {
       key: "name",
@@ -108,15 +142,6 @@ const RequestComponent = () => {
       animate="visible"
       className="dark:bg-gradient-to-r bg-bgLight drop-shadow-lg dark:from-mainPrimary dark:to-mainSecondary text-text1 min-h-full rounded p-3"
     >
-      {/* <DataGrid
-        columns={columns}
-        rows={filteredRequests?.length > 0 ? filteredRequests : []}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        className="lastTask-scrollbar"
-        autoHeight
-        loading={status === "loading"}
-      /> */}
       <CustomDataGrid
         desktopColumns={columns}
         mobileColumns={mobileColumns}

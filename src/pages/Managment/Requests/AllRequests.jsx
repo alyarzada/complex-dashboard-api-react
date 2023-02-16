@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import {Typography} from "@mui/material"
-import CustomDataGrid from "../../../components/UI/CustomDataGrid"
+import { Typography } from "@mui/material";
+import CustomDataGrid from "../../../components/UI/CustomDataGrid";
 
 const variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
@@ -29,37 +29,45 @@ const AllRequests = () => {
     {
       field: "name",
       headerName: t("Applicant"),
-      width: 200,
+      flex: 1,
+      headerAlign: "center",
+      align: "center",
       renderCell: (params) => {
         return <Link to={`details/${params.row.id}`}>{params.row.name}</Link>;
       },
     },
     {
       field: "request",
+      flex: 3,
+      headerAlign: "center",
+      align: "center",
       headerName: t("Request"),
-      width: 400,
       renderCell: (params) => (
         <Link to={`details/${params.row.id}`}>{params.row.request}</Link>
       ),
     },
-    { field: "Start date", headerName: t("Date"), width: 200 },
+    {
+      field: "Start date",
+      flex: 1,
+      headerAlign: "center",
+      align: "center",
+      headerName: t("Date"),
+    },
   ];
   const mobileColumns = [
     {
       key: "name",
       label: t("Applicant"),
       width: 200,
-      render: (value,data) => {
-        return <Link to={`details/${data.id}`}>
-            {data.name}
-          </Link>;
+      render: (value, data) => {
+        return <Link to={`details/${data.id}`}>{data.name}</Link>;
       },
     },
     {
       key: "request",
       label: t("Request"),
       width: 100,
-      render: (value,data) => (
+      render: (value, data) => (
         <Link to={`details/${data.id}`}>{data.request}</Link>
       ),
     },
@@ -106,7 +114,6 @@ const AllRequests = () => {
         rows={allData?.length > 0 ? allData : []}
         width={630}
         status={allData.status}
-
       />
     </motion.div>
   );

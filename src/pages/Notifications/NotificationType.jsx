@@ -1,4 +1,4 @@
-import { Button, Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography, Checkbox } from "@mui/material";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
@@ -7,10 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { setModal } from "../../app/Slicers/modals";
 import { useTranslation } from "react-i18next";
 
+
 const NotificationType = ({ row: { type, subject, content } }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   const notificationModal = (
     <>
@@ -53,6 +56,8 @@ const NotificationType = ({ row: { type, subject, content } }) => {
   };
 
   return (
+    <>
+    <Checkbox {...label} />
     <Button
       className={`capitalize italic  ${
         type === "info"
@@ -82,6 +87,7 @@ const NotificationType = ({ row: { type, subject, content } }) => {
         ? "Faktura"
         : null}
     </Button>
+    </>
   );
 };
 

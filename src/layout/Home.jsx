@@ -12,6 +12,8 @@ import { sidebarMenu } from "../data/apartment-owner/sidebar-menu";
 import { dashboardPanels } from "../data/apartment-owner/dashboard-menu";
 import { adminSidebarMenu } from "../data/admin/sidebar-menu";
 import { adminDashboardPanels } from "../data/admin/dashboard-menu";
+import { restaurantsidebarMenu } from "../data/restaurant-admin/sidebar-menu";
+import { restaurantDashboard } from "../data/restaurant-admin/restaurant-dashboard";
 import { setLight } from "../app/Slicers/themes";
 import Modals from "./Modals";
 
@@ -34,11 +36,8 @@ const Home = () => {
       dispatch(getDashboardPanels(adminDashboardPanels));
       dispatch(getSidebarData(adminSidebarMenu));
     } else if (role_id === 9) {
-      dispatch(getDashboardPanels(adminDashboardPanels));
-      dispatch(getSidebarData(adminSidebarMenu));
-    } else if (role_id === 9) {
-      dispatch(getDashboardPanels(adminDashboardPanels));
-      dispatch(getSidebarData(adminSidebarMenu));
+      dispatch(getDashboardPanels(restaurantDashboard));
+      dispatch(getSidebarData(restaurantsidebarMenu));
     }
 
     if (user_layout_settings.darkMode) {

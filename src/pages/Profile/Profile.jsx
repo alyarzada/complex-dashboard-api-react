@@ -102,7 +102,7 @@ const Profile = () => {
               </Box>
             </Box>
             <h4 className="text-text3">{name}</h4>
-            <Typography className="text-text4">{has_role.role_name}</Typography>
+            <Typography className="text-text4">{t([has_role.role_name])}</Typography>
           </Box>
 
           {/* second row */}

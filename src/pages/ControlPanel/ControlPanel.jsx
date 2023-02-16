@@ -54,9 +54,9 @@ const ControlPanel = () => {
       </ReactSortable>
 
       {/* {role_id !== 8 ? <ControlPanelTasks /> : null} */}
-      {role_id !== 8 ? <ControlPanelRequests /> : null}
-      {role_id !== 8 ? <ControlPanelRequestsArchive /> : null}
-      {role_id !== 8 ? <ControlPanelStatus /> : null}
+      {role_id === 4 ? <ControlPanelRequests /> : null}
+      {role_id === 4 ? <ControlPanelRequestsArchive /> : null}
+      {role_id === 4 ? <ControlPanelStatus /> : null}
 
       {modals.length > 0
         ? modals.map((modal, index) => (

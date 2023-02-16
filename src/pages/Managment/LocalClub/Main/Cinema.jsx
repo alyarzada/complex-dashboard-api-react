@@ -31,6 +31,8 @@ import { changeBookedCinemaStatus } from "../../../../app/Slicers/leisure/cinema
 import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
 import { BronCinemaSchema } from "../../../../validations/leisureclub/cinemaVal";
 import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
+import BackButton from "../../../../components/UI/Buttons/BackButton";
+import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
 
 //multiselect
 const optionsCinemaTime = [
@@ -305,28 +307,24 @@ const Cinema = () => {
             />
             <CustomTextField label="Şərhiniz" name="message" multiline />
             <Box className="flex gap-x-2 my-3 justify-end">
-              <Button
-                onClick={() =>
-                  dispatch(
-                    setModal({
-                      ...modal,
-                      isOpen: false,
-                    })
-                  )
-                }
-                type="button"
-                variant="outlined"
-                color="error"
-                className="capitalize"
+              <BackButton
+              onClick={() =>
+                dispatch(
+                  setModal({
+                    ...modal,
+                    isOpen: false,
+                  })
+                )
+              }
+              type="button"
+              variant="outlined"
               >
-                {t("Close")}
-              </Button>
-              <LoadingButton
-                type="submit"
+              {t("Close")}
+              </BackButton>
+              <SuccessButton
+              loading={bookCinemaStatus === "loading"}
+              type="submit"
                 variant="contained"
-                color="success"
-                className="capitalize"
-                loading={bookCinemaStatus === "loading"}
               >
                 {t("Save")}
               </LoadingButton>

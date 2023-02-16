@@ -18,7 +18,6 @@ import {
 import { getAllRequests } from "../../app/Slicers/requests";
 import ResponsivePagination from "./ResponsivePagination";
 import Cookies from "js-cookie";
-import Stack from "@mui/material/Stack";
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
@@ -34,12 +33,13 @@ function CustomPagination() {
     />
   );
 }
-const RequestPanel = ({
+const CustomDataGrid = ({
   mobileColumns,
   desktopColumns,
   status,
   rows,
-  width,
+  pageSize = 20,
+  ...props
 }) => {
   const [paginationPage, setPaginationPage] = useState(1);
   const handleChange = (event, value) => {
@@ -58,19 +58,13 @@ const RequestPanel = ({
   // }));
   // const classes = useStyles();
   const matches = useMediaQuery("(min-width:768px)");
-
-  // const { data } = useDemoData({
-  //   dataSet: "Commodity",
-  //   rowLength: 100,
-  //   maxColumns: 6,
-  // });
-
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllRequests(Cookies.get("token")));
   }, []);
+
   return (
     <Box>
       <Box
@@ -85,17 +79,15 @@ const RequestPanel = ({
           <DataGrid
             rows={rows}
             columns={desktopColumns}
-            pageSize={20}
+            pageSize={pageSize}
             rowsPerPageOptions={[7]}
-            checkboxSelection
             loading={status === "loading"}
             autoHeight
             components={{
               Pagination: CustomPagination,
             }}
+            {...props}
           />
-        ) : status === "loading" ? (
-          <Typography className="text-text1">Loading...</Typography>
         ) : (
           <Stack spacing={2}>
             <ResponsivePagination
@@ -104,20 +96,15 @@ const RequestPanel = ({
               columns={mobileColumns}
             />
             <Pagination
-              // classes={{ ul: classes.ul }}
               count={parseInt(rows.length / 10)}
               page={paginationPage}
               onChange={handleChange}
             />
           </Stack>
-          //   <ResponsiveTable
-          //     columns={mobileColumns}
-          //     data={rows}
-          //   />
         )}
       </Box>
     </Box>
   );
 };
 
-export default RequestPanel;
+export default CustomDataGrid;

@@ -83,28 +83,28 @@ body::-webkit-scrollbar-thumb {
 }
 
 .modalScroll {
-  overflow: auto;
+  overflow: auto !important;
 }
 .modalScrollLight {
-  overflow: auto;
+  overflow: auto !important;
 }
 
 .modalScroll::-webkit-scrollbar {
   width: 6px;
-  background-color: #021222;
+  background-color: #021222 !important;
 }
 
 .modalScroll::-webkit-scrollbar-thumb {
-  background-color: #c9b26d;
+  background-color: #c9b26d !important;
   border-radius: 2px;
 }
 .modalScrollLight::-webkit-scrollbar {
   width: 6px;
-  background-color: #0212224a;
+  background-color: #0212224a !important;
 }
 
 .modalScrollLight::-webkit-scrollbar-thumb {
-  background-color: #c9b26d;
+  background-color: #c9b26d !important;
   border-radius: 2px;
 }
 
@@ -219,4 +219,8 @@ div[class^="MuiExpansionPanelSummary-content"] {
   to {
     transform: scale3d(1, 1, 1);
   }
+}
+
+.custom-radial-gradient {
+  background: radial-gradient(circle at 100% 50%, #007bff, #0000ff);
 }

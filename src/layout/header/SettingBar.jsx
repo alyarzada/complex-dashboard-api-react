@@ -259,7 +259,7 @@ const SettingBar = (props, ref) => {
                   }}
                 />
               }
-              label={t("Draggable")}
+              label={t("Displacement of panels")}
             />
           </Box>
           <br />

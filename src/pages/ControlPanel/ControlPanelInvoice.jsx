@@ -22,6 +22,7 @@ import { Services } from "../MyInvoices/MyInvoices";
 import BackButton from "../../components/UI/Buttons/BackButton";
 import DefaultButton from "../../components/UI/Buttons/DefaultButton";
 import PreviewIcon from "@mui/icons-material/Preview";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 
 const ControlPanelInvoice = () => {
   const { invoices } = useSelector((state) => state.invoice);
@@ -69,8 +70,21 @@ const ControlPanelInvoice = () => {
             </DefaultButton>
           </Box>
           <TableContainer
-            className="bg-transparent h-[240px] overflow-auto custom-table-class"
+            className="bg-transparent h-[240px] overflow-auto"
             component={Paper}
+            sx={{
+              "&::-webkit-scrollbar": {
+                width: 3.5,
+              },
+              "&::-webkit-scrollbar-track": {
+                backgroundColor: "transparent",
+                borderRadius: 2,
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "gray",
+                borderRadius: 2,
+              },
+            }}
           >
             <Table size="small" aria-label="a dense table">
               <TableHead>
@@ -136,8 +150,21 @@ const ControlPanelInvoice = () => {
             </DefaultButton>
           </Box>
           <TableContainer
-            className="bg-transparent h-[240px] overflow-auto custom-table-class"
+            className="bg-transparent h-[240px] overflow-auto"
             component={Paper}
+            sx={{
+              "&::-webkit-scrollbar": {
+                width: 3.5,
+              },
+              "&::-webkit-scrollbar-track": {
+                backgroundColor: "transparent",
+                borderRadius: 2,
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "gray",
+                borderRadius: 2,
+              },
+            }}
           >
             <Table size="small" aria-label="a dense table">
               <TableHead>
@@ -178,9 +205,9 @@ const ControlPanelInvoice = () => {
                       className=" dark:text-text1 text-textDark2"
                       align="center"
                     >
-                      <Tooltip title="Çekə bax">
+                      <Tooltip title={t(["See the invoice"])}>
                         <IconButton onClick={() => console.log("print")}>
-                          <PreviewIcon className="text-logoColor text-[22px]" />
+                          <RemoveRedEyeIcon className="text-logoColor text-[22px]" />
                         </IconButton>
                       </Tooltip>
                     </TableCell>
