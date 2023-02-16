@@ -351,8 +351,8 @@ const MeetingRoom = () => {
               type="submit"
                 variant="contained"
               >
-              {t("Save")}
-              </SuccessButton>
+                {t("Save")}
+              </LoadingButton>
             </Box>
           </Form>
         )}

@@ -25,11 +25,6 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
   const linksContainerRef = useRef(null);
   const { t } = useTranslation();
 
-  // console.log(sidebarSubmenu);
-  // console.log(typeof sidebarItem.id);
-
-  console.log(sidebarSubmenu);
-
   useEffect(() => {
     if (sidebarItem.sublist) {
       const linksHeight = linksRef.current.getBoundingClientRect().height;

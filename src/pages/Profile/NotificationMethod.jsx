@@ -47,16 +47,13 @@ const NotificationMethod = () => {
             </Box>
             <CustomTextField label="Phone number" name="telegramAccount" />
             <Box className="col-span-1 md:col-span-2 flex justify-end">
-            <Button
-            type="submit"
-            variant="contained"
-            className="bg-logoColor shadow-lg shadow-[#C9B26D]/50 hover:shadow-[#C9B26D]/70"
-            startIcon={
-              <SaveIcon className="dark:text-white" />
-            }
-          >
-            {t(["Save"])}
-          </Button>
+              <DefaultButton
+                variant="contained"
+                type="submit"
+                startIcon={<SaveIcon className="text-white dark:text-black" />}
+              >
+                {t(["Save"])}
+              </DefaultButton>
             </Box>
           </Form>
         )}

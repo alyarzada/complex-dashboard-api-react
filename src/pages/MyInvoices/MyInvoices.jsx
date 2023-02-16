@@ -79,7 +79,7 @@ const Myİnvoices = () => {
       headerName: t(["Service"]),
       renderCell: (params) => <Services params={params.row} />,
       flex: 1,
-       },
+    },
     {
       field: "amount",
       headerName: t(["Amount"]),
@@ -90,7 +90,7 @@ const Myİnvoices = () => {
           {params.row.amount} AZN
         </Typography>
       ),
-      flex: 1
+      flex: 1,
     },
     {
       field: "status",
@@ -102,16 +102,14 @@ const Myİnvoices = () => {
           {t(params.row.status)}
         </Typography>
       ),
-      flex: 1
-
+      flex: 1,
     },
     {
       field: "creationDate",
       headerName: t(["Created at"]),
       align: "center",
       headerAlign: "center",
-      flex: 1
-
+      flex: 1,
     },
     {
       field: "operation",
@@ -119,8 +117,7 @@ const Myİnvoices = () => {
       align: "center",
       headerAlign: "center",
       renderCell: (params) => <PayButton params={params}>{t("Pay")}</PayButton>,
-      flex: 1
-
+      flex: 1,
     },
   ];
   const mobileColumns = [

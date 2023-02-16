@@ -71,16 +71,13 @@ const MyPassword = () => {
                 required
               />
               <Box className="col-span-1 md:col-span-2 flex justify-end">
-              <Button
-                  type="submit"
+                <DefaultButton
                   variant="contained"
-                  className="bg-logoColor shadow-lg shadow-[#C9B26D]/50 hover:shadow-[#C9B26D]/70"
-                  startIcon={
-                    <SaveIcon className="dark:text-white" />
-                  }
+                  type="submit"
+                  startIcon={<SaveIcon className="dark:text-white" />}
                 >
                   {t(["Save"])}
-                </Button>
+                </DefaultButton>
               </Box>
             </Form>
           )}
