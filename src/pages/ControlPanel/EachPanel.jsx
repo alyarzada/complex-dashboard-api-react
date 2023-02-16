@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { Typography, Box, Stack } from "@mui/material";
+import { useNavigate, Link } from "react-router-dom";
+import { Typography, Box, Avatar, Stack, Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { appendModal } from "../../app/Slicers/modals";
 
@@ -23,6 +22,21 @@ const EachPanel = ({
   const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  if (role_id === 9) {
+    return (
+      <Box className="text-textDark drop-shadow-lg hover:drop-shadow-xl dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-bgLight ela transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group rounded after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full aye hoverbefore after:transition-all after:duration-1000  relative w-full p-5">
+        <Stack direction="row" justifyContent="space-between">
+          <Typography>Mtk sayi</Typography>
+          <Avatar></Avatar>
+        </Stack>
+        <Box>
+          <Typography className="mb-4">1</Typography>
+          <Link className="capitalize">Etrafli</Link>
+        </Box>
+      </Box>
+    );
+  }
 
   return (
     <Box>

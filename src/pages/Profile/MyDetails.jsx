@@ -1,5 +1,4 @@
-import React from "react";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box, IconButton, Button } from "@mui/material";
 import { Formik, Form, FieldArray } from "formik";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SaveIcon from "@mui/icons-material/Save";
@@ -14,27 +13,18 @@ import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
 import DefaultButton from "../../components/UI/Buttons/DefaultButton";
 
-
-const MyDetails = ({ userData }) => {
+const MyDetails = ({ user }) => {
   const dispatch = useDispatch();
-
   const { t } = useTranslation();
 
   return (
     <Box>
-      <Box className="mb-8 text-text3">
-        <h5>
-          <AccountCircleIcon className="mr-2" />
-          {t("My Data")}
-        </h5>
-      </Box>
-
       <Box>
         <Formik
           initialValues={{
-            name: userData?.name,
-            emailaddress: userData?.user_details.emailaddress,
-            phone: userData?.user_details.phone,
+            name: user?.name,
+            emailaddress: user?.user_details.emailaddress,
+            phone: user?.user_details.phone,
             birthday: "",
             gender: "",
           }}
@@ -49,7 +39,7 @@ const MyDetails = ({ userData }) => {
                 label={t("Name")}
                 name="name"
                 variant="outlined"
-                defaultValue={userData?.name}
+                defaultValue={user?.name}
               />
               <FieldArray name="phone">
                 {({ insert, remove, push }) => (
@@ -63,10 +53,9 @@ const MyDetails = ({ userData }) => {
                           variant="outlined"
                           defaultValue={
                             index === 0
-                              ? userData?.user_details.phone[index]
+                              ? user?.user_details?.phone[index]
                               : null
                           }
-                          focused={index === 0 ? true : false}
                         />
                         {index === 0 && (
                           <IconButton onClick={() => push("")}>
@@ -95,10 +84,9 @@ const MyDetails = ({ userData }) => {
                           className="mb-0 flex-1"
                           defaultValue={
                             index === 0
-                              ? userData?.user_details.emailaddress[index]
+                              ? user?.user_details?.emailaddress[index]
                               : null
                           }
-                          focused={index === 0 ? true : false}
                         />
                         {index === 0 && (
                           <IconButton onClick={() => push("")}>
@@ -124,14 +112,16 @@ const MyDetails = ({ userData }) => {
               <CustomGenderRadio name="gender" label={t("Gender")} />
 
               <Box className="col-span-1 md:col-span-2 flex justify-end">
-                <DefaultButton
-                type="submit"
-                variant="contained"
-                startIcon={<SaveIcon className="text-white dark:text-black" />}
-            >
-            {t(["Save"])}
-            
-            </DefaultButton>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  className="bg-logoColor shadow-lg shadow-[#C9B26D]/50 hover:shadow-[#C9B26D]/70"
+                  startIcon={
+                    <SaveIcon className="dark:text-white" />
+                  }
+                >
+                  {t(["Save"])}
+                </Button>
               </Box>
             </Form>
           )}

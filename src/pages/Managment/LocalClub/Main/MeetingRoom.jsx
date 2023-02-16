@@ -8,9 +8,6 @@ import { Formik, Form, FieldArray } from "formik";
 import { format } from "date-fns";
 import Cookies from "js-cookie";
 import "react-toastify/dist/ReactToastify.css";
-import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
-import BackButton from "../../../../components/UI/Buttons/BackButton";
-import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
 
 // icons
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
@@ -20,13 +17,11 @@ import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 // components
-import GoBackButton from "../../../../components/UI/GoBackButton";
 import Header from "../../../../components/UI/Header";
 import Calendar from "./Calendar";
 import DeleteBookedRooms from "../Components/DeleteBookedRooms";
 import CustomSelect from "../../../../components/Form/CustomSelect";
 import CustomTextField from "../../../../components/Form/CustomTextField";
-import NewCustomTimePicker from "../../../../components/Form/NewCustomTimePicker";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
@@ -34,20 +29,27 @@ import { getBookedRooms } from "../../../../app/Slicers/leisure/meetingRoom";
 import { bookRoom } from "../../../../app/Slicers/leisure/meetingRoom";
 import { setModal } from "../../../../app/Slicers/modals";
 import { changeBookRoomStatus } from "../../../../app/Slicers/leisure/meetingRoom";
+import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
+import CustomDigitalTimePicker from "../../../../components/Form/CustomDigitalTimePicker";
+import { BronMeetingRoomSchema } from "../../../../validations/leisureclub/meetinRoomVal";
+import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
+import BackButton from "../../../../components/UI/Buttons/BackButton";
+import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
+import CustomDataGrid from "../../../../components/UI/CustomDataGrid";
 
 const optionsTime = [
-  { label: "00:10", value: "00:10" },
-  { label: "00:20", value: "00:20" },
-  { label: "00:30", value: "00:30" },
-  { label: "00:40", value: "00:40" },
-  { label: "00:50", value: "00:50" },
-  { label: "01:00", value: "01:00" },
-  { label: "01:10", value: "01:10" },
-  { label: "01:20", value: "01:20" },
-  { label: "01:30", value: "01:30" },
-  { label: "01:40", value: "01:40" },
-  { label: "01:50", value: "01:50" },
-  { label: "02:00", value: "02:00" },
+  { value: "00:10", label: "10 dəqiqə" },
+  { value: "00:20", label: "20 dəqiqə" },
+  { value: "00:30", label: "30 dəqiqə" },
+  { value: "00:40", label: "40 dəqiqə" },
+  { value: "00:50", label: "50 dəqiqə" },
+  { value: "01:00", label: "1 saat" },
+  { value: "01:10", label: "1 saat 10 dəqiqə" },
+  { value: "01:20", label: "1 saat 20 dəqiqə" },
+  { value: "01:30", label: "1 saat 30 dəqiqə" },
+  { value: "01:40", label: "1 saat 40 dəqiqə" },
+  { value: "01:50", label: "1 saat 50 dəqiqə" },
+  { value: "02:00", label: "2 saat" },
 ];
 
 const optionRoom = [
@@ -118,6 +120,47 @@ const columns = [
 ];
 
 const MeetingRoom = () => {
+  const { t } = useTranslation();
+  const mobileColumns = [
+    {
+      key: "start_date",
+      label: "Başlama vaxtı",
+      width: 200,
+    },
+    {
+      key: "end_date",
+      label: "Bitmə vaxtı",
+      width: 100,
+    },
+    {
+      key: "duration",
+      label: "Terapevt",
+      width: 100,
+    },
+    {
+      key: "meeting_room",
+      label: "İclas otağı",
+      width: 100,
+    },
+    {
+      key: "status",
+      label: "Status",
+      width: 100,
+    },
+    {
+      key: "created_time",
+      label: "Yaradıldı",
+      width: 100,
+    },
+    {
+      key: "delete",
+      label: t("Delete"),
+      width: 150,
+      render: (value, data) => {
+        return <DeleteBookedRooms params={data} />;
+      },
+    },
+  ];
   useScrollToUp();
   const { bookedRooms, bookRoomStatus } = useSelector(
     (state) => state.meetingRoom
@@ -132,7 +175,6 @@ const MeetingRoom = () => {
 
   const today = new Date();
   const dispatch = useDispatch();
-  const { t } = useTranslation();
 
   useEffect(() => {
     light ? setTheme("dark") : setTheme("light");
@@ -203,21 +245,22 @@ const MeetingRoom = () => {
       <Formik
         initialValues={{
           start_date: "",
+          start_time: "",
           duration: "",
           meeting_room: "",
           title: "",
           message: "",
           guests: [""],
         }}
+        validationSchema={BronMeetingRoomSchema}
         onSubmit={(values) => {
           console.log(values);
-          const editedValues = {
-            ...values,
-            start_date: values.start_date.replace("T", ", "),
-          };
           dispatch(
             bookRoom({
-              data: editedValues,
+              data: {
+                ...values,
+                start_date: values.start_date.replace("T", ", "),
+              },
               token: Cookies.get("token"),
             })
           );
@@ -225,15 +268,26 @@ const MeetingRoom = () => {
       >
         {({ values }) => (
           <Form>
-            <NewCustomTimePicker
+            <CustomDatePicker
               name="start_date"
-              label="Bronlama vaxti"
-              defaultValue={defaultDate ? defaultDate : ""}
+              errorMessage="Zəhmət olmasa, bronlanma tarixini seçin"
+              label="Bronlama günü"
+              containerClassName="w-full mb-6"
+              className="w-full"
+            />
+            <CustomDigitalTimePicker
+              name="start_time"
+              label="Başlama saatı"
+              containerClassName="w-full mb-6"
+              errorMessage="Zəhmət olmasa, bronlanma vaxtını seçin"
+              className="w-full"
             />
             <CustomSelect
               label="Bronlama müddəti"
               options={optionsTime}
               name="duration"
+              containerClassName="mb-6 z-[10000] m-0"
+              errorMessage="Zəhmət olmasa, bronlama müddətini seçin"
               noTranslation
               onlyValue
             />
@@ -241,11 +295,13 @@ const MeetingRoom = () => {
               label="İclas otağı"
               options={optionRoom}
               name="meeting_room"
+              containerClassName="mb-6 z-[10000] m-0"
+              errorMessage="Zəhmət olmasa, bronlama müddətini seçin"
               onlyValue
             />
             <CustomTextField label="Başlıq" name="title" />
             <CustomTextField label="Şərhiniz" name="message" multiline />
-            <Box className="mb-3 bg-blue-500 rounded text-gray-200 p-2">
+            <Box className="bg-blue-500 mb-6 rounded text-gray-200 p-2">
               <AccountCircleIcon className="mr-1 h-4 w-4" />
               {t("Guests")}
             </Box>
@@ -253,7 +309,7 @@ const MeetingRoom = () => {
               {({ insert, remove, push }) => (
                 <Box className="flex flex-col ">
                   {values?.guests?.map((item, index) => (
-                    <Box key={index} className="flex items-center m-2 ">
+                    <Box key={index} className="flex items-center">
                       <CustomTextField
                         label="Qonağın tam adı"
                         name={`guests.${index}`}
@@ -277,23 +333,23 @@ const MeetingRoom = () => {
             </FieldArray>
             <Box className="flex gap-x-2 my-3 justify-end">
               <BackButton
-                variant="outlined"
-                onClick={() =>
-                  dispatch(
-                    setModal({
-                      ...modal,
-                      isOpen: false,
-                    })
-                  )
-                }
+              onClick={() =>
+                dispatch(
+                  setModal({
+                    ...modal,
+                    isOpen: false,
+                  })
+                )
+              }
+              type="button"
+              variant="outlined"
               >
-                {t("Close")}
+              {t("Close")}
               </BackButton>
               <SuccessButton
-              type="submit"
-              variant="contained"
               loading={bookRoomStatus === "loading"}
-
+              type="submit"
+                variant="contained"
               >
               {t("Save")}
               </SuccessButton>
@@ -328,17 +384,18 @@ const MeetingRoom = () => {
 
       <Box className="flex gap-x-2 my-3 justify-end">
         <BackButton
-          variant="outlined"
-          onClick={() =>
-            dispatch(
-              setModal({
-                ...modal,
-                isOpen: false,
-              })
-            )
-          }
+        onClick={() =>
+          dispatch(
+            setModal({
+              ...modal,
+              isOpen: false,
+            })
+          )
+        }
+        type="button"
+        variant="outlined"
         >
-          {t("Close")}
+        {t("Close")}
         </BackButton>
       </Box>
     </Box>
@@ -351,6 +408,7 @@ const MeetingRoom = () => {
         <Box className="py-6 px-6 my-4">
           <Box className="flex justify-end mb-6">
             <DefaultButton
+              startIcon={<AddCircleOutlineOutlinedIcon />}
               variant="contained"
               onClick={() =>
                 dispatch(
@@ -360,7 +418,6 @@ const MeetingRoom = () => {
                   })
                 )
               }
-              startIcon={<AddCircleOutlineOutlinedIcon />}
             >
               {t("New Reservation")}
             </DefaultButton>
@@ -370,6 +427,8 @@ const MeetingRoom = () => {
             eventClick={handleEventClick}
             dateClick={handleDateClick}
             events={bookedRooms.map((item) => {
+              if (new Date(item.start_date) <= new Date()) return {};
+
               return {
                 id: item.id,
                 className: "bg-green-500 rounded p-1 m-1",
@@ -390,7 +449,7 @@ const MeetingRoom = () => {
           />
 
           <Box className="mb-10">
-            <DataGrid
+            {/* <DataGrid
               pageSize={5}
               rowsPerPageOptions={[10]}
               autoHeight
@@ -411,6 +470,28 @@ const MeetingRoom = () => {
                 };
               })}
               columns={columns}
+            /> */}
+            <CustomDataGrid
+              desktopColumns={columns}
+              mobileColumns={mobileColumns}
+              rows={bookedRooms.map((item) => {
+                return {
+                  id: item.id,
+                  start_date: item.start_date.slice(0, -3),
+                  end_date: item.end_date.slice(0, -3),
+                  meeting_room: item.rdata.meeting_room,
+                  duration: "",
+                  // Number(item.start_date.substring(10).slice(0, -3)) -
+                  // Number(item.end_date.substring(10).slice(0, -3)),
+                  status: "",
+                  created_time: item?.created_at
+                    ?.replace("T", " ")
+                    ?.slice(0, -11),
+                  delete: "",
+                };
+              })}
+              width={630}
+              status={bookedRooms.status}
             />
           </Box>
         </Box>

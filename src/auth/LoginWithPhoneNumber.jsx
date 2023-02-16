@@ -1,14 +1,11 @@
-import React from "react";
 import { Formik, Form } from "formik";
-import { Box, Stack, Button } from "@mui/material"; 
+import { Stack, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import LoginIcon from "@mui/icons-material/Login";
-import CustomTextField from "../components/Form/CustomTextField";
 import { motion } from "framer-motion";
+import CustomTextField from "../components/Form/CustomTextField";
+import LoginIcon from "@mui/icons-material/Login";
 
 const LoginWithPhoneNumber = () => {
-  const { light } = useSelector((state) => state.themes);
   const navigate = useNavigate();
 
   return (
@@ -31,7 +28,11 @@ const LoginWithPhoneNumber = () => {
               label="Telefon Nomresi"
               variant="outlined"
             />
-            <Stack direction="row" justifyContent="center" className="mt-3 mb-[16px]">
+            <Stack
+              direction="row"
+              justifyContent="center"
+              className="mt-3 mb-[16px]"
+            >
               <Button
                 startIcon={<LoginIcon className="text-black" />}
                 variant="contained"

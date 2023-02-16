@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 
@@ -21,13 +20,13 @@ const DefaultButton = ({
           type={type}
           loading={loading}
         >
-        {children}
+          {children}
         </LoadingButton>
       ) : (
         <Button
           className={`capitalize ${
             variant === "contained"
-              ? "bg-[#09BB04] shadow-lg shadow-[#18E700]/60 hover:shadow-[#18E700]/80"
+              ? "bg-[#178803] shadow-lg shadow-[#18E700]/40 hover:shadow-[#18E700]/60"
               : variant === "outlined"
               ? "shadow-lg shadow-[#18E700]/60 hover:shadow-[#18E700]/80"
               : ""

@@ -6,7 +6,6 @@ import {
   Stack,
   Typography,
   Breadcrumbs,
-  Button,
   Radio,
   RadioGroup,
   FormControlLabel,
@@ -23,10 +22,10 @@ import CustomComplexSelection from "../../../components/UI/CustomComplexSelectio
 import { useTranslation } from "react-i18next";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
-import BackButton from "../../../components/UI/Buttons/BackButton"
-import SuccessButton from "../../../components/UI/Buttons/SuccessButton"
+import BackButton from "../../../components/UI/Buttons/BackButton";
+import SuccessButton from "../../../components/UI/Buttons/SuccessButton";
+import {useScrollToUp} from "../../../hooks/useScrollToUp";
 
-//multiselect
 const optionsProj = [
   { label: "Port Baku Residence", value: "portbaku" },
   { label: "Absheron Apartments", value: "absheron" },
@@ -36,24 +35,15 @@ const optionsProj = [
   { label: "Expo Center", value: "expo" },
   { label: "Crescent", value: "crescent" },
 ];
-const optionsPer = [
-  { label: "Charles Scott", value: "charles" },
-  { label: "Marie Ortez", value: "mary" },
-  { label: "Travis Hammer", value: "travis" },
-  { label: "Lisa Potts", value: "lisa" },
-  { label: "Michael Orton", value: "michael" },
-  { label: "Kevin McCallister", value: "kevin" },
-  { label: "John Henderson", value: "john" },
-];
 
 const NewEntryCard = () => {
+  useScrollToUp();
   const { t } = useTranslation();
   const {
     user: {
       has_role: { role_id },
     },
   } = useSelector((state) => state.auth);
-
   const navigate = useNavigate();
 
 
@@ -151,14 +141,13 @@ const NewEntryCard = () => {
                   onClick={() => navigate(-1)}
                   margin="mb-0"
                 >
-                {t("Back")}
+                  {t("Back")}
                 </BackButton>
                 <SuccessButton
                   variant="contained"
                   startIcon=<TaskAltOutlinedIcon />
-
                 >
-                {t("Submit")}
+                  {t("Submit")}
                 </SuccessButton>
               </Stack>
             </Form>

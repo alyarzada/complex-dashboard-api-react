@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Dropzone from "react-dropzone";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -15,18 +15,11 @@ import {
   FormControl,
   IconButton,
 } from "@mui/material";
-import { CameraAltOutlined } from "@mui/icons-material";
-import {
-  sendRequestComment,
-  getRequestDetails,
-} from "../../../app/Slicers/requests";
-import GoBackButton from "../../../components/UI/GoBackButton";
+import { getRequestDetails } from "../../../app/Slicers/requests";
 import { useScrollToUp } from "../../../hooks/useScrollToUp";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import CustomTextField from "../../../components/Form/CustomTextField";
-import CustomFile from "../../../components/Form/CustomFile";
 import Cookies from "js-cookie";
-import CustomSelect from "../../../components/Form/CustomSelect";
 import { useTranslation } from "react-i18next";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import SendIcon from "@mui/icons-material/Send";

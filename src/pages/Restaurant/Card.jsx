@@ -15,7 +15,7 @@ import Header from "../../components/UI/Header";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
-import ManatWhite from "../../assets/restaurantMenus/manatWhite.png";
+import ManatWhite from "../../assets/logo/manatWhite.png";
 
 const Card = () => {
   const { card } = useSelector((state) => state.restaurantMenu);

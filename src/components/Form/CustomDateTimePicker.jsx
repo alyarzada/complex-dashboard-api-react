@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { TextField, Box, FormHelperText } from "@mui/material";
 import { useField } from "formik";
 import { useTranslation } from "react-i18next";
-import { TextField, Box, FormHelperText } from "@mui/material";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import {
+  LocalizationProvider,
+  DesktopDateTimePicker,
+} from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DesktopDateTimePicker } from "@mui/x-date-pickers/DesktopDateTimePicker";
 
 const months = [
   "January",
@@ -33,7 +35,6 @@ const CustomDateTimePicker = ({
   const [field, meta, helpers] = useField(props);
   const [date, setDate] = useState(defaultValue ? defaultValue : "");
   useEffect(() => {
-    console.log(date);
     helpers.setValue(date);
   }, [date]);
 

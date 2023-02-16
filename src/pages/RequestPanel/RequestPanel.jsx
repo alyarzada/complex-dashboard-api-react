@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -27,15 +27,15 @@ import SearchFilter from "./SearchFilter";
 import Header from "../../components/UI/Header";
 import Buttons from "./Buttons";
 import Cookies from "js-cookie";
-import ResponsiveTable from "material-ui-next-responsive-table";
-
 import { mobileColumns, desktopColumns } from "./data";
+import {useScrollToUp} from "../../hooks/useScrollToUp";
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
   const page = useGridSelector(apiRef, gridPageSelector);
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
-
+  {
+  }
   return (
     <Pagination
       color="primary"
@@ -49,16 +49,10 @@ function CustomPagination() {
 const RequestPanel = () => {
   const { allRequests, status } = useSelector((state) => state.requests);
   const [dataTableRequests, setDataTableRequests] = useState([]);
-  const matches = useMediaQuery("(min-width:768px)");
-
-  // const { data } = useDemoData({
-  //   dataSet: "Commodity",
-  //   rowLength: 100,
-  //   maxColumns: 6,
-  // });
 
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  useScrollToUp();
 
   useEffect(() => {
     dispatch(getAllRequests(Cookies.get("token")));
@@ -92,13 +86,8 @@ const RequestPanel = () => {
           }}
         />
       </Box>
-
-      {/* buttons */}
       <Buttons dataTableRequests={dataTableRequests} />
-
-      {/* search filter */}
       <SearchFilter />
-
       <Box className="dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg p-1">
         <Box className="flex justify-between">
           <Typography className="text-white">Hamısı</Typography>
@@ -147,13 +136,13 @@ const RequestPanel = () => {
             </FormControl>
           </Box>
         </Box>
-        {/* <CustomDataGrid 
-          mobileColumns={mobileColumns} 
-          status={status} 
-          rows={dataTableRequests} 
+        <CustomDataGrid
+          mobileColumns={mobileColumns}
+          status={status}
+          rows={dataTableRequests}
           desktopColumns={desktopColumns}
           width={1151}
-        /> */}
+        />
       </Box>
     </Box>
   );

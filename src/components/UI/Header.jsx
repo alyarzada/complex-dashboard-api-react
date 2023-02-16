@@ -1,10 +1,7 @@
-import React from "react";
-import HomeIcon from "@mui/icons-material/Home";
-import GrainIcon from "@mui/icons-material/Grain";
-
 import { Breadcrumbs, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import HomeIcon from "@mui/icons-material/Home";
 
 const Header = (props) => {
   const Icon = props.currentPage.icon;
@@ -24,8 +21,7 @@ const Header = (props) => {
       <Breadcrumbs className="mb-4 lg:mb-6" aria-label="breadcrumb">
         <Link
           underline="hover"
-          sx={{ display: "flex", alignItems: "center" }}
-          className="text-logoColor font-bold"
+          className="text-logoColor flex items-center font-bold"
           to="/"
         >
           <HomeIcon
@@ -38,20 +34,14 @@ const Header = (props) => {
         {props.extra ? (
           <Link
             underline="hover"
-            sx={{ display: "flex", alignItems: "center" }}
-            className="text-logoColor"
+            className="text-logoColor flex items-center"
             to={"/" + props.to}
           >
-            {/* <HomeIcon
-              sx={{ mr: 0.5 }}
-              className="text-logoColor align-middle"
-              fontSize="inherit"
-            /> */}
             {props.icon}
             {t(props.extra)}
           </Link>
         ) : null}
-        <Typography sx={{ display: "flex", alignItems: "center" }}>
+        <Typography className="flex items-center">
           <Icon className="text-base mr-1 text-textDark2" />
           {t(props.currentPage.title)}
         </Typography>

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import {
   Box,
   Stack,
@@ -18,15 +18,13 @@ import {
   SentimentSatisfiedAlt,
 } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
-import ReactionComponent from "../../components/UI/ReactionComponent";
-import CustomMenu from "../../components/UI/CustomMenu";
+import ReactionComponent from "../../components/UI/ReactionEmojies/ReactionComponent";
+import CustomMenu from "../../components/UI/Modals/CustomMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteComment, editComment } from "../../app/Slicers/news";
 import Cookies from "js-cookie";
 
-const Comment = ({ comment, setExpandComments, postId }) => {
-  // const [isHover, setIsHover] = useState(false);
-  const [like, setLike] = useState(false);
+const Comment = ({ comment, postId }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [expand, setExpand] = useState(false);
   const { user } = useSelector((state) => state.auth);
@@ -42,7 +40,6 @@ const Comment = ({ comment, setExpandComments, postId }) => {
     .map((word) => word.charAt(0))
     .reduce((acc, item) => acc + item, "");
 
-  // delete comment
   const onDelete = () => {
     dispatch(
       deleteComment({
@@ -53,14 +50,12 @@ const Comment = ({ comment, setExpandComments, postId }) => {
     setOpenMenu(false);
   };
 
-  // press edit button
   const onEdit = () => {
     setOpenEdit(true);
     setEditCommentValue(comment.comment);
     setOpenMenu(false);
   };
 
-  // edit comment
   const updateComment = () => {
     dispatch(
       editComment({
@@ -145,26 +140,15 @@ const Comment = ({ comment, setExpandComments, postId }) => {
       )}
       <Stack direction="row" spacing={2} className="mb-3">
         <Stack direction="row" alignItems="center" className="gap-x-1 relative">
-          {/* {isHover ? <ReactionComponent isHover={isHover} /> : null} */}
-          {/* <IconButton
-            onMouseOver={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}
-            onClick={() => setLike((prev) => !prev)}
-          >
-            <FavoriteBorderOutlined />
-          </IconButton> */}
-          <Grid container justifyContent="center"  style={{width:"30%"}}>
-          <Grid item>
-            <Tooltip
-              title=<ReactionComponent peer="peer" />
-              placement="top"
-            >
-          <IconButton>
-          <FavoriteBorderOutlined />
-          </IconButton>
-                </Tooltip>
-              </Grid>
+          <Grid container justifyContent="center" style={{ width: "30%" }}>
+            <Grid item>
+              <Tooltip title=<ReactionComponent peer="peer" /> placement="top">
+                <IconButton>
+                  <FavoriteBorderOutlined />
+                </IconButton>
+              </Tooltip>
             </Grid>
+          </Grid>
           <Typography className="text-sm">
             {comment.likes.length} {t(["Like"])}
           </Typography>

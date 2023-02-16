@@ -1,30 +1,30 @@
-import clean from "../../assets/images/menu-panel/housekeeping.png";
-import maintenance from "../../assets/images/menu-panel/maintenance.png";
-import reception from "../../assets/images/menu-panel/reception.png";
-import security from "../../assets/images/menu-panel/security.png";
-import leisureClub from "../../assets/images/menu-panel/leisure-club.png";
-import roomService from "../../assets/images/menu-panel/room-service.png";
-import tenantRegistration from "../../assets/images/menu-panel/tenant-registration.png";
-import notifications from "../../assets/images/menu-panel/notifications.png";
-import cardRequest from "../../assets/images/menu-panel/card-request.png";
-import portmaniaLogo from "../../assets/images/menu-panel/portmania_logo.png";
-import call from "../../assets/images/menu-panel/call.png";
-import complaint from "../../assets/images/menu-panel/complaint.png";
-import request from "../../assets/images/menu-panel/request.png";
-import electrician from "../../assets/images/menu-panel/electrician.png";
-import mechanic from "../../assets/images/menu-panel/mechanic.png";
-import guest from "../../assets/images/menu-panel/guest.png";
-import cinema from "../../assets/images/menu-panel/cinema.png";
-import massage from "../../assets/images/menu-panel/massage.png";
-import meeting from "../../assets/images/menu-panel/meeting.png";
+import clean from "../../assets/menu-panel/housekeeping.png";
+import maintenance from "../../assets/menu-panel/maintenance.png";
+import reception from "../../assets/menu-panel/reception.png";
+import security from "../../assets/menu-panel/security.png";
+import leisureClub from "../../assets/menu-panel/leisure-club.png";
+import roomService from "../../assets/menu-panel/room-service.png";
+import tenantRegistration from "../../assets/menu-panel/tenant-registration.png";
+import notifications from "../../assets/menu-panel/notifications.png";
+import cardRequest from "../../assets/menu-panel/card-request.png";
+import portmaniaLogo from "../../assets/menu-panel/portmania_logo.png";
+import call from "../../assets/menu-panel/call.png";
+import complaint from "../../assets/menu-panel/complaint.png";
+import request from "../../assets/menu-panel/request.png";
+import electrician from "../../assets/menu-panel/electrician.png";
+import mechanic from "../../assets/menu-panel/mechanic.png";
+import guest from "../../assets/menu-panel/guest.png";
+import cinema from "../../assets/menu-panel/cinema.png";
+import massage from "../../assets/menu-panel/massage.png";
+import meeting from "../../assets/menu-panel/meeting.png";
 
-import car from "../../assets/images/menu-panel/car.png";
-import door from "../../assets/images/menu-panel/door.png";
-import servicePayment from "../../assets/images/menu-panel/pbrlogo.png";
-import utilities from "../../assets/images/menu-panel/utilities.svg";
-import phone from "../../assets/images/menu-panel/telephone.svg";
-import internet from "../../assets/images/menu-panel/internet.svg";
-import cableTv from "../../assets/images/menu-panel/tv.svg";
+import car from "../../assets/menu-panel/car.png";
+import door from "../../assets/menu-panel/door.png";
+import servicePayment from "../../assets/menu-panel/pbrlogo.png";
+import utilities from "../../assets/menu-panel/utilities.svg";
+import phone from "../../assets/menu-panel/telephone.svg";
+import internet from "../../assets/menu-panel/internet.svg";
+import cableTv from "../../assets/menu-panel/tv.svg";
 
 export const dashboardPanels = [
   {
@@ -155,7 +155,7 @@ export const dashboardPanels = [
           {
             img: meeting,
             title: "Meeting room",
-            link: "/meeting-room",
+            link: "/meetingroom",
           },
           {
             img: cinema,

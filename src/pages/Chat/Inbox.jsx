@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Avatar, Typography, IconButton } from "@mui/material";
 import ReplyIcon from "@mui/icons-material/Reply";
 import { useNavigate } from "react-router-dom";
@@ -60,14 +59,12 @@ const Inbox = () => {
           </Box>
         ))}
         <IconButton
-        onClick={() => navigate(-1)}
+          onClick={() => navigate(-1)}
           className="bg-[#C9B26D] fixed bottom-5 left-4 z-[9999] sizeLarge drop-shadow-lg"
           size="large"
-          
-      >
-      <ReplyIcon className="text-white" />
-
-      </IconButton>
+        >
+          <ReplyIcon className="text-white" />
+        </IconButton>
       </Box>
     </Box>
   );

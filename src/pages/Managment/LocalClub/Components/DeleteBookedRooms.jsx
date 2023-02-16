@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { IconButton } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { IconButton, Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { deleteBookedRoom } from "../../../../app/Slicers/leisure/meetingRoom";
@@ -16,6 +16,7 @@ const DeleteBookedRooms = ({ params }) => {
 
   useEffect(() => {
     if (deleteBookedRoomStatus === "succeeded") {
+      console.log("hellooooo");
       toast.success(t("Deleted"), {
         position: "top-right",
         autoClose: 5000,

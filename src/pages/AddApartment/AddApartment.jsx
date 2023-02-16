@@ -1,4 +1,3 @@
-import React from "react";
 import { Formik, Form } from "formik";
 import { Typography, Box, Button } from "@mui/material";
 import CustomTextField from "../../components/Form/CustomTextField";
@@ -6,7 +5,6 @@ import Header from "../../components/UI/Header";
 import ApartmentOutlinedIcon from "@mui/icons-material/ApartmentOutlined";
 import CustomSelect from "../../components/Form/CustomSelect";
 import CustomFile from "../../components/Form/CustomFile";
-import CustomTextArea from "../../components/Form/CustomTextArea";
 import PublicIcon from "@mui/icons-material/Public";
 import PanoramaOutlinedIcon from "@mui/icons-material/PanoramaOutlined";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -280,11 +278,6 @@ const AddApartment = () => {
                   </Box>
                   <Box>
                     <Box className="w-full">
-                      {/* <Box className="w-[30%]">
-                        <Typography className=" h-full flex items-center font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize">
-                          {t(["Write something..."])}
-                        </Typography>
-                      </Box> */}
                       <CustomTextField
                         className="mb-0 font-semibold text-textDark2 dark:text-text2 text-[16px]"
                         label={t(["Write something..."])}

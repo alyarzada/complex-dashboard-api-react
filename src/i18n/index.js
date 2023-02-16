@@ -10,20 +10,15 @@ const resources = {
 };
 
 const detectionOptions = {
-  // order and from where user language should be detected
   order: ["localStorage", "path", "cookie"],
 
-  // keys or params to lookup language from
   lookupCookie: "i18next",
   lookupLocalStorage: "i18nextLanguage",
   lookupFromPathIndex: 0,
 
-  // cache user language on
   caches: ["localStorage", "cookie"],
 
-  // optional expire and domain for set cookie
   cookieMinutes: 10000,
-  // cookieDomain: '.prospectsmb.com',
 };
 
 i18next
@@ -35,7 +30,6 @@ i18next
     fallbackLng: "az",
     load: "languageOnly",
     whitelist: ["az", "en", "rus"],
-    // keySeparator:  false,
     detection: detectionOptions,
     interpolation: {
       escapeValue: false,

@@ -1,11 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Box, Stack, Button, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "../../components/UI/Header";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
-import SuccessButton from "../../components/UI/Buttons/SuccessButton"
+import SuccessButton from "../../components/UI/Buttons/SuccessButton";
+import CustomDataGrid from "../../components/UI/CustomDataGrid";
+import { Link } from "react-router-dom";
 
 const Payment = () => {
   const params = useParams();
@@ -15,18 +17,89 @@ const Payment = () => {
   const { t } = useTranslation();
 
   const columns = [
-    { field: "id", headerName: "ID", width: 40 },
-    { field: "service", headerName: t(["Service"]), width: 250 },
-    { field: "amount", headerName: t(["Amount"]), width: 240 },
+    {
+      field: "id",
+      headerName: "ID",
+      flex: 1,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      field: "service",
+      headerName: t(["Service"]),
+      flex: 12,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      field: "amount",
+      headerName: t(["Amount"]),
+      flex: 3,
+      align: "center",
+      headerAlign: "center",
+    },
   ];
-
+  const mobileColumns = [
+    {
+      key: "name",
+      label: "Müraciət sahibi",
+      width: 200,
+      render: (value, data) => {
+        return (
+          <Link to={`/requests/details/${data.id}`}>
+            {value + " - " + data.message}
+          </Link>
+        );
+      },
+    },
+    {
+      key: "status",
+      label: "Status",
+      width: 100,
+      render: (value) => {
+        if (value === 1) {
+          return (
+            <Typography className="text-xs bg-yellow-600 text-white py-1 px-2 rounded">
+              Aşağı
+            </Typography>
+          );
+        } else if (value === 2) {
+          return (
+            <Typography className="text-xs bg-red-500 text-white py-1 px-2 rounded">
+              Yüksək
+            </Typography>
+          );
+        } else {
+          return (
+            <Typography className="text-xs bg-green-600 text-white py-1 px-2 rounded">
+              Normal
+            </Typography>
+          );
+        }
+      },
+    },
+    {
+      key: "requestDepartments",
+      label: "Şöbə",
+      width: 150,
+    },
+    // {
+    //   key: "message",
+    //   label: "Müraciət",
+    //   description: "This column has a value getter and is not sortable.",
+    //   sortable: false,
+    //   width: 250,
+    // },
+    { key: "startTime", label: "Başlama tarixi", width: 160 },
+    { key: "endTime", label: "Bitmə tarixi", width: 160 },
+  ];
   return (
     <Box>
       <Header currentPage={{ title: "My Invoices", icon: ReceiptLongIcon }} />
       <Box className="flex drop-shadow-lg rounded bg-white dark:bg-transparent">
         <Box className="flex-1">
-          <Box style={{ height: 400, width: "100%" }}>
-            <DataGrid
+          <Box style={{ width: "100%" }}>
+            {/* <DataGrid
               rows={selectedInvoices.map((item) => ({
                 id: item.id,
                 service: item.service,
@@ -42,6 +115,18 @@ const Payment = () => {
                     : "translate3d(0px, 0px, 0px) !important",
                 },
               }}
+            /> */}
+
+            <CustomDataGrid
+              desktopColumns={columns}
+              mobileColumns={mobileColumns}
+              rows={selectedInvoices.map((item) => ({
+                id: item.id,
+                service: item.service,
+                amount: item.amount + " " + "AZN",
+              }))}
+              width={400}
+              status={selectedInvoices.status}
             />
             <Stack
               direction="row"
@@ -60,11 +145,7 @@ const Payment = () => {
                     "AZN"
                   : 0 + " " + "azn"}
               </Typography>
-              <SuccessButton
-                variant="contained"
-              >
-              {t("Pay")}
-              </SuccessButton>
+              <SuccessButton variant="contained">{t("Pay")}</SuccessButton>
             </Stack>
           </Box>
         </Box>

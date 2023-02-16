@@ -7,6 +7,7 @@ export const themes = createSlice({
   initialState: {
     openedSidebar: mediaQuery.matches ? false : true,
     openedSettingBar: false,
+    sidebarSubmenu: { open: false, id: null },
     light: false,
     boxed: false,
     leftLight: "dark",
@@ -43,6 +44,16 @@ export const themes = createSlice({
     setShowCardIcon: (state, action) => {
       state.showCardIcon = action.payload;
     },
+    setSideabarSubmenu: (state, action) => {
+      state.sidebarSubmenu = action.payload;
+    },
+    toggleSidebarSubmenu: (state, { payload }) => {
+      console.log(payload);
+      state.sidebarSubmenu = {
+        open: !state.sidebarSubmenu.open,
+        id: payload,
+      };
+    },
   },
 });
 
@@ -56,5 +67,7 @@ export const {
   setOpenedSettingBar,
   setDraggable,
   setShowCardIcon,
+  setSideabarSubmenu,
+  toggleSidebarSubmenu,
 } = themes.actions;
 export default themes.reducer;

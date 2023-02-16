@@ -10,20 +10,15 @@ import CustomSelect from "../../../../components/Form/CustomSelect";
 import CustomTextField from "../../../../components/Form/CustomTextField";
 import NewCustomTimePicker from "../../../../components/Form/NewCustomTimePicker";
 import { format } from "date-fns";
-import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
-import BackButton from "../../../../components/UI/Buttons/BackButton";
-import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
-
 
 // icons
 import MovieIcon from "@mui/icons-material/Movie";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 
 // components
-import GoBackButton from "../../../../components/UI/GoBackButton";
 import Header from "../../../../components/UI/Header";
 import Calendar from "./Calendar";
-
+import CustomDataGrid from "../../../../components/UI/CustomDataGrid"
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -33,6 +28,11 @@ import {
 import DeleteBookedCinemaRoom from "../Components/DeleteBookedCinemaRoom";
 import { setModal } from "../../../../app/Slicers/modals";
 import { changeBookedCinemaStatus } from "../../../../app/Slicers/leisure/cinema";
+import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
+import { BronCinemaSchema } from "../../../../validations/leisureclub/cinemaVal";
+import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
+import BackButton from "../../../../components/UI/Buttons/BackButton";
+import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
 
 //multiselect
 const optionsCinemaTime = [
@@ -139,8 +139,43 @@ const columns = [
 ];
 
 const Cinema = () => {
+  const { t } = useTranslation();
   useScrollToUp();
-
+  const mobileColumns = [
+    {
+      key: "start_date",
+      label: "Başlama vaxtı",
+      width: 200,
+    },
+    {
+      key: "end_date",
+      label: "Bitmə vaxtı",
+      width: 100,
+    },
+    {
+      key: "duration",
+      label: "Müddət",
+      width: 100,
+    },
+    {
+      key: "status",
+      label: "Status",
+      width: 100,
+    },
+    {
+      key: "created_time",
+      label: "Yaradıldı",
+      width: 100,
+    },
+    {
+      key: "delete",
+      label: t("Delete"),
+      width: 150,
+      render: (value,data) => {
+        return <DeleteBookedCinemaRoom params={data} />;
+      },
+    },
+  ];
   const [eventData, setEventData] = useState(null);
   const [date, setDate] = useState(new Date());
   const [defaultDate, setDefaultDate] = useState(null);
@@ -151,7 +186,6 @@ const Cinema = () => {
 
   const today = new Date();
   const dispatch = useDispatch();
-  const { t } = useTranslation();
 
   const handleEventClick = (e) => {
     setEventData(e.event._def);
@@ -215,9 +249,10 @@ const Cinema = () => {
           start_date: "",
           duration: "",
           message: "",
-          number_of_residents: "",
-          number_of_guest: "",
+          number_of_residents: "1",
+          number_of_guest: "0",
         }}
+        validationSchema={BronCinemaSchema}
         onSubmit={(values) => {
           dispatch(
             bookCinemaRoom({
@@ -229,10 +264,17 @@ const Cinema = () => {
       >
         {() => (
           <Form>
-            <NewCustomTimePicker
+            {/* <NewCustomTimePicker
               label="Rezervasiya tarixi"
-              name="start_date"
               defaultValue={defaultDate ? defaultDate : ""}
+            /> */}
+            <CustomDatePicker
+              name="start_date"
+              label="Rezervasiya tarixi"
+              // defaultValue={defaultDate ? defaultDate : ""}
+              errorMessage="Zəhmət olmasa rezervasiya tarixini seçin"
+              containerClassName="w-full mb-6"
+              className="w-full"
             />
             <CustomSelect
               label="Bronlama vaxtı"
@@ -240,27 +282,32 @@ const Cinema = () => {
               name="duration"
               onlyValue
               noTranslation
+              containerClassName="mb-6 z-[10000] m-0"
+              errorMessage="Zəhmət olmasa bronlama vaxtını seçin"
             />
             <CustomSelect
               label="Sakinlərin sayı"
               options={optionsNumberOfResident}
               name="number_of_residents"
+              defaultValue="1"
               onlyValue
               noTranslation
+              containerClassName="mb-6 z-[10000] m-0"
             />
             <CustomSelect
               label="Qonaqların sayı"
               options={optionsNumberOfGuests}
               name="number_of_guest"
+              defaultValue="0"
               calendar
               className="mb-0"
               onlyValue
               noTranslation
+              containerClassName="mb-6 z-[10000] m-0"
             />
             <CustomTextField label="Şərhiniz" name="message" multiline />
             <Box className="flex gap-x-2 my-3 justify-end">
               <BackButton
-              variant="outlined"
               onClick={() =>
                 dispatch(
                   setModal({
@@ -269,13 +316,15 @@ const Cinema = () => {
                   })
                 )
               }
+              type="button"
+              variant="outlined"
               >
               {t("Close")}
               </BackButton>
               <SuccessButton
-              variant="contained"
-              type="submit"
               loading={bookCinemaStatus === "loading"}
+              type="submit"
+                variant="contained"
               >
               {t("Save")}
               </SuccessButton>
@@ -337,30 +386,27 @@ const Cinema = () => {
         <Box className="py-6 px-6 my-4">
           <Box className="flex justify-end mb-6">
             <DefaultButton
-            variant="contained"
-            onClick={() =>
-              dispatch(
-                setModal({
-                  isOpen: true,
-                  children: bronModal,
-                  title: "Yeni bronlama",
-                })
-              )
-            }
               startIcon={<AddCircleOutlineOutlinedIcon />}
-
+              variant="contained"
+              onClick={() =>
+                dispatch(
+                  setModal({
+                    isOpen: true,
+                    children: bronModal,
+                    title: "Yeni bronlama",
+                  })
+                )
+              }
             >
-            {t("New Reservation")}
-            
+              {t("New Reservation")}
             </DefaultButton>
           </Box>
 
           <Calendar
             events={bookedCinemaRooms.map((item) => {
               return {
-                title: `${item.start_date.substring(10).slice(0, -3)} ${
-                  item.rtype === 1 ? "(R1)" : "(R2)"
-                } Bronlanıb`,
+                title: `${item.start_date.substring(10).slice(0, -3)} ${item.rtype === 1 ? "(R1)" : "(R2)"
+                  } Bronlanıb`,
                 date: item.start_date.slice(0, -9),
                 className: "bg-green-500 rounded p-1 m-1",
                 startStr:
@@ -378,7 +424,7 @@ const Cinema = () => {
           />
 
           <Box className="mb-10">
-            <DataGrid
+            {/* <DataGrid
               pageSize={5}
               rowsPerPageOptions={[10]}
               autoHeight
@@ -394,7 +440,26 @@ const Cinema = () => {
                   delete: "",
                 };
               })}
+            /> */}
+            <CustomDataGrid
+              desktopColumns={columns}
+              mobileColumns={mobileColumns}
+              rows={bookedCinemaRooms.map((item) => {
+                return {
+                  id: item.id,
+                  start_date: item.start_date,
+                  end_date: item.end_date,
+                  duration: "",
+                  status: "",
+                  // created_time: item.created_at.replace("T", " ").slice(0, -11),
+                  delete: "",
+                };
+              })}
+              width={630}
+              status={bookedCinemaRooms.status}
+
             />
+
           </Box>
         </Box>
       </Box>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Checkbox, Autocomplete, TextField, Typography } from "@mui/material";
@@ -13,9 +13,8 @@ const CustomSearchFilter = ({
   flex,
   hiddenHeader,
 }) => {
-  const { t } = useTranslation();
-
   const [inputValue, setInputValue] = useState(0);
+  const { t } = useTranslation();
 
   const MTK = [
     { title: "Port Baku" },
@@ -48,7 +47,7 @@ const CustomSearchFilter = ({
           className={
             flex == true
               ? "w-full mb-5"
-              : "flex w-full justify-between items-center"
+              : "flex mb-5 w-full justify-between items-center"
           }
         >
           <Typography
@@ -109,7 +108,6 @@ const CustomSearchFilter = ({
               className={flex ? " w-full" : "w-[70%]"}
               onChange={() => {
                 setInputValue(inputValue + 1);
-                console.log(inputValue);
               }}
               id="checkboxes-tags-demo"
               disabled={inputValue >= 1 ? false : true}
@@ -139,7 +137,7 @@ const CustomSearchFilter = ({
             />
           </Box>
         </Box>
-        <Box className={hidden2 == true ? "hidden" : "w-full mb-5"}>
+        <Box className={hidden2 == true ? "hidden" : "w-full"}>
           <Box
             className={
               flex == true
@@ -157,7 +155,6 @@ const CustomSearchFilter = ({
               className={flex ? " w-full" : "w-[70%]"}
               onChange={() => {
                 setInputValue(inputValue + 1);
-                console.log(inputValue);
               }}
               multiple
               disabled={inputValue >= 2 ? false : true}

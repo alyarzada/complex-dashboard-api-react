@@ -1,10 +1,7 @@
-import React, { useLayoutEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Box } from "@mui/material";
 
 const LeafletMap = () => {
-
-
   return (
     <Box className="bg-white drop-shadow-lg">
       <MapContainer

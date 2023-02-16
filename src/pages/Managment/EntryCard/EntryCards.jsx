@@ -1,19 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
-import { Box, Button } from "@mui/material";
-import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import { Box, Typography } from "@mui/material";
 import { useScrollToUp } from "../../../hooks/useScrollToUp";
-import GoBackButton from "../../../components/UI/GoBackButton";
+import { useTranslation } from "react-i18next";
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import Header from "../../../components/UI/Header";
 import CustomSearchFilter from "../../../components/UI/CustomSearchFilter";
-import ActionButtons from "../../../components/UI/ActionButtons";
+import ActionButtons from "../../../components/UI/Buttons/ActionButtons";
 import CreditCardOutlinedIcon from "@mui/icons-material/CreditCardOutlined";
-import { useTranslation } from "react-i18next";
 import DefaultButton from "../../../components/UI/Buttons/DefaultButton";
+import CustomDataGrid from "../../../components/UI/CustomDataGrid";
+import { Link } from "react-router-dom";
 
 const EntryCards = () => {
   const { entryCards } = useSelector((state) => state.entryCards);
+
   const { t } = useTranslation();
   const navigate = useNavigate();
   useScrollToUp();
@@ -35,7 +37,60 @@ const EntryCards = () => {
       renderCell: (params) => <ActionButtons {...{ params }} />,
     },
   ];
-
+  const mobileColumns = [
+    {
+      key: "name",
+      label: "Müraciət sahibi",
+      width: 200,
+      render: (value, data) => {
+        return (
+          <Link to={`/requests/details/${data.id}`}>
+            {value + " - " + data.message}
+          </Link>
+        );
+      },
+    },
+    {
+      key: "status",
+      label: "Status",
+      width: 100,
+      render: (value) => {
+        if (value === 1) {
+          return (
+            <Typography className="text-xs bg-yellow-600 text-white py-1 px-2 rounded">
+              Aşağı
+            </Typography>
+          );
+        } else if (value === 2) {
+          return (
+            <Typography className="text-xs bg-red-500 text-white py-1 px-2 rounded">
+              Yüksək
+            </Typography>
+          );
+        } else {
+          return (
+            <Typography className="text-xs bg-green-600 text-white py-1 px-2 rounded">
+              Normal
+            </Typography>
+          );
+        }
+      },
+    },
+    {
+      key: "requestDepartments",
+      label: "Şöbə",
+      width: 150,
+    },
+    // {
+    //   key: "message",
+    //   label: "Müraciət",
+    //   description: "This column has a value getter and is not sortable.",
+    //   sortable: false,
+    //   width: 250,
+    // },
+    { key: "startTime", label: "Başlama tarixi", width: 160 },
+    { key: "endTime", label: "Bitmə tarixi", width: 160 },
+  ];
   return (
     <Box className="w-full">
       <Header
@@ -47,30 +102,28 @@ const EntryCards = () => {
           <CustomSearchFilter />
           <Box className="flex flex-col mb-6 sm:flex-row justify-end gap-3 pt-6">
             <DefaultButton
-            variant="contained"
-            onClick={() => navigate("/user-card-request/access/create")}
-            startIcon={<AddCircleOutlineOutlinedIcon />}
+              variant="contained"
+              onClick={() => navigate("/user-card-request/access/create")}
+              startIcon={<AddCircleOutlineOutlinedIcon />}
             >
-            {t("New Access card")}
-            
+              {t("New Access card")}
             </DefaultButton>
             <DefaultButton
-            variant="contained"
-            onClick={() => navigate("/user-card-request/parking/create")}
-            startIcon={<AddCircleOutlineOutlinedIcon />}
+              variant="contained"
+              onClick={() => navigate("/user-card-request/parking/create")}
+              startIcon={<AddCircleOutlineOutlinedIcon />}
             >
-            {t("New Parking card")}
-            
+              {t("New Parking card")}
             </DefaultButton>
           </Box>
 
           <Box>
-            <DataGrid
+            <CustomDataGrid
+              desktopColumns={columns}
+              mobileColumns={mobileColumns}
               rows={entryCards}
-              columns={columns}
-              pageSize={5}
-              rowsPerPageOptions={[10]}
-              autoHeight
+              width={630}
+              status={entryCards.status}
             />
           </Box>
         </Box>

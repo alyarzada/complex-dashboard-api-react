@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import {
   Button,
@@ -18,14 +18,13 @@ import CustomTextField from "../../../components/Form/CustomTextField";
 import { useDispatch, useSelector } from "react-redux";
 import { createNewRequest } from "../../../app/Slicers/requests";
 import { Close } from "@mui/icons-material";
-import AdminCreateNewRequest from "../Requests/ComplexAdmin/AdminCreateNewRequest";
 import SendIcon from "@mui/icons-material/Send";
 import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
 import Cookies from "js-cookie";
-import CheckIcon from '@mui/icons-material/Check'; 
-import ReplyIcon from '@mui/icons-material/Reply';
-import BackButton from "../../../components/UI/Buttons/BackButton"
-import SuccessButton from "../../../components/UI/Buttons/SuccessButton"
+import CheckIcon from "@mui/icons-material/Check";
+import ReplyIcon from "@mui/icons-material/Reply";
+import BackButton from "../../../components/UI/Buttons/BackButton";
+import SuccessButton from "../../../components/UI/Buttons/SuccessButton";
 
 const applicationNumber = [];
 const checkedIcon = <CameraAltOutlinedIcon />;
@@ -37,7 +36,7 @@ const variants = {
 };
 
 const CreateNewRequest = () => {
-  const { allRequests, status } = useSelector((state) => state.requests);
+  const { allRequests } = useSelector((state) => state.requests);
   const { user } = useSelector((state) => state.auth);
   const [open, setOpen] = useState(false);
   const [isSubmit, setIsSubmit] = useState(false);
@@ -59,7 +58,7 @@ const CreateNewRequest = () => {
     setOpen(true);
   };
 
-  const handleClose = (event, reason) => {
+  const handleClose = (e, reason) => {
     if (reason === "clickaway") {
       return;
     }
@@ -103,7 +102,7 @@ const CreateNewRequest = () => {
           startIcon=<ReplyIcon className="mr-2" />
           onClick={() => navigate(-1)}
         >
-         {t("Back")}
+          {t("Back")}
         </BackButton>
         <Box>
           <Formik

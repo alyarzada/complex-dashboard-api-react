@@ -17,23 +17,20 @@ import {
 import { Link, useNavigate, Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setOpenedSettingBar } from "../../app/Slicers/themes";
-import CustomMenu from "../../components/UI/CustomMenu";
+import CustomMenu from "../../components/UI/Modals/CustomMenu";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import portBakuImg from "../../assets/port-baku-residence_16406207114647.jpg";
 import LeafletMap from "./LeafletMap";
 import "leaflet/dist/leaflet.css";
-import GoBackButton from "../../components/UI/GoBackButton";
 import { getAllNews } from "../../app/Slicers/news";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
 import { setModal } from "../../app/Slicers/modals";
-import ApartmentIcon from '@mui/icons-material/Apartment';
-import TelegramIcon from '@mui/icons-material/Telegram';
+import ApartmentIcon from "@mui/icons-material/Apartment";
 
 const Body = () => {
   const { openedSettingBar } = useSelector((state) => state.themes);
-  const { modal } = useSelector((state) => state.modals);
   const { user } = useSelector((state) => state.auth);
   const { news } = useSelector((state) => state.news);
   const [active, setActive] = useState(1);
@@ -182,7 +179,7 @@ const Body = () => {
                     {user?.name}
                   </Typography>
                   <Typography className="text-textDark3 text-sm">
-                    {user?.has_role.role_name}
+                    {t(user?.has_role.role_name)}
                   </Typography>
                 </Box>
               </Stack>
@@ -237,84 +234,6 @@ const Body = () => {
                 ))}
               </List>
             </Box>
-          </Box>
-
-          <Box className="rounded p-6 mb-6 dark:text-text1 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg">
-            <Typography
-              className="cursor-pointer select-none text-logoColor hover:text-yellow-600 text-lg w-fit font-semibold"
-              onClick={() =>
-                dispatch(
-                  setModal({
-                    isOpen: true,
-                    title: "Port Baku Residence",
-                    children: modalData,
-                  })
-                )
-              }
-            >
-              {t("Port Baku Residence")}
-            </Typography>
-            <Typography className="text-textDark2">
-              {t("The number of buildings included in the complex")} : 3
-            </Typography>
-            <List sx={{ width: "100%", maxWidth: 360 }}>
-              <ListItem className="flex items-center" alignItems="flex-start">
-              <ListItemAvatar>
-              <ApartmentIcon/>
-              </ListItemAvatar>
-                <ListItemText
-                  className="text-textDark2 dark:text-text1"
-                  primary="Tower A"
-                />
-              </ListItem>
-              <Divider variant="inset" component="li" />
-              <ListItem className="flex items-center" alignItems="flex-start">
-              <ListItemAvatar>
-              <ApartmentIcon/>
-              </ListItemAvatar>
-                <ListItemText
-                  className="text-textDark2 dark:text-text1"
-                  primary="Tower B"
-                />
-              </ListItem>
-              <Divider variant="inset" component="li" />
-              <ListItem className="flex items-center" alignItems="flex-start">
-                <ListItemAvatar>
-                <ApartmentIcon/>
-                </ListItemAvatar>
-                <ListItemText
-                  className="text-textDark2 dark:text-text1"
-                  primary="Tower C"
-                />
-              </ListItem>
-            </List>
-            <List className="ml-6">
-              <ListItem
-                className="flex items-center ml-5 "
-                alignItems="flex-start"
-              >
-                <ListItemText
-                  className="text-textDark2 dark:text-text1 "
-                  primary={t("Total posts")}
-                />
-                <Typography className="bg-logoColor rounded text-sm text-white text-center w-[25px]">
-                  {news.length}
-                </Typography>
-              </ListItem>
-              <Divider variant="" component="li" />
-              <ListItem
-                className="flex items-center ml-5"
-                alignItems="flex-start"
-              >
-                <ListItemText
-                  className="text-textDark2 dark:text-text1"
-                  primary={t("Total comments")}
-                />
-                <Typography className="bg-logoColor rounded text-sm text-white text-center w-[25px]">
-                  {news.reduce((acc, item) => item.comments.length + acc, 0)}
-                </Typography>
-              </ListItem>
-            </List>
           </Box>
 
           <Box className="rounded mb-6 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg">

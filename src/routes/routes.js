@@ -8,7 +8,7 @@ import ControlPanel from "../pages/ControlPanel/ControlPanel";
 import LoginPage from "../auth/Login";
 import Payment from "../pages/MyInvoices/Payment";
 
-// childeren components
+// children components
 import ComplexPanel from "../pages/ComplexPanel/ComplexPanel";
 import CalendarPage from "../pages/FullCalendar/CalendarPage";
 import Profile from "../pages/Profile/Profile";

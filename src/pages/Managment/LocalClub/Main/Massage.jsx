@@ -10,13 +10,13 @@ import { LoadingButton } from "@mui/lab";
 import "react-toastify/dist/ReactToastify.css";
 
 // components
-import GoBackButton from "../../../../components/UI/GoBackButton";
 import Header from "../../../../components/UI/Header";
 import Calendar from "./Calendar";
 import DeleteBookedMassage from "../Components/DeleteBookedMassage";
-import NewCustomTimePicker from "../../../../components/Form/NewCustomTimePicker";
 import CustomTextField from "../../../../components/Form/CustomTextField";
 import CustomSelect from "../../../../components/Form/CustomSelect";
+import { BronMassageSchema } from "../../../../validations/leisureclub/massageVal";
+import CustomDataGrid from "../../../../components/UI/CustomDataGrid"
 
 // redux;
 import { useDispatch, useSelector } from "react-redux";
@@ -31,8 +31,11 @@ import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOu
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import WomanIcon from "@mui/icons-material/Woman";
 import { setModal } from "../../../../app/Slicers/modals";
+import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
+import CustomDigitalTimePicker from "../../../../components/Form/CustomDigitalTimePicker";
 import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
-
+import BackButton from "../../../../components/UI/Buttons/BackButton";
+import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
 
 //multiselect
 const optionsMassage = [
@@ -122,6 +125,11 @@ const columns = [
   },
 ];
 
+const masseurs = [
+  { label: "Yuliya", value: "Yuliya" },
+  { label: "Sabina", value: "Sabina" },
+];
+
 const Massage = () => {
   useScrollToUp();
   const [eventData, setEventData] = useState(null);
@@ -193,16 +201,57 @@ const Massage = () => {
   useEffect(() => {
     dispatch(getBookedMassage(Cookies.get("token")));
   }, []);
-
+  const mobileColumns = [
+    {
+      key: "start_date",
+      label: "Başlama vaxtı",
+      width: 200,
+    },
+    {
+      key: "end_date",
+      label: "Bitmə vaxtı",
+      width: 100,
+    },
+    {
+      key: "duration",
+      label: "Müddət",
+      width: 100,
+    },
+    {
+      key: "therapist",
+      label: "Terapevt",
+      width: 100,
+    },
+    {
+      key: "status",
+      label: "Status",
+      width: 100,
+    },
+    {
+      key: "created_time",
+      label: "Yaradıldı",
+      width: 100,
+    },
+    {
+      key: "delete",
+      label: t("Delete"),
+      width: 150,
+      render: (value,data) => {
+        return <DeleteBookedMassage params={data} />;
+      },
+    },
+  ];
   const bronModal = (
     <Box>
       <Formik
         initialValues={{
           start_date: "",
-          therapist: "",
+          start_time: "",
+          therapist: "Yuliya",
           massage: "",
           message: "",
         }}
+        validationSchema={BronMassageSchema}
         onSubmit={(values) => {
           const editedValues = {
             ...values,
@@ -218,54 +267,75 @@ const Massage = () => {
       >
         {() => (
           <Form>
-            <NewCustomTimePicker
+            {/* <NewCustomTimePicker
               label="Bronlama vaxti"
               name="start_date"
               defaultValue={defaultDate ? defaultDate : ""}
-            />
-            <CustomTextField
+            /> */}
+            {/* <CustomTextField
               label="Terapevt"
               name="therapist"
               masseur={masseur}
               value={masseur.name}
               disabled
               massage
+            /> */}
+            <CustomDatePicker
+              errorMessage="Zəhmət olmasa bronlama tarixini seçin"
+              name="start_date"
+              label="Bronlama tarixi"
+              containerClassName="w-full mb-6"
+              className="w-full"
+            />
+            <CustomDigitalTimePicker
+              label="Bronlama vaxtı"
+              name="start_time"
+              containerClassName="w-full mb-6"
+              className="w-full"
+              errorMessage="Zəhmət olmasa, bronlanma vaxtını seçin"
+            />
+            <CustomSelect
+              label="Terapevt"
+              name="therapist"
+              options={masseurs}
+              defaultValue="Yuliya"
+              noTranslation
+              onlyValue
+              containerClassName="mb-6 z-[10000] m-0"
             />
             <CustomSelect
               label="Masaj"
               options={optionsMassage}
               name="massage"
+              defaultValue="1"
               onlyValue
               noTranslation
+              containerClassName="mb-6 z-[10000] m-0"
             />
 
             <CustomTextField label="Şərhiniz" name="message" multiline />
             <Box className="flex gap-x-2 my-3 justify-end">
-              <Button
-                onClick={() =>
-                  dispatch(
-                    setModal({
-                      ...modal,
-                      isOpen: false,
-                    })
-                  )
-                }
-                type="button"
-                variant="outlined"
-                color="error"
-                className="capitalize"
+              <BackButton
+              onClick={() =>
+                dispatch(
+                  setModal({
+                    ...modal,
+                    isOpen: false,
+                  })
+                )
+              }
+              type="button"
+              variant="outlined"
               >
-                {t("Close")}
-              </Button>
-              <LoadingButton
-                type="submit"
+              {t("Close")}
+              </BackButton>
+              <SuccessButton
+              loading={bookMassageStatus === "loading"}
+              type="submit"
                 variant="contained"
-                color="success"
-                className="capitalize"
-                loading={bookMassageStatus === "loading"}
               >
-                {t("Save")}
-              </LoadingButton>
+              {t("Save")}
+              </SuccessButton>
             </Box>
           </Form>
         )}
@@ -344,20 +414,18 @@ const Massage = () => {
               </Button>
             </Box>
             <DefaultButton
-            variant="contained"
-            onClick={() =>
-              dispatch(
-                setModal({
-                  isOpen: true,
-                  children: bronModal,
-                })
-              )
-            }
               startIcon={<AddCircleOutlineOutlinedIcon />}
-
+              variant="contained"
+              onClick={() =>
+                dispatch(
+                  setModal({
+                    isOpen: true,
+                    children: bronModal,
+                  })
+                )
+              }
             >
-            {t("New Reservation")}
-            
+              {t("New Reservation")}
             </DefaultButton>
           </Box>
 
@@ -384,7 +452,7 @@ const Massage = () => {
           />
 
           <Box className="mb-10">
-            <DataGrid
+            {/* <DataGrid
               sx={{
                 align: "center",
               }}
@@ -412,6 +480,33 @@ const Massage = () => {
                 };
               })}
               columns={columns}
+            /> */}
+            <CustomDataGrid
+              desktopColumns={columns}
+              mobileColumns={mobileColumns}
+              rows={bookedMassage.map((item) => {
+                console.log(
+                  item?.created_at
+                    ? item?.created_at?.replace("T", " ").slice(0, -11)
+                    : null
+                );
+                return {
+                  id: item.id,
+                  start_date: item.start_date,
+                  end_date: item.end_date,
+                  duration: "",
+                  therapist: item.therapist,
+                  status: item.status,
+                  // created_time: item?.created_at
+                  //   ? item?.created_at?.replace("T", " ").slice(0, -11)
+                  //   : null,
+                  created_time: "",
+                  delete: "",
+                };
+              })}
+              width={630}
+              status={bookedMassage.status}
+
             />
           </Box>
         </Box>

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   Box,
   MenuItem,
@@ -7,49 +7,29 @@ import {
   Typography,
   Divider,
 } from "@mui/material";
+import { deepOrange, deepPurple } from "@mui/material/colors";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
-import CustomMenu from "../../components/UI/CustomMenu";
+import CustomMenu from "../../components/UI/Modals/CustomMenu";
 import { logoutHandler } from "../../app/Slicers/auth";
 import Cookies from "js-cookie";
-
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
-import TelegramIcon from "@mui/icons-material/Telegram";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 
-const userMenu = [
-  {
-    icon: <PersonIcon className="text-lg mr-2" />,
-    content: "Profile",
-    path: "/profile",
-  },
-  {
-    icon: <LocalPhoneOutlinedIcon className="text-lg mr-2" />,
-    content: "Contact",
-    path: "/contact",
-  },
-  {
-    icon: <LogoutIcon className="text-lg mr-2" />,
-    content: "Log Out",
-  },
-];
+
 
 const UserMenu = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [firstLetters, setFirstLetters] = useState(null);
+  const [randomColor, setRandomColor] = useState("");
   const {
     user: {
       has_role: { role_name },
       name,
       username,
     },
-    user,
     status,
   } = useSelector((state) => state.auth);
 
@@ -57,6 +37,23 @@ const UserMenu = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const btnRef = useRef(null);
+
+  const userMenu = [
+    {
+      icon: <PersonIcon className="text-lg mr-2" />,
+      content: "Profile",
+      path: "/profile",
+    },
+    {
+      icon: <LocalPhoneOutlinedIcon className="text-lg mr-2" />,
+      content: "Contact",
+      path: "/contact",
+    },
+    {
+      icon: <LogoutIcon className="text-lg mr-2" />,
+      content: t(["Log Out"]),
+    },
+  ];
 
   useEffect(() => {
     setFirstLetters(() => {
@@ -67,7 +64,11 @@ const UserMenu = () => {
     });
   }, [status]);
 
-  const handleClick = () => setOpenMenu((prev) => !prev);
+  useEffect(() => {
+    let hex = Math.floor(Math.random() * 0xffffff);
+    let color = "#" + hex.toString(16);
+    setRandomColor(color);
+  }, []);
 
   return (
     <Box className="relative">
@@ -77,10 +78,16 @@ const UserMenu = () => {
         justifyContent="center"
         spacing={1}
         className="bg-slate-200 dark:bg-slate-600 p-2 rounded cursor-pointer"
-        onClick={handleClick}
+        onClick={() => setOpenMenu((prev) => !prev)}
         ref={btnRef}
       >
-        <Avatar alt={firstLetters} className="cursor-pointer">
+        <Avatar
+          style={{
+            backgroundColor: randomColor,
+          }}
+          alt={firstLetters}
+          className="cursor-pointer text-text1"
+        >
           <Typography className="text-sm">{firstLetters}</Typography>
         </Avatar>
         <Box className="hidden md:flex md:flex-col md:items-center md:justify-center">
@@ -88,7 +95,7 @@ const UserMenu = () => {
             {name}
           </Typography>
           <Typography className="text-xs text-textDark2 dark:text-text2">
-            {role_name}
+            {t([role_name])}
           </Typography>
         </Box>
       </Stack>
@@ -100,13 +107,6 @@ const UserMenu = () => {
           ref={btnRef}
           className="top-14 w-48 -right-1 sm:right-2 py-1"
         >
-          <Box className="my-2 px-4">
-            <Typography className="font-bold text-sm text-logoColor">
-              {t("Welcome")}!
-            </Typography>
-            <Typography className="text-xs text-text2">{username}</Typography>
-          </Box>
-          <Divider />
           <Box>
             {userMenu.map((list, index) => (
               <MenuItem

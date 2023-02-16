@@ -1,13 +1,11 @@
-import React from "react";
 import { Typography, Grid, Box } from "@mui/material";
 import { useSelector } from "react-redux";
-import { motion } from "framer-motion";
+import { Home } from "@mui/icons-material";
 import azeurotel from "../../../assets/PhoneCategories/azeurot_logo.png";
 import baktelecom from "../../../assets/PhoneCategories/aztelekombtrb.png";
 import ultel from "../../../assets/PhoneCategories/ultel.png";
 import catel from "../../../assets/PhoneCategories/catel.png";
 import transeurocom from "../../../assets/PhoneCategories/transeurocom.png";
-import { Home } from "@mui/icons-material";
 import Header from "../../../components/UI/Header";
 
 const phoneCategories = [
@@ -43,16 +41,10 @@ const phoneCategories = [
   },
 ];
 
-const Phone = ({ img, title }) => {
+const Phone = () => {
   const { disableTransform } = useSelector((state) => state.themes);
-
   return (
-    <div
-      className={`w-full ${disableTransform ? "transform-none" : ""} `}
-      // initial={{ x: "50%" }}
-      // animate={{ x: 0 }}
-      // transition={{ duration: 0.4, bounce: 0.4, type: "spring" }}
-    >
+    <div className={`w-full ${disableTransform ? "transform-none" : ""} `}>
       <Header currentPage={{ title: "Telephone", icon: Home }} />
       <Grid container gap={1.8} className="lg:pl-6">
         {phoneCategories.map(({ img, title }) => (
