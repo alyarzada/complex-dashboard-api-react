@@ -52,11 +52,11 @@ const Home = () => {
       <Header />
       <SideBar />
       <Box
-        className={`px-4 lg:px-8 pt-24 transition-all flex flex-col justify-between min-h-screen overflow-x-hidden ease-in-out dark:bg-bgMain bg-[#FAFBFE] "
+        className={`bg-bgLight dark:bg-bgSecond px-4 lg:px-8 pt-24 transition-all flex flex-col justify-between min-h-screen overflow-x-hidden ease-in-out "
      ${
        openedSidebar
-         ? "content-wrapper-width-open ml-0 md:ml-[250px]"
-         : "content-wrapper-width-close ml-0 md:ml-[80px]"
+         ? "content-wrapper-width-open ml-0 md:ml-[250px] exl:ml-[300px]"
+         : "content-wrapper-width-close ml-0 md:ml-[80px] exl:ml-[100px]"
      }`}
       >
         <Outlet />

@@ -55,7 +55,7 @@ const Buttons = ({ dataTableRequests }) => {
         <Button
           variant="contained"
           startIcon={<Inventory className="text-xs mb-2 md:mb-0" />}
-          className="bg-[#BDB26D] capitalize dark:text-text5"
+          className="bg-logoColor capitalize dark:text-text5"
         >
           Arxiv
         </Button>

@@ -51,7 +51,7 @@ const Card = () => {
           <Stack
             direction={{ xs: "column", lg: "row" }}
             spacing={3}
-            className="p-3 dark:bg-gradient-to-r dark:from-mainPrimary min-h-[70vh] dark:to-mainSecondary"
+            className="p-3  min-h-[70vh] bg-bgLight dark:bg-bgMain"
           >
             <Box className="flex flex-1 flex-col gap-4 rounded-lg">
               <Box>

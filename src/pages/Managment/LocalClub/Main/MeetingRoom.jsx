@@ -404,7 +404,7 @@ const MeetingRoom = () => {
   return (
     <Box className="w-full">
       <Header currentPage={{ title: "Meeting room", icon: MeetingRoomIcon }} />
-      <Box className="rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="py-6 px-6 my-4">
           <Box className="flex justify-end mb-6">
             <DefaultButton

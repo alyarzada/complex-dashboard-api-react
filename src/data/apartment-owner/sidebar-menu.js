@@ -91,22 +91,14 @@ export const sidebarMenu = [
   },
   {
     id: 12,
-    title: "User",
-    icon: AccountCircleOutlinedIcon,
-    path: "",
-    sublist: [
-      {
-        id: 1,
-        title: "Profile",
-        icon: PersonOutlineOutlinedIcon,
-        path: "/profile",
-      },
-      {
-        id: 2,
-        title: "Chat",
-        icon: TelegramIcon,
-        path: "/chat",
-      },
-    ],
+    title: "Profile",
+    icon: PersonOutlineOutlinedIcon,
+    path: "/profile",
+  },
+  {
+    id: 13,
+    title: "Chat",
+    icon: TelegramIcon,
+    path: "/chat",
   },
 ];

@@ -103,6 +103,30 @@ const RequestComponent = () => {
     },
   ];
 
+  const mobileColumns = [
+    {
+      key: "name",
+      label: t("Applicant"),
+      width: 200,
+      render: (value, data) => {
+        return <Link to={`details/${data.id}`}>{data.name}</Link>;
+      },
+    },
+    {
+      key: "request",
+      label: t("Request"),
+      width: 100,
+      render: (value, data) => (
+        <Link to={`details/${data.id}`}>{data.request}</Link>
+      ),
+    },
+    {
+      key: "Start date",
+      label: t("Date"),
+      width: 150,
+    },
+  ];
+
   useEffect(() => {
     if (role_id === 8) {
       const filtered = myRequests?.filter(
@@ -140,7 +164,7 @@ const RequestComponent = () => {
       variants={variants}
       initial="hidden"
       animate="visible"
-      className="dark:bg-gradient-to-r bg-bgLight drop-shadow-lg dark:from-mainPrimary dark:to-mainSecondary text-text1 min-h-full rounded p-3"
+      className=" drop-shadow-lg  bg-bgLight dark:bg-bgMain text-text1 min-h-full rounded p-3"
     >
       <CustomDataGrid
         desktopColumns={columns}

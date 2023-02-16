@@ -18,8 +18,6 @@ import { logoutHandler } from "../../app/Slicers/auth";
 import Cookies from "js-cookie";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 
-
-
 const UserMenu = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [firstLetters, setFirstLetters] = useState(null);
@@ -77,7 +75,7 @@ const UserMenu = () => {
         alignItems="center"
         justifyContent="center"
         spacing={1}
-        className="bg-slate-200 dark:bg-slate-600 p-2 rounded cursor-pointer"
+        className="bg-slate-200 dark:bg-bgSecond p-2 rounded cursor-pointer"
         onClick={() => setOpenMenu((prev) => !prev)}
         ref={btnRef}
       >

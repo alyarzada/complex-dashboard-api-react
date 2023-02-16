@@ -77,12 +77,13 @@ const Myİnvoices = () => {
     {
       field: "service",
       headerName: t(["Service"]),
-      renderCell: (params) => <Services params={params.row} />,
       flex: 1,
+      renderCell: (params) => <Services params={params.row} />,
     },
     {
       field: "amount",
       headerName: t(["Amount"]),
+      flex: 1,
       align: "center",
       headerAlign: "center",
       renderCell: (params) => (
@@ -95,6 +96,7 @@ const Myİnvoices = () => {
     {
       field: "status",
       headerName: t(["Status"]),
+      flex: 1,
       align: "center",
       headerAlign: "center",
       renderCell: (params) => (
@@ -107,6 +109,7 @@ const Myİnvoices = () => {
     {
       field: "creationDate",
       headerName: t(["Created at"]),
+      flex: 1,
       align: "center",
       headerAlign: "center",
       flex: 1,
@@ -114,6 +117,7 @@ const Myİnvoices = () => {
     {
       field: "operation",
       headerName: t(["Action"]),
+      flex: 1,
       align: "center",
       headerAlign: "center",
       renderCell: (params) => <PayButton params={params}>{t("Pay")}</PayButton>,
@@ -171,7 +175,7 @@ const Myİnvoices = () => {
   return (
     <Box>
       <Header currentPage={{ title: "My Invoices", icon: ReceiptLongIcon }} />
-      <Box className="my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="my-4 rounded s drop-shadow-lg  bg-bgLight dark:bg-bgMain w-full">
         <Stack
           direction={{ sm: "row", xs: "column" }}
           justifyContent="space-between"
@@ -202,6 +206,7 @@ const Myİnvoices = () => {
             desktopColumns={columns}
             mobileColumns={mobileColumns}
             rows={invoices}
+            width={630}
             status={invoices.status}
             onSelectionModelChange={(newSelectionModel) => {
               setSelectionModel(newSelectionModel);

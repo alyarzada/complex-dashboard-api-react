@@ -18,7 +18,7 @@ import {
   SentimentSatisfiedAlt,
 } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
-import ReactionComponent from "../../components/UI/ReactionEmojies/ReactionComponent";
+import EmojiesContainer from "../../components/UI/ReactionEmojies/EmojiesContainer";
 import CustomMenu from "../../components/UI/Modals/CustomMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteComment, editComment } from "../../app/Slicers/news";
@@ -142,7 +142,7 @@ const Comment = ({ comment, postId }) => {
         <Stack direction="row" alignItems="center" className="gap-x-1 relative">
           <Grid container justifyContent="center" style={{ width: "30%" }}>
             <Grid item>
-              <Tooltip title=<ReactionComponent peer="peer" /> placement="top">
+              <Tooltip title=<EmojiesContainer peer="peer" /> placement="top">
                 <IconButton>
                   <FavoriteBorderOutlined />
                 </IconButton>
