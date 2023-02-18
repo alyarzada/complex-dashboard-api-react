@@ -8,7 +8,7 @@ const Contact = ({ contact }) => {
     <Box
       className={`rounded px-3 ${
         status !== "loading" && "py-6"
-      }  dark:text-text1 bg-bgLight drop-shadow-lg hover:drop-shadow-xl flex flex-col justify-center items-center dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary`}
+      }  dark:text-text1 bg-bgLight drop-shadow-lg hover:drop-shadow-xl flex flex-col justify-center items-center dark:bg-bgMain`}
     >
       {status === "loading" ? (
         <Skeleton

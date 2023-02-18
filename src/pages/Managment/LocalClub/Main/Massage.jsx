@@ -16,7 +16,7 @@ import DeleteBookedMassage from "../Components/DeleteBookedMassage";
 import CustomTextField from "../../../../components/Form/CustomTextField";
 import CustomSelect from "../../../../components/Form/CustomSelect";
 import { BronMassageSchema } from "../../../../validations/leisureclub/massageVal";
-import CustomDataGrid from "../../../../components/UI/CustomDataGrid"
+import CustomDataGrid from "../../../../components/UI/CustomDataGrid";
 
 // redux;
 import { useDispatch, useSelector } from "react-redux";
@@ -34,6 +34,8 @@ import { setModal } from "../../../../app/Slicers/modals";
 import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
 import CustomDigitalTimePicker from "../../../../components/Form/CustomDigitalTimePicker";
 import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
+import BackButton from "../../../../components/UI/Buttons/BackButton";
+import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
 
 //multiselect
 const optionsMassage = [
@@ -234,7 +236,7 @@ const Massage = () => {
       key: "delete",
       label: t("Delete"),
       width: 150,
-      render: (value,data) => {
+      render: (value, data) => {
         return <DeleteBookedMassage params={data} />;
       },
     },
@@ -313,7 +315,7 @@ const Massage = () => {
 
             <CustomTextField label="Şərhiniz" name="message" multiline />
             <Box className="flex gap-x-2 my-3 justify-end">
-              <Button
+              <BackButton
                 onClick={() =>
                   dispatch(
                     setModal({
@@ -324,20 +326,16 @@ const Massage = () => {
                 }
                 type="button"
                 variant="outlined"
-                color="error"
-                className="capitalize"
               >
                 {t("Close")}
-              </Button>
-              <LoadingButton
+              </BackButton>
+              <SuccessButton
+                loading={bookMassageStatus === "loading"}
                 type="submit"
                 variant="contained"
-                color="success"
-                className="capitalize"
-                loading={bookMassageStatus === "loading"}
               >
                 {t("Save")}
-              </LoadingButton>
+              </SuccessButton>
             </Box>
           </Form>
         )}
@@ -392,7 +390,7 @@ const Massage = () => {
       <Header
         currentPage={{ title: "Massage", icon: AdminPanelSettingsOutlinedIcon }}
       />
-      <Box className="rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="py-6 px-6 my-4">
           <Box className="flex justify-between mb-6">
             <Box>
@@ -508,7 +506,6 @@ const Massage = () => {
               })}
               width={630}
               status={bookedMassage.status}
-
             />
           </Box>
         </Box>

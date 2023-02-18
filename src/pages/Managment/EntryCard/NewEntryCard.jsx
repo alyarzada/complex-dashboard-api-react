@@ -24,6 +24,7 @@ import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
 import BackButton from "../../../components/UI/Buttons/BackButton";
 import SuccessButton from "../../../components/UI/Buttons/SuccessButton";
+import { useScrollToUp } from "../../../hooks/useScrollToUp";
 
 const optionsProj = [
   { label: "Port Baku Residence", value: "portbaku" },
@@ -36,6 +37,7 @@ const optionsProj = [
 ];
 
 const NewEntryCard = () => {
+  useScrollToUp();
   const { t } = useTranslation();
   const {
     user: {
@@ -75,7 +77,7 @@ const NewEntryCard = () => {
         </Box>
       </Box>
 
-      <Box className="dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary">
+      <Box className="bg-bgLight dark:bg-bgMain">
         <Formik
           initialValues={{
             request: "",

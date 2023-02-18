@@ -18,23 +18,6 @@ import { logoutHandler } from "../../app/Slicers/auth";
 import Cookies from "js-cookie";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 
-const userMenu = [
-  {
-    icon: <PersonIcon className="text-lg mr-2" />,
-    content: "Profile",
-    path: "/profile",
-  },
-  {
-    icon: <LocalPhoneOutlinedIcon className="text-lg mr-2" />,
-    content: "Contact",
-    path: "/contact",
-  },
-  {
-    icon: <LogoutIcon className="text-lg mr-2" />,
-    content: "Log Out",
-  },
-];
-
 const UserMenu = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [firstLetters, setFirstLetters] = useState(null);
@@ -52,6 +35,23 @@ const UserMenu = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const btnRef = useRef(null);
+
+  const userMenu = [
+    {
+      icon: <PersonIcon className="text-lg mr-2" />,
+      content: "Profile",
+      path: "/profile",
+    },
+    {
+      icon: <LocalPhoneOutlinedIcon className="text-lg mr-2" />,
+      content: "Contact",
+      path: "/contact",
+    },
+    {
+      icon: <LogoutIcon className="text-lg mr-2" />,
+      content: t(["Log Out"]),
+    },
+  ];
 
   useEffect(() => {
     setFirstLetters(() => {
@@ -75,7 +75,7 @@ const UserMenu = () => {
         alignItems="center"
         justifyContent="center"
         spacing={1}
-        className="bg-slate-200 dark:bg-slate-600 p-2 rounded cursor-pointer"
+        className="bg-slate-200 dark:bg-bgSecond p-2 rounded cursor-pointer"
         onClick={() => setOpenMenu((prev) => !prev)}
         ref={btnRef}
       >
@@ -93,7 +93,7 @@ const UserMenu = () => {
             {name}
           </Typography>
           <Typography className="text-xs text-textDark2 dark:text-text2">
-            {role_name}
+            {t([role_name])}
           </Typography>
         </Box>
       </Stack>
@@ -105,13 +105,6 @@ const UserMenu = () => {
           ref={btnRef}
           className="top-14 w-48 -right-1 sm:right-2 py-1"
         >
-          <Box className="my-2 px-4">
-            <Typography className="font-bold text-sm text-logoColor">
-              {t("Welcome")}!
-            </Typography>
-            <Typography className="text-xs text-text2">{username}</Typography>
-          </Box>
-          <Divider />
           <Box>
             {userMenu.map((list, index) => (
               <MenuItem

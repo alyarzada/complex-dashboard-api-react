@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import {
   DataGrid,
@@ -8,6 +8,7 @@ import {
   useGridSelector,
   GridToolbar,
 } from "@mui/x-data-grid";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Box,
@@ -16,6 +17,7 @@ import {
   Pagination,
   Typography,
   Input,
+  MenuItem,
 } from "@mui/material";
 import { useScrollToUp } from "../../hooks/useScrollToUp";
 import Header from "../../components/UI/Header";
@@ -31,8 +33,10 @@ import CustomDataGrid from "../../components/UI/CustomDataGrid";
 import DraftsOutlinedIcon from "@mui/icons-material/DraftsOutlined";
 import MarkunreadOutlinedIcon from "@mui/icons-material/MarkunreadOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Cookies from "js-cookie";
 import { format } from "date-fns";
+import CustomMenu from "../../components/UI/Modals/CustomMenu";
 
 const Notifications = () => {
   useScrollToUp();
@@ -41,10 +45,15 @@ const Notifications = () => {
   const [tableRows, setTableRows] = useState(10);
   const { notifications, status } = useSelector((state) => state.notifications);
   const dispatch = useDispatch();
-  const [active, setActive] = useState()
-  const [expand, setExpand] = useState(false)
+  const [active, setActive] = useState();
+  const [expand, setExpand] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
 
-  const isOpenedMobileTable = document.querySelectorAll('.MuiAccordionSummary-root')
+  const btnRef = useRef(null);
+
+  const isOpenedMobileTable = document.querySelectorAll(
+    ".MuiAccordionSummary-root"
+  );
   // useEffect(() => {
 
   //   isOpenedMobileTable.forEach(item => {
@@ -57,7 +66,6 @@ const Notifications = () => {
   //     }
   //     })
   //   })
-
 
   //   // isOpenedMobileTable?.foreach((element, i) => {
   //   //   setActive(i)
@@ -77,19 +85,19 @@ const Notifications = () => {
     {
       field: "type",
       headerName: t("Type"),
-      width: 200,
+      flex: 1,
       renderCell: (params) => <NotificationType {...params} />,
     },
     {
       field: "subject",
       headerName: t("Title"),
-      width: 700,
+      flex: 2,
       renderCell: (params) => <NotificationSubject {...params} />,
     },
     {
       field: "created_at",
-      headerName: t("Created"),
-      width: 200,
+      headerName: t("Date"),
+      flex: 1,
     },
   ];
 
@@ -134,14 +142,16 @@ const Notifications = () => {
 
   const mobileColumns = [
     {
-      key: expand ? "subject" : 'subject',
+      key: expand ? "subject" : "subject",
       label: t("Subject"),
       width: 100,
       render: (value, data) => {
         return (
-          <Typography>{expand ? data.subject + " " + data.created_at : data.subject}</Typography>
-        )
-      }
+          <Typography>
+            {expand ? data.subject + " " + data.created_at : data.subject}
+          </Typography>
+        );
+      },
     },
     {
       key: "type",
@@ -150,7 +160,7 @@ const Notifications = () => {
     },
     {
       key: "created_at",
-      label: t("Created"),
+      label: t("Date"),
       width: 150,
     },
   ];
@@ -162,7 +172,7 @@ const Notifications = () => {
           icon: NotificationsOutlinedIcon,
         }}
       />
-      <Box className="py-6 px-6 my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="py-6 px-6 my-4 rounded bg-bgLight dark:bg-bgMain  drop-shadow-lg w-full">
         <Stack
           justifyContent="space-between"
           alignItems="center"
@@ -178,21 +188,56 @@ const Notifications = () => {
               netice goster
             </Typography>
           </Box>
-          <Stack direction="row" spacing={2}>
-            <IconButton variant="contained" className="bg-slate-300 text-black">
-              <DraftsOutlinedIcon />
-            </IconButton>
-            <IconButton variant="contained" className="bg-slate-300 text-black">
-              <MarkunreadOutlinedIcon />
-            </IconButton>
+
+          <Box>
             <IconButton
-              onClick={() => dispatch(deleteNotifications(selectionModel))}
-              variant="contained"
-              className="bg-rose-500"
+              ref={btnRef}
+              onClick={() => setOpenMenu((prev) => !prev)}
             >
-              <DeleteOutlinedIcon />
+              <MoreHorizIcon />
             </IconButton>
-          </Stack>
+
+            {openMenu ? (
+              <CustomMenu
+                className="top-20 right-4 width-40"
+                ref={btnRef}
+                openMenu={openMenu}
+                setOpenMenu={setOpenMenu}
+              >
+                <MenuItem>
+                  <Link to="/profile">{t("Oxunmuş kimi qeyd edin")}</Link>
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    setOpenMenu(false);
+                  }}
+                >
+                  {t("Oxunmamış kimi qeyd edin")}
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    setOpenMenu(false);
+                  }}
+                >
+                  {t("Oxunmuşlara baxın")}
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    setOpenMenu(false);
+                  }}
+                >
+                  {t("Oxunmamışlara baxın")}
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    setOpenMenu(false);
+                  }}
+                >
+                  {t("Seçilmişləri silin")}
+                </MenuItem>
+              </CustomMenu>
+            ) : null}
+          </Box>
         </Stack>
 
         <Box>

@@ -6,10 +6,12 @@ import HomeIcon from "@mui/icons-material/Home";
 const Header = (props) => {
   const Icon = props.currentPage.icon;
   const { t } = useTranslation();
+
   return (
     <Stack
       direction={{ xs: "column", md: "row" }}
       justifyContent="space-between"
+      className="print:hidden"
     >
       <Typography
         variant="h6"

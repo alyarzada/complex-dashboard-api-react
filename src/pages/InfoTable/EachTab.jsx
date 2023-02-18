@@ -82,7 +82,7 @@ const EachTab = ({ datas }) => {
                 onClick={() => navigate("/information/photoedit")}
                 className="bg-logoColor absolute bottom-2 right-2"
               >
-                <CameraAltOutlinedIcon color="action"/>
+                <CameraAltOutlinedIcon color="action" />
               </Button>
             </SwiperSlide>
           </Swiper>
@@ -107,7 +107,7 @@ const EachTab = ({ datas }) => {
           </div>
         )}
 
-        <Box className=" w-full lg:w-1/2 shadow-2xl flex-1 p-3 dark:bg-gradient-to-r dark:from-mainSecondary dark:to-mainPrimary  rounded ">
+        <Box className=" w-full lg:w-1/2 shadow-2xl flex-1 p-3 bg-bgLight dark:bg-bgMain rounded ">
           <Typography className="uppercase dark:text-text1 text-textDark2">
             {t(["Detail information"])}
           </Typography>

@@ -20,7 +20,6 @@ export const Services = ({ params }) => {
     { key: "Kompleks", value: "Port Baku" },
     { key: "Bina", value: "Tower B" },
     { key: "Blok", value: "B" },
-    { key: "Mənzil", value: params.apartment },
     { key: "Xidmət", value: params.service },
     { key: "Xidmət haqqı", value: `${params.amount} AZN` },
     { key: "Ödəniləcək məbləğ", value: `${params.amount} AZN` },
@@ -45,7 +44,7 @@ export const Services = ({ params }) => {
   return (
     <Box>
       <Button
-        className="capitalize text-blue-500"
+        className="capitalize text-text1"
         onClick={() => {
           dispatch(
             setModal({
@@ -76,24 +75,15 @@ const Myİnvoices = () => {
 
   const columns = [
     {
-      field: "apartment",
-      headerName: t(["Apartment"]),
-      width: 130,
-      align: "center",
-      headerAlign: "center",
-    },
-    {
       field: "service",
       headerName: t(["Service"]),
-      width: 300,
+      flex: 1,
       renderCell: (params) => <Services params={params.row} />,
-      align: "center",
-      headerAlign: "center",
     },
     {
       field: "amount",
       headerName: t(["Amount"]),
-      width: 150,
+      flex: 1,
       align: "center",
       headerAlign: "center",
       renderCell: (params) => (
@@ -101,48 +91,40 @@ const Myİnvoices = () => {
           {params.row.amount} AZN
         </Typography>
       ),
+      flex: 1,
     },
     {
       field: "status",
       headerName: t(["Status"]),
-      width: 140,
+      flex: 1,
       align: "center",
       headerAlign: "center",
       renderCell: (params) => (
         <Typography className="bg-logoColor rounded p-1 text-sm">
-          {params.row.status}
+          {t(params.row.status)}
         </Typography>
       ),
+      flex: 1,
     },
     {
       field: "creationDate",
       headerName: t(["Created at"]),
-      width: 220,
+      flex: 1,
       align: "center",
       headerAlign: "center",
+      flex: 1,
     },
     {
       field: "operation",
       headerName: t(["Action"]),
-      width: 150,
+      flex: 1,
       align: "center",
       headerAlign: "center",
       renderCell: (params) => <PayButton params={params}>{t("Pay")}</PayButton>,
+      flex: 1,
     },
   ];
   const mobileColumns = [
-    {
-      key: "apartment",
-      label: "Müraciət sahibi",
-      width: 200,
-      render: (value, data) => {
-        return (
-          <Typography>
-            {t("Apartment")} - {data.apartment}
-          </Typography>
-        );
-      },
-    },
     {
       key: "service",
       label: t(["Service"]),
@@ -193,7 +175,7 @@ const Myİnvoices = () => {
   return (
     <Box>
       <Header currentPage={{ title: "My Invoices", icon: ReceiptLongIcon }} />
-      <Box className="my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="my-4 rounded s drop-shadow-lg  bg-bgLight dark:bg-bgMain w-full">
         <Stack
           direction={{ sm: "row", xs: "column" }}
           justifyContent="space-between"

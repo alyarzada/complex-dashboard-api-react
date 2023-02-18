@@ -116,7 +116,7 @@ const MyDetails = ({ user }) => {
                   type="submit"
                   variant="contained"
                   startIcon={
-                    <SaveIcon className="text-white dark:text-black" />
+                    <SaveIcon className="dark:text-white text-black" />
                   }
                 >
                   {t(["Save"])}

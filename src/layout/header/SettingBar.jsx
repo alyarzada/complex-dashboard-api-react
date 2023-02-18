@@ -48,7 +48,7 @@ const SettingBar = (props, ref) => {
         openedSettingBar ? "translate-x-0" : "translate-x-full"
       } transition-transform duration-500 fixed rounded-bl-lg rounded-tl-lg z-20 justify-between top-0 right-0 w-[260px] sm:w-[300px] bg-[#37404A] h-screen shadow-shadowSettings `}
     >
-      <Box className="bg-[#313A46] dark:bg-[#C9B26D] rounded-tl-lg flex items-center justify-between px-5 py-6">
+      <Box className="bg-[#313A46] dark:bg-logoColor rounded-tl-lg flex items-center justify-between px-5 py-6">
         <h5 className="text-white text-[.9rem] font-semibold">
           {t("Adjustments")}
         </h5>
@@ -57,7 +57,7 @@ const SettingBar = (props, ref) => {
         </IconButton>
       </Box>
 
-      <Box className="rounded-bl-lg settingsContainer bg-bgLight dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary h-full py-10  overflow-y-auto">
+      <Box className="rounded-bl-lg settingsContainer bg-bgLight dark:bg-bgMain h-full py-10  overflow-y-auto">
         <Box className="mb-6 mx-4 mt-0 p-3 rounded bg-[#cbc8bd]">
           <Typography className="text-sm">
             {t("Customize the overall color scheme, sidebar menu, etc.")}
@@ -259,7 +259,7 @@ const SettingBar = (props, ref) => {
                   }}
                 />
               }
-              label={t("Draggable")}
+              label={t("Displacement of panels")}
             />
           </Box>
           <br />

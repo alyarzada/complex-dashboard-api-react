@@ -97,7 +97,7 @@ const EntryCards = () => {
         currentPage={{ title: "Access card", icon: CreditCardOutlinedIcon }}
       />
 
-      <Box className="my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="my-4 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="py-4 px-6">
           <CustomSearchFilter />
           <Box className="flex flex-col mb-6 sm:flex-row justify-end gap-3 pt-6">

@@ -84,7 +84,7 @@ const CreateNewRequest = () => {
   if (user.has_role.role_id === 8) {
     return (
       <motion.div
-        className="w-full p-6 rounded flex-1 text-textDark bg-bgLight  drop-shadow-lg hover:drop-shadow-xl dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary dark:text-white"
+        className="w-full p-6 rounded flex-1 text-textDark   drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain dark:text-white"
         variants={variants}
         initial="hidden"
         animate="visible"
@@ -176,7 +176,7 @@ const CreateNewRequest = () => {
     );
   } else {
     return (
-      <Box className="dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg pt-4 p-2 mb-4">
+      <Box className="bg-bgLight dark:bg-bgMain drop-shadow-lg pt-4 p-2 mb-4">
         <Box className=" py-4 px-2">
           <tyography component="h5" className="dark:text-text2 text-textDark2">
             {t(["Applicant"])}
@@ -377,7 +377,7 @@ const CreateNewRequest = () => {
             {t(["Your request"])}
           </tyography>
           <TextareaAutosize
-            className="w-full dark:bg-gradient-to-r rounded-lg dark:text-text2 p-1 px-3 mt-2"
+            className="w-full bg-bgLight dark:bg-bgMain rounded-lg dark:text-text2 p-1 px-3 mt-2"
             aria-label="minimum height"
             minRows={3}
             placeholder={t(["Message"])}

@@ -75,7 +75,7 @@ const MyPassword = () => {
                   variant="contained"
                   type="submit"
                   startIcon={
-                    <SaveIcon className="text-white dark:text-black" />
+                    <SaveIcon className="dark:text-white text-black" />
                   }
                 >
                   {t(["Save"])}

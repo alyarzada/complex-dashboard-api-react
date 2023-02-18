@@ -34,7 +34,6 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
     if (sidebarItem.sublist) {
       const linksHeight = linksRef.current.getBoundingClientRect().height;
       if (sidebarSubmenu.open && sidebarSubmenu.id == sidebarItem.id) {
-        console.log(true);
         linksContainerRef.current.style.height = `${linksHeight}px`;
       } else {
         console.log(sidebarSubmenu.open);
@@ -52,7 +51,6 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
           if (!sidebarItem.path) {
             e.preventDefault();
             dispatch(toggleSidebarSubmenu(sidebarItem.id));
-            console.log("yees");
           } else {
             console.log("fucke");
             matches && dispatch(setOpenedSidebar());

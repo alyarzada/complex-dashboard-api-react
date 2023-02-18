@@ -62,11 +62,11 @@ import Employees from "../pages/Apartment/Employees";
 import HousingCooperative from "../pages/Apartment/HousingCooperative";
 import Complex from "../pages/Apartment/Complex";
 import MTKUserCreate from "../pages/Apartment/MTKUserCreate/MTKUserCreate";
-import MenuCategories from "../pages/Restaurant/Admin/MenuCategories"
-import MenuNewCreate from "../pages/Restaurant/Admin/MenuNewCreate"
-import RestaurantMenu from "../pages/Restaurant/Admin/RestaurantMenu"
-import MenuCreate from "../pages/Restaurant/Admin/MenuCreate"
-import RestaurantOrders from "../pages/Restaurant/Admin/RestaurantOrders"
+import MenuCategories from "../pages/Restaurant/Admin/MenuCategories";
+import MenuNewCreate from "../pages/Restaurant/Admin/MenuNewCreate";
+import RestaurantMenu from "../pages/Restaurant/Admin/RestaurantMenu";
+import MenuCreate from "../pages/Restaurant/Admin/MenuCreate";
+import RestaurantOrders from "../pages/Restaurant/Admin/RestaurantOrders";
 
 const routes = [
   {
@@ -112,6 +112,10 @@ const routes = [
       {
         path: "create-invoice",
         element: <CreateInvoice />,
+      },
+      {
+        path: "/invoice-bill",
+        element: <InvoiceBill />,
       },
       {
         path: "calendar",
@@ -163,7 +167,7 @@ const routes = [
       },
       {
         path: "restaurantorders",
-        element: <RestaurantOrders />
+        element: <RestaurantOrders />,
       },
       {
         path: "communalservices",
