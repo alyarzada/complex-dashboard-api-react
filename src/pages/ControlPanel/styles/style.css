@@ -183,3 +183,10 @@
 .lastTask-scrollbar::-webkit-scrollbar-thumb {
   background-color: red !important ;
 }
+#more{
+  transition: .3s ease;
+}
+
+#restoran-home:hover #more{
+  margin-left: 7px;
+}

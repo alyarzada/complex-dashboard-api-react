@@ -10,6 +10,10 @@ const DashboardPanel = ({ title, panels, id }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
+
+
+
+
   return (
     <Box className="mb-6">
       <Typography
@@ -24,7 +28,7 @@ const DashboardPanel = ({ title, panels, id }) => {
         setList={(newState) =>
           dispatch(reOrderPanels({ data: newState, id: id }))
         }
-        className="select-none grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-5 exl:grid-cols-6 gap-4"
+        className="select-none grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-4 exl:grid-cols-6 gap-4"
         animation={400}
         disabled={!isDraggable}
       >

@@ -27,8 +27,20 @@ const AllRequests = () => {
   const columns = [
     // { field: "id", headerName: "#", width: 200 },
     {
-      field: "request",
+      field: "name",
+      headerName: t("Applicant"),
       flex: 1,
+      headerAlign: "center",
+      align: "center",
+      renderCell: (params) => {
+        return <Link to={`details/${params.row.id}`}>{params.row.name}</Link>;
+      },
+    },
+    {
+      field: "request",
+      flex: 3,
+      headerAlign: "center",
+      align: "center",
       headerName: t("Request"),
       renderCell: (params) => (
         <Link to={`details/${params.row.id}`}>{params.row.request}</Link>
@@ -36,9 +48,9 @@ const AllRequests = () => {
     },
     {
       field: "Start date",
+      flex: 1,
       headerAlign: "center",
       align: "center",
-      width: 200,
       headerName: t("Date"),
     },
   ];

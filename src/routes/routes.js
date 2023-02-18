@@ -62,7 +62,11 @@ import Employees from "../pages/Apartment/Employees";
 import HousingCooperative from "../pages/Apartment/HousingCooperative";
 import Complex from "../pages/Apartment/Complex";
 import MTKUserCreate from "../pages/Apartment/MTKUserCreate/MTKUserCreate";
-import InvoiceBill from "../pages/MyInvoices/InvoiceBill";
+import MenuCategories from "../pages/Restaurant/Admin/MenuCategories";
+import MenuNewCreate from "../pages/Restaurant/Admin/MenuNewCreate";
+import RestaurantMenu from "../pages/Restaurant/Admin/RestaurantMenu";
+import MenuCreate from "../pages/Restaurant/Admin/MenuCreate";
+import RestaurantOrders from "../pages/Restaurant/Admin/RestaurantOrders";
 
 const routes = [
   {
@@ -162,6 +166,10 @@ const routes = [
         element: <Card />,
       },
       {
+        path: "restaurantorders",
+        element: <RestaurantOrders />,
+      },
+      {
         path: "communalservices",
         element: <CommunalServices />,
       },
@@ -236,6 +244,22 @@ const routes = [
       {
         path: "mtk-users",
         element: <MTKUsers />,
+      },
+      {
+        path: "menucategories",
+        element: <MenuCategories />,
+      },
+      {
+        path: "menunewcreate",
+        element: <MenuNewCreate />,
+      },
+      {
+        path: "menucreate",
+        element: <MenuCreate />,
+      },
+      {
+        path: "restaurantmenu",
+        element: <RestaurantMenu />,
       },
       {
         path: "apartments",
