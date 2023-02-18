@@ -390,7 +390,7 @@ const Massage = () => {
       <Header
         currentPage={{ title: "Massage", icon: AdminPanelSettingsOutlinedIcon }}
       />
-      <Box className="rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="py-6 px-6 my-4">
           <Box className="flex justify-between mb-6">
             <Box>

@@ -24,7 +24,6 @@ import BackButton from "../../../../components/UI/Buttons/BackButton";
 import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
 import { useNavigate } from "react-router-dom";
 
-
 const optionsProj = [
   { label: "Port Baku Residence", value: "portbaku" },
   { label: "Absheron Apartments", value: "absheron" },
@@ -47,7 +46,7 @@ const AdminCreateNew = () => {
           icon: PersonAddAltOutlinedIcon,
         }}
       />
-      <Box className="my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="my-4 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="p-6">
           <CustomComplexSelection />
           <Formik
@@ -117,11 +116,11 @@ const AdminCreateNew = () => {
                     {t("Back")}
                   </BackButton>
                   <SuccessButton
-                  variant="contained"
-                  startIcon=<TaskAltOutlinedIcon />
-                  type="submit"
+                    variant="contained"
+                    startIcon=<TaskAltOutlinedIcon />
+                    type="submit"
                   >
-                  {t("Submit")}
+                    {t("Submit")}
                   </SuccessButton>
                 </Stack>
               </Form>

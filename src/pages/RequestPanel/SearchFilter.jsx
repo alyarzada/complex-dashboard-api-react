@@ -15,7 +15,7 @@ const SearchFilter = () => {
   // ];
 
   return (
-    <Box className="dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary flex-wrap bg-white drop-shadow-lg pt-4 pb-4 px-6 mb-4 mt-4">
+    <Box className="bg-bgLight dark:bg-bgMain flex-wrap drop-shadow-lg pt-4 pb-4 px-6 mb-4 mt-4">
       <Box>
         <Typography className="text-white mb-4">Axtarış filtri</Typography>
       </Box>

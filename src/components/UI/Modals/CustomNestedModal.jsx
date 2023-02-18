@@ -35,7 +35,7 @@ const CustomNestedModal = ({ children, name, handleClose }) => {
       exit={{ opacity: 0 }}
     >
       <motion.div
-        className="w-[94%] sm:max-w-[500px] relative bg-[#fff] dark:bg-[#020a15]
+        className="w-[94%] sm:max-w-[500px] relative bg-bgLight dark:bg-[#020a15]
         shadow-lg rounded-xl overflow-y-auto"
         initial="hidden"
         animate="visible"

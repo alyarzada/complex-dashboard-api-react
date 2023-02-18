@@ -1,4 +1,4 @@
-import { Box, IconButton, Button } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import { Formik, Form, FieldArray } from "formik";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SaveIcon from "@mui/icons-material/Save";
@@ -117,7 +117,7 @@ const MyDetails = ({ user }) => {
                   variant="contained"
                   className="bg-logoColor shadow-lg shadow-[#C9B26D]/50 hover:shadow-[#C9B26D]/70"
                   startIcon={
-                    <SaveIcon className="dark:text-white" />
+                    <SaveIcon className="dark:text-white text-black" />
                   }
                 >
                   {t(["Save"])}

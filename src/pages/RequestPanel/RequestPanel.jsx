@@ -28,7 +28,7 @@ import Header from "../../components/UI/Header";
 import Buttons from "./Buttons";
 import Cookies from "js-cookie";
 import { mobileColumns, desktopColumns } from "./data";
-import {useScrollToUp} from "../../hooks/useScrollToUp";
+import { useScrollToUp } from "../../hooks/useScrollToUp";
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
@@ -88,7 +88,7 @@ const RequestPanel = () => {
       </Box>
       <Buttons dataTableRequests={dataTableRequests} />
       <SearchFilter />
-      <Box className="dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg p-1">
+      <Box className="bg-bgLight dark:bg-bgMain drop-shadow-lg p-1">
         <Box className="flex justify-between">
           <Typography className="text-white">Hamısı</Typography>
           <Box>

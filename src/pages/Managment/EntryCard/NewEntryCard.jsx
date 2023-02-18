@@ -78,7 +78,7 @@ const NewEntryCard = () => {
         </Box>
       </Box>
 
-      <Box className="dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary">
+      <Box className="bg-bgLight dark:bg-bgMain">
         <Formik
           initialValues={{
             request: "",

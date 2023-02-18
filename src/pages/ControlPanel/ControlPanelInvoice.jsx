@@ -56,7 +56,7 @@ const ControlPanelInvoice = () => {
     <Box className="mb-6">
       <Stack direction={{ xs: "column", lg: "row" }} spacing={2}>
         {/* Current invoices */}
-        <Box className="flex-1 bg-gradient-to-r from-bgMain to-bgSecond p-2 bg-white rounded">
+        <Box className="flex-1 bg-bgLight dark:bg-bgMain p-3  rounded">
           <Box className="mb-3 flex justify-between items-center">
             <Typography className="dark:text-logoColor text-logoColor capitalize font-medium">
               {t(["Current invoices (debts)"])}
@@ -136,7 +136,7 @@ const ControlPanelInvoice = () => {
           </TableContainer>
         </Box>
         {/* Paid invoices */}
-        <Box className="flex-1 bg-gradient-to-r p-2 from-bgMain to-bgSecond bg-white rounded">
+        <Box className="flex-1 p-2 dark:bg-bgMain bg-white rounded">
           <Box className="mb-3 flex justify-between items-center">
             <Typography className="dark:text-logoColor text-logoColor capitalize font-medium">
               {t(["Paid invoices"])}
@@ -206,7 +206,7 @@ const ControlPanelInvoice = () => {
                       align="center"
                     >
                       <Tooltip title={t(["See the invoice"])}>
-                        <IconButton onClick={() => console.log("print")}>
+                        <IconButton onClick={() => navigate("/invoice-bill")}>
                           <RemoveRedEyeIcon className="text-logoColor text-[22px]" />
                         </IconButton>
                       </Tooltip>

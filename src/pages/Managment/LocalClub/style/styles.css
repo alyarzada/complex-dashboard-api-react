@@ -63,6 +63,14 @@
   display: none;
 }
 
+.fc-listWeek-button.fc-button.fc-button-primary {
+  display: block;
+}
+
+.fc-toolbar-chunk {
+  display: flex !important;
+}
+
 .fc-dayGridMonth-button {
   border-radius: 3px !important;
 }

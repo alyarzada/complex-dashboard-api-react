@@ -34,11 +34,8 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
     if (sidebarItem.sublist) {
       const linksHeight = linksRef.current.getBoundingClientRect().height;
       if (sidebarSubmenu.open && sidebarSubmenu.id == sidebarItem.id) {
-        console.log(true);
         linksContainerRef.current.style.height = `${linksHeight}px`;
       } else {
-        console.log(sidebarSubmenu.open);
-
         linksContainerRef.current.style.height = "0px";
       }
     }

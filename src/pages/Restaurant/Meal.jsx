@@ -123,7 +123,7 @@ const Meal = ({ item }) => {
   return (
     <Box>
       <Box
-        className="hover:scale-[1.05] transition-transform duration-500 text-textDark relative drop-shadow-lg hover:drop-shadow-xl dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-bgLight dark:text-white text-text5 rounded-lg pt-4 pb-3 px-3"
+        className="hover:scale-[1.05] transition-transform duration-500 text-textDark relative drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain dark:text-white text-text5 rounded-lg pt-4 pb-3 px-3"
         onMouseOver={() => setHover(true)}
         onMouseOut={() => setHover(false)}
       >

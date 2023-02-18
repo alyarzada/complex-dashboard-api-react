@@ -27,20 +27,8 @@ const AllRequests = () => {
   const columns = [
     // { field: "id", headerName: "#", width: 200 },
     {
-      field: "name",
-      headerName: t("Applicant"),
-      flex: 1,
-      headerAlign: "center",
-      align: "center",
-      renderCell: (params) => {
-        return <Link to={`details/${params.row.id}`}>{params.row.name}</Link>;
-      },
-    },
-    {
       field: "request",
-      flex: 3,
-      headerAlign: "center",
-      align: "center",
+      flex: 1,
       headerName: t("Request"),
       renderCell: (params) => (
         <Link to={`details/${params.row.id}`}>{params.row.request}</Link>
@@ -48,9 +36,9 @@ const AllRequests = () => {
     },
     {
       field: "Start date",
-      flex: 1,
       headerAlign: "center",
       align: "center",
+      width: 200,
       headerName: t("Date"),
     },
   ];
@@ -106,7 +94,7 @@ const AllRequests = () => {
       variants={variants}
       initial="hidden"
       animate="visible"
-      className="dark:bg-gradient-to-r bg-bgLight drop-shadow-lg dark:from-mainPrimary dark:to-mainSecondary text-text1 min-h-full rounded p-3"
+      className="  drop-shadow-lg bg-bgLight dark:bg-bgMain text-text1 min-h-full rounded p-3"
     >
       <CustomDataGrid
         desktopColumns={columns}

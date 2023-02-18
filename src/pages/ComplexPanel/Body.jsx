@@ -164,7 +164,7 @@ const Body = () => {
         justifyContent="space-between"
       >
         <Box className="w-full md:w-[40%]">
-          <Box className="rounded p-4 mb-4 dark:text-text1 dark:bg-gradient-to-r  dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg">
+          <Box className="rounded p-4 mb-4 dark:text-text1 bg-bgLight dark:bg-bgMain  drop-shadow-lg">
             <Stack
               direction="row"
               justifyContent="space-between"
@@ -198,7 +198,7 @@ const Body = () => {
                   setOpenMenu={setOpenMenu}
                 >
                   <MenuItem>
-                    <Link to="/profile">{t("Edit Profile")}</Link>
+                    <Link to="/profile">{t("Oxunmuş kimi")}</Link>
                   </MenuItem>
                   <MenuItem
                     onClick={() => {
@@ -236,7 +236,7 @@ const Body = () => {
             </Box>
           </Box>
 
-          <Box className="rounded mb-6 dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-white drop-shadow-lg">
+          <Box className="rounded mb-6 dark:bg-bgMain bg-white drop-shadow-lg">
             <LeafletMap />
           </Box>
         </Box>

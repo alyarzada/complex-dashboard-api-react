@@ -62,6 +62,7 @@ import Employees from "../pages/Apartment/Employees";
 import HousingCooperative from "../pages/Apartment/HousingCooperative";
 import Complex from "../pages/Apartment/Complex";
 import MTKUserCreate from "../pages/Apartment/MTKUserCreate/MTKUserCreate";
+import InvoiceBill from "../pages/MyInvoices/InvoiceBill";
 
 const routes = [
   {
@@ -107,6 +108,10 @@ const routes = [
       {
         path: "create-invoice",
         element: <CreateInvoice />,
+      },
+      {
+        path: "/invoice-bill",
+        element: <InvoiceBill />,
       },
       {
         path: "calendar",

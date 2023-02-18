@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
-import Reaction from "./Reaction";
+import EachEmoji from "./EachEmoji";
 
 export const list = {
   visible: {
@@ -24,7 +24,7 @@ export const list = {
 const emojies = [
   {
     id: 1,
-    emoji: (
+    image: (
       <img
         src="https://media.tenor.com/_e4JAx0iHS0AAAAi/facebook-emoji.gif"
         alt=""
@@ -34,7 +34,7 @@ const emojies = [
   },
   {
     id: 2,
-    emoji: (
+    image: (
       <img
         src="https://media.tenor.com/RYibGej0GvcAAAAj/facebook-emoji.gif"
         alt=""
@@ -44,7 +44,7 @@ const emojies = [
   },
   {
     id: 3,
-    emoji: (
+    image: (
       <img
         src="https://media1.giphy.com/media/rmQqP0L0lwsozBydWk/giphy.gif?cid=6c09b952bd922561a1b6df62cdf54fd6a64095c3993e7c1e&rid=giphy.gif&ct=s"
         alt=""
@@ -54,7 +54,7 @@ const emojies = [
   },
   {
     id: 4,
-    emoji: (
+    image: (
       <img
         src="https://thumbs.gfycat.com/DimSeparateHoneybadger-size_restricted.gif"
         alt=""
@@ -64,7 +64,7 @@ const emojies = [
   },
   {
     id: 5,
-    emoji: (
+    image: (
       <img
         src="https://media.tenor.com/wXf73PxlrxgAAAAj/discord-discordgifemoji.gif"
         alt=""
@@ -74,7 +74,7 @@ const emojies = [
   },
   {
     id: 6,
-    emoji: (
+    image: (
       <img
         src="https://i.pinimg.com/originals/f5/5c/14/f55c14873f7dd22d732eadb33bd1a63c.gif"
         alt=""
@@ -84,7 +84,7 @@ const emojies = [
   },
 ];
 
-const ReactionComponent = () => {
+const EmojiesContainer = () => {
   return (
     <Box className="flex items-center absolute -top-5">
       <Box className="m-auto">
@@ -95,9 +95,9 @@ const ReactionComponent = () => {
             variants={list}
           >
             {emojies.map((emoji) => (
-              <Reaction key={emoji.id} name={emoji.name}>
+              <EachEmoji key={emoji.id} {...emoji}>
                 {emoji.emoji}
-              </Reaction>
+              </EachEmoji>
             ))}
           </motion.div>
         </Box>
@@ -106,4 +106,4 @@ const ReactionComponent = () => {
   );
 };
 
-export default ReactionComponent;
+export default EmojiesContainer;
