@@ -112,15 +112,16 @@ const MyDetails = ({ user }) => {
               <CustomGenderRadio name="gender" label={t("Gender")} />
 
               <Box className="col-span-1 md:col-span-2 flex justify-end">
-                <DefaultButton
+                <Button
                   type="submit"
                   variant="contained"
+                  className="bg-logoColor shadow-lg shadow-[#C9B26D]/50 hover:shadow-[#C9B26D]/70"
                   startIcon={
-                    <SaveIcon className="text-white dark:text-black" />
+                    <SaveIcon className="dark:text-white" />
                   }
                 >
                   {t(["Save"])}
-                </DefaultButton>
+                </Button>
               </Box>
             </Form>
           )}

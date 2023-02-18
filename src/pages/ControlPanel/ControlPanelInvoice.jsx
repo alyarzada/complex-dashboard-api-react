@@ -22,7 +22,7 @@ import { Services } from "../MyInvoices/MyInvoices";
 import BackButton from "../../components/UI/Buttons/BackButton";
 import DefaultButton from "../../components/UI/Buttons/DefaultButton";
 import PreviewIcon from "@mui/icons-material/Preview";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
 const ControlPanelInvoice = () => {
   const { invoices } = useSelector((state) => state.invoice);
@@ -74,19 +74,19 @@ const ControlPanelInvoice = () => {
             component={Paper}
             sx={{
               "&::-webkit-scrollbar": {
-                width: 3.5,
+                width: 3.5
               },
               "&::-webkit-scrollbar-track": {
                 backgroundColor: "transparent",
-                borderRadius: 2,
+                borderRadius: 2
               },
               "&::-webkit-scrollbar-thumb": {
                 backgroundColor: "gray",
-                borderRadius: 2,
-              },
+                borderRadius: 2
+              }
             }}
           >
-            <Table size="small" aria-label="a dense table">
+            <Table size="small" aria-label="a dense table" >
               <TableHead>
                 <TableRow>
                   <TableCell className=" dark:text-text1 text-textDark2">
@@ -158,12 +158,12 @@ const ControlPanelInvoice = () => {
               },
               "&::-webkit-scrollbar-track": {
                 backgroundColor: "transparent",
-                borderRadius: 2,
+                borderRadius: 2
               },
               "&::-webkit-scrollbar-thumb": {
                 backgroundColor: "gray",
-                borderRadius: 2,
-              },
+                borderRadius: 2
+              }
             }}
           >
             <Table size="small" aria-label="a dense table">

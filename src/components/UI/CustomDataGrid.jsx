@@ -45,18 +45,6 @@ const CustomDataGrid = ({
   const handleChange = (event, value) => {
     setPaginationPage(value);
   };
-  // const useStyles = makeStyles(() => ({
-  //   ul: {
-  //     "& .MuiPaginationItem-root": {
-  //       color: "#fff",
-  //       borderRadius:25
-  //     },
-  //     "& .MuiPaginationItem-roudned": {
-  //       rounded: true
-  //     },
-  //   }
-  // }));
-  // const classes = useStyles();
   const matches = useMediaQuery("(min-width:768px)");
   const { t } = useTranslation();
   const dispatch = useDispatch();

@@ -326,8 +326,8 @@ const Cinema = () => {
               type="submit"
                 variant="contained"
               >
-                {t("Save")}
-              </LoadingButton>
+              {t("Save")}
+              </SuccessButton>
             </Box>
           </Form>
         )}

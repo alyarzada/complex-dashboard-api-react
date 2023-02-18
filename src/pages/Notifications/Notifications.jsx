@@ -16,7 +16,7 @@ import {
   Pagination,
   Typography,
   Input,
-  Tooltip,
+  Tooltip
 } from "@mui/material";
 import { useScrollToUp } from "../../hooks/useScrollToUp";
 import Header from "../../components/UI/Header";
@@ -42,12 +42,10 @@ const Notifications = () => {
   const [tableRows, setTableRows] = useState(10);
   const { notifications, status } = useSelector((state) => state.notifications);
   const dispatch = useDispatch();
-  const [active, setActive] = useState();
-  const [expand, setExpand] = useState(false);
+  const [active, setActive] = useState()
+  const [expand, setExpand] = useState(false)
 
-  const isOpenedMobileTable = document.querySelectorAll(
-    ".MuiAccordionSummary-root"
-  );
+  const isOpenedMobileTable = document.querySelectorAll('.MuiAccordionSummary-root')
   // useEffect(() => {
 
   //   isOpenedMobileTable.forEach(item => {
@@ -60,6 +58,7 @@ const Notifications = () => {
   //     }
   //     })
   //   })
+
 
   //   // isOpenedMobileTable?.foreach((element, i) => {
   //   //   setActive(i)
@@ -136,16 +135,14 @@ const Notifications = () => {
 
   const mobileColumns = [
     {
-      key: expand ? "subject" : "subject",
+      key: expand ? "subject" : 'subject',
       label: t("Subject"),
       width: 100,
       render: (value, data) => {
         return (
-          <Typography>
-            {expand ? data.subject + " " + data.created_at : data.subject}
-          </Typography>
-        );
-      },
+          <Typography>{expand ? data.subject + " " + data.created_at : data.subject}</Typography>
+        )
+      }
     },
     {
       key: "type",
@@ -184,29 +181,23 @@ const Notifications = () => {
           </Box>
           <Stack direction="row" spacing={2}>
             <Tooltip title={t("")} placement="top" arrow>
-              <IconButton
-                variant="contained"
-                className="bg-slate-300 text-black"
-              >
-                <DraftsOutlinedIcon />
-              </IconButton>
+            <IconButton variant="contained" className="bg-slate-300 text-black">
+              <DraftsOutlinedIcon />
+            </IconButton>
             </Tooltip>
             <Tooltip title={t("")} placement="top" arrow>
-              <IconButton
-                variant="contained"
-                className="bg-slate-300 text-black"
-              >
-                <MarkunreadOutlinedIcon />
-              </IconButton>
+            <IconButton variant="contained" className="bg-slate-300 text-black">
+              <MarkunreadOutlinedIcon />
+            </IconButton>
             </Tooltip>
             <Tooltip title={t("Delete")} placement="top" arrow>
-              <IconButton
-                onClick={() => dispatch(deleteNotifications(selectionModel))}
-                variant="contained"
-                className="bg-rose-500"
-              >
-                <DeleteOutlinedIcon />
-              </IconButton>
+            <IconButton
+              onClick={() => dispatch(deleteNotifications(selectionModel))}
+              variant="contained"
+              className="bg-rose-500"
+            >
+              <DeleteOutlinedIcon />
+            </IconButton>
             </Tooltip>
           </Stack>
         </Stack>

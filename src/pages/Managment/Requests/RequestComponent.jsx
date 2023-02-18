@@ -55,29 +55,6 @@ const RequestComponent = () => {
       has_role: { role_id },
     },
   } = useSelector((state) => state.auth);
-  const mobileColumns = [
-    {
-      key: "name",
-      label: t("Applicant"),
-      width: 200,
-      render: (value, data) => {
-        return <Link to={`details/${data.id}`}>{data.name}</Link>;
-      },
-    },
-    {
-      key: "request",
-      label: t("Request"),
-      width: 100,
-      render: (value, data) => (
-        <Link to={`details/${data.id}`}>{data.request}</Link>
-      ),
-    },
-    {
-      key: "Start date",
-      label: t("Date"),
-      width: 150,
-    },
-  ];
 
   const mobileColumns = [
     {
