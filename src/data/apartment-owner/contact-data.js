@@ -1,0 +1,51 @@
+export const contacts = [
+  {
+    id: 1,
+    avatar: "",
+    name: "Rashad Huseynov",
+    job: "Building manager",
+    email: "Rashad.Huseynov@pashaproperty.az",
+  },
+  {
+    id: 2,
+    avatar: "",
+    name: "Rashad Huseynov",
+    job: "Building manager",
+    email: "Rashad.Huseynov@pashaproperty.az",
+  },
+  {
+    id: 3,
+    avatar: "",
+    name: "Rashad Huseynov",
+    job: "Building manager",
+    email: "Rashad.Huseynov@pashaproperty.az",
+  },
+  {
+    id: 4,
+    avatar: "",
+    name: "Rashad Huseynov",
+    job: "Building manager",
+    email: "Rashad.Huseynov@pashaproperty.az",
+  },
+  {
+    id: 5,
+    avatar: "",
+    name: "Rashad Huseynov",
+    job: "Building manager",
+    email: "Rashad.Huseynov@pashaproperty.az",
+  },
+  {
+    id: 6,
+    avatar: "",
+    name: "Rashad Huseynov",
+    job: "Building manager",
+    email: "Rashad.Huseynov@pashaproperty.az",
+  },
+  {
+    id: 7,
+    avatar: "",
+    name: "Rashad Huseynov",
+    job: "Building manager",
+    email: "Rashad.Huseynov@pashaproperty.az",
+  },
+];
