@@ -10,6 +10,7 @@ import Payment from "../pages/MyInvoices/Payment";
 
 // children components
 import ComplexPanel from "../pages/ComplexPanel/ComplexPanel";
+import ComplexSelect from "../pages/ComplexSelect/ComplexSelect";
 import CalendarPage from "../pages/FullCalendar/CalendarPage";
 import Profile from "../pages/Profile/Profile";
 import Notifications from "../pages/Notifications/Notifications";
@@ -57,11 +58,18 @@ import TaskCreate from "../pages/Tasks/TaskCreate";
 import Apartments from "../pages/Apartment/Apartments";
 import Building from "../pages/Apartment/Building";
 import Residents from "../pages/Apartment/Residents";
+import ResidentsCreate from "../pages/Apartment/ResidentsCreate";
 import GroupOfApartments from "../pages/Apartment/GroupOfApartments";
 import Employees from "../pages/Apartment/Employees";
+import EmployeesCreate from "../pages/Apartment/EmployeesCreate";
 import HousingCooperative from "../pages/Apartment/HousingCooperative";
 import Complex from "../pages/Apartment/Complex";
 import MTKUserCreate from "../pages/Apartment/MTKUserCreate/MTKUserCreate";
+import MenuCategories from "../pages/Restaurant/Admin/MenuCategories";
+import MenuNewCreate from "../pages/Restaurant/Admin/MenuNewCreate";
+import RestaurantMenu from "../pages/Restaurant/Admin/RestaurantMenu";
+import MenuCreate from "../pages/Restaurant/Admin/MenuCreate";
+import RestaurantOrders from "../pages/Restaurant/Admin/RestaurantOrders";
 import InvoiceBill from "../pages/MyInvoices/InvoiceBill";
 
 const routes = [
@@ -162,6 +170,10 @@ const routes = [
         element: <Card />,
       },
       {
+        path: "restaurantorders",
+        element: <RestaurantOrders />,
+      },
+      {
         path: "communalservices",
         element: <CommunalServices />,
       },
@@ -234,8 +246,24 @@ const routes = [
         element: <AddApartment />,
       },
       {
-        path: "mtk-users",
+        path: "hc-users",
         element: <MTKUsers />,
+      },
+      {
+        path: "menucategories",
+        element: <MenuCategories />,
+      },
+      {
+        path: "menunewcreate",
+        element: <MenuNewCreate />,
+      },
+      {
+        path: "menucreate",
+        element: <MenuCreate />,
+      },
+      {
+        path: "restaurantmenu",
+        element: <RestaurantMenu />,
       },
       {
         path: "apartments",
@@ -254,6 +282,10 @@ const routes = [
         element: <Employees />,
       },
       {
+        path: "employees/create",
+        element: <EmployeesCreate />,
+      },
+      {
         path: "building",
         element: <Building />,
       },
@@ -264,6 +296,10 @@ const routes = [
       {
         path: "residents",
         element: <Residents />,
+      },
+      {
+        path: "residents/create",
+        element: <ResidentsCreate />,
       },
       {
         path: "mtk-users/create",
@@ -304,6 +340,10 @@ const routes = [
       {
         path: "/informing-residents",
         element: <SendNotifications />,
+      },
+      {
+        path: "/complex-select",
+        element: <ComplexSelect />,
       },
     ],
   },

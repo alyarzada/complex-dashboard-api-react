@@ -2,6 +2,9 @@ import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import IndeterminateCheckBoxOutlinedIcon from "@mui/icons-material/IndeterminateCheckBoxOutlined";
+import LayersOutlinedIcon from "@mui/icons-material/LayersOutlined";
+import LocalLibraryOutlinedIcon from "@mui/icons-material/LocalLibraryOutlined";
 
 export const restaurantsidebarMenu = [
   {
@@ -18,15 +21,18 @@ export const restaurantsidebarMenu = [
     sublist: [
       {
         title: "Menu categories",
-        path: "/",
+        icon: IndeterminateCheckBoxOutlinedIcon,
+        path: "/menucategories",
       },
       {
         title: "menu",
-        path: "/",
+        icon: LayersOutlinedIcon,
+        path: "/restaurantmenu",
       },
       {
         title: "Orders",
-        path: "/",
+        icon: LocalLibraryOutlinedIcon,
+        path: "/restaurantorders",
       },
     ],
   },

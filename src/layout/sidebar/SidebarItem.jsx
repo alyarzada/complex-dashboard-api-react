@@ -36,6 +36,8 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
       if (sidebarSubmenu.open && sidebarSubmenu.id == sidebarItem.id) {
         linksContainerRef.current.style.height = `${linksHeight}px`;
       } else {
+        console.log(sidebarSubmenu.open);
+
         linksContainerRef.current.style.height = "0px";
       }
     }
@@ -50,6 +52,7 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
             e.preventDefault();
             dispatch(toggleSidebarSubmenu(sidebarItem.id));
           } else {
+            console.log("fucke");
             matches && dispatch(setOpenedSidebar());
           }
         }}

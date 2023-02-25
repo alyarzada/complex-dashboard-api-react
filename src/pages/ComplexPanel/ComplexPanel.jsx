@@ -261,12 +261,12 @@ const ComplexPanel = () => {
                       className="text-textDark2 dark:text-text1"
                       primary={t("Total comments")}
                     />
-                    <Typography className="bg-logoColor rounded text-sm text-white text-center w-[25px]">
+                   {/* <Typography className="bg-logoColor rounded text-sm text-white text-center w-[25px]">
                       {news.reduce(
                         (acc, item) => item.comments.length + acc,
                         0
                       )}
-                    </Typography>
+                      </Typography> */}
                   </ListItem>
                 </List>
               </Box>

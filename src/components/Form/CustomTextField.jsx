@@ -45,7 +45,7 @@ const CustomTextField = ({
           multiline={multiline}
           label={label}
           value={readyAnswer && readyAnswer}
-          error={meta.error && meta.touched}
+          // error={meta.error && meta.touched}
           onChange={(e) =>
             number
               ? helpers.setValue(Number(e.target.value))

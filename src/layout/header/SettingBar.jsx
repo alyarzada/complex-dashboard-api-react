@@ -17,15 +17,18 @@ import {
   IconButton,
   Switch,
   Typography,
+  Button
 } from "@mui/material";
 import HighlightOffRoundedIcon from "@mui/icons-material/HighlightOffRounded";
 import { useTranslation } from "react-i18next";
+import ResetButton from "../../components/UI/Buttons/ResetButton"
 
 const SettingBar = (props, ref) => {
   const { openedSettingBar } = useSelector((state) => state.themes);
   const dispatch = useDispatch();
   const barRef = useRef(null);
   const { t } = useTranslation();
+  
 
   useEffect(() => {
     const handleClose = (e) => {
@@ -110,50 +113,7 @@ const SettingBar = (props, ref) => {
           </FormControl>
         </Box>
 
-        <Box className="px-4 mb-6">
-          <h5 className="text-textDark dark:text-text3 text-[.9rem] font-bold">
-            {t("Width")}
-          </h5>
-          <hr className="h-[1px] text-text3 dark:opacity-25 my-4" />
-          <FormControl>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="fluid"
-              name="radio-buttons-group"
-            >
-              <FormControlLabel
-                value="fluid"
-                control={
-                  <Radio
-                    className="text-logoColor dark:text-logoColor"
-                    onChange={() => dispatch(setBoxed(false))}
-                  />
-                }
-                label={
-                  <span className="text-textDark dark:text-text1">
-                    {t("Fluid")}
-                  </span>
-                }
-                className="text-text1"
-              />
-              <FormControlLabel
-                value="boxed"
-                control={
-                  <Radio
-                    className="text-logoColor dark:text-logoColor"
-                    onChange={() => dispatch(setBoxed(true))}
-                  />
-                }
-                className="text-text1"
-                label={
-                  <span className="text-textDark dark:text-text1">
-                    {t("Boxed")}
-                  </span>
-                }
-              />
-            </RadioGroup>
-          </FormControl>
-        </Box>
+        
 
         <Box className="px-4 mb-10">
           <h5 className="text-textDark dark:text-text3 text-[.9rem] font-bold">
@@ -202,48 +162,6 @@ const SettingBar = (props, ref) => {
           <br />
           <br />
 
-          <FormControl>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="fixed"
-              name="radio-buttons-group"
-            >
-              <FormControlLabel
-                value="fixed"
-                control={
-                  <Radio
-                    className="text-logoColor dark:text-logoColor"
-                    onChange={() => dispatch(setScrollable(false))}
-                  />
-                }
-                label={
-                  <span className="text-textDark dark:text-text1">
-                    {t("Fixed")}
-                  </span>
-                }
-                className="text-text1"
-              />
-
-              <FormControlLabel
-                value="scrollable"
-                control={
-                  <Radio
-                    className="text-logoColor dark:text-logoColor"
-                    onChange={() => dispatch(setScrollable(true))}
-                  />
-                }
-                className="text-text1"
-                label={
-                  <span className="text-textDark  dark:text-text1">
-                    {t("Scrollable")}
-                  </span>
-                }
-              />
-            </RadioGroup>
-          </FormControl>
-
-          <br />
-          <br />
 
           <Box>
             <h5 className="text-textDark dark:text-text3 text-[.9rem] font-bold">
@@ -263,6 +181,13 @@ const SettingBar = (props, ref) => {
             />
           </Box>
           <br />
+          <Box>
+              <ResetButton
+                variant="contained"
+              >
+                {t("Reset to Default")}
+              </ResetButton>
+          </Box>
         </Box>
       </Box>
     </Box>

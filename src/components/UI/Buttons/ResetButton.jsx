@@ -1,26 +1,24 @@
 import { Button } from "@mui/material";
 
-const BackButton = ({
+const DefaultButton = ({
   variant,
   children,
   onClick,
   startIcon,
-  margin = "mb-4",
   type = "button",
-  width
 }) => {
   return (
     <Button
       className={`capitalize ${
         variant === "contained"
-          ? `bg-[#A91B0D] shadow-lg shadow-[#FF1818]/40 hover:shadow-[#FF1818]/60 px-4 ${margin} ${width}`
+          ? "dark:bg-[#C9B26D] w-full dark:shadow-lg dark:shadow-logoColor/40  dark:hover:shadow-logoColor/50"
           : variant === "outlined"
-          ? "text-[#AA0303] border-[#AA0303] hover:border-[#FF0000] hover:text-[#FF3333] shadow-[#FF3333]/50 hover:shadow-[#FF3333]/70"
+          ? "dark:border dark:border-[#2B3759] dark:hover:border-logoColor dark:shadow-white/80 dark:text-text1"
           : ""
       }`}
       onClick={onClick}
+      sx={{ boxShadow: 3 }}
       variant={variant}
-      sx={{ boxShadow: 3, shadowColor: "rgba(255, 0, 0, 1)" }}
       startIcon={startIcon}
       type={type}
     >
@@ -29,4 +27,4 @@ const BackButton = ({
   );
 };
 
-export default BackButton;
+export default DefaultButton;

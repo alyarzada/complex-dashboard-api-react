@@ -16,6 +16,7 @@ import { restaurantsidebarMenu } from "../data/restaurant-admin/sidebar-menu";
 import { restaurantDashboard } from "../data/restaurant-admin/restaurant-dashboard";
 import { setLight } from "../app/Slicers/themes";
 import Modals from "./Modals";
+import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
 
 const Home = () => {
   useScrollToUp();
@@ -27,6 +28,7 @@ const Home = () => {
     },
   } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const index = 0;
 
   useEffect(() => {
     if (role_id === 8) {
@@ -35,6 +37,23 @@ const Home = () => {
     } else if (role_id === 4) {
       dispatch(getDashboardPanels(adminDashboardPanels));
       dispatch(getSidebarData(adminSidebarMenu));
+    } else if (role_id === 2) {
+      dispatch(getDashboardPanels(adminDashboardPanels));
+      dispatch(
+        getSidebarData(
+          adminSidebarMenu
+            .map((item) => {
+              if (item.title === "Complex Wall") {
+                return {
+                  ...item,
+                  path: "/complex-select",
+                };
+              }
+
+              return item;
+            })
+        )
+      );
     } else if (role_id === 9) {
       dispatch(getDashboardPanels(restaurantDashboard));
       dispatch(getSidebarData(restaurantsidebarMenu));
