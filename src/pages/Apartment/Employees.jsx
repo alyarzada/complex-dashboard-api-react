@@ -86,7 +86,7 @@ const SurveyManage = () => {
         }}
       />
       <Box className="my-4 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
-        <Box className="w-full flex justify-end">
+        <Box className="w-full flex flex-col sm:flex-row justify-end">
           <Link to="/employees/create">
             <Button
               variant="contained"

@@ -7,6 +7,7 @@ import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import AndroidOutlinedIcon from "@mui/icons-material/AndroidOutlined";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import AppleIcon from "@mui/icons-material/Apple";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import EastIcon from "@mui/icons-material/East";
 import { IconButton } from "@mui/material";
 
@@ -35,7 +36,7 @@ const EachPanel = ({
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  if (role_id === 9) {
+  if (role_id === 9 || role_id === 2) {
     return (
       <>
         {type === 1 ? (
@@ -137,10 +138,12 @@ const EachPanel = ({
           }}
           className="text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain ela transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group flex flex-col rounded after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full aye hoverbefore after:transition-all after:duration-1000 items-center justify-center relative gap-y-3 w-full"
         >
-          <img
+          <LazyLoadImage
             className={`imgscale z-30 w-[27%] sm:w-[44%] xmd:w-[27%] xxl:w-[34%] exl:w-[24%] rounded-[50%] group-hover:border group-hover:border-black transition-all duration-1000 p-2 ${
               role_id === 4 && "bg-bgLight dark:bg-logoColor"
             }`}
+            // effect='blur'
+
             src={img}
             alt="image"
             style={{ border: role_id === 4 ? "2px solid #C9B26D" : "none" }}

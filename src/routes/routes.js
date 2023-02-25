@@ -53,6 +53,8 @@ import NotificationsArchive from "../pages/Notifications/complexAdmin/Notificati
 import SentNotifications from "../pages/Notifications/complexAdmin/SentNotifications";
 import SurveyCreate from "../pages/Notifications/complexAdmin/SurveyCreate/SurveyCreate";
 import MTKUsers from "../pages/Apartment/MTKUsers";
+import Permission from "../pages/Apartment/Permission";
+
 import Tasks from "../pages/Tasks/Tasks";
 import TaskCreate from "../pages/Tasks/TaskCreate";
 import Apartments from "../pages/Apartment/Apartments";
@@ -60,10 +62,13 @@ import Building from "../pages/Apartment/Building";
 import Residents from "../pages/Apartment/Residents";
 import ResidentsCreate from "../pages/Apartment/ResidentsCreate";
 import GroupOfApartments from "../pages/Apartment/GroupOfApartments";
+import GroupOfApartmentsCreate from "../pages/Apartment/GroupOfApartmentsCreate";
 import Employees from "../pages/Apartment/Employees";
 import EmployeesCreate from "../pages/Apartment/EmployeesCreate";
 import HousingCooperative from "../pages/Apartment/HousingCooperative";
+import HousingCooperativeCreate from "../pages/Apartment/HousingCooperativeCreate";
 import Complex from "../pages/Apartment/Complex";
+import ComplexCreate from "../pages/Apartment/ComplexCreate";
 import MTKUserCreate from "../pages/Apartment/MTKUserCreate/MTKUserCreate";
 import MenuCategories from "../pages/Restaurant/Admin/MenuCategories";
 import MenuNewCreate from "../pages/Restaurant/Admin/MenuNewCreate";
@@ -230,6 +235,10 @@ const routes = [
         element: <TenantRegistration />,
       },
       {
+        path: "permission",
+        element: <Permission />,
+      },
+      {
         path: "user-card-request/access/create",
         element: <NewEntryCard />,
       },
@@ -274,8 +283,16 @@ const routes = [
         element: <Complex />,
       },
       {
+        path: "complex/create",
+        element: <ComplexCreate />,
+      },
+      {
         path: "housing-cooperative",
         element: <HousingCooperative />,
+      },
+      {
+        path: "housing-cooperative/create",
+        element: <HousingCooperativeCreate />,
       },
       {
         path: "employees",
@@ -292,6 +309,10 @@ const routes = [
       {
         path: "group-of-apartments",
         element: <GroupOfApartments />,
+      },
+      {
+        path: "group-of-apartments/create",
+        element: <GroupOfApartmentsCreate />,
       },
       {
         path: "residents",

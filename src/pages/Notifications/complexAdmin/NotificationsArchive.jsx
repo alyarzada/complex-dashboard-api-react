@@ -10,6 +10,7 @@ import TextField from "@mui/material/TextField";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import FolderIcon from "@mui/icons-material/Folder";
 import SwitchLeftIcon from "@mui/icons-material/SwitchLeft";
+import CustomSearchFilter from "../../../components/UI/CustomSearchFilter";
 
 import {
   DataGrid,
@@ -144,6 +145,12 @@ const SurveyManage = () => {
         }}
       />
       <Box className="my-4 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
+        <CustomSearchFilter
+          hidden1={false}
+          hidden2={false}
+          hidden3={false}
+          flex={true}
+        />
         <Box className="flex justify-between">
           <Button
             className="capitalize flex items-center gap-1 dark:text-text1 text-white dark:bg-yellow-600 bg-yellow-400"

@@ -1,5 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Box, Typography, Stack } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@mui/material";
 import { ReactSortable } from "react-sortablejs";
 import { reOrderMenus } from "../../app/Slicers/data";
 import { destroyModal } from "../../app/Slicers/modals";
@@ -14,10 +25,14 @@ import DashboardPanel from "./DashboardPanel";
 import CustomNestedModal from "../../components/UI/Modals/CustomNestedModal";
 import TenantRegistrationModal from "./modals/TenantRegistrationModal";
 import ControlPanelInvoice from "./ControlPanelInvoice";
+import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
+import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
 import ControlPanelStatus from "./ControlPanelStatus";
+import emailCampaign from "../../assets/email-campaign.svg";
 import ControlPanelRequests from "./ControlPanelRequests";
 import ControlPanelRequestsArchive from "./ControlPanelRequestsArchive";
 import Piechart from "../../components/UI/Charts/PieChart";
+import LineCharts from "../../components/UI/Charts/LineCharts";
 
 const ControlPanel = () => {
   useScrollToUp();

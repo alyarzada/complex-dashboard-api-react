@@ -3,6 +3,9 @@ import { Box, Button, Typography, Pagination } from "@mui/material";
 import Header from "../../components/UI/Header";
 import { useTranslation } from "react-i18next";
 import Input from "@mui/material/Input";
+import { Link } from "react-router-dom";
+import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
+import { useSelector } from "react-redux";
 import {
   DataGrid,
   gridPageCountSelector,
@@ -76,6 +79,11 @@ const SurveyManage = () => {
     else setTableRows(100);
   };
 
+  const {
+    user: {
+      has_role: { role_id },
+    },
+  } = useSelector((state) => state.auth);
   return (
     <Box className="w-full">
       <Header
@@ -85,6 +93,19 @@ const SurveyManage = () => {
         }}
       />
       <Box className="my-4 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
+        {role_id == 2 ? (
+          <Box className="w-full flex justify-end">
+            <Link to="/housing-cooperative/create">
+              <Button
+                variant="contained"
+                startIcon={<AddCircleOutlinedIcon />}
+                className="capitalize bg-rose-500 text-white"
+              >
+                Yenisini yaradin
+              </Button>
+            </Link>
+          </Box>
+        ) : null}
         <Box className="lg:flex justify-between items-center ">
           <Typography className="font-semibold text-textDark2 dark:text-text2 text-[16px] my-5 flex gap-1 items-center">
             Sehifede

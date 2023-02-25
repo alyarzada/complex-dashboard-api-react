@@ -41,17 +41,16 @@ const Home = () => {
       dispatch(getDashboardPanels(adminDashboardPanels));
       dispatch(
         getSidebarData(
-          adminSidebarMenu
-            .map((item) => {
-              if (item.title === "Complex Wall") {
-                return {
-                  ...item,
-                  path: "/complex-select",
-                };
-              }
+          adminSidebarMenu.map((item) => {
+            if (item.title === "Complex Wall") {
+              return {
+                ...item,
+                path: "/complex-select",
+              };
+            }
 
-              return item;
-            })
+            return item;
+          })
         )
       );
     } else if (role_id === 9) {
