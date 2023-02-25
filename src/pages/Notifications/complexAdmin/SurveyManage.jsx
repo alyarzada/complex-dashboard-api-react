@@ -129,14 +129,14 @@ const SurveyManage = () => {
           </Link>
         </Box>
         <Box className="lg:flex justify-between items-center ">
-          <Typography className=" text-textDark2 dark:text-text2 text-[16px] my-5 flex gap-1 items-center">
+          <Typography className="font-semibold text-textDark2 dark:text-text2 text-[16px] my-5 flex gap-1 items-center">
             Sehifede
             <Input className="w-10" defaultValue={10} onChange={handleChange}>
               10
             </Input>
             netice goster
           </Typography>
-          <Typography className=" text-textDark2 dark:text-text2 text-[16px] flex gap-1 items-center">
+          <Typography className="font-semibold text-textDark2 dark:text-text2 text-[16px] flex gap-1 items-center">
             {t("Search")}:<Input className="w-50">10</Input>
           </Typography>
         </Box>

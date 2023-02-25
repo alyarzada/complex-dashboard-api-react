@@ -10,7 +10,7 @@ import TextField from "@mui/material/TextField";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import FolderIcon from "@mui/icons-material/Folder";
 import SwitchLeftIcon from "@mui/icons-material/SwitchLeft";
-import CustomSearchFilter from '../../../components/UI/CustomSearchFilter'
+import CustomSearchFilter from "../../../components/UI/CustomSearchFilter";
 
 import {
   DataGrid,
@@ -191,7 +191,7 @@ const SurveyManage = () => {
               <span className="text-blue-500">Pending</span>
             </MenuItem>
           </Menu>
-          <Typography className="font text-textDark2 dark:text-text2 text-[16px] flex gap-1 items-center">
+          <Typography className="font-semibold text-textDark2 dark:text-text2 text-[16px] flex gap-1 items-center">
             SMS balance:{" "}
             <span className=" px-1 bg-sky-500 rounded text-white dark:text-text1">
               {rows.length}
@@ -199,14 +199,14 @@ const SurveyManage = () => {
           </Typography>
         </Box>
         <Box className="lg:flex justify-between items-center ">
-          <Typography className="font text-textDark2 dark:text-text2 text-[16px] my-5 flex gap-1 items-center">
+          <Typography className="font-semibold text-textDark2 dark:text-text2 text-[16px] my-5 flex gap-1 items-center">
             Sehifede
             <Input className="w-10" defaultValue={10} onChange={handleChange}>
               10
             </Input>
             netice goster
           </Typography>
-          <Typography className="font text-textDark2 dark:text-text2 text-[16px] flex gap-1 items-center">
+          <Typography className="font-semibold text-textDark2 dark:text-text2 text-[16px] flex gap-1 items-center">
             Axtaris:
             <Input className="w-50">10</Input>
           </Typography>

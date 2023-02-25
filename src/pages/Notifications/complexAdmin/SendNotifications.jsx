@@ -60,7 +60,7 @@ const SendNotifications = () => {
                 <Form className="w-full flex flex-col gap-3">
                   <Box className="flex flex-col items-center">
                     <Box className="lg:flex w-full items-center">
-                      <Typography className="text-textDark2 dark:text-text2 text-[14px] mb-1 capitalize w-[30%] ">
+                      <Typography className="font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize w-[30%] ">
                         {t("Informing channel")}
                       </Typography>
                       <Box className=" flex gap-8  px-2 w-[70%]">
@@ -75,11 +75,11 @@ const SendNotifications = () => {
                             }
                             label={
                               <Typography className="text-[14px]">
-                              {t("Internal & Email")}
-
-                              </Typography>}
+                                {t("Internal & Email")}
+                              </Typography>
+                            }
                             labelPlacement="end"
-                            style={{ color: "#888", fontSize:"14px" }}
+                            style={{ color: "#888", fontSize: "14px" }}
                           />
                         </FormControl>
                         <FormControl
@@ -96,11 +96,11 @@ const SendNotifications = () => {
                             }
                             label={
                               <Typography className="text-[14px]">
-                              {t("SMS Message")}
-
-                              </Typography>}
+                                {t("SMS Message")}
+                              </Typography>
+                            }
                             labelPlacement="end"
-                            style={{ color: "#888", fontSize:"14px" }}
+                            style={{ color: "#888", fontSize: "14px" }}
                           />
                         </FormControl>
                       </Box>
@@ -150,7 +150,7 @@ const SendNotifications = () => {
                       <Box className="flex flex-col gap-3 mt-3">
                         <Box className=" mb-3 lg:flex h-auto w-full justify-between">
                           <Box className="md:w-[30%]">
-                            <Typography className=" h-full flex items-center text-textDark2 dark:text-text2 text-[14px] mb-2 capitalize">
+                            <Typography className=" h-full flex items-center font-semibold text-textDark2 dark:text-text2 text-[16px] mb-2 capitalize">
                               {t(["SMS Message"])}
                             </Typography>
                           </Box>

@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate, Link } from "react-router-dom";
-import { Typography, Box, Stack } from "@mui/material";
+import { Typography, Box, Avatar, Stack, Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { appendModal } from "../../app/Slicers/modals";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
