@@ -159,96 +159,11 @@ const EachNews = ({ news }) => {
               alignItems="center"
               className="gap-x-1 relative"
             >
-              <Grid container justifyContent="center" style={{ width: "30%" }}>
-                <Grid item>
-                  <Tooltip
-                    title=<EmojiesContainer peer="peer" />
-                    placement="top"
-                  >
-                    <IconButton className="peer" onClick={likePostHandler}>
-                      <FavoriteBorderOutlined />
-                    </IconButton>
-                  </Tooltip>
-                </Grid>
-              </Grid>
-              {status === "loading" ? (
-                <Skeleton
-                  animation="wave"
-                  height={40}
-                  width={100}
-                  style={{
-                    marginBottom: 6,
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                  }}
-                />
-              ) : (
-                <Typography>
-                  {news.totalLikes} {t(["Liked"])}
-                </Typography>
-              )}
-            </Stack>
-            <Stack direction="row" alignItems="center" className="gap-x-1">
-              <IconButton onClick={pressComment}>
-                <QuestionAnswerOutlined />
-              </IconButton>
-              {status === "loading" ? (
-                <Skeleton
-                  animation="wave"
-                  height={40}
-                  width={100}
-                  style={{
-                    marginBottom: 6,
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                  }}
-                />
-              ) : (
-                <Typography>
-                  {news.comments.length} {t("Comments")}
-                </Typography>
-              )}
-            </Stack>
-          </Stack>
-          <Divider className="my-4" />
-
-          <Box>
-            {expandComments ? (
-              <Box className="ml-4">
-                {news.comments.length > 0
-                  ? news.comments.map((comment) => (
-                      <Comment
-                        comment={comment}
-                        key={comment.id}
-                        postId={news.id}
-                        setExpandComments={setExpandComments}
-                      />
-                    ))
-                  : null}
-              </Box>
-            ) : null}
-          </Box>
-
-          <form action="POST" onSubmit={submitComment}>
-            <Stack
-              direction="row"
-              alignItems="center"
-              spacing={1}
-              className="mb-2"
-            >
-              <Avatar>{firstLetters}</Avatar>
-              <TextField
-                className="flex-1"
-                autoComplete="off"
-                id="outlined-basic"
-                label={t("Write a comment")}
-                value={commentValue}
-                onChange={(e) => setCommentValue(e.target.value)}
-                sx={{
-                  "& .MuiInputBase-input": {
-                    height: "50px",
-                  },
-                }}
+              <Picker
+                data={data}
+                onEmojiSelect={""}
+                previewPosition="none"
+                theme={light ? "light" : "dark"}
               />
             </Stack>
 

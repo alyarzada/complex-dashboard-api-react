@@ -90,7 +90,6 @@ const AddApartment = () => {
               date: ["sad", "dasd"],
             }}
             onSubmit={(values) => {
-              console.log(values);
             }}
           >
             {() => (

@@ -60,7 +60,9 @@ import Apartments from "../pages/Apartment/Apartments";
 import Building from "../pages/Apartment/Building";
 import Residents from "../pages/Apartment/Residents";
 import GroupOfApartments from "../pages/Apartment/GroupOfApartments";
+import GroupOfApartmentsCreate from "../pages/Apartment/GroupOfApartmentsCreate";
 import Employees from "../pages/Apartment/Employees";
+import EmployeesCreate from "../pages/Apartment/EmployeesCreate";
 import HousingCooperative from "../pages/Apartment/HousingCooperative";
 import HousingCooperativeCreate from "../pages/Apartment/HousingCooperativeCreate";
 import Complex from "../pages/Apartment/Complex";
@@ -251,7 +253,7 @@ const routes = [
         element: <AddApartment />,
       },
       {
-        path: "mtk-users",
+        path: "hc-users",
         element: <MTKUsers />,
       },
       {
@@ -295,12 +297,20 @@ const routes = [
         element: <Employees />,
       },
       {
+        path: "employees/create",
+        element: <EmployeesCreate />,
+      },
+      {
         path: "building",
         element: <Building />,
       },
       {
         path: "group-of-apartments",
         element: <GroupOfApartments />,
+      },
+      {
+        path: "group-of-apartments/create",
+        element: <GroupOfApartmentsCreate />,
       },
       {
         path: "residents",
