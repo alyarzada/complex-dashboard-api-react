@@ -38,7 +38,7 @@ const Home = () => {
       dispatch(getDashboardPanels(adminDashboardPanels));
       dispatch(getSidebarData(adminSidebarMenu));
     } else if (role_id === 2) {
-      dispatch(getDashboardPanels(adminDashboardPanels));
+      dispatch(getDashboardPanels(restaurantDashboard));
       dispatch(
         getSidebarData(
           adminSidebarMenu.map((item) => {

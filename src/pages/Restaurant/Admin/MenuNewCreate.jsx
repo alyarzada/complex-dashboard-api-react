@@ -3,19 +3,18 @@ import Header from "../../../components/UI/Header";
 import { Box, Stack, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
 import { useTranslation } from "react-i18next";
-import SuccessButton from "../../../components/UI/Buttons/SuccessButton"
+import SuccessButton from "../../../components/UI/Buttons/SuccessButton";
 import IndeterminateCheckBoxOutlinedIcon from "@mui/icons-material/IndeterminateCheckBoxOutlined";
 import CustomTextField from "../../../components/Form/CustomTextField";
 import EmojiObjectsOutlinedIcon from "@mui/icons-material/EmojiObjectsOutlined";
-
-
 
 const MenuNewCreate = () => {
   const { t } = useTranslation();
 
   return (
     <div>
-      <Header className="flex md:flex-col"
+      <Header
+        className="flex md:flex-col"
         currentPage={{
           title: "Create new",
           icon: IndeterminateCheckBoxOutlinedIcon,
@@ -30,8 +29,8 @@ const MenuNewCreate = () => {
           />
         }
       />
-      <Box className="py-6 px-6 my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full flex flex-col gap-[25px]">
-      <Formik
+      <Box className="py-6 px-6 my-4 rounded bg-bgLight drop-shadow-lg dark:bg-bgMain w-full flex flex-col gap-[25px]">
+        <Formik
           initialValues={{
             requestform_type: "",
             requestform_department: [],
@@ -41,47 +40,53 @@ const MenuNewCreate = () => {
           }}
         >
           <Form>
+            <Stack
+              justifyContent="space-between"
+              alignItems={{ lg: "center", md: "start" }}
+              direction={{ lg: "row", md: "column" }}
+              spacing={2}
+              className="mb-4  lg:flex-column"
+            >
+              <Typography className="text-[#AAB8C5] ">
+                {t(["Category Azerbaijan"])}
+              </Typography>
+              <CustomTextField
+                className="w-[100%] lg:w-[70%]"
+                label={t(["Enter the category in your language"])}
+              />
+            </Stack>
 
-          <Stack
-          justifyContent="space-between"
-          alignItems={{lg:"center",md:"start"}}
-          direction={{lg:"row", md:"column"}}
-          spacing={2}
-          className="mb-4  lg:flex-column"
-        >
-          <Typography className="text-[#AAB8C5] ">
-            {t(["Category Azerbaijan"])}
-          </Typography>
-            <CustomTextField className="w-[100%] lg:w-[70%]" label={t(["Enter the category in your language"])}/>
-        </Stack>
-         
-
-        <Stack
-          justifyContent="space-between"
-          alignItems={{lg:"center",md:"start"}}
-          direction={{lg:"row", md:"column"}}
-          spacing={2}
-          className="mb-4"
-        >
-          <Typography className="text-[#AAB8C5]">
-            {t(["Category Russian"])}
-          </Typography>
-          <CustomTextField className="w-[100%] lg:w-[70%]" label={t(["Enter the category in Russian"])} />
-        </Stack>
-        <Stack
-          justifyContent="space-between"
-          alignItems={{lg:"center",md:"start"}}
-          direction={{lg:"row", md:"column"}}
-          spacing={2}
-          className="mb-4"
-        >
-          <Typography className="text-[#AAB8C5] ">
-            {t(["Category English"])}
-          </Typography>
-          <CustomTextField className="w-[100%] lg:w-[70%]" label={t(["Enter the category in English"])} />
-        </Stack>
-
-        </Form>
+            <Stack
+              justifyContent="space-between"
+              alignItems={{ lg: "center", md: "start" }}
+              direction={{ lg: "row", md: "column" }}
+              spacing={2}
+              className="mb-4"
+            >
+              <Typography className="text-[#AAB8C5]">
+                {t(["Category Russian"])}
+              </Typography>
+              <CustomTextField
+                className="w-[100%] lg:w-[70%]"
+                label={t(["Enter the category in Russian"])}
+              />
+            </Stack>
+            <Stack
+              justifyContent="space-between"
+              alignItems={{ lg: "center", md: "start" }}
+              direction={{ lg: "row", md: "column" }}
+              spacing={2}
+              className="mb-4"
+            >
+              <Typography className="text-[#AAB8C5] ">
+                {t(["Category English"])}
+              </Typography>
+              <CustomTextField
+                className="w-[100%] lg:w-[70%]"
+                label={t(["Enter the category in English"])}
+              />
+            </Stack>
+          </Form>
         </Formik>
         <Box className="flex justify-end">
           <SuccessButton variant="contained">{t(["Submit"])}</SuccessButton>

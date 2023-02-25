@@ -71,7 +71,7 @@ const EachPanel = ({
               <Typography className="z-30 text-[#8391a2] font-bold group-hover:text-black transition-all duration-1000">
                 {t(title)}
               </Typography>
-              <IconButton className={`z-30 ${color} `}>{img}</IconButton>
+              <IconButton className={`z-30 ${color}`}>{img}</IconButton>
             </Stack>
             <Box>
               <Typography className="mb-4 font-[800] text-[1.5rem] text-[tex1] relative z-30 group-hover:text-black transition-all duration-1000">
