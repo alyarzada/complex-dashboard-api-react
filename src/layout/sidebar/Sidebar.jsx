@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
-import { useMediaQuery, Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import SidebarItem from "./SidebarItem";
 import logo from "../../assets/logo/logo_sm.png";
 import logoDark from "../../assets/logo/logo.png";
@@ -13,6 +12,11 @@ import qrcode from "../../assets/logo/qrcode.png";
 const SideBar = () => {
   const { openedSidebar, leftLight } = useSelector((state) => state.themes);
   const { sidebar } = useSelector((state) => state.data);
+  const {
+    user: {
+      has_role: { role_id },
+    },
+  } = useSelector((state) => state.auth);
   const { t } = useTranslation();
 
   const months = [

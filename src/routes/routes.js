@@ -52,6 +52,8 @@ import NotificationsArchive from "../pages/Notifications/complexAdmin/Notificati
 import SentNotifications from "../pages/Notifications/complexAdmin/SentNotifications";
 import SurveyCreate from "../pages/Notifications/complexAdmin/SurveyCreate/SurveyCreate";
 import MTKUsers from "../pages/Apartment/MTKUsers";
+import Permission from "../pages/Apartment/Permission";
+
 import Tasks from "../pages/Tasks/Tasks";
 import TaskCreate from "../pages/Tasks/TaskCreate";
 import Apartments from "../pages/Apartment/Apartments";
@@ -60,13 +62,16 @@ import Residents from "../pages/Apartment/Residents";
 import GroupOfApartments from "../pages/Apartment/GroupOfApartments";
 import Employees from "../pages/Apartment/Employees";
 import HousingCooperative from "../pages/Apartment/HousingCooperative";
+import HousingCooperativeCreate from "../pages/Apartment/HousingCooperativeCreate";
 import Complex from "../pages/Apartment/Complex";
+import ComplexCreate from "../pages/Apartment/ComplexCreate";
 import MTKUserCreate from "../pages/Apartment/MTKUserCreate/MTKUserCreate";
 import MenuCategories from "../pages/Restaurant/Admin/MenuCategories";
 import MenuNewCreate from "../pages/Restaurant/Admin/MenuNewCreate";
 import RestaurantMenu from "../pages/Restaurant/Admin/RestaurantMenu";
 import MenuCreate from "../pages/Restaurant/Admin/MenuCreate";
 import RestaurantOrders from "../pages/Restaurant/Admin/RestaurantOrders";
+import InvoiceBill from "../pages/MyInvoices/InvoiceBill";
 
 const routes = [
   {
@@ -226,6 +231,10 @@ const routes = [
         element: <TenantRegistration />,
       },
       {
+        path: "permission",
+        element: <Permission />,
+      },
+      {
         path: "user-card-request/access/create",
         element: <NewEntryCard />,
       },
@@ -270,8 +279,16 @@ const routes = [
         element: <Complex />,
       },
       {
+        path: "complex/create",
+        element: <ComplexCreate />,
+      },
+      {
         path: "housing-cooperative",
         element: <HousingCooperative />,
+      },
+      {
+        path: "housing-cooperative/create",
+        element: <HousingCooperativeCreate />,
       },
       {
         path: "employees",

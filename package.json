@@ -25,6 +25,7 @@
     "@mui/x-date-pickers-pro": "^5.0.10",
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/user-event": "^13.5.0",
+    "apexcharts": "^3.37.0",
     "axios": "^1.2.0",
     "britecharts-react": "^0.6.5",
     "date-fns": "^2.29.1",
@@ -41,6 +42,7 @@
     "lodash-webpack-plugin": "^0.11.6",
     "material-ui-next-responsive-table": "^0.5.1",
     "react": "^18.2.0",
+    "react-apexcharts": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-i18next": "^11.18.3",
@@ -65,7 +67,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "PORT=3015 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

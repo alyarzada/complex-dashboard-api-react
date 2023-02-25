@@ -16,6 +16,7 @@ import { restaurantsidebarMenu } from "../data/restaurant-admin/sidebar-menu";
 import { restaurantDashboard } from "../data/restaurant-admin/restaurant-dashboard";
 import { setLight } from "../app/Slicers/themes";
 import Modals from "./Modals";
+import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
 
 const Home = () => {
   useScrollToUp();
@@ -27,6 +28,7 @@ const Home = () => {
     },
   } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const index = 0;
 
   useEffect(() => {
     if (role_id === 8) {
@@ -35,6 +37,20 @@ const Home = () => {
     } else if (role_id === 4) {
       dispatch(getDashboardPanels(adminDashboardPanels));
       dispatch(getSidebarData(adminSidebarMenu));
+    } else if (role_id === 2) {
+      dispatch(getDashboardPanels(restaurantDashboard));
+      dispatch(
+        getSidebarData([
+          ...adminSidebarMenu.slice(0, index + 1),
+          {
+            id: 20,
+            title: "Flash Reports",
+            icon: SignalCellularAltIcon,
+            path: "/",
+          },
+          ...adminSidebarMenu.slice(index + 1),
+        ])
+      );
     } else if (role_id === 9) {
       dispatch(getDashboardPanels(restaurantDashboard));
       dispatch(getSidebarData(restaurantsidebarMenu));
