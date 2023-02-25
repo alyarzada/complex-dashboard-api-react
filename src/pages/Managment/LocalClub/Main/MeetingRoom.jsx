@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import { Box, Button, IconButton, FormLabel, TextField } from "@mui/material";
-import { LoadingButton } from "@mui/lab";
+import { Box, IconButton, FormLabel, TextField } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { DataGrid } from "@mui/x-data-grid";
 import { useScrollToUp } from "../../../../hooks/useScrollToUp";
 import { Formik, Form, FieldArray } from "formik";
 import { format } from "date-fns";
@@ -33,7 +31,9 @@ import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
 import CustomDigitalTimePicker from "../../../../components/Form/CustomDigitalTimePicker";
 import { BronMeetingRoomSchema } from "../../../../validations/leisureclub/meetinRoomVal";
 import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
-import CustomDataGrid from "../../../../components/UI/CustomDataGrid"
+import BackButton from "../../../../components/UI/Buttons/BackButton";
+import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
+import CustomDataGrid from "../../../../components/UI/CustomDataGrid";
 
 const optionsTime = [
   { value: "00:10", label: "10 dəqiqə" },
@@ -154,7 +154,7 @@ const MeetingRoom = () => {
       key: "delete",
       label: t("Delete"),
       width: 150,
-      render: (value,data) => {
+      render: (value, data) => {
         return <DeleteBookedRooms params={data} />;
       },
     },
@@ -252,7 +252,6 @@ const MeetingRoom = () => {
         }}
         validationSchema={BronMeetingRoomSchema}
         onSubmit={(values) => {
-          console.log(values);
           dispatch(
             bookRoom({
               data: {
@@ -330,7 +329,7 @@ const MeetingRoom = () => {
               )}
             </FieldArray>
             <Box className="flex gap-x-2 my-3 justify-end">
-              <Button
+              <BackButton
                 onClick={() =>
                   dispatch(
                     setModal({
@@ -341,20 +340,16 @@ const MeetingRoom = () => {
                 }
                 type="button"
                 variant="outlined"
-                color="error"
-                className="capitalize"
               >
                 {t("Close")}
-              </Button>
-              <LoadingButton
+              </BackButton>
+              <SuccessButton
+                loading={bookRoomStatus === "loading"}
                 type="submit"
                 variant="contained"
-                color="success"
-                className="capitalize"
-                loading={bookRoomStatus === "loading"}
               >
                 {t("Save")}
-              </LoadingButton>
+              </SuccessButton>
             </Box>
           </Form>
         )}
@@ -385,7 +380,7 @@ const MeetingRoom = () => {
       </Box>
 
       <Box className="flex gap-x-2 my-3 justify-end">
-        <Button
+        <BackButton
           onClick={() =>
             dispatch(
               setModal({
@@ -396,11 +391,9 @@ const MeetingRoom = () => {
           }
           type="button"
           variant="outlined"
-          color="error"
-          className="capitalize"
         >
-          Bağla
-        </Button>
+          {t("Close")}
+        </BackButton>
       </Box>
     </Box>
   );
@@ -408,7 +401,7 @@ const MeetingRoom = () => {
   return (
     <Box className="w-full">
       <Header currentPage={{ title: "Meeting room", icon: MeetingRoomIcon }} />
-      <Box className="rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="py-6 px-6 my-4">
           <Box className="flex justify-end mb-6">
             <DefaultButton
@@ -453,28 +446,6 @@ const MeetingRoom = () => {
           />
 
           <Box className="mb-10">
-            {/* <DataGrid
-              pageSize={5}
-              rowsPerPageOptions={[10]}
-              autoHeight
-              rows={bookedRooms.map((item) => {
-                return {
-                  id: item.id,
-                  start_date: item.start_date.slice(0, -3),
-                  end_date: item.end_date.slice(0, -3),
-                  meeting_room: item.rdata.meeting_room,
-                  duration: "",
-                  // Number(item.start_date.substring(10).slice(0, -3)) -
-                  // Number(item.end_date.substring(10).slice(0, -3)),
-                  status: "",
-                  created_time: item?.created_at
-                    ?.replace("T", " ")
-                    ?.slice(0, -11),
-                  delete: "",
-                };
-              })}
-              columns={columns}
-            /> */}
             <CustomDataGrid
               desktopColumns={columns}
               mobileColumns={mobileColumns}
@@ -496,7 +467,6 @@ const MeetingRoom = () => {
               })}
               width={630}
               status={bookedRooms.status}
-
             />
           </Box>
         </Box>

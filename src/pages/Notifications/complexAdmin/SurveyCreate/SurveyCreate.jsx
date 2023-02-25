@@ -90,7 +90,7 @@ export default function SurveyCreate() {
           />
         }
       />
-      <Box className="my-4 py-4 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="my-4 py-4 px-6 rounded drop-shadow-lg bg-bgLight  dark:bg-bgMain w-full">
         <CustomSearchFilter flex={true} />
         <Formik
           initialValues={{
@@ -102,7 +102,7 @@ export default function SurveyCreate() {
         >
           {() => (
             <Form className="w-full flex flex-col gap-3">
-              <Box className="mb-5 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary  text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
+              <Box className="mb-5 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg  bg-logoColor dark:bg-bgMain  text-white dark:text-text2 text-[16px] capitalize w-full">
                 <HelpOutlineIcon /> {t(["Enter question"])}
               </Box>
               <Box className="lg:flex gap-3 w-full mt-3">
@@ -143,16 +143,16 @@ export default function SurveyCreate() {
                   />
                 </Box>
               </Box>
-              <Box className="mb-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
+              <Box className="mb-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-bgMain bg-logoColor  text-white dark:text-text2 text-[16px] capitalize  w-full">
                 <CheckCircleOutlineOutlinedIcon /> {t(["Enter answers"])}
               </Box>
               {answers.map((id) => {
                 return (
                   <Box>
-                    <Box className="pl-3 flex items-center gap-3 py-4 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary text-textDark2 dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
+                    <Box className="pl-3 flex items-center gap-3 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain text-textDark2 dark:text-text2 text-[16px] capitalize  w-full">
                       <RadioButtonCheckedIcon /> {t([`Answer`]) + ` #${id.id}`}
                     </Box>
-                    <Box className=" lg:flex gap-3 mb-4 -mt-2 py-2 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+                    <Box className=" lg:flex gap-3 mb-4 -mt-2 py-2 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
                       <Box className="w-full">
                         <Typography className="flex items-center text-textDark2 dark:text-text2 text-[16px] mb-2 capitalize">
                           Azərbaycan
@@ -187,17 +187,17 @@ export default function SurveyCreate() {
                   </Box>
                 );
               })}
-              <Box className="mb-1 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
+              <Box className="mb-1 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg  bg-logoColor text-white dark:text-text2 text-[16px] capitalize dark:bg-bgMain w-full">
                 <ErrorOutlineIcon /> {t(["Reflect the results of surveys"])}
               </Box>
               <FormControlLabel
                 className="ml-1"
                 control={<SurveySwitch defaultChecked />}
               />
-              <Box className="mb-[5px] pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
+              <Box className="mb-[5px] pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-logoColor dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
                 <CameraAltOutlined /> {t(["Foto upload"])}
               </Box>
-              <Box className="mb-1 pl-3 flex items-center gap-3 py-4 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimarytext-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
+              <Box className="mb-1 pl-3 flex items-center gap-3 py-4 px-6 rounded drop-shadow-lg  bg-logoColor dark:from-mainPrimarytext-white dark:text-text2 text-[16px] capitalize dark:bg-bgMain w-full">
                 <Button
                   variant="contained"
                   className="capitalize flex gap-1 bg-[#FDBD06] hover:bg-[#DBA31F]"

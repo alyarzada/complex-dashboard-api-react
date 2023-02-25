@@ -9,7 +9,7 @@ const CommunalServicesPanel = ({ img, title, path }) => {
         href="https://payments.portbaku.az/auth/login"
         target={"_blank"}
         className="text-textDark bg-bgLight  drop-shadow-lg hover:drop-shadow-xl 
-            dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary dark:text-white
+            dark:bg-bgMain dark:text-white
           flex items-center justify-center gap-y-3 text-text5 rounded flex-col h-[240px] cursor-pointer group"
       >
         <img

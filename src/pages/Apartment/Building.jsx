@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Box, Typography, Pagination } from "@mui/material";
+import { Box, Typography, Pagination, Button } from "@mui/material";
 import Header from "../../components/UI/Header";
 import { useTranslation } from "react-i18next";
 import CustomSearchFilter from "../../components/UI/CustomSearchFilter";
+import {useSelector} from 'react-redux'
+import {Link} from 'react-router-dom'
+import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 import Input from "@mui/material/Input";
 import {
   DataGrid,
@@ -46,6 +49,14 @@ const rows = [{ id: 1, lastName: "Snow", firstName: "Jon", age: 35 }];
 const SurveyManage = () => {
   const { t } = useTranslation();
   const [tableRows, setTableRows] = useState(10);
+
+  
+  const {
+    user: {
+      has_role: { role_id },
+    },
+  } = useSelector((state) => state.auth);
+
   function CustomPagination() {
     const apiRef = useGridApiContext();
     const page = useGridSelector(apiRef, gridPageSelector);
@@ -74,7 +85,22 @@ const SurveyManage = () => {
           icon: EmojiObjectsOutlinedIcon,
         }}
       />
-      <Box className="my-4 py-4 px-6 lg:flex gap-5 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="my-4 py-4 px-6 gap-5 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
+        
+      {role_id == 2 ? (
+          <Box className="w-full flex flex-col sm:flex-row justify-end">
+            <Link to="/complex/create">
+              <Button
+                variant="contained"
+                startIcon={<AddCircleOutlinedIcon />}
+                className="capitalize bg-rose-500 text-white"
+              >
+                Yenisini yaradin
+              </Button>
+            </Link>
+          </Box>
+        ) : null}
+        <Box className="lg:flex gap-5">
         <Box className="lg:w-[30%]">
           <CustomSearchFilter hidden2={true} hidden3={true} flex={false} />
         </Box>
@@ -102,6 +128,8 @@ const SurveyManage = () => {
               }}
             />
           </Box>
+        </Box>
+
         </Box>
       </Box>
     </Box>

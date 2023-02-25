@@ -85,18 +85,18 @@ const SurveyManage = () => {
           icon: EmojiObjectsOutlinedIcon,
         }}
       />
-      <Box className="my-4 py-4 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
-        <Box className="w-full flex justify-end">
-          <Link to="/mtk-users/create">
-            <Button
-              variant="contained"
-              startIcon={<AddCircleOutlinedIcon />}
-              className="capitalize bg-rose-500 text-white"
-            >
-              Yenisini yaradin
-            </Button>
-          </Link>
-        </Box>
+      <Box className="my-4 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
+          <Box className="w-full flex flex-col sm:flex-row justify-end">
+            <Link to="/employees/create">
+              <Button
+                variant="contained"
+                startIcon={<AddCircleOutlinedIcon />}
+                className="capitalize bg-rose-500 text-white"
+              >
+                Yenisini yaradin
+              </Button>
+            </Link>
+          </Box>
         <Box className="lg:flex justify-between items-center ">
           <Typography className="font-semibold text-textDark2 dark:text-text2 text-[16px] my-5 flex gap-1 items-center">
             Sehifede

@@ -34,6 +34,8 @@ import { setModal } from "../../../../app/Slicers/modals";
 import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
 import CustomDigitalTimePicker from "../../../../components/Form/CustomDigitalTimePicker";
 import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
+import BackButton from "../../../../components/UI/Buttons/BackButton";
+import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
 
 //multiselect
 const optionsMassage = [
@@ -313,31 +315,27 @@ const Massage = () => {
 
             <CustomTextField label="Şərhiniz" name="message" multiline />
             <Box className="flex gap-x-2 my-3 justify-end">
-              <Button
-                onClick={() =>
-                  dispatch(
-                    setModal({
-                      ...modal,
-                      isOpen: false,
-                    })
-                  )
-                }
-                type="button"
-                variant="outlined"
-                color="error"
-                className="capitalize"
+              <BackButton
+              onClick={() =>
+                dispatch(
+                  setModal({
+                    ...modal,
+                    isOpen: false,
+                  })
+                )
+              }
+              type="button"
+              variant="outlined"
               >
-                {t("Close")}
-              </Button>
-              <LoadingButton
-                type="submit"
+              {t("Close")}
+              </BackButton>
+              <SuccessButton
+              loading={bookMassageStatus === "loading"}
+              type="submit"
                 variant="contained"
-                color="success"
-                className="capitalize"
-                loading={bookMassageStatus === "loading"}
               >
-                {t("Save")}
-              </LoadingButton>
+              {t("Save")}
+              </SuccessButton>
             </Box>
           </Form>
         )}
@@ -392,7 +390,7 @@ const Massage = () => {
       <Header
         currentPage={{ title: "Massage", icon: AdminPanelSettingsOutlinedIcon }}
       />
-      <Box className="rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="py-6 px-6 my-4">
           <Box className="flex justify-between mb-6">
             <Box>

@@ -1,4 +1,4 @@
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Button } from "@mui/material";
 import { Formik, Form, FieldArray } from "formik";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SaveIcon from "@mui/icons-material/Save";
@@ -112,15 +112,16 @@ const MyDetails = ({ user }) => {
               <CustomGenderRadio name="gender" label={t("Gender")} />
 
               <Box className="col-span-1 md:col-span-2 flex justify-end">
-                <DefaultButton
+                <Button
                   type="submit"
                   variant="contained"
+                  className="bg-logoColor shadow-lg shadow-[#C9B26D]/50 hover:shadow-[#C9B26D]/70"
                   startIcon={
-                    <SaveIcon className="text-white dark:text-black" />
+                    <SaveIcon className="dark:text-white text-black" />
                   }
                 >
                   {t(["Save"])}
-                </DefaultButton>
+                </Button>
               </Box>
             </Form>
           )}

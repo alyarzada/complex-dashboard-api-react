@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
-import { Box ,Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useScrollToUp } from "../../../hooks/useScrollToUp";
 import { useTranslation } from "react-i18next";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
@@ -10,7 +10,7 @@ import CustomSearchFilter from "../../../components/UI/CustomSearchFilter";
 import ActionButtons from "../../../components/UI/Buttons/ActionButtons";
 import CreditCardOutlinedIcon from "@mui/icons-material/CreditCardOutlined";
 import DefaultButton from "../../../components/UI/Buttons/DefaultButton";
-import CustomDataGrid from "../../../components/UI/CustomDataGrid"
+import CustomDataGrid from "../../../components/UI/CustomDataGrid";
 import { Link } from "react-router-dom";
 
 const EntryCards = () => {
@@ -97,7 +97,7 @@ const EntryCards = () => {
         currentPage={{ title: "Access card", icon: CreditCardOutlinedIcon }}
       />
 
-      <Box className="my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="my-4 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="py-4 px-6">
           <CustomSearchFilter />
           <Box className="flex flex-col mb-6 sm:flex-row justify-end gap-3 pt-6">
@@ -119,12 +119,11 @@ const EntryCards = () => {
 
           <Box>
             <CustomDataGrid
-                  desktopColumns={columns}
-                  mobileColumns={mobileColumns}
-                  rows={entryCards}
-                  width={630}
-                  status={entryCards.status}
-
+              desktopColumns={columns}
+              mobileColumns={mobileColumns}
+              rows={entryCards}
+              width={630}
+              status={entryCards.status}
             />
           </Box>
         </Box>

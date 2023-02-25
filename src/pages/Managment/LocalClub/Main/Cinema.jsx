@@ -18,7 +18,7 @@ import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOu
 // components
 import Header from "../../../../components/UI/Header";
 import Calendar from "./Calendar";
-import CustomDataGrid from "../../../../components/UI/CustomDataGrid"
+import CustomDataGrid from "../../../../components/UI/CustomDataGrid";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -31,6 +31,8 @@ import { changeBookedCinemaStatus } from "../../../../app/Slicers/leisure/cinema
 import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
 import { BronCinemaSchema } from "../../../../validations/leisureclub/cinemaVal";
 import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";
+import BackButton from "../../../../components/UI/Buttons/BackButton";
+import SuccessButton from "../../../../components/UI/Buttons/SuccessButton";
 
 //multiselect
 const optionsCinemaTime = [
@@ -169,7 +171,7 @@ const Cinema = () => {
       key: "delete",
       label: t("Delete"),
       width: 150,
-      render: (value,data) => {
+      render: (value, data) => {
         return <DeleteBookedCinemaRoom params={data} />;
       },
     },
@@ -305,7 +307,7 @@ const Cinema = () => {
             />
             <CustomTextField label="Şərhiniz" name="message" multiline />
             <Box className="flex gap-x-2 my-3 justify-end">
-              <Button
+              <BackButton
                 onClick={() =>
                   dispatch(
                     setModal({
@@ -316,20 +318,16 @@ const Cinema = () => {
                 }
                 type="button"
                 variant="outlined"
-                color="error"
-                className="capitalize"
               >
                 {t("Close")}
-              </Button>
-              <LoadingButton
+              </BackButton>
+              <SuccessButton
+                loading={bookCinemaStatus === "loading"}
                 type="submit"
                 variant="contained"
-                color="success"
-                className="capitalize"
-                loading={bookCinemaStatus === "loading"}
               >
                 {t("Save")}
-              </LoadingButton>
+              </SuccessButton>
             </Box>
           </Form>
         )}
@@ -384,7 +382,7 @@ const Cinema = () => {
     <Box className="w-full">
       <Header currentPage={{ title: "Cinema", icon: MovieIcon }} />
 
-      <Box className="rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="py-6 px-6 my-4">
           <Box className="flex justify-end mb-6">
             <DefaultButton
@@ -407,8 +405,9 @@ const Cinema = () => {
           <Calendar
             events={bookedCinemaRooms.map((item) => {
               return {
-                title: `${item.start_date.substring(10).slice(0, -3)} ${item.rtype === 1 ? "(R1)" : "(R2)"
-                  } Bronlanıb`,
+                title: `${item.start_date.substring(10).slice(0, -3)} ${
+                  item.rtype === 1 ? "(R1)" : "(R2)"
+                } Bronlanıb`,
                 date: item.start_date.slice(0, -9),
                 className: "bg-green-500 rounded p-1 m-1",
                 startStr:
@@ -459,9 +458,7 @@ const Cinema = () => {
               })}
               width={630}
               status={bookedCinemaRooms.status}
-
             />
-
           </Box>
         </Box>
       </Box>

@@ -4,7 +4,7 @@ import { Box, Button, Typography } from "@mui/material";
 const NotFound404 = () => {
   const navigate = useNavigate();
   return (
-    <Box className="bg-gradient-to-r from-bgMain to-bgSecond w-full h-screen flex flex-col items-center justify-center">
+    <Box className="bg-bgLight dark:bg-bgMain w-full h-screen flex flex-col items-center justify-center">
       <Typography variant="h6" component="h1" className="text-text1 mb-1">
         Page Not Found
       </Typography>

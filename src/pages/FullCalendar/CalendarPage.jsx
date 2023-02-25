@@ -178,11 +178,11 @@ const CalendarPage = () => {
   return (
     <Box>
       <Header currentPage="teqvim" />
-      <Box className="bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary animated fadeIn  demo-app">
+      <Box className=" drop-shadow-lg bg-bgLight  dark:bg-bgMain animated fadeIn  demo-app">
         <Box className="flex p-4 flex-col lg:flex-row">
           <Box
             id="external-events"
-            className="p-[10px] w-full lg:w-[20%] h-auto bg-bgLight shadow-2xl dark:bg-slate-800
+            className="p-[10px] w-full lg:w-[20%] h-auto  shadow-2xl bg-bgLight dark:bg-slate-800
             mr-3 rounded"
             style={{
               maxHeight: "-webkit-fill-available",

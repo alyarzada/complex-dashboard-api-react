@@ -49,7 +49,7 @@ const EachTab = ({ datas }) => {
               <img
                 src={imageNotFound}
                 alt="image 1"
-                className="object-center object-cover w-full h-full relative cursor-pointer peer hover:opacity-[0.6]"
+                className="object-center object-cover w-full h-full relative cursor-pointer peer hover:opacity-[0.6] transition-all duration-300"
                 onClick={() => {
                   setShowModal(true);
                   setFullImage("w-[40%] h-[70%]");
@@ -57,13 +57,13 @@ const EachTab = ({ datas }) => {
               />
               <Button
                 onClick={() => navigate("/information/photoedit")}
-                className="bg-[#FFC626] absolute bottom-2 right-2"
+                className="bg-logoColor absolute bottom-2 right-2"
               >
                 <CameraAltOutlinedIcon color="action" />
               </Button>
 
-              <Box className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] hidden pointer-events-none peer-hover:block   imageIcon">
-                <ZoomInOutlinedIcon fontSize="large" />
+              <Box className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] pointer-events-none scale-0 transition-all duration-300 peer-hover:scale-100 ">
+                <ZoomInOutlinedIcon fontSize="large" color="action" />
               </Box>
             </SwiperSlide>
 
@@ -71,18 +71,18 @@ const EachTab = ({ datas }) => {
               <img src={imageNotFound} alt="image 2" className="relative" />
               <Button
                 onClick={() => navigate("/information/photoedit")}
-                className="bg-[#FFC626] absolute bottom-2 right-2 "
+                className="bg-logoColor absolute bottom-2 right-2 "
               >
-                <CameraAltOutlinedIcon />
+                <CameraAltOutlinedIcon color="action" />
               </Button>
             </SwiperSlide>
             <SwiperSlide>
               <img src={imageNotFound} alt="image 3" className="relative" />
               <Button
                 onClick={() => navigate("/information/photoedit")}
-                className="bg-[#FFC626] absolute bottom-2 right-2"
+                className="bg-logoColor absolute bottom-2 right-2"
               >
-                <CameraAltOutlinedIcon />
+                <CameraAltOutlinedIcon color="action" />
               </Button>
             </SwiperSlide>
           </Swiper>
@@ -107,7 +107,7 @@ const EachTab = ({ datas }) => {
           </div>
         )}
 
-        <Box className="overflow-scroll w-full lg:w-1/2 shadow-2xl flex-1 p-3 dark:bg-gradient-to-r dark:from-mainSecondary dark:to-mainPrimary  rounded ">
+        <Box className=" w-full lg:w-1/2 shadow-2xl flex-1 p-3 bg-bgLight dark:bg-bgMain rounded ">
           <Typography className="uppercase dark:text-text1 text-textDark2">
             {t(["Detail information"])}
           </Typography>

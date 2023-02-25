@@ -10,9 +10,8 @@ import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOu
 import CustomSearchFilter from "../../../components/UI/CustomSearchFilter";
 import { useTranslation } from "react-i18next";
 import DefaultButton from "../../../components/UI/Buttons/DefaultButton";
-import CustomDataGrid from "../../../components/UI/CustomDataGrid"
+import CustomDataGrid from "../../../components/UI/CustomDataGrid";
 import { Link } from "react-router-dom";
-
 
 const RenterRegistration = () => {
   const { tenants } = useSelector((state) => state.tenants);
@@ -92,7 +91,7 @@ const RenterRegistration = () => {
         }}
       />
 
-      <Box className="my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="my-4 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="py-6 px-6">
           {role_id === 4 ? <CustomSearchFilter /> : null}
           <Box className="flex flex-col mb-6 sm:flex-row justify-end pt-3">
@@ -110,7 +109,6 @@ const RenterRegistration = () => {
             rows={tenants}
             width={630}
             status={tenants.status}
-
           />
         </Box>
       </Box>

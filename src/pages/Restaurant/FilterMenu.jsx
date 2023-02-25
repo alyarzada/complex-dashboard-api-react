@@ -22,7 +22,7 @@ const FilterMenu = ({ setOpenDropdown }) => {
     <motion.div
       initial={{ y: 50 }}
       animate={{ y: 0 }}
-      className="absolute top-12 left-0 z-50 lg:h-[40vh] text-text1 drop-shadow-lg hover:drop-shadow-xl dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-bgLight dark:text-black w-full rounded-xl p-3"
+      className="absolute top-12 left-0 z-50 lg:h-[40vh] text-text1 drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain dark:text-black w-full rounded-xl p-3"
     >
       <Typography variant="h6" component="h1" className="text-text1">
         Menu

@@ -21,7 +21,7 @@ const PrivateRoute = ({ children }) => {
 
   if (getDataStatus === "loading") {
     return (
-      <Box className="w-full h-screen bg-bgMain flex items-center justify-center">
+      <Box className="w-full h-screen bg-bgLight dark:bg-bgMain flex items-center justify-center">
         <SyncLoader color="#C9B26D" />
       </Box>
     );

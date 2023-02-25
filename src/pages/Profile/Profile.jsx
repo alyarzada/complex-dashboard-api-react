@@ -82,7 +82,7 @@ const Profile = () => {
         currentPage={{ title: t(["Profile"]), icon: PersonOutlineOutlinedIcon }}
       />
       <Box className="flex flex-col md:flex-row justify-between mt-4">
-        <Box className="bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary p-8 rounded w-full   md:w-[38%]">
+        <Box className=" drop-shadow-lg bg-bgLight dark:bg-bgMain p-8 rounded w-full   md:w-[38%]">
           {/* first row */}
           <Box className="flex flex-col items-center">
             <Box className="relative">
@@ -102,7 +102,9 @@ const Profile = () => {
               </Box>
             </Box>
             <h4 className="text-text3">{name}</h4>
-            <Typography className="text-text4">{has_role.role_name}</Typography>
+            <Typography className="text-text4">
+              {t([has_role.role_name])}
+            </Typography>
           </Box>
 
           {/* second row */}
@@ -133,7 +135,7 @@ const Profile = () => {
           </Box>
         </Box>
 
-        <Box className="bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary p-6 rounded w-full md:w-[61%] min-h-[500px]">
+        <Box className=" drop-shadow-lg bg-bgLight dark:bg-bgMain p-6 rounded w-full md:w-[61%] min-h-[500px]">
           <ProfileForm user={user} />
         </Box>
       </Box>

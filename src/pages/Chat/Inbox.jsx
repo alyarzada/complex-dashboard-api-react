@@ -60,7 +60,7 @@ const Inbox = () => {
         ))}
         <IconButton
           onClick={() => navigate(-1)}
-          className="bg-[#C9B26D] fixed bottom-5 left-4 z-[9999] sizeLarge drop-shadow-lg"
+          className="bg-logoColor fixed bottom-5 left-4 z-[9999] sizeLarge drop-shadow-lg"
           size="large"
         >
           <ReplyIcon className="text-white" />

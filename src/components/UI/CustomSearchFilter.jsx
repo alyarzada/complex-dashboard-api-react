@@ -33,10 +33,10 @@ const CustomSearchFilter = ({
         className={
           hiddenHeader
             ? "hidden"
-            : "mb-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full"
+            : "mb-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#09183c] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[15px] capitalize dark:to-mainSecondary w-full"
         }
       >
-        <FilterAltOutlinedIcon /> {t(["Select residents"])}
+        <FilterAltOutlinedIcon sx={{ fontSize: 20 }} /> {t(["Select residents"])}
       </Box>
       <Box
         className={
@@ -47,15 +47,9 @@ const CustomSearchFilter = ({
           className={
             flex == true
               ? "w-full mb-5"
-              : "flex w-full justify-between items-center"
+              : "flex mb-5 w-full justify-between items-center"
           }
         >
-          <Typography
-            component="h5"
-            className="text-textDark2 dark:text-text2 text-[16px]"
-          >
-            {t(["Housing cooperative"])}
-          </Typography>
           <Autocomplete
             className={flex == true ? "w-full" : "w-[70%]"}
             onChange={() => {
@@ -83,7 +77,7 @@ const CustomSearchFilter = ({
               <TextField
                 style={{ paddingTop: 6 }}
                 {...params}
-                label={t("Please select")}
+                label={t("Housing cooperative")}
                 placeholder=""
               />
             )}
@@ -97,12 +91,6 @@ const CustomSearchFilter = ({
                 : "flex mb-5 w-full justify-between items-center"
             }
           >
-            <Typography
-              component="h5"
-              className=" text-textDark2 dark:text-text2 text-[16px]"
-            >
-              {t("Complex")}
-            </Typography>
             <Autocomplete
               multiple
               className={flex ? " w-full" : "w-[70%]"}
@@ -130,14 +118,14 @@ const CustomSearchFilter = ({
                 <TextField
                   style={{ paddingTop: 6 }}
                   {...params}
-                  label={t("Please select")}
+                  label={t("Complex")}
                   placeholder=""
                 />
               )}
             />
           </Box>
         </Box>
-        <Box className={hidden2 == true ? "hidden" : "w-full mb-5"}>
+        <Box className={hidden2 == true ? "hidden" : "w-full"}>
           <Box
             className={
               flex == true
@@ -145,12 +133,6 @@ const CustomSearchFilter = ({
                 : "flex mb-5 w-full justify-between items-center"
             }
           >
-            <Typography
-              component="h5"
-              className=" text-textDark2 dark:text-text2 text-[16px]"
-            >
-              {t("Building")}
-            </Typography>
             <Autocomplete
               className={flex ? " w-full" : "w-[70%]"}
               onChange={() => {
@@ -178,7 +160,7 @@ const CustomSearchFilter = ({
                 <TextField
                   style={{ paddingTop: 6 }}
                   {...params}
-                  label={t("Please select")}
+                  label={t("Building")}
                   placeholder=""
                 />
               )}
@@ -193,12 +175,6 @@ const CustomSearchFilter = ({
                 : "flex mb-5 w-full justify-between items-center"
             }
           >
-            <Typography
-              component="h5"
-              className="text-textDark2 dark:text-text2 text-[16px]"
-            >
-              {t("Apartment")}
-            </Typography>
             <Autocomplete
               className={flex ? " w-full" : "w-[70%]"}
               multiple
@@ -223,7 +199,7 @@ const CustomSearchFilter = ({
                 <TextField
                   style={{ paddingTop: 6 }}
                   {...params}
-                  label={t("Please select")}
+                  label={t("Apartment")}
                   placeholder=""
                 />
               )}

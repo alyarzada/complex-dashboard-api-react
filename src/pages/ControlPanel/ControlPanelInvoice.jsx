@@ -22,6 +22,7 @@ import { Services } from "../MyInvoices/MyInvoices";
 import BackButton from "../../components/UI/Buttons/BackButton";
 import DefaultButton from "../../components/UI/Buttons/DefaultButton";
 import PreviewIcon from "@mui/icons-material/Preview";
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
 const ControlPanelInvoice = () => {
   const { invoices } = useSelector((state) => state.invoice);
@@ -55,7 +56,7 @@ const ControlPanelInvoice = () => {
     <Box className="mb-6">
       <Stack direction={{ xs: "column", lg: "row" }} spacing={2}>
         {/* Current invoices */}
-        <Box className="flex-1 bg-gradient-to-r from-bgMain to-bgSecond p-2 bg-white rounded">
+        <Box className="flex-1 bg-bgLight dark:bg-bgMain p-3  rounded">
           <Box className="mb-3 flex justify-between items-center">
             <Typography className="dark:text-logoColor text-logoColor capitalize font-medium">
               {t(["Current invoices (debts)"])}
@@ -69,10 +70,23 @@ const ControlPanelInvoice = () => {
             </DefaultButton>
           </Box>
           <TableContainer
-            className="bg-transparent h-[240px] overflow-auto custom-table-class"
+            className="bg-transparent h-[240px] overflow-auto"
             component={Paper}
+            sx={{
+              "&::-webkit-scrollbar": {
+                width: 3.5
+              },
+              "&::-webkit-scrollbar-track": {
+                backgroundColor: "transparent",
+                borderRadius: 2
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "gray",
+                borderRadius: 2
+              }
+            }}
           >
-            <Table size="small" aria-label="a dense table">
+            <Table size="small" aria-label="a dense table" >
               <TableHead>
                 <TableRow>
                   <TableCell className=" dark:text-text1 text-textDark2">
@@ -122,7 +136,7 @@ const ControlPanelInvoice = () => {
           </TableContainer>
         </Box>
         {/* Paid invoices */}
-        <Box className="flex-1 bg-gradient-to-r p-2 from-bgMain to-bgSecond bg-white rounded">
+        <Box className="flex-1 p-2 dark:bg-bgMain bg-white rounded">
           <Box className="mb-3 flex justify-between items-center">
             <Typography className="dark:text-logoColor text-logoColor capitalize font-medium">
               {t(["Paid invoices"])}
@@ -136,8 +150,21 @@ const ControlPanelInvoice = () => {
             </DefaultButton>
           </Box>
           <TableContainer
-            className="bg-transparent h-[240px] overflow-auto custom-table-class"
+            className="bg-transparent h-[240px] overflow-auto"
             component={Paper}
+            sx={{
+              "&::-webkit-scrollbar": {
+                width: 3.5,
+              },
+              "&::-webkit-scrollbar-track": {
+                backgroundColor: "transparent",
+                borderRadius: 2
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "gray",
+                borderRadius: 2
+              }
+            }}
           >
             <Table size="small" aria-label="a dense table">
               <TableHead>
@@ -178,9 +205,9 @@ const ControlPanelInvoice = () => {
                       className=" dark:text-text1 text-textDark2"
                       align="center"
                     >
-                      <Tooltip title="Çekə bax">
-                        <IconButton onClick={() => console.log("print")}>
-                          <PreviewIcon className="text-logoColor text-[22px]" />
+                      <Tooltip title={t(["See the invoice"])}>
+                        <IconButton onClick={() => navigate("/invoice-bill")}>
+                          <RemoveRedEyeIcon className="text-logoColor text-[22px]" />
                         </IconButton>
                       </Tooltip>
                     </TableCell>

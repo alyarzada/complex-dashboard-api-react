@@ -85,7 +85,7 @@ const SurveyManage = () => {
           icon: EmojiObjectsOutlinedIcon,
         }}
       />
-      <Box className="my-4 py-4 px-6 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="my-4 py-4 px-6 rounded drop-shadow-lg  bg-bgLight dark:bg-bgMain w-full">
         <CustomSearchFilter hidden3={true} flex={true} />
         <Box className="w-full flex flex-col sm:flex-row justify-between">
           <Link to="/mtk-users/create">

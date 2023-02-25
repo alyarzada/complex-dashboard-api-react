@@ -16,6 +16,7 @@ import informationReducer from "./Slicers/infoTable";
 import meetingRoomReducer from "./Slicers/leisure/meetingRoom";
 import massageReducer from "./Slicers/leisure/massage";
 import cinemaReducer from "./Slicers/leisure/cinema";
+import emojiReducer from "./Slicers/emoji";
 
 export const store = configureStore({
   reducer: {
@@ -36,6 +37,7 @@ export const store = configureStore({
     meetingRoom: meetingRoomReducer,
     massage: massageReducer,
     cinema: cinemaReducer,
+    emojies: emojiReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

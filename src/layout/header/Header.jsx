@@ -7,8 +7,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Notifications from "./Notifications";
 import UserMenu from "./UserMenu";
 import RestaurantCard from "./RestaurantCard";
+import { setSideabarSubmenu } from "../../app/Slicers/themes";
 
-const Header = ({ setOpenSubMenu }) => {
+const Header = () => {
   const { openedSidebar, boxed, showCardIcon } = useSelector(
     (state) => state.themes
   );
@@ -16,9 +17,9 @@ const Header = ({ setOpenSubMenu }) => {
 
   return (
     <header
-      className={`flex top-0 px-3 sm:px-5 transition-all ease-in-out duration-300 h-[70px] z-30 bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary ${
+      className={`print:hidden flex top-0 px-3 sm:px-5 transition-all ease-in-out duration-300 h-[70px] z-30  drop-shadow-lg bg-bgLight dark:bg-bgMain ${
         openedSidebar
-          ? "left-0 md:left-[250px] header-width-open"
+          ? "left-0 md:left-[250px] exl:left-[300px] header-width-open"
           : "left-0 md:left-[80px] header-width-close"
       } 
       } ${boxed ? "absolute" : "fixed"}`}
@@ -28,7 +29,12 @@ const Header = ({ setOpenSubMenu }) => {
           className="cursor-pointer text-bgSecond dark:text-text1"
           onClick={() => {
             dispatch(setOpenedSidebar());
-            setOpenSubMenu(false);
+            dispatch(
+              setSideabarSubmenu({
+                open: false,
+                id: null,
+              })
+            );
           }}
         >
           <MenuIcon className="text-textDark2" />

@@ -53,14 +53,14 @@ const CustomMenu = forwardRef(
           stiffness: 500,
         }}
         ref={menuRef}
-        className={`${className} absolute z-40 rounded bg-bgLight text-black  dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary dark:text-white drop-shadow-lg
+        className={`${className} absolute z-40 rounded bg-bgLight text-black  dark:bg-bgMain dark:text-white drop-shadow-lg
         `}
       >
         {editDelete ? (
           <List>
             <ListItem onClick={onEdit} className="p-0">
-              <ListItemButton className="w-full py-0 px-2 min-w-[30px]">
-                <ListItemIcon className="min-w-[30px]">
+              <ListItemButton className="py-0 px-2">
+                <ListItemIcon>
                   <EditIcon />
                 </ListItemIcon>
                 <ListItemText primary="Düzəlt" />

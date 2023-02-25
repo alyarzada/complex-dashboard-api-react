@@ -63,8 +63,14 @@ const TaskCreate = () => {
         }
       />
       <Box className="lg:flex-row-reverse flex flex-col lg:gap-3">
-        <Box className="py-6 px-6 my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full"></Box>
-        <Box className="py-6 px-6 my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary lg:w-[30%]">
+        <Box
+          className="py-6 px-6 my-4 rounded  drop-shadow-lg bg-bgLight
+ dark:bg-bgMain w-full"
+        ></Box>
+        <Box
+          className="py-6 px-6 my-4 rounded  drop-shadow-lg bg-bgLight
+ dark:bg-bgMain lg:w-[30%]"
+        >
           {buttons.map((item) => {
             return (
               <Button className="capitalize text-white flex justify-between w-full text-sm">
