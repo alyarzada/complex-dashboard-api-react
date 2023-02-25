@@ -7,7 +7,6 @@ import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import SentimentSatisfiedAltOutlinedIcon from "@mui/icons-material/SentimentSatisfiedAltOutlined";
 import { Formik, Form } from "formik";
-import { useTranslation } from "react-i18next";
 import EachNews from "./EachNews";
 import { useTranslation } from "react-i18next";
 

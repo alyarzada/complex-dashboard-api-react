@@ -109,92 +109,91 @@ const EachNews = ({ news }) => {
   };
 
   return (
+    <Box className="mb-4 dark:bg-bgMain rounded p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        className="relative"
+      >
+        <Stack direction="row" alignItems="center" spacing={2}>
+          <Avatar>{firstLetters}</Avatar>
+          <Box>
+            {status === "loading" ? (
+              <Skeleton
+                animation="wave"
+                height={40}
+                width={100}
+                style={{
+                  marginBottom: 6,
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                }}
+              />
+            ) : (
+              <Typography>{news.userData.name}</Typography>
+            )}
+          </Box>
+        </Stack>
 
-      <Box className="mb-4 dark:bg-bgMain rounded p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          className="relative"
-        >
-          <Stack direction="row" ali gnItems="center" spacing={2}>
-            <Avatar>{firstLetters}</Avatar>
-            <Box>
-              {status === "loading" ? (
-                <Skeleton
-                  animation="wave"
-                  height={40}
-                  width={100}
-                  style={{
-                    marginBottom: 6,
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                  }}
-                />
-              ) : (
-                <Typography>{news.userData.name}</Typography>
-              )}
-            </Box>
+        <Tooltip title={t("Save Post")} arrow>
+          <IconButton onClick={notify}>
+            <SaveAltIcon />
+          </IconButton>
+        </Tooltip>
+      </Stack>
+      <Divider className="my-4" />
+      <Box>
+        {status === "loading" ? (
+          <Skeleton animation="wave" height={300} width="100%" />
+        ) : (
+          <Typography className="mb-4 dark:text-text1 text-textDark4">
+            {news.post}
+          </Typography>
+        )}
+
+        <Divider className="my-4" />
+        <Stack direction="row" spacing={2} className="mb-3">
+          <Stack
+            direction="row"
+            alignItems="center"
+            className="gap-x-1 relative"
+          >
+            <Picker
+              data={data}
+              onEmojiSelect={""}
+              previewPosition="none"
+              theme={light ? "light" : "dark"}
+            />
           </Stack>
 
-          <Tooltip title={t("Save Post")} arrow>
-            <IconButton onClick={notify}>
-              <SaveAltIcon />
+          <Stack direction="row" justifyContent="end">
+            <IconButton>
+              <CollectionsOutlined />
             </IconButton>
-          </Tooltip>
-        </Stack>
-        <Divider className="my-4" />
-        <Box>
-          {status === "loading" ? (
-            <Skeleton animation="wave" height={300} width="100%" />
-          ) : (
-            <Typography className="mb-4 dark:text-text1 text-textDark4">
-              {news.post}
-            </Typography>
-          )}
-
-          <Divider className="my-4" />
-          <Stack direction="row" spacing={2} className="mb-3">
-            <Stack
-              direction="row"
-              alignItems="center"
-              className="gap-x-1 relative"
+            <IconButton onClick={() => setOpenEmoji((prev) => !prev)}>
+              <EmojiEmotionsOutlined />
+            </IconButton>
+            <IconButton type="submit">
+              <SendOutlined />
+            </IconButton>
+          </Stack>
+          {openEmoji ? (
+            <motion.div
+              initial={{ y: 0 }}
+              animate={{ y: 10 }}
+              transition={{ ease: "easeOut", duration: 0.5 }}
             >
               <Picker
                 data={data}
-                onEmojiSelect={""}
+                onEmojiSelect={console.log}
                 previewPosition="none"
                 theme={light ? "light" : "dark"}
               />
-            </Stack>
-
-            <Stack direction="row" justifyContent="end">
-              <IconButton>
-                <CollectionsOutlined />
-              </IconButton>
-              <IconButton onClick={() => setOpenEmoji((prev) => !prev)}>
-                <EmojiEmotionsOutlined />
-              </IconButton>
-              <IconButton type="submit">
-                <SendOutlined />
-              </IconButton>
-            </Stack>
-            {openEmoji ? (
-              <motion.div
-                initial={{ y: 0 }}
-                animate={{ y: 10 }}
-                transition={{ ease: "easeOut", duration: 0.5 }}
-              >
-                <Picker
-                  data={data}
-                  onEmojiSelect={console.log}
-                  previewPosition="none"
-                  theme={light ? "light" : "dark"}
-                />
-              </motion.div>
-            ) : null}
-          </form>
-        </Box>
+            </motion.div>
+          ) : null}
+        </Stack>
       </Box>
+    </Box>
   );
 };
 
