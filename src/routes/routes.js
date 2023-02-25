@@ -52,6 +52,8 @@ import NotificationsArchive from "../pages/Notifications/complexAdmin/Notificati
 import SentNotifications from "../pages/Notifications/complexAdmin/SentNotifications";
 import SurveyCreate from "../pages/Notifications/complexAdmin/SurveyCreate/SurveyCreate";
 import MTKUsers from "../pages/Apartment/MTKUsers";
+import Permission from "../pages/Apartment/Permission";
+
 import Tasks from "../pages/Tasks/Tasks";
 import TaskCreate from "../pages/Tasks/TaskCreate";
 import Apartments from "../pages/Apartment/Apartments";
@@ -231,6 +233,10 @@ const routes = [
         element: <TenantRegistration />,
       },
       {
+        path: "permission",
+        element: <Permission />,
+      },
+      {
         path: "user-card-request/access/create",
         element: <NewEntryCard />,
       },
@@ -269,10 +275,6 @@ const routes = [
       {
         path: "apartments",
         element: <Apartments />,
-      },
-      {
-        path: "complex",
-        element: <Complex />,
       },
       {
         path: "complex",

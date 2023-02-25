@@ -25,6 +25,7 @@
     "@mui/x-date-pickers-pro": "^5.0.10",
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/user-event": "^13.5.0",
+    "apexcharts": "^3.37.0",
     "axios": "^1.2.0",
     "britecharts-react": "^0.6.5",
     "date-fns": "^2.29.1",
@@ -66,7 +67,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "PORT=3015 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
