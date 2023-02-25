@@ -87,7 +87,7 @@ const SurveyManage = () => {
       />
       <Box className="my-4 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="w-full flex justify-end">
-          <Link to="/mtk-users/create">
+          <Link to="/group-of-apartments/create">
             <Button
               variant="contained"
               startIcon={<AddCircleOutlinedIcon />}

@@ -41,6 +41,7 @@
     "lodash-webpack-plugin": "^0.11.6",
     "material-ui-next-responsive-table": "^0.5.1",
     "react": "^18.2.0",
+    "react-apexcharts": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-i18next": "^11.18.3",

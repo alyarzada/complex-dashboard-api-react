@@ -41,7 +41,7 @@ const EachPanel = ({
         {type === 1 ? (
           <Box
             id="restoran-home"
-            className=" text-textDark drop-shadow-lg hover:drop-shadow-xl dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-bgLight ela transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group rounded after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full aye hoverbefore after:transition-all after:duration-1000  relative w-full p-5 z-30"
+            className=" text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain  ela transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group rounded after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full aye hoverbefore after:transition-all after:duration-1000  relative w-full p-5 z-30"
           >
             <Box>
               <Stack direction="column" spacing={1}>
@@ -64,20 +64,20 @@ const EachPanel = ({
         ) : (
           <Box
             id="restoran-home"
-            className=" text-textDark drop-shadow-lg hover:drop-shadow-xl dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary bg-bgLight ela transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group rounded after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full aye hoverbefore after:transition-all after:duration-1000  relative w-full p-5 z-30 "
+            className=" text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain  ela transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group rounded after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full aye hoverbefore after:transition-all after:duration-1000  relative w-full p-5 z-30 "
           >
             <Stack direction="row" justifyContent="space-between">
               <Typography className="z-30 text-[#8391a2] font-bold group-hover:text-black transition-all duration-1000">
                 {t(title)}
               </Typography>
-              <IconButton className={`z-30 text-[${color}] `}>{img}</IconButton>
+              <IconButton className={`z-30 ${color} `}>{img}</IconButton>
             </Stack>
             <Box>
               <Typography className="mb-4 font-[800] text-[1.5rem] text-[tex1] relative z-30 group-hover:text-black transition-all duration-1000">
                 1
               </Typography>
               <Link
-                className={`capitalize relative z-30 font-bold text-[${color}] group-hover:text-black transition-all duration-1000`}
+                className={`capitalize relative z-30 font-bold ${color} group-hover:text-black transition-all duration-1000`}
               >
                 Etrafli{" "}
                 <EastIcon

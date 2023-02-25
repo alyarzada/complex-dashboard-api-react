@@ -38,7 +38,7 @@ const SendNotifications = () => {
           icon: NewspaperOutlinedIcon,
         }}
       />
-      <Box className="my-4 py-4 px-6 rounded drop-shadow-lg  bg-bgLight dark:bg-bgMain w-full">
+      <Box className="mt-4 py-4 px-6 rounded drop-shadow-lg  bg-bgLight dark:bg-bgMain w-full">
         <CustomSearchFilter
           hidden1={false}
           hidden2={false}
@@ -73,9 +73,13 @@ const SendNotifications = () => {
                                 onChange={handleCheck}
                               />
                             }
-                            label={t("Internal & Email")}
+                            label={
+                              <Typography className="text-[14px]">
+                                {t("Internal & Email")}
+                              </Typography>
+                            }
                             labelPlacement="end"
-                            style={{ color: "#888" }}
+                            style={{ color: "#888", fontSize: "14px" }}
                           />
                         </FormControl>
                         <FormControl
@@ -90,9 +94,13 @@ const SendNotifications = () => {
                                 onChange={handleCheck1}
                               />
                             }
-                            label={t("SMS Message")}
+                            label={
+                              <Typography className="text-[14px]">
+                                {t("SMS Message")}
+                              </Typography>
+                            }
                             labelPlacement="end"
-                            style={{ color: "#888" }}
+                            style={{ color: "#888", fontSize: "14px" }}
                           />
                         </FormControl>
                       </Box>
@@ -103,7 +111,7 @@ const SendNotifications = () => {
                       <Box className="flex flex-col gap-2 mt-3">
                         <Box className=" mb-3 lg:mb-0 lg:flex h-[50px] w-full justify-between">
                           <Box className="md:w-[30%]">
-                            <Typography className=" h-full flex items-center font-semibold text-textDark2 dark:text-text2 text-[16px] mb-2 capitalize">
+                            <Typography className=" h-full flex items-center text-textDark2 dark:text-text2 text-[14px] mb-2 capitalize">
                               {t(["Subject"])}
                             </Typography>
                           </Box>
@@ -117,7 +125,7 @@ const SendNotifications = () => {
                         </Box>
                         <Box className=" mt-5 lg:mb-0 lg:flex h-[50px] w-full justify-between">
                           <Box className="lg:w-[30%]">
-                            <Typography className=" h-full flex items-center font-semibold text-textDark2 dark:text-text2 text-[16px] mb-2 capitalize">
+                            <Typography className=" h-full flex items-center text-textDark2 dark:text-text2 text-[14px] mb-2 capitalize">
                               {t(["Message"])}
                             </Typography>
                           </Box>
@@ -192,7 +200,7 @@ const SendNotifications = () => {
           </Box>
         </Box>
       </Box>
-      <Box className="flex justify-between items-center gap-x-1 bg-bgLight dark:bg-[#404954] py-5 px-3 sm:px-6 rounded mt-2">
+      <Box className="flex justify-between items-center gap-x-1 bg-bgLight dark:bg-[#09183c] py-5 px-3 sm:px-6 rounded-b">
         <Link to="/notifications-archive">
           <Button
             startIcon={

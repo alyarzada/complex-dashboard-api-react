@@ -265,7 +265,7 @@ const EachNews = ({ news }) => {
             >
               <Picker
                 data={data}
-                onEmojiSelect={console.log}
+                onEmojiSelect={""}
                 previewPosition="none"
                 theme={light ? "light" : "dark"}
               />

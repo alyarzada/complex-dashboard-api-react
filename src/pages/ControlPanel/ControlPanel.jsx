@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 import { ReactSortable } from "react-sortablejs";
 import { reOrderMenus } from "../../app/Slicers/data";
 import { destroyModal } from "../../app/Slicers/modals";
@@ -17,6 +17,7 @@ import ControlPanelInvoice from "./ControlPanelInvoice";
 import ControlPanelStatus from "./ControlPanelStatus";
 import ControlPanelRequests from "./ControlPanelRequests";
 import ControlPanelRequestsArchive from "./ControlPanelRequestsArchive";
+import Piechart from "../../components/UI/Charts/PieChart";
 
 const ControlPanel = () => {
   useScrollToUp();
@@ -45,6 +46,14 @@ const ControlPanel = () => {
         </Typography>
       </Box>
       {role_id === 8 ? <ControlPanelInvoice /> : null}
+
+      {role_id === 2 ? (
+        <Stack direction="row">
+          <Piechart />
+          <Piechart />
+        </Stack>
+      ) : null}
+
       <ReactSortable
         list={controlPanel.map((menu) => ({ ...menu, chosen: true }))}
         setList={(newState) => dispatch(reOrderMenus(newState))}

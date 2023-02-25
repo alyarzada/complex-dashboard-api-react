@@ -58,15 +58,20 @@ import Apartments from "../pages/Apartment/Apartments";
 import Building from "../pages/Apartment/Building";
 import Residents from "../pages/Apartment/Residents";
 import GroupOfApartments from "../pages/Apartment/GroupOfApartments";
+import GroupOfApartmentsCreate from "../pages/Apartment/GroupOfApartmentsCreate";
 import Employees from "../pages/Apartment/Employees";
+import EmployeesCreate from "../pages/Apartment/EmployeesCreate";
 import HousingCooperative from "../pages/Apartment/HousingCooperative";
+import HousingCooperativeCreate from "../pages/Apartment/HousingCooperativeCreate";
 import Complex from "../pages/Apartment/Complex";
+import ComplexCreate from "../pages/Apartment/ComplexCreate";
 import MTKUserCreate from "../pages/Apartment/MTKUserCreate/MTKUserCreate";
 import MenuCategories from "../pages/Restaurant/Admin/MenuCategories";
 import MenuNewCreate from "../pages/Restaurant/Admin/MenuNewCreate";
 import RestaurantMenu from "../pages/Restaurant/Admin/RestaurantMenu";
 import MenuCreate from "../pages/Restaurant/Admin/MenuCreate";
 import RestaurantOrders from "../pages/Restaurant/Admin/RestaurantOrders";
+import InvoiceBill from "../pages/MyInvoices/InvoiceBill";
 
 const routes = [
   {
@@ -242,7 +247,7 @@ const routes = [
         element: <AddApartment />,
       },
       {
-        path: "mtk-users",
+        path: "hc-users",
         element: <MTKUsers />,
       },
       {
@@ -270,12 +275,28 @@ const routes = [
         element: <Complex />,
       },
       {
+        path: "complex",
+        element: <Complex />,
+      },
+      {
+        path: "complex/create",
+        element: <ComplexCreate />,
+      },
+      {
         path: "housing-cooperative",
         element: <HousingCooperative />,
       },
       {
+        path: "housing-cooperative/create",
+        element: <HousingCooperativeCreate />,
+      },
+      {
         path: "employees",
         element: <Employees />,
+      },
+      {
+        path: "employees/create",
+        element: <EmployeesCreate />,
       },
       {
         path: "building",
@@ -284,6 +305,10 @@ const routes = [
       {
         path: "group-of-apartments",
         element: <GroupOfApartments />,
+      },
+      {
+        path: "group-of-apartments/create",
+        element: <GroupOfApartmentsCreate />,
       },
       {
         path: "residents",
