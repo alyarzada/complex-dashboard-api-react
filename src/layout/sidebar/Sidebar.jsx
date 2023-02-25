@@ -19,6 +19,8 @@ const SideBar = () => {
   } = useSelector((state) => state.auth);
   const { t } = useTranslation();
 
+  console.log(sidebar)
+
   const months = [
     t(["January"]),
     t(["February"]),

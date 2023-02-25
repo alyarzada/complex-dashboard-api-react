@@ -7,7 +7,7 @@ import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import AndroidOutlinedIcon from "@mui/icons-material/AndroidOutlined";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import AppleIcon from "@mui/icons-material/Apple";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import EastIcon from "@mui/icons-material/East";
 import { IconButton } from "@mui/material";
 
@@ -142,10 +142,8 @@ const EachPanel = ({
             className={`imgscale z-30 w-[27%] sm:w-[44%] xmd:w-[27%] xxl:w-[34%] exl:w-[24%] rounded-[50%] group-hover:border group-hover:border-black transition-all duration-1000 p-2 ${
               role_id === 4 && "bg-bgLight dark:bg-logoColor"
             }`}
-            
-           
             // effect='blur'
-            
+
             src={img}
             alt="image"
             style={{ border: role_id === 4 ? "2px solid #C9B26D" : "none" }}

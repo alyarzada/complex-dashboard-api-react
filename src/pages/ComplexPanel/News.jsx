@@ -9,6 +9,7 @@ import SentimentSatisfiedAltOutlinedIcon from "@mui/icons-material/SentimentSati
 import { Formik, Form } from "formik";
 import { useTranslation } from "react-i18next";
 import EachNews from "./EachNews";
+import { useTranslation } from "react-i18next";
 
 const variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },

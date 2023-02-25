@@ -67,7 +67,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "dev": "PORT=3015 react-scripts start",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

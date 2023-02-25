@@ -10,6 +10,7 @@ import Payment from "../pages/MyInvoices/Payment";
 
 // children components
 import ComplexPanel from "../pages/ComplexPanel/ComplexPanel";
+import ComplexSelect from "../pages/ComplexSelect/ComplexSelect";
 import CalendarPage from "../pages/FullCalendar/CalendarPage";
 import Profile from "../pages/Profile/Profile";
 import Notifications from "../pages/Notifications/Notifications";
@@ -59,6 +60,7 @@ import TaskCreate from "../pages/Tasks/TaskCreate";
 import Apartments from "../pages/Apartment/Apartments";
 import Building from "../pages/Apartment/Building";
 import Residents from "../pages/Apartment/Residents";
+import ResidentsCreate from "../pages/Apartment/ResidentsCreate";
 import GroupOfApartments from "../pages/Apartment/GroupOfApartments";
 import GroupOfApartmentsCreate from "../pages/Apartment/GroupOfApartmentsCreate";
 import Employees from "../pages/Apartment/Employees";
@@ -317,6 +319,10 @@ const routes = [
         element: <Residents />,
       },
       {
+        path: "residents/create",
+        element: <ResidentsCreate />,
+      },
+      {
         path: "mtk-users/create",
         element: <MTKUserCreate />,
       },
@@ -355,6 +361,10 @@ const routes = [
       {
         path: "/informing-residents",
         element: <SendNotifications />,
+      },
+      {
+        path: "/complex-select",
+        element: <ComplexSelect />,
       },
     ],
   },
