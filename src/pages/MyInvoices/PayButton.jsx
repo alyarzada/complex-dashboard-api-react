@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import BackButton from "../../components/UI/Buttons/BackButton";
+import InvoicesPayButton from "../../components/UI/Buttons/InvoicesPayButton";
 
 const PayButton = ({ params, children }) => {
   const navigate = useNavigate();
@@ -10,14 +10,14 @@ const PayButton = ({ params, children }) => {
   };
 
   return (
-    <BackButton
-      variant="outlined"
+    <InvoicesPayButton
+      variant="contained"
       onClick={() => {
         clickHandler();
       }}
     >
       {children}
-    </BackButton>
+    </InvoicesPayButton>
   );
 };
 

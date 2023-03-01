@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setModal } from "../../app/Slicers/modals";
 import { getSelectedInvoices } from "../../app/Slicers/invoices";
 import DefaultButton from "../../components/UI/Buttons/DefaultButton";
+import HoverLogoButton from "../../components/UI/Buttons/HoverLogoButton";
 import CustomDataGrid from "../../components/UI/CustomDataGrid";
 
 export const Services = ({ params }) => {
@@ -182,22 +183,22 @@ const Myİnvoices = () => {
           spacing={2}
         >
           <Stack direction={{ sm: "row", xs: "column" }} spacing={2}>
-            <DefaultButton
-              variant="contained"
+            <HoverLogoButton
+              variant="outlined"
               onClick={() => navigate("/myinvoice")}
             >
               {t(["Current invoices"])}
-            </DefaultButton>
-            <DefaultButton variant="outlined">
+            </HoverLogoButton>
+            <HoverLogoButton variant="outlined">
               {t(["Paid invoices"])}
-            </DefaultButton>
+            </HoverLogoButton>
           </Stack>
-          <DefaultButton
-            variant="contained"
+          <HoverLogoButton
+            variant="outlined"
             onClick={() => navigate("/myinvoice/payment")}
           >
             {t(["Pay selected invoices"])}
-          </DefaultButton>
+          </HoverLogoButton>
         </Stack>
 
         <Box className="px-6 mt-3" style={{ width: "100%" }}>
