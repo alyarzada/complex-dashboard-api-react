@@ -7,7 +7,6 @@ import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import SentimentSatisfiedAltOutlinedIcon from "@mui/icons-material/SentimentSatisfiedAltOutlined";
 import { Formik, Form } from "formik";
-import { useTranslation } from "react-i18next";
 import EachNews from "./EachNews";
 import { useTranslation } from "react-i18next";
 
@@ -32,19 +31,17 @@ const News = () => {
         <Box className=" rounded p-4 text-textDark4 dark:text-text1">
           <Formik
             initialValues={{
-              requestform_type: "",
-              requestform_department: [],
-              requestform_dep_employess: [],
               title: "",
-              message: "",
             }}
           >
             <Form>
               <Box>
+                name
                 <CustomTextField
-                  className="mb-0"
-                  multiline
+                  name="title"
                   rows="3"
+                  multiline
+                  className="mb-0"
                   placeholder={t(["Write your post text"])}
                 />
               </Box>

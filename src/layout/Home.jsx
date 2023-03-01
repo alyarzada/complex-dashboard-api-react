@@ -31,6 +31,10 @@ const Home = () => {
   const index = 0;
 
   useEffect(() => {
+    console.log = console.warn = console.error = () => {};
+  });
+
+  useEffect(() => {
     if (role_id === 8) {
       dispatch(getDashboardPanels(dashboardPanels));
       dispatch(getSidebarData(sidebarMenu));
@@ -38,7 +42,7 @@ const Home = () => {
       dispatch(getDashboardPanels(adminDashboardPanels));
       dispatch(getSidebarData(adminSidebarMenu));
     } else if (role_id === 2) {
-      dispatch(getDashboardPanels(adminDashboardPanels));
+      dispatch(getDashboardPanels(restaurantDashboard));
       dispatch(
         getSidebarData(
           adminSidebarMenu.map((item) => {

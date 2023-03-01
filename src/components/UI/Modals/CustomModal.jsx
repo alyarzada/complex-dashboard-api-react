@@ -29,7 +29,6 @@ const dropIn = {
 
 const CustomModal = (
   { children, title, handleClose, className, status, changeStatus },
-  props,
   ref
 ) => {
   const { t } = useTranslation();

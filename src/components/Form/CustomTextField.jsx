@@ -16,7 +16,6 @@ const CustomTextField = ({
   masseur,
   readyAnswer,
   adornments,
-  endAdornmentIcon,
   ...props
 }) => {
   const [field, meta, helpers] = useField(props);
@@ -46,35 +45,29 @@ const CustomTextField = ({
           multiline={multiline}
           label={label}
           value={readyAnswer && readyAnswer}
-          // error={meta.error && meta.touched}
+          error={meta.error && meta.touched}
           onChange={(e) =>
             number
               ? helpers.setValue(Number(e.target.value))
               : helpers.setValue(e.target.value)
           }
-          // InputLabelProps={{
-          //   style: { transform: "translateY(9.5px)" },
-          // }}
-          
           sx={{
             "& .MuiInputBase-input": {
-              height: "40px",
+              height: "50px",
             },
           }}
-          size="small"
           type={adornments ? (showPassword ? "text" : "password") : "text"}
           InputProps={
             adornments
               ? {
                   endAdornment: (
                     <InputAdornment position="end">
-                      {/* <IconButton
+                      <IconButton
                         aria-label="toggle password visibility"
                         onClick={() => setShowPassword((show) => !show)}
                       >
                         {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton> */}
-                      {endAdornmentIcon}
+                      </IconButton>
                     </InputAdornment>
                   ),
                 }
@@ -97,11 +90,11 @@ const CustomTextField = ({
                   ? helpers.setValue(Number(e.target.value))
                   : helpers.setValue(e.target.value)
               }
-                // sx={{
-                //   "& .MuiInputBase-input": {
-                //     height: "40px",
-                //   },
-                // }}
+              sx={{
+                "& .MuiInputBase-input": {
+                  height: "50px",
+                },
+              }}
               {...props}
               {...inputProps}
             />

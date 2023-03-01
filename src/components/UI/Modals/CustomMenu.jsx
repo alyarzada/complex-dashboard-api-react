@@ -27,13 +27,10 @@ const CustomMenu = forwardRef(
 
     useEffect(() => {
       const handleMenu = (e) => {
-        console.log(e.composedPath());
-
         if (
           !e?.composedPath()?.includes(menuRef.current) &&
           !e?.composedPath()?.includes(ref.current)
         ) {
-          console.log("diownmldkw");
           setOpenMenu(false);
         }
       };

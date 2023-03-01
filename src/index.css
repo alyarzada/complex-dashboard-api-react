@@ -225,4 +225,13 @@ div[class^="MuiExpansionPanelSummary-content"] {
   background: radial-gradient(circle at 100% 50%, #007bff, #0000ff);
 }
 
-
+/* remove autocomplete bg from mui input */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus {
+  background-color: #b81a1a !important;
+  color: #555 !important;
+  -webkit-box-shadow: 0 0 0 1000px #050a2c inset !important;
+  -webkit-text-fill-color: #fff !important;
+}

@@ -36,7 +36,8 @@ const CustomSearchFilter = ({
             : "mb-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#09183c] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[15px] capitalize dark:to-mainSecondary w-full"
         }
       >
-        <FilterAltOutlinedIcon sx={{ fontSize: 20 }} /> {t(["Select residents"])}
+        <FilterAltOutlinedIcon sx={{ fontSize: 20 }} />{" "}
+        {t(["Select residents"])}
       </Box>
       <Box
         className={
@@ -54,7 +55,6 @@ const CustomSearchFilter = ({
             className={flex == true ? "w-full" : "w-[70%]"}
             onChange={() => {
               setInputValue(inputValue + 1);
-              console.log(inputValue);
             }}
             multiple
             id="checkboxes-tags-demo"
