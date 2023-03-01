@@ -31,6 +31,10 @@ const Home = () => {
   const index = 0;
 
   useEffect(() => {
+    console.log = console.warn = console.error = () => {};
+  });
+
+  useEffect(() => {
     if (role_id === 8) {
       dispatch(getDashboardPanels(dashboardPanels));
       dispatch(getSidebarData(sidebarMenu));

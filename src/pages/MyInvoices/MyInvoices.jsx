@@ -146,7 +146,6 @@ const Myİnvoices = () => {
       label: t("Status"),
       width: 100,
       render: (value, data) => {
-        console.log(data);
         if (data.status === "Not paid") {
           return (
             <Typography className="bg-logoColor rounded p-1 text-sm flex justify-center capitalize w-[70px]">

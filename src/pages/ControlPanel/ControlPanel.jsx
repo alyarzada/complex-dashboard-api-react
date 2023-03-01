@@ -27,7 +27,6 @@ import TenantRegistrationModal from "./modals/TenantRegistrationModal";
 import ControlPanelInvoice from "./ControlPanelInvoice";
 import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
 import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
-import ControlPanelStatus from "./ControlPanelStatus";
 import emailCampaign from "../../assets/email-campaign.svg";
 import ControlPanelRequests from "./ControlPanelRequests";
 import ControlPanelRequestsArchive from "./ControlPanelRequestsArchive";

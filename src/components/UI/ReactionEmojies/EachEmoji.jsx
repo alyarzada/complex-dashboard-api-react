@@ -27,10 +27,6 @@ const EachEmoji = ({ name, id, image, children }) => {
   const dispatch = useDispatch();
   const { emoji } = useSelector((state) => state.emojies);
 
-  useEffect(() => {
-    console.log(emoji);
-  }, [emoji]);
-
   return (
     <motion.div variants={list}>
       <Box

@@ -1,10 +1,16 @@
 const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+	require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 module.exports = function () {
-  return {
-    webpack: {
-      plugins: [new BundleAnalyzerPlugin({ analyzerMode: "server" })],
-    },
-  };
+	return {
+		webpack: {
+			plugins: [
+				new WebpackBar(),
+				new LodashModuleReplacementPlugin(),
+				new BundleAnalyzerPlugin(),
+			],
+		},
+	};
 };

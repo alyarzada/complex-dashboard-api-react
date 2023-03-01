@@ -8,17 +8,17 @@ import {
   Stack,
   ListItemText,
 } from "@mui/material";
-import Body from "./Body";
-import { useSelector, useDispatch } from "react-redux";
-import portBakuImg from "../../assets/port-baku-residence_16406207114647.jpg";
-import { useScrollToUp } from "../../hooks/useScrollToUp";
-import portBakuImage from "../../assets/logo/port-baku_image.jpg";
-import portBakuAzerbaijan from "../../assets/logo/port-baku_azerbaijan.jpg";
-import Header from "../../components/UI/Header";
 import { useTranslation } from "react-i18next";
-import { setModal } from "../../app/Slicers/modals";
+import { useSelector, useDispatch } from "react-redux";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
+import Body from "./Body";
+import Header from "../../components/UI/Header";
+import { setModal } from "../../app/Slicers/modals";
+import { useScrollToUp } from "../../hooks/useScrollToUp";
+import portBakuImg from "../../assets/port-baku-residence_16406207114647.jpg";
+import portBakuImage from "../../assets/logo/port-baku_image.jpg";
+import portBakuAzerbaijan from "../../assets/logo/port-baku_azerbaijan.jpg";
 
 const ComplexPanel = () => {
   useScrollToUp();
@@ -132,7 +132,7 @@ const ComplexPanel = () => {
                   <img
                     className="rounded-t w-full object-fit h-full"
                     src={portBakuImage}
-                    alt="port-baku-image"
+                    alt="port-baku"
                   />
                 </Box>
 
@@ -261,7 +261,7 @@ const ComplexPanel = () => {
                       className="text-textDark2 dark:text-text1"
                       primary={t("Total comments")}
                     />
-                   {/* <Typography className="bg-logoColor rounded text-sm text-white text-center w-[25px]">
+                    {/* <Typography className="bg-logoColor rounded text-sm text-white text-center w-[25px]">
                       {news.reduce(
                         (acc, item) => item.comments.length + acc,
                         0

@@ -61,8 +61,6 @@ const Profile = () => {
     },
   ];
 
-  console.log(gender);
-
   const reverseBirthday = (birthdayDate) => {
     return format(new Date(birthdayDate), "dd/MM/yyyy");
   };

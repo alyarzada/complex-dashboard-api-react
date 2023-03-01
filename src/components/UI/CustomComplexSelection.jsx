@@ -51,7 +51,6 @@ const CustomSearchFilter = ({
             className={flex == true ? "w-full" : "w-[70%]"}
             onChange={() => {
               setInputValue(inputValue + 1);
-              console.log(inputValue);
             }}
             multiple
             id="checkboxes-tags-demo"

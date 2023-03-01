@@ -1,23 +1,22 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setOpenedSidebar,
-  setSideabarSubmenu,
   toggleSidebarSubmenu,
 } from "../../app/Slicers/themes";
 import { useMediaQuery, Box } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SubSidebarItem from "./SubSidebarItem";
-import { QrCodeScannerOutlined } from "@mui/icons-material";
 
 const SidebarItem = ({ sidebarItem, Icon }) => {
   const { openedSidebar, sidebarSubmenu } = useSelector(
     (state) => state.themes
   );
   const [linksHeight, setLinksHeight] = useState("");
+  const activeStyle = { backgroundColor: "#c9b26d", color: "white" };
 
   const matches = useMediaQuery("(max-width:768px)");
   const dispatch = useDispatch();
@@ -25,41 +24,34 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
   const linksContainerRef = useRef(null);
   const { t } = useTranslation();
 
-  // console.log(sidebarSubmenu);
-  // console.log(typeof sidebarItem.id);
-
-  console.log(sidebarSubmenu);
-
   useEffect(() => {
     if (sidebarItem.sublist) {
       const linksHeight = linksRef.current.getBoundingClientRect().height;
       if (sidebarSubmenu.open && sidebarSubmenu.id == sidebarItem.id) {
         linksContainerRef.current.style.height = `${linksHeight}px`;
       } else {
-        console.log(sidebarSubmenu.open);
-
         linksContainerRef.current.style.height = "0px";
       }
     }
   }, [sidebarSubmenu]);
 
   return (
-    <li className={`text-gray-400 ${!openedSidebar && "group relative"}`}>
-      <Link
+    <li className={`${!openedSidebar && "group relative"}`}>
+      <NavLink
+        style={({ isActive }) =>
+          isActive && sidebarItem.path ? activeStyle : undefined
+        }
         to={sidebarItem.path ? sidebarItem.path : ""}
         onClick={(e) => {
           if (!sidebarItem.path) {
             e.preventDefault();
             dispatch(toggleSidebarSubmenu(sidebarItem.id));
           } else {
-            console.log("fucke");
             matches && dispatch(setOpenedSidebar());
           }
         }}
-        className={`hover:text-text1 group flex gap-x-3 shrink-0 flex-nowrap basis-0 whitespace-nowrap items-center py-3  ${
-          openedSidebar
-            ? "text-text2 hover-effect rounded w-[90%] mx-auto px-4"
-            : "relative px-7"
+        className={`group text-text1 flex gap-x-3 shrink-0 flex-nowrap basis-0 whitespace-nowrap items-center py-3  ${
+          openedSidebar ? "rounded w-[90%] mx-auto px-4" : "relative px-7"
         }`}
       >
         <Icon className="w-[20px] group-hover:text-white" />
@@ -86,7 +78,7 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
             {t(sidebarItem.title)}
           </Box>
         ) : null}
-      </Link>
+      </NavLink>
       {sidebarItem.sublist ? (
         <Box
           ref={linksContainerRef}
