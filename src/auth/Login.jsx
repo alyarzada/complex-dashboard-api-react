@@ -15,7 +15,7 @@ const LoginPage = () => {
           alt="port-baku-img"
         />
       </Box>
-      <Box className="lg:w-[450px] w-full h-screen flex flex-col items-center justify-center relative p-8">
+      <Box className="lg:w-[450px] w-full bg-bgMain h-screen flex flex-col items-center justify-center relative p-8">
         <LoginTabPanel />
         <Box className=" hidden lg:flex justify-between items-center relative z-10">
           <img className="w-1/4" src={androidIcon} alt="android" />
@@ -23,6 +23,7 @@ const LoginPage = () => {
           <img className="w-1/4" src={iosIcon} alt="ios" />
         </Box>
       </Box>
+
       <Box className="flex-1 h-full">
         <img
           className="w-full h-full object-cover object-top block"

@@ -96,7 +96,7 @@ const EmojiesContainer = () => {
           >
             {emojies.map((emoji) => (
               <EachEmoji key={emoji.id} {...emoji}>
-                {emoji.emoji}
+                {emoji.image}
               </EachEmoji>
             ))}
           </motion.div>

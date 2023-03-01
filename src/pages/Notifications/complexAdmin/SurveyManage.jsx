@@ -106,7 +106,6 @@ const SurveyManage = () => {
     else setTableRows(100);
   };
 
-  console.log(tableRows);
   return (
     <Box className="w-full">
       <Header

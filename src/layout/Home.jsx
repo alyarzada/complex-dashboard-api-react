@@ -31,6 +31,10 @@ const Home = () => {
   const index = 0;
 
   useEffect(() => {
+    console.log = console.warn = console.error = () => {};
+  });
+
+  useEffect(() => {
     if (role_id === 8) {
       dispatch(getDashboardPanels(dashboardPanels));
       dispatch(getSidebarData(sidebarMenu));
@@ -40,16 +44,18 @@ const Home = () => {
     } else if (role_id === 2) {
       dispatch(getDashboardPanels(restaurantDashboard));
       dispatch(
-        getSidebarData([
-          ...adminSidebarMenu.slice(0, index + 1),
-          {
-            id: 20,
-            title: "Flash Reports",
-            icon: SignalCellularAltIcon,
-            path: "/",
-          },
-          ...adminSidebarMenu.slice(index + 1),
-        ])
+        getSidebarData(
+          adminSidebarMenu.map((item) => {
+            if (item.title === "Complex Wall") {
+              return {
+                ...item,
+                path: "/complex-select",
+              };
+            }
+
+            return item;
+          })
+        )
       );
     } else if (role_id === 9) {
       dispatch(getDashboardPanels(restaurantDashboard));

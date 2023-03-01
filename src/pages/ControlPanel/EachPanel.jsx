@@ -7,7 +7,7 @@ import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import AndroidOutlinedIcon from "@mui/icons-material/AndroidOutlined";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import AppleIcon from "@mui/icons-material/Apple";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import EastIcon from "@mui/icons-material/East";
 import { IconButton } from "@mui/material";
 
@@ -71,7 +71,7 @@ const EachPanel = ({
               <Typography className="z-30 text-[#8391a2] font-bold group-hover:text-black transition-all duration-1000">
                 {t(title)}
               </Typography>
-              <IconButton className={`z-30 ${color} `}>{img}</IconButton>
+              <IconButton className={`z-30 ${color}`}>{img}</IconButton>
             </Stack>
             <Box>
               <Typography className="mb-4 font-[800] text-[1.5rem] text-[tex1] relative z-30 group-hover:text-black transition-all duration-1000">
@@ -142,10 +142,8 @@ const EachPanel = ({
             className={`imgscale z-30 w-[27%] sm:w-[44%] xmd:w-[27%] xxl:w-[34%] exl:w-[24%] rounded-[50%] group-hover:border group-hover:border-black transition-all duration-1000 p-2 ${
               role_id === 4 && "bg-bgLight dark:bg-logoColor"
             }`}
-            
-           
             // effect='blur'
-            
+
             src={img}
             alt="image"
             style={{ border: role_id === 4 ? "2px solid #C9B26D" : "none" }}

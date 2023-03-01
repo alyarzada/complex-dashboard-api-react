@@ -119,10 +119,6 @@ const RequestDetails = () => {
               files: files,
             }}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              console.log({
-                ...values,
-                files: files,
-              });
               setSubmitting(false);
               // dispatch(
               //   sendRequestComment({

@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
@@ -27,7 +26,7 @@ const SubSidebarItem = ({ sublistItem }) => {
         }}
         className={`${
           openedSidebar
-            ? "px-4 group mx-auto w-[90%] hover-effect rounded hover:text-white"
+            ? "px-4 group mx-auto w-[90%]  rounded hover:text-white"
             : "w-[140px] pl-[3px]"
         } py-2 flex justify-between cursor-pointer`}
       >
@@ -43,4 +42,4 @@ const SubSidebarItem = ({ sublistItem }) => {
   );
 };
 
-export default forwardRef(SubSidebarItem);
+export default SubSidebarItem;

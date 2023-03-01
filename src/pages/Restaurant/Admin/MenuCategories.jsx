@@ -1,23 +1,13 @@
 import React from "react";
-import {  useState } from "react";
-import {  useDispatch } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import CustomDataGrid from "../../../components/UI/CustomDataGrid";
-import {
-  Box,
-  Stack,
-  Typography,
-  Button,
-  Input,
-} from "@mui/material";
+import { Box, Stack, Typography, Button, Input } from "@mui/material";
 import Header from "../../../components/UI/Header";
 import { Link } from "react-router-dom";
 import IndeterminateCheckBoxOutlinedIcon from "@mui/icons-material/IndeterminateCheckBoxOutlined";
 import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
-
-
-
-
 
 const MenuCategories = () => {
   const [tableRows, setTableRows] = useState(10);
@@ -25,20 +15,17 @@ const MenuCategories = () => {
   const [selectionModel, setSelectionModel] = useState([]);
   const { t } = useTranslation();
 
-
-
   const columns = [
     {
       field: "category",
       headerName: t("Category"),
       width: 200,
-      flex:1,
+      flex: 1,
     },
     {
       field: "action",
       headerName: t("Action"),
       width: 200,
-      
     },
   ];
 
@@ -54,7 +41,7 @@ const MenuCategories = () => {
           icon: IndeterminateCheckBoxOutlinedIcon,
         }}
       />
-      <Box className="py-6 px-6 my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="py-6 px-6 my-4 rounded bg-bgLight drop-shadow-lg dark:bg-bgMain w-full">
         <Box className="flex justify-end w-full">
           <Link to="/menunewcreate">
             <Button
@@ -85,9 +72,8 @@ const MenuCategories = () => {
             </Typography>
           </Box>
         </Stack>
-        <CustomDataGrid rows={[]} desktopColumns={columns} width={1170}  />
+        <CustomDataGrid rows={[]} desktopColumns={columns} width={1170} />
       </Box>
-
     </div>
   );
 };

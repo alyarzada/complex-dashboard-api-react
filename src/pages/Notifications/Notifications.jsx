@@ -25,13 +25,19 @@ import {
   getAllNotifications,
   deleteNotifications,
 } from "../../app/Slicers/notifications";
+import MarkAsUnreadOutlinedIcon from "@mui/icons-material/MarkAsUnreadOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import NotificationType from "./NotificationType";
 import NotificationSubject from "./NotificationSubject";
 import CustomDataGrid from "../../components/UI/CustomDataGrid";
 
-import DraftsOutlinedIcon from "@mui/icons-material/DraftsOutlined";
-import MarkunreadOutlinedIcon from "@mui/icons-material/MarkunreadOutlined";
+import MarkChatReadOutlinedIcon from "@mui/icons-material/MarkChatReadOutlined";
+import MarkunreadOutlinedIcon from '@mui/icons-material/MarkunreadOutlined';
+import DraftsOutlinedIcon from '@mui/icons-material/DraftsOutlined';
+import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
+
+import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlined";
+import MarkUnreadChatAltOutlinedIcon from "@mui/icons-material/MarkUnreadChatAltOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Cookies from "js-cookie";
@@ -172,7 +178,7 @@ const Notifications = () => {
           icon: NotificationsOutlinedIcon,
         }}
       />
-      <Box className="py-6 px-6 my-4 rounded bg-bgLight dark:bg-bgMain  drop-shadow-lg w-full">
+      <Box className="py-6 px-6  rounded bg-bgLight dark:bg-bgMain  drop-shadow-lg w-full">
         <Stack
           justifyContent="space-between"
           alignItems="center"
@@ -205,34 +211,43 @@ const Notifications = () => {
                 setOpenMenu={setOpenMenu}
               >
                 <MenuItem>
-                  <Link to="/profile">{t("Oxunmuş kimi qeyd edin")}</Link>
+                  <Link to="/profile">
+                  <MarkAsUnreadOutlinedIcon className="mr-2" />
+                    {t("Oxundu kimi qeyd edin")}
+                  </Link>
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
                 >
-                  {t("Oxunmamış kimi qeyd edin")}
+                  <MarkEmailReadOutlinedIcon className="mr-2" />
+                
+                  {t("Oxunulmayıb kimi qeyd edin")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
                 >
-                  {t("Oxunmuşlara baxın")}
+                  <DraftsOutlinedIcon className="mr-2"/>
+                  
+                  {t("Oxunanlara baxın")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
                 >
-                  {t("Oxunmamışlara baxın")}
+                    <MarkunreadOutlinedIcon className="mr-2" />
+                  {t("Oxunmayanlara baxın")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
                 >
+                  <DeleteForeverOutlinedIcon className="mr-2" />
                   {t("Seçilmişləri silin")}
                 </MenuItem>
               </CustomMenu>

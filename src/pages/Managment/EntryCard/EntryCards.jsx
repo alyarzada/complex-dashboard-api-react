@@ -14,11 +14,16 @@ import CustomDataGrid from "../../../components/UI/CustomDataGrid";
 import { Link } from "react-router-dom";
 
 const EntryCards = () => {
-  const { entryCards } = useSelector((state) => state.entryCards);
-
-  const { t } = useTranslation();
-  const navigate = useNavigate();
   useScrollToUp();
+  const { entryCards } = useSelector((state) => state.entryCards);
+  const { t } = useTranslation();
+  const {
+    user: {
+      has_role: { role_id },
+    },
+  } = useSelector((state) => state.auth);
+
+  const navigate = useNavigate();
 
   const columns = [
     { field: "type", headerName: t("Type"), width: 250 },
@@ -37,6 +42,7 @@ const EntryCards = () => {
       renderCell: (params) => <ActionButtons {...{ params }} />,
     },
   ];
+
   const mobileColumns = [
     {
       key: "name",
@@ -97,9 +103,9 @@ const EntryCards = () => {
         currentPage={{ title: "Access card", icon: CreditCardOutlinedIcon }}
       />
 
-      <Box className="my-4 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
+      <Box className="rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="py-4 px-6">
-          <CustomSearchFilter />
+          {role_id === 2 || role_id === 4 ? <CustomSearchFilter /> : null}
           <Box className="flex flex-col mb-6 sm:flex-row justify-end gap-3 pt-6">
             <DefaultButton
               variant="contained"

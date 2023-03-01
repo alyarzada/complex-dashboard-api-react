@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setOpenedSidebar,
-  setSideabarSubmenu,
   toggleSidebarSubmenu,
 } from "../../app/Slicers/themes";
 import { useMediaQuery, Box } from "@mui/material";
@@ -25,19 +24,12 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
   const linksContainerRef = useRef(null);
   const { t } = useTranslation();
 
-  // console.log(sidebarSubmenu);
-  // console.log(typeof sidebarItem.id);
-
-  console.log(sidebarSubmenu);
-
   useEffect(() => {
     if (sidebarItem.sublist) {
       const linksHeight = linksRef.current.getBoundingClientRect().height;
       if (sidebarSubmenu.open && sidebarSubmenu.id == sidebarItem.id) {
         linksContainerRef.current.style.height = `${linksHeight}px`;
       } else {
-        console.log(sidebarSubmenu.open);
-
         linksContainerRef.current.style.height = "0px";
       }
     }
@@ -52,13 +44,12 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
             e.preventDefault();
             dispatch(toggleSidebarSubmenu(sidebarItem.id));
           } else {
-            console.log("fucke");
             matches && dispatch(setOpenedSidebar());
           }
         }}
         className={`hover:text-text1 group flex gap-x-3 shrink-0 flex-nowrap basis-0 whitespace-nowrap items-center py-3  ${
           openedSidebar
-            ? "text-text2 hover-effect rounded w-[90%] mx-auto px-4"
+            ? "text-text2 rounded w-[90%] mx-auto px-4"
             : "relative px-7"
         }`}
       >

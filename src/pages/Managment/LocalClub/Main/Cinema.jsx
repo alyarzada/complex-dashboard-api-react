@@ -383,7 +383,7 @@ const Cinema = () => {
       <Header currentPage={{ title: "Cinema", icon: MovieIcon }} />
 
       <Box className="rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
-        <Box className="py-6 px-6 my-4">
+        <Box className="py-6 px-6 ">
           <Box className="flex justify-end mb-6">
             <DefaultButton
               startIcon={<AddCircleOutlineOutlinedIcon />}

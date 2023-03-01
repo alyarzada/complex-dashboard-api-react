@@ -121,6 +121,7 @@ const Payment = () => {
               desktopColumns={columns}
               mobileColumns={mobileColumns}
               rows={selectedInvoices.map((item) => ({
+                
                 id: item.id,
                 service: item.service,
                 amount: item.amount + " " + "AZN",
