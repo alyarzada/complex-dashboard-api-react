@@ -1,13 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
-import {
-  Box,
-  Typography,
-  Pagination,
-  useMediaQuery,
-  Stack,
-} from "@mui/material";
+import { Box, Pagination, useMediaQuery, Stack } from "@mui/material";
 import {
   DataGrid,
   gridPageCountSelector,
@@ -39,6 +33,9 @@ const CustomDataGrid = ({
   status,
   rows,
   pageSize = 20,
+  disableColumnFilter = true,
+  disableColumnSelector = true,
+  disableColumnMenu = true,
   ...props
 }) => {
   const [paginationPage, setPaginationPage] = useState(1);
@@ -71,6 +68,9 @@ const CustomDataGrid = ({
             rowsPerPageOptions={[7]}
             loading={status === "loading"}
             autoHeight
+            disableColumnFilter={disableColumnFilter}
+            disableColumnSelector={disableColumnSelector}
+            disableColumnMenu={disableColumnMenu}
             components={{
               Pagination: CustomPagination,
             }}

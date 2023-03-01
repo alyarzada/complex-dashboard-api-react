@@ -137,39 +137,3 @@
     width: 190px;
   }
 }
-
-.active {
-  background-color: red !important;
-}
-
-/* .hover-effect {
-  position: relative;
-}
-
-.hover-effect::after {
-  background: transparent;
-  border-radius: 0.4rem;
-  content: "";
-  display: block;
-  height: 100%;
-  width: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transform-origin: top left;
-  will-change: transform;
-  z-index: -1;
-} */
-
-/* .hover-effect:hover::after {
-  background: #c9b26d;
-
-  width: 100%;
-  opacity: 1;
-  transition: 0.3s all ease-out;
-}
-
-.hover-effect:hover {
-  color: whitesmoke;
-} */

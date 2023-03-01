@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
 import { setOpenedSidebar, setSideabarSubmenu } from "../../app/Slicers/themes";
@@ -12,10 +12,12 @@ const SubSidebarItem = ({ sublistItem }) => {
   const { t } = useTranslation();
   const matches = useMediaQuery("(max-width:768px)");
   const dispatch = useDispatch();
+  const activeStyle = { backgroundColor: "#c9b26d", color: "white" };
 
   return (
-    <li className="relative">
-      <Link
+    <li className="relative text-white">
+      <NavLink
+        style={({ isActive }) => (isActive ? activeStyle : undefined)}
         to={sublistItem.path ? sublistItem.path : ""}
         onClick={(e) => {
           if (!sublistItem.path) {
@@ -37,7 +39,7 @@ const SubSidebarItem = ({ sublistItem }) => {
         >
           {t(sublistItem.title)}
         </span>
-      </Link>
+      </NavLink>
     </li>
   );
 };
