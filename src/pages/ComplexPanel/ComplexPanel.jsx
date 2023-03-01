@@ -126,7 +126,7 @@ const ComplexPanel = () => {
         />
         <Box>
           <Box className="rounded mb-6">
-            <Box className="flex gap-[10px] p-[10px] h-[100%] flex-col lg:flex-row">
+            <Box className="flex gap-[10px] h-[100%] flex-col lg:flex-row">
               <Box className="w-full lg:w-[70%]">
                 <Box className="w-[100%] h-[284px]">
                   <img

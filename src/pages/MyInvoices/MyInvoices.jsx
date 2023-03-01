@@ -102,7 +102,7 @@ const Myİnvoices = () => {
       headerAlign: "center",
       renderCell: (params) => (
         <Typography className="bg-logoColor rounded p-1 text-sm">
-          {t(params.row.status)}
+          {t(params.row.status)}  
         </Typography>
       ),
       flex: 1,
@@ -175,7 +175,7 @@ const Myİnvoices = () => {
   return (
     <Box>
       <Header currentPage={{ title: "My Invoices", icon: ReceiptLongIcon }} />
-      <Box className="my-4 rounded s drop-shadow-lg  bg-bgLight dark:bg-bgMain w-full">
+      <Box className=" rounded s drop-shadow-lg  bg-bgLight dark:bg-bgMain w-full">
         <Stack
           direction={{ sm: "row", xs: "column" }}
           justifyContent="space-between"

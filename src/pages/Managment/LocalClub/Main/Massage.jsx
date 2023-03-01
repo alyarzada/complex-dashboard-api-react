@@ -391,7 +391,7 @@ const Massage = () => {
         currentPage={{ title: "Massage", icon: AdminPanelSettingsOutlinedIcon }}
       />
       <Box className="rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
-        <Box className="py-6 px-6 my-4">
+        <Box className="py-6 px-6">
           <Box className="flex justify-between mb-6">
             <Box>
               <Button
