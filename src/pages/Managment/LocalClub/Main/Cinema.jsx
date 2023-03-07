@@ -184,7 +184,7 @@ const Cinema = () => {
     (state) => state.cinema
   );
 
-  const today = new Date();
+  const today = new Date().setHours(0, 0, 0, 0);
   const dispatch = useDispatch();
 
   const handleEventClick = (e) => {

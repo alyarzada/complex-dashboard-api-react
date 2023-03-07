@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "../../../components/UI/Header";
 import IndeterminateCheckBoxOutlinedIcon from "@mui/icons-material/IndeterminateCheckBoxOutlined";
 import { useTranslation } from "react-i18next";

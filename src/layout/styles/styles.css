@@ -37,32 +37,6 @@
   transform: translate(-5%, 10%);
 }
 
-.content-wrapper-width-open,
-.content-wrapper-width-close {
-  width: 100%;
-}
-
-.header-width-open,
-.header-width-close {
-  width: 100%;
-}
-
-/* content-wrapper */
-@media (min-width: 768px) {
-  .content-wrapper-width-open {
-    width: calc(100% - 250px);
-  }
-  .content-wrapper-width-close {
-    width: calc(100% - 80px);
-  }
-  .header-width-open {
-    width: calc(100% - 250px);
-  }
-  .header-width-close {
-    width: calc(100% - 80px);
-  }
-}
-
 /* settings */
 .settingsContainer::-webkit-scrollbar {
   width: 6px;

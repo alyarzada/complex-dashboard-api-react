@@ -10,7 +10,7 @@ const CommunalServicesPanel = ({ img, title, path }) => {
         target={"_blank"}
         className="text-textDark bg-bgLight  drop-shadow-lg hover:drop-shadow-xl 
             dark:bg-bgMain dark:text-white
-          flex items-center justify-center gap-y-3 text-text5 rounded flex-col h-[240px] cursor-pointer group"
+          flex items-center justify-center gap-y-3 text-text5 rounded-xl flex-col h-[240px] cursor-pointer group"
       >
         <img
           className="group-hover:-translate-y-3 transition-transform duration-300 w-[30%]"

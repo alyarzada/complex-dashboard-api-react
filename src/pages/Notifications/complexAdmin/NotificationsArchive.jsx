@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Box, Button, Typography, Pagination } from "@mui/material";
 import Header from "../../../components/UI/Header";
 import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
@@ -135,7 +135,6 @@ const SurveyManage = () => {
     else setTableRows(10);
   };
 
-  console.log(rows.length);
   return (
     <Box className="w-full">
       <Header

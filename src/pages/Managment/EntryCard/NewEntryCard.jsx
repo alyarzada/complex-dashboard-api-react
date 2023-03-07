@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import CustomSelect from "../../../components/Form/CustomSelect";
 import {
@@ -24,7 +23,7 @@ import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
 import BackButton from "../../../components/UI/Buttons/BackButton";
 import SuccessButton from "../../../components/UI/Buttons/SuccessButton";
-import {useScrollToUp} from "../../../hooks/useScrollToUp";
+import { useScrollToUp } from "../../../hooks/useScrollToUp";
 
 const optionsProj = [
   { label: "Port Baku Residence", value: "portbaku" },
@@ -45,7 +44,6 @@ const NewEntryCard = () => {
     },
   } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-
 
   return (
     <Box>

@@ -6,7 +6,7 @@ const Contact = ({ contact }) => {
 
   return (
     <Box
-      className={`rounded px-3 ${
+      className={`rounded-xl px-3 ${
         status !== "loading" && "py-6"
       }  dark:text-text1 bg-bgLight drop-shadow-lg hover:drop-shadow-xl flex flex-col justify-center items-center dark:bg-bgMain`}
     >

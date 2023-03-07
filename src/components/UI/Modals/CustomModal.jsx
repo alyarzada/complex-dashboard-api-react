@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import { Box, Typography, IconButton, Stack } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -8,22 +8,24 @@ import ClearIcon from "@mui/icons-material/Clear";
 
 const dropIn = {
   hidden: {
-    y: "-100vh",
+    y: "-10vh",
     opacity: 0,
   },
   visible: {
     y: "0",
     opacity: 1,
     transition: {
-      duration: 1,
-      type: "spring",
-      damping: 20,
-      stiffness: 300,
+      duration: 0.3,
+      type: "easeIn",
     },
   },
   exit: {
-    y: "100vh",
+    y: "-10vh",
     opacity: 0,
+    transition: {
+      duration: 0.3,
+      type: "easeIn",
+    },
   },
 };
 
@@ -33,6 +35,7 @@ const CustomModal = (
 ) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const modalRef = useRef(null);
 
   useEffect(() => {
     if (status === "succeeded") {
@@ -71,17 +74,27 @@ const CustomModal = (
     }
   }, [status]);
 
+  // useEffect(() => {
+  //   const handleModal = (e) => {
+  //     if (!e?.composedPath().includes(modalRef.current)) {
+  //       handleClose();
+  //     }
+  //   };
+
+  //   document.addEventListener("mousedown", handleModal);
+  //   return () => document.removeEventListener("mousedown", handleModal);
+  // }, []);
+
   return (
     <motion.div
-      ref={ref}
       className="fixed top-0 left-0 overflow-hidden h-full w-full bg-[#20202065] backdrop-blur-sm flex justify-center z-[1000]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
       <motion.div
-        ref={ref}
-        className={`w-[94%] sm:w-[80%] md:w-[48%] bg-[#fff] dark:bg-[#020a15]
+        ref={modalRef}
+        className={`w-[94%] sm:w-[80%] md:w-[48%] bg-[#fff] dark:bg-bgSecond
         shadow-lg rounded-xl modalScrollLight dark:modalScroll my-10 ${
           className && className
         }`}

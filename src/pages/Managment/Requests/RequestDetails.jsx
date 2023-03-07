@@ -111,7 +111,7 @@ const RequestDetails = () => {
           );
         })}
       </Box>
-      <Box className="text-text1 drop-shadow-xl border border-slate-600  bg-bgLight dark:bg-bgMain to:bg-bgSecond rounded p-4">
+      <Box className="text-text1 drop-shadow-xl border border-slate-600  bg-bgLight dark:bg-bgMain to:bg-bgSecond rounded-xl p-4">
         <Box className="mb-6">
           <Formik
             initialValues={{
@@ -196,11 +196,11 @@ const RequestDetails = () => {
                     {files.map((file, index) => (
                       <Box
                         key={index}
-                        className="w-[170px] h-[100px] rounded relative"
+                        className="w-[170px] h-[100px] rounded-xl relative"
                       >
                         <img
                           src={URL.createObjectURL(file)}
-                          className="w-full h-full rounded"
+                          className="w-full h-full rounded-xl"
                           alt="Preview"
                         />
                         <IconButton
@@ -231,7 +231,7 @@ const RequestDetails = () => {
             ))}
             <Typography>{myRequestDetails?.data?.title}</Typography>
           </Stack>
-          <Typography className="rounded px-3 py-1 font-semibold text-sm bg-rose-500 text-white">
+          <Typography className="rounded-xl px-3 py-1 font-semibold text-sm bg-rose-500 text-white">
             Yeni
           </Typography>
         </Stack>

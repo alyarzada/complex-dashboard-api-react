@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Box, Typography, IconButton, Stack } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
@@ -5,27 +6,43 @@ import ClearIcon from "@mui/icons-material/Clear";
 
 const dropIn = {
   hidden: {
-    y: "-100vh",
+    y: "-10vh",
     opacity: 0,
   },
   visible: {
     y: "0",
     opacity: 1,
     transition: {
-      duration: 1,
-      type: "spring",
-      damping: 20,
-      stiffness: 300,
+      duration: 0.3,
+      type: "easeIn",
     },
   },
   exit: {
-    y: "100vh",
+    y: "-10vh",
     opacity: 0,
+    transition: {
+      duration: 0.3,
+      type: "easeIn",
+    },
   },
 };
 
 const CustomNestedModal = ({ children, name, handleClose }) => {
   const { t } = useTranslation();
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleModal = (e) => {
+      if (!e?.composedPath()?.includes(modalRef.current)) {
+        handleClose();
+      }
+    };
+    document.addEventListener("mousedown", handleModal);
+
+    return () => {
+      document.removeEventListener("mousedown", handleModal);
+    };
+  });
 
   return (
     <motion.div
@@ -35,13 +52,13 @@ const CustomNestedModal = ({ children, name, handleClose }) => {
       exit={{ opacity: 0 }}
     >
       <motion.div
-        className="w-[94%] sm:max-w-[500px] relative bg-bgLight dark:bg-[#020a15]
+        className="w-[94%] sm:max-w-[500px] relative bg-bgLight dark:bg-bgSecond
         shadow-lg rounded-xl overflow-y-auto"
         initial="hidden"
         animate="visible"
         exit="exit"
         variants={dropIn}
-        onClick={(e) => e.stopPropagation()}
+        ref={modalRef}
       >
         <Box className="px-2 sm:px-6 py-4 dark:text-text1 z-[5000] relative">
           <Stack

@@ -1,9 +1,8 @@
-import React from "react";
 import Chart from "react-apexcharts";
 
 function Stackedbarchart() {
   return (
-    <React.Fragment>
+    <>
       <div className="container-fluid mb-3">
         <Chart
           type="bar"
@@ -85,7 +84,7 @@ function Stackedbarchart() {
           }}
         />
       </div>
-    </React.Fragment>
+    </>
   );
 }
 export default Stackedbarchart;

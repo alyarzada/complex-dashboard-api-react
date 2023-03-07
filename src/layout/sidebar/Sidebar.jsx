@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Box, Stack, Typography } from "@mui/material";
 import SidebarItem from "./SidebarItem";
@@ -12,12 +12,9 @@ import qrcode from "../../assets/logo/qrcode.png";
 const SideBar = () => {
   const { openedSidebar, leftLight } = useSelector((state) => state.themes);
   const { sidebar } = useSelector((state) => state.data);
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
+
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const months = [
     t(["January"]),
@@ -34,33 +31,40 @@ const SideBar = () => {
     t(["December"]),
   ];
 
+  // open olanda: 16px + 250px = 266px
+  // close olanda: 16px + 80px = 96px
+  // open olanda: exl: 16px + 300px = 316px
+  // close olanda: exl: 16px + 100px = 116px
+
   return (
     <Box
-      className={`print:hidden transition-all duration-400 text-sm scroll-design z-[500] select-none h-screen fixed left-0 top-[70px] md:top-0 ${
-        openedSidebar
-          ? "translate-x-0 md:w-[250px] exl:w-[300px] overflow-auto"
-          : "-translate-x-full md:translate-x-0 md:w-[80px] exl:w-[100px] overflow-hidden md:overflow-visible"
-      } ${leftLight === "light" ? "bg-bgLight drop-shadow-lg" : "bg-bgMain"}`}
+      className={`bg-bgLight dark:bg-bgMain h-[94vh] top-4 left-4 overflow-auto print:hidden duration-500 ease-in-both text-sm scroll-design z-[500] select-none rounded-xl fixed ${
+        openedSidebar ? "w-[250px] exl:w-[300px]" : "w-[80px] exl:w-[100px]"
+      }`}
     >
-      <Box className="mb-6 mt-3 h-16" onClick={() => window.scrollTo(0, 0)}>
-        <Link to="/">
-          <img
-            className={`mx-auto ${openedSidebar ? "w-20" : "w-12"}`}
-            alt="logo"
-            src={openedSidebar ? logoDark : logo}
-          />
-        </Link>
-      </Box>
+      <Box
+        className="mb-6 mt-3 h-28"
+        onClick={() => {
+          window.scrollTo(0, 0);
+          navigate("/");
+        }}
+      >
+        <img
+          className={`mx-auto block mb-6 h-16 whitespace-nowrap overflow-hidden object-cover ${
+            openedSidebar ? "w-22" : "w-12"
+          }`}
+          alt="logo"
+          src={openedSidebar ? logoDark : logo}
+        />
 
-      {/* today date */}
-      {openedSidebar ? (
-        <Box className="mb-2">
-          <Typography className="mx-auto mb-6 text-sm text-center text-text1">
+        {/* today date */}
+        {openedSidebar && (
+          <Typography className="mx-auto mb-6 text-sm text-center text-text1 whitespace-nowrap overflow-hidden">
             {t(["Today"])}, {new Date().getDate()}{" "}
             {months[new Date().getMonth()]} {new Date().getFullYear()}
           </Typography>
-        </Box>
-      ) : null}
+        )}
+      </Box>
 
       {/* sidebar navigation list */}
       <nav className="sidebar-nav">

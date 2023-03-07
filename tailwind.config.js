@@ -16,18 +16,23 @@ module.exports = {
     },
     screens: {
       sm: { min: "425px" },
-      xxmd: { min: "900px" },
       md: { min: "768px" },
       lg: { min: "1024px" },
       xl: { min: "1280px" },
       "2xl": { min: "1536" },
     },
     extend: {
+      transitionTimingFunction: {
+        "in-margin": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "in-width": "cubic-bezier(0.4, 0, 0.6, 1)",
+        "in-both": "cubic-bezier(0.4, 0, 0.6, 1)",
+      },
       screens: {
         xs: { min: "320px" },
         xmd: { min: "543px" },
+        xxmd: { min: "900px" },
         xlg: { min: "1180px" },
-        xxl: { min: "1636px" },
+        xxl: { min: "2000px" },
         exl: { min: "2560px" },
       },
       gridTemplateColumns: {
@@ -44,8 +49,10 @@ module.exports = {
         // bgMain: "#464f5b",
         // bgSecond: "#343a40",
         // bgThird: "#3a444e",
-        bgMain: "#050A2C",
-        bgSecond: "#060325",
+        bgMain: "#111C44",
+        bgSecond: "#051139",
+        // bgMain: "#050A2C",
+        // bgSecond: "#060325",
         bgLight: "#ffffff",
         logoColor: "#C9B26D",
         text1: "#ced4da",

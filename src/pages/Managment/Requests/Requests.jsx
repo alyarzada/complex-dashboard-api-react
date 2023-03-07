@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Stack,
@@ -46,8 +46,6 @@ const Requests = () => {
       dispatch(getAllRequests(Cookies.get("token")));
     }
   }, []);
-
-  console.log(requestPanels);
 
   return (
     <Box className="w-full">

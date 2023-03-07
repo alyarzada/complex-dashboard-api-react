@@ -7,7 +7,7 @@ const BackButton = ({
   startIcon,
   margin = "mb-4",
   type = "button",
-  width
+  width,
 }) => {
   return (
     <Button
