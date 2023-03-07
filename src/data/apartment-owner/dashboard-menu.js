@@ -1,30 +1,36 @@
-import clean from "../../assets/menu-panel/housekeeping.png";
-import maintenance from "../../assets/menu-panel/maintenance.png";
-import reception from "../../assets/menu-panel/reception.png";
-import security from "../../assets/menu-panel/security.png";
-import leisureClub from "../../assets/menu-panel/leisure-club.png";
-import roomService from "../../assets/menu-panel/room-service.png";
-import tenantRegistration from "../../assets/menu-panel/tenant-registration.png";
-import notifications from "../../assets/menu-panel/notifications.png";
-import cardRequest from "../../assets/menu-panel/card-request.png";
-import portmaniaLogo from "../../assets/menu-panel/portmania_logo.png";
-import call from "../../assets/menu-panel/call.png";
-import complaint from "../../assets/menu-panel/complaint.png";
-import request from "../../assets/menu-panel/request.png";
-import electrician from "../../assets/menu-panel/electrician.png";
-import mechanic from "../../assets/menu-panel/mechanic.png";
-import guest from "../../assets/menu-panel/guest.png";
-import cinema from "../../assets/menu-panel/cinema.png";
-import massage from "../../assets/menu-panel/massage.png";
-import meeting from "../../assets/menu-panel/meeting.png";
+// for dark mode
 
-import car from "../../assets/menu-panel/car.png";
-import door from "../../assets/menu-panel/door.png";
-import servicePayment from "../../assets/menu-panel/pbrlogo.png";
-import utilities from "../../assets/menu-panel/utilities.svg";
-import phone from "../../assets/menu-panel/telephone.svg";
-import internet from "../../assets/menu-panel/internet.svg";
-import cableTv from "../../assets/menu-panel/tv.svg";
+import housekeeping from "../../assets/svg/housekeeping.svg";
+import crosswrench from "../../assets/svg/repair.svg";
+import reception from "../../assets/svg/reception.svg";
+import officer from "../../assets/svg/001-protection.svg";
+import team from "../../assets/svg/003-video-camera.svg";
+import restaurant from "../../assets/svg/restaurant.svg";
+import addfriend from "../../assets/svg/add-friend.svg";
+import subscribe from "../../assets/svg/004-notification-bell.svg";
+import idcard from "../../assets/svg/005-credit-card.svg";
+import tv from "../../assets/svg/monitor.svg";
+
+import portmaniaLogo from "../../assets/menu-panel/portmania_logo.png";
+import call from "../../assets/svg/006-telephone.svg";
+import complaint from "../../assets/svg/002-bad-review.svg";
+import request from "../../assets/svg/001-contact-us.svg";
+import electrician from "../../assets/svg/toolbox.svg";
+import mechanic from "../../assets/svg/repair.svg";
+import guest from "../../assets/svg/003-briefcase.svg";
+import cinema from "../../assets/svg/003-video-camera.svg";
+import massage from "../../assets/svg/006-yoga.svg";
+import meeting from "../../assets/svg/005-meeting.svg";
+
+import car from "../../assets/svg/007-park.svg";
+import door from "../../assets/svg/008-login.svg";
+import servicePayment from "../../assets/svg/service-payment.svg";
+import home from "../../assets/svg/home.svg";
+import phone from "../../assets/svg/006-telephone.svg";
+import wifisignal from "../../assets/svg/007-wifi-signal.svg";
+import cableTv from "../../assets/svg/006-telephone.svg";
+
+// for light mode
 
 export const dashboardPanels = [
   {
@@ -39,7 +45,7 @@ export const dashboardPanels = [
       },
       {
         id: 2,
-        img: clean,
+        img: housekeeping,
         title: "Housekeeping",
         subCategory: [
           {
@@ -66,7 +72,7 @@ export const dashboardPanels = [
       },
       {
         id: 3,
-        img: maintenance,
+        img: crosswrench,
         title: "Maintenance",
         subCategory: [
           {
@@ -124,7 +130,7 @@ export const dashboardPanels = [
       },
       {
         id: 5,
-        img: security,
+        img: officer,
         title: "Security",
         subCategory: [
           {
@@ -149,7 +155,7 @@ export const dashboardPanels = [
       },
       {
         id: 6,
-        img: leisureClub,
+        img: team,
         title: "Leisure club",
         subCategory: [
           {
@@ -171,26 +177,26 @@ export const dashboardPanels = [
       },
       {
         id: 7,
-        img: roomService,
+        img: restaurant,
         title: "Room Service",
         link: "/restaurant-menu-orders",
       },
       {
         id: 8,
-        img: tenantRegistration,
+        img: addfriend,
         title: "Tenant Registration",
         category: "tenant",
         type: "form",
       },
       {
         id: 9,
-        img: notifications,
+        img: subscribe,
         title: "Notifications",
         link: "/notifications",
       },
       {
         id: 10,
-        img: cardRequest,
+        img: idcard,
         title: "Card Request",
         subCategory: [
           {
@@ -225,7 +231,7 @@ export const dashboardPanels = [
     panels: [
       {
         id: 1,
-        img: utilities,
+        img: home,
         title: "Communal",
         link: "/communalservices/utilities",
       },
@@ -237,13 +243,13 @@ export const dashboardPanels = [
       },
       {
         id: 3,
-        img: internet,
+        img: wifisignal,
         title: "Internet",
         link: "/communalservices/internet",
       },
       {
         id: 4,
-        img: cableTv,
+        img: tv,
         title: "Cable TV",
         link: "/communalservices/tv",
       },

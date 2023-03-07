@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Box, Typography, IconButton, Stack } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
@@ -17,13 +18,31 @@ const dropIn = {
     },
   },
   exit: {
-    y: "10vh",
+    y: "-10vh",
     opacity: 0,
+    transition: {
+      duration: 0.3,
+      type: "easeIn",
+    },
   },
 };
 
 const CustomNestedModal = ({ children, name, handleClose }) => {
   const { t } = useTranslation();
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleModal = (e) => {
+      if (!e?.composedPath()?.includes(modalRef.current)) {
+        handleClose();
+      }
+    };
+    document.addEventListener("mousedown", handleModal);
+
+    return () => {
+      document.removeEventListener("mousedown", handleModal);
+    };
+  });
 
   return (
     <motion.div
@@ -39,7 +58,7 @@ const CustomNestedModal = ({ children, name, handleClose }) => {
         animate="visible"
         exit="exit"
         variants={dropIn}
-        onClick={(e) => e.stopPropagation()}
+        ref={modalRef}
       >
         <Box className="px-2 sm:px-6 py-4 dark:text-text1 z-[5000] relative">
           <Stack

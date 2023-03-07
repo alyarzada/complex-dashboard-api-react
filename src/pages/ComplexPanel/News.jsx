@@ -27,51 +27,49 @@ const News = () => {
 
   return (
     <Box>
-      {role_id === 2 || role_id === 4 &&
-         (
-              <Box className="mb-4 dark:bg-bgMain rounded-xl p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
-                <Box>
-                  <Typography>
-                    <BorderColorOutlinedIcon /> {t(["Create New Post"])}
-                  </Typography>
-                </Box>
-                <Divider className="my-4" />
-                <Box className=" rounded p-4 text-textDark4 dark:text-text1">
-                  <Formik
-                    initialValues={{
-                      title: "",
-                    }}
-                  >
-                    <Form>
-                      <Box>
-                        <CustomTextField
-                          name="title"
-                          rows="3"
-                          multiline
-                          className="mb-0"
-                          placeholder={t(["Write your post text"])}
-                        />
-                      </Box>
-                    </Form>
-                  </Formik>
-                </Box>
-                <Box className="flex justify-between mb-4 dark:bg-bgMain rounded-xl p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
+      {role_id === 2 ||
+        (role_id === 4 && (
+          <Box className="mb-4 dark:bg-bgMain rounded-xl p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
+            <Box>
+              <Typography>
+                <BorderColorOutlinedIcon /> {t(["Create New Post"])}
+              </Typography>
+            </Box>
+            <Divider className="my-4" />
+            <Box className=" rounded p-4 text-textDark4 dark:text-text1">
+              <Formik
+                initialValues={{
+                  title: "",
+                }}
+              >
+                <Form>
                   <Box>
-                    <IconButton>
-                      <ImageOutlinedIcon />
-                    </IconButton>
-                    <IconButton>
-                      <SentimentSatisfiedAltOutlinedIcon />
-                    </IconButton>
+                    <CustomTextField
+                      name="title"
+                      rows="3"
+                      multiline
+                      className="mb-0"
+                      placeholder={t(["Write your post text"])}
+                    />
                   </Box>
-                  <Box>
-                    <SuccessButton
-                    variant = "contained"
-                    >{t(["Post"])}</SuccessButton>
-                  </Box>
-                </Box>
+                </Form>
+              </Formik>
+            </Box>
+            <Box className="flex justify-between mb-4 dark:bg-bgMain rounded-xl p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
+              <Box>
+                <IconButton>
+                  <ImageOutlinedIcon />
+                </IconButton>
+                <IconButton>
+                  <SentimentSatisfiedAltOutlinedIcon />
+                </IconButton>
               </Box>
-          )}
+              <Box>
+                <SuccessButton variant="contained">{t(["Post"])}</SuccessButton>
+              </Box>
+            </Box>
+          </Box>
+        ))}
 
       <motion.div variants={variants} initial="hidden" animate="visible">
         {status === "loading" ? (

@@ -146,7 +146,9 @@ const Body = () => {
                         setActive(list.id);
                       }}
                       className={`${
-                        active === list.id ? "dark:bg-[#ffffff14] bg-[#F5F5F5]" : ""
+                        active === list.id
+                          ? "dark:bg-[#ffffff14] bg-[#F5F5F5]"
+                          : ""
                       } rounded-xl`}
                     >
                       <ListItemIcon>

@@ -100,7 +100,7 @@ const Myİnvoices = () => {
       align: "center",
       headerAlign: "center",
       renderCell: (params) => (
-        <Typography className="bg-logoColor rounded-xl p-1 text-sm">
+        <Typography className="bg-logoColor rounded-md font-bold text-textDark4 uppercase p-1 text-[9px]">
           {t(params.row.status)}
         </Typography>
       ),

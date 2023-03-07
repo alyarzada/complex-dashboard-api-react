@@ -226,6 +226,7 @@ const CalendarPage = () => {
               eventBackgroundColor="green"
               eventColor="white"
               dateClick={handleDateClick}
+              dayCellClassNames="bg-red-300"
             />
           </Box>
         </Box>

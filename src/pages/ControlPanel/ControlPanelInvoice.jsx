@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import ManatWhite from "../../assets/logo/manatWhite.png";
 
 import {
   Box,
@@ -113,19 +114,114 @@ const ControlPanelInvoice = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {invoices.map((invoice) => (
+                {invoices.slice(0, 4).map((invoice) => (
                   <TableRow
+                    className="p-0"
                     key={invoice.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <TableCell component="th" scope="row">
+                    <TableCell
+                      className="p-[5px] md:p-[6px]"
+                      component="th"
+                      scope="row"
+                    >
                       <Services params={invoice} />
                     </TableCell>
                     <TableCell
-                      className=" dark:text-text1 text-textDark2"
+                      className="p-[5px] md:p-[6px] dark:text-text1 text-textDark2"
                       align="center"
                     >
-                      {invoice.amount} AZN
+                      {invoice.amount}{" "}
+                      <img
+                        className="inline-block w-[9px]"
+                        src={ManatWhite}
+                        alt="azn"
+                      />
+                    </TableCell>
+                    <TableCell className="p-[5px] md:p-[6px]" align="center">
+                      <BackButton
+                        variant="outlined"
+                        onClick={() => payInvoiceHandle(invoice)}
+                      >
+                        {t("Pay")}
+                      </BackButton>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Box>
+        {/* Paid invoices */}
+        <Box className="flex-1 p-2 dark:bg-bgMain bg-white rounded-xl">
+          <Box className="mb-3 flex justify-between items-center">
+            <Typography className="dark:text-logoColor text-logoColor capitalize font-medium">
+              {t(["Paid invoices"])}
+            </Typography>
+            <DefaultButton
+              className="capitalize"
+              variant="outlined"
+              onClick={() => navigate("/myinvoice")}
+            >
+              {t(["All payments"])}
+            </DefaultButton>
+          </Box>
+          <TableContainer
+            className="bg-transparent h-[240px] overflow-auto"
+            sx={{
+              border: "none",
+              "&::-webkit-scrollbar": {
+                width: 3.5,
+              },
+              "&::-webkit-scrollbar-track": {
+                backgroundColor: "transparent",
+                borderRadius: 2,
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "gray",
+                borderRadius: 2,
+              },
+              "& .MuiTableCell-root": {
+                borderBottom: "1px solid #ffffff26",
+              },
+              "& .MuiTableColumnHeaders-root": {
+                borderBottom: "1px solid #f0f2f566",
+              },
+            }}
+          >
+            <Table size="small" aria-label="a dense table">
+              <TableHead>
+                <TableRow>
+                  <TableCell className="p-[5px] md:p-[6px] dark:text-text1 text-textDark2">
+                    {t(["Service type"])}
+                  </TableCell>
+                  <TableCell
+                    className="p-[5px] md:p-[6px] dark:text-text1 text-textDark2"
+                    align="center"
+                  >
+                    {t(["Amount to pay"])}
+                  </TableCell>
+                  <TableCell
+                    className="p-[5px] md:p-[6px] dark:text-text1 text-textDark2"
+                    align="center"
+                  >
+                    {t(["Action"])}
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {invoices.slice(0, 4).map((invoice) => (
+                  <TableRow
+                    key={invoice.id}
+                    className="p-[5px] md:p-[6px]"
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell
+                      className="p-[5px] md:p-[6px]"
+                      component="th"
+                      scope="row"
+                    >
+                      <Services params={invoice} />
                     </TableCell>
                     <TableCell align="center">
                       <InvoicesPayButton
@@ -204,7 +300,11 @@ const ControlPanelInvoice = () => {
                     key={invoice.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <TableCell component="th" scope="row" className=" dark:text-text1 text-textDark2">
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      className=" dark:text-text1 text-textDark2"
+                    >
                       <Services params={invoice} />
                     </TableCell>
                     <TableCell
@@ -214,7 +314,18 @@ const ControlPanelInvoice = () => {
                       {invoice.amount} AZN
                     </TableCell>
                     <TableCell
-                      className=" dark:text-text1 text-textDark2"
+                      className=" dark:text-text1 p-[5px] md:p-[6px] text-textDark2"
+                      align="center"
+                    >
+                      {invoice.amount}{" "}
+                      <img
+                        className="inline-block w-[9px] p-[5px] md:p-[6px]"
+                        src={ManatWhite}
+                        alt="azn"
+                      />
+                    </TableCell>
+                    <TableCell
+                      className=" dark:text-text1 p-[5px] md:p-[6px]  text-textDark2"
                       align="center"
                     >
                       <Tooltip title={t(["See the invoice"])}>

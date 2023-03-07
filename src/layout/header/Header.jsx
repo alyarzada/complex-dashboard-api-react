@@ -12,20 +12,17 @@ import { setSideabarSubmenu } from "../../app/Slicers/themes";
 import logo from "../../assets/logo/logo_sm.png";
 
 const Header = () => {
-  const { openedSidebar, boxed, showCardIcon } = useSelector(
-    (state) => state.themes
-  );
+  const { openedSidebar, showCardIcon } = useSelector((state) => state.themes);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   return (
     <header
-      className={`print:hidden duration-500 ease-in-both flex top-4 rounded-xl bg-bgSecond px-3 sm:px-5 h-[70px] z-30 bg-bgSecond ${
+      className={`print:hidden px-3 w-full fixed right-[10px] top-4 duration-500 ease-in-both flex rounded-xl h-[70px] z-30 bg-bgLight dark:bg-bgSecond ${
         openedSidebar
-          ? "left-[280px] exl:left-[300px] right-[10px] header-width-open"
-          : "left-[80px] header-width-close right-[10px]"
-      } w
-      } ${boxed ? "absolute" : "fixed"}`}
+          ? "left-0 md:left-[266px] md:w-[calc(100%-276px)] exl:left-[316px]"
+          : "left-0 md:left-[96px] md:w-[calc(100%-106px)]"
+      }`}
     >
       <nav className={`w-full flex items-center justify-between`}>
         <IconButton
