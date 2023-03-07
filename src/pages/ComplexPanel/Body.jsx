@@ -122,7 +122,7 @@ const Body = () => {
                   setOpenMenu={setOpenMenu}
                 >
                   <MenuItem>
-                    <Link to="/profile">{t("Oxunmuş kimi")}</Link>
+                    <Link to="/profile">{t("As read")}</Link>
                   </MenuItem>
                   <MenuItem
                     onClick={() => {
@@ -146,7 +146,9 @@ const Body = () => {
                         setActive(list.id);
                       }}
                       className={`${
-                        active === list.id ? "bg-[#ffffff14]" : ""
+                        active === list.id
+                          ? "dark:bg-[#ffffff14] bg-[#F5F5F5]"
+                          : ""
                       } rounded-xl`}
                     >
                       <ListItemIcon>

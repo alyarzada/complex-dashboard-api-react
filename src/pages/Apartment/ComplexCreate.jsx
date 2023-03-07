@@ -8,9 +8,8 @@ import CustomSelectNew from "../../components/Form/CustomSelectNew";
 import CustomFile from "../../components/Form/CustomFile";
 import { Formik, Form, FieldArray } from "formik";
 import { useTranslation } from "react-i18next";
-import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
-import LocationCityIcon from '@mui/icons-material/LocationCity';
-
+import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
+import LocationCityIcon from "@mui/icons-material/LocationCity";
 
 const photoInputLabels = [
   {

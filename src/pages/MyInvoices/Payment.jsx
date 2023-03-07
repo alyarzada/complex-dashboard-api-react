@@ -146,7 +146,7 @@ const Payment = () => {
                     "AZN"
                   : 0 + " " + "azn"}
               </Typography>
-              <SuccessButton variant="contained">{t("Pay")}</SuccessButton>
+              <SuccessButton variant="contained">{t("Pay")}sdfsd</SuccessButton>
             </Stack>
           </Box>
         </Box>

@@ -30,7 +30,7 @@ const SubSidebarItem = ({ sublistItem }) => {
         }}
         className={`${
           openedSidebar
-            ? "px-4 group mx-auto w-[90%] rounded"
+            ? "px-4 group mx-auto w-[90%] rounded-lg"
             : "w-[140px] pl-[3px]"
         } py-2 flex justify-between cursor-pointer`}
       >

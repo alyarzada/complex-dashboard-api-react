@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setOpenedSidebar,
@@ -50,7 +49,7 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
             matches && dispatch(setOpenedSidebar());
           }
         }}
-        className={`group px-[24px] py-3 flex gap-x-3 rounded-xl mx-auto w-[90%] flex-nowrap whitespace-nowrap items-center   ${
+        className={`group px-[24px] py-3 flex gap-x-3 rounded-lg mx-auto w-[90%] flex-nowrap whitespace-nowrap items-center   ${
           !openedSidebar && "relative"
         }`}
       >

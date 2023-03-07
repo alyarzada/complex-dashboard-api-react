@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Box, Button } from "@mui/material";
 import Header from "../../../components/UI/Header";
 import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";

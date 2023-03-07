@@ -56,7 +56,7 @@ const CustomTextField = ({
           }
           sx={{
             "& .MuiInputBase-input": {
-              height: "40px",
+              height: "50px",
             },
           }}
           type={endAdornment ? (showPassword ? "text" : "password") : "text"}

@@ -1,46 +1,50 @@
-import React, { Component } from 'react'
-import Grid from '@mui/material/Grid';
+import { Component } from "react";
+import Grid from "@mui/material/Grid";
 
-import { CellRenderer, LabelRenderer } from './Renderer'
-import ExpandableListItem from './ExpandableListItem'
-import NoContent from './NoContent'
-import Pagination from './Pagination'
-import _isEqual from 'lodash.isequal';
+import { CellRenderer, LabelRenderer } from "./Renderer";
+import ExpandableListItem from "./ExpandableListItem";
+import NoContent from "./NoContent";
+import Pagination from "./Pagination";
+import _isEqual from "lodash.isequal";
 
-/**
- * List with expandable items - mobile table analogue
- */
 export default class DataList extends Component {
   shouldComponentUpdate(nextProps) {
-    const {enableShouldComponentUpdate, data} = this.props;
+    const { enableShouldComponentUpdate, data } = this.props;
     if (enableShouldComponentUpdate) {
-      return (!_isEqual(nextProps.data, data));
+      return !_isEqual(nextProps.data, data);
     }
     return true;
   }
 
-  handleChangePage = (event, page) => this.props.onChangePage(event, page)
+  handleChangePage = (event, page) => this.props.onChangePage(event, page);
 
   getRowClass = (index) => {
-    const {rowsClassArray} = this.props;
-    return rowsClassArray && rowsClassArray[index] ? rowsClassArray[index] : '';
-  }
+    const { rowsClassArray } = this.props;
+    return rowsClassArray && rowsClassArray[index] ? rowsClassArray[index] : "";
+  };
 
   createListItemTitle = (columns, row, data) => {
-    const primaryColumns = columns.filter(column => column.primary)
-    return primaryColumns.length === 0
-      ? <CellRenderer column={columns[0]} row={row} data={data} />
-      : primaryColumns
-        .map(column => (
-          <CellRenderer key={column.key} column={column} row={row} data={data} />
+    const primaryColumns = columns.filter((column) => column.primary);
+    return primaryColumns.length === 0 ? (
+      <CellRenderer column={columns[0]} row={row} data={data} />
+    ) : (
+      primaryColumns
+        .map((column) => (
+          <CellRenderer
+            key={column.key}
+            column={column}
+            row={row}
+            data={data}
+          />
         ))
-        .reduce((prev, next) => [prev, ' ', next]) // divide item headers by space
-  }
+        .reduce((prev, next) => [prev, " ", next])
+    ); // divide item headers by space
+  };
 
   createListItemDescription = (columns, row, data, excludePrimary) => (
     <div>
       {columns
-        .filter(column => !excludePrimary || !column.primary)
+        .filter((column) => !excludePrimary || !column.primary)
         .map((column, index) => (
           <Grid key={`${column.label}-${index}`} container>
             <Grid item xs>
@@ -50,9 +54,9 @@ export default class DataList extends Component {
               <CellRenderer column={column} row={row} data={data} />
             </Grid>
           </Grid>
-      ))}
+        ))}
     </div>
-  )
+  );
 
   render() {
     const {
@@ -74,12 +78,14 @@ export default class DataList extends Component {
       ExpansionPanelSummaryTypographyProps,
       SelectedExpansionPanelProps,
       TablePaginationProps,
-    } = this.props
-    if (!Array.isArray(data)
-      || data.length === 0
-      || !Array.isArray(columns)
-      || columns.length === 0) {
-      return <NoContent text={noContentText} />
+    } = this.props;
+    if (
+      !Array.isArray(data) ||
+      data.length === 0 ||
+      !Array.isArray(columns) ||
+      columns.length === 0
+    ) {
+      return <NoContent text={noContentText} />;
     }
 
     return (
@@ -89,7 +95,12 @@ export default class DataList extends Component {
             key={index}
             panelClass={this.getRowClass(index)}
             summary={this.createListItemTitle(columns, row, data)}
-            details={this.createListItemDescription(columns, row, data, excludePrimaryFromDetails)}
+            details={this.createListItemDescription(
+              columns,
+              row,
+              data,
+              excludePrimaryFromDetails
+            )}
             selected={row.selected}
             scrollToSelected={scrollToSelected}
             scrollOptions={scrollOptions}
@@ -106,8 +117,7 @@ export default class DataList extends Component {
             SelectedExpansionPanelProps={SelectedExpansionPanelProps}
           />
         ))}
-        {
-          showPagination &&
+        {showPagination && (
           <Pagination
             component="div"
             count={count}
@@ -116,8 +126,8 @@ export default class DataList extends Component {
             TablePaginationProps={TablePaginationProps}
             onChangePage={this.handleChangePage}
           />
-        }
+        )}
       </div>
-    )
+    );
   }
 }

@@ -2,7 +2,7 @@ import { Box, Typography, Stack } from "@mui/material";
 import Header from "../../components/UI/Header";
 import { useTranslation } from "react-i18next";
 import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import { Formik, Form } from "formik";
 import SuccessButton from "../../components/UI/Buttons/SuccessButton";
 import CustomTextField from "../../components/Form/CustomTextField";

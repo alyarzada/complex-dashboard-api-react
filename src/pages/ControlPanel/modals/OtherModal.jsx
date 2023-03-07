@@ -1,5 +1,4 @@
-import React from "react";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import SubMenuPanel from "../subMenuPanel";
 
 const OtherModal = ({ modal }) => {
@@ -12,20 +11,9 @@ const OtherModal = ({ modal }) => {
         alignItems="center"
         spacing={1}
       >
-        {modal.data.panelId === 11 ? (
-          <Typography className="dark:text-text1">
-            {/* {description} */}
-          </Typography>
-        ) : (
-          modal.data.subCategory?.map((category, index) => (
-            <SubMenuPanel
-              key={index}
-              category={category}
-              // ref={parentModalRef}
-              // closeParentModal={setOpenModal}
-            />
-          ))
-        )}
+        {modal.data.subCategory?.map((category, index) => (
+          <SubMenuPanel key={index} category={category} />
+        ))}
       </Stack>
     </Box>
   );
