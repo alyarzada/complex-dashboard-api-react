@@ -100,13 +100,13 @@ const Profile = () => {
               </Box>
             </Box>
             <h4 className="text-text3">{name}</h4>
-            <Typography className="text-text4">
+            <Typography className="text-text2">
               {t([has_role.role_name])}
             </Typography>
           </Box>
 
           {/* second row */}
-          <Box className="mt-5 text-text4">
+          <Box className="mt-5 text-text2">
             <ul>
               {personalDetails.map((detail) => {
                 if (detail.value === "female" || detail.value === "male") {

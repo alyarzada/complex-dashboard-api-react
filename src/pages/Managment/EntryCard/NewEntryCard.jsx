@@ -129,18 +129,10 @@ const NewEntryCard = () => {
                 </RadioGroup>
               </FormControl>
               <Stack
-                className="bg-slate-600 px-6 py-4"
+                className="px-6 py-4"
                 direction="row"
-                justifyContent="space-between"
+
               >
-                <BackButton
-                  variant="contained"
-                  startIcon=<ReplyOutlinedIcon />
-                  onClick={() => navigate(-1)}
-                  margin="mb-0"
-                >
-                  {t("Back")}
-                </BackButton>
                 <SuccessButton
                   variant="contained"
                   startIcon=<TaskAltOutlinedIcon />

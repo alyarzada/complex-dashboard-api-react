@@ -159,7 +159,7 @@ const Notifications = () => {
         >
           <Box className="md:flex justify-between items-center hidden">
             <Typography className="font-semibold text-textDark2 dark:text-text2 text-[16px] my-5 flex gap-1 items-center">
-              Sehifede
+              {t("On the page")}
               <FormControl variant="filled">
                 <Select
                   labelId="demo-simple-select-filled-label"
@@ -176,7 +176,7 @@ const Notifications = () => {
                   <MenuItem value={500}>500</MenuItem>
                 </Select>
               </FormControl>
-              netice goster
+              {t("show results")}
             </Typography>
           </Box>
 
@@ -199,47 +199,47 @@ const Notifications = () => {
                   onClick={() => {
                     setOpenMenu(false);
                   }}
-                  className="text-text1"
+                  className="dark:text-text1 text-textDark2"
                 >
                   <MarkAsUnreadOutlinedIcon className="mr-2 text-[19px]" />
-                  {t("Oxundu kimi qeyd edin")}
+                  {t("Mark as read")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
-                  className="text-text1"
+                  className="dark:text-text1 text-textDark2"
                 >
                   <MarkEmailReadOutlinedIcon className="mr-2 text-[19px]" />
-                  {t("Oxunulmayıb kimi qeyd edin")}
+                  {t("Mark as unread")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
-                  className="text-text1"
+                  className="dark:text-text1 text-textDark2"
                 >
                   <DraftsOutlinedIcon className="mr-2 text-[19px]" />
 
-                  {t("Oxunanlara baxın")}
+                  {t("See what's been read")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
-                  className="text-text1"
+                  className="dark:text-text1 text-textDark2"
                 >
                   <MarkunreadOutlinedIcon className="mr-2 text-[19px]" />
-                  {t("Oxunmayanlara baxın")}
+                  {t("See unread")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
-                  className="text-text1"
+                  className="dark:text-text1 text-textDark2"
                 >
                   <DeleteForeverOutlinedIcon className="mr-2 text-[19px]" />
-                  {t("Seçilmişləri silin")}
+                  {t("Delete selected")}
                 </MenuItem>
               </CustomMenu>
             ) : null}
