@@ -41,7 +41,7 @@ export const adminDashboardPanels = [
         id: 5,
         img: home,
         title: "Add Apartment",
-        link: "/add-apartment",
+        link: "/apartments/create",
       },
       {
         id: 6,

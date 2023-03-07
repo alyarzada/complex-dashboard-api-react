@@ -5,6 +5,7 @@ import {
   InputAdornment,
   IconButton,
   OutlinedInput,
+  TextField,
 } from "@mui/material";
 import { useField } from "formik";
 import Visibility from "@mui/icons-material/Visibility";
@@ -38,10 +39,11 @@ const CustomPasswordField = ({ label, required, ...props }) => {
 
   return (
     <FormControl sx={{ width: "100%" }} variant="outlined">
-      <InputLabel required={required} htmlFor="outlined-adornment-password">
+      {/* <InputLabel required={required} htmlFor="outlined-adornment-password">
         {label}
-      </InputLabel>
-      <OutlinedInput
+      </InputLabel> */}
+      <TextField
+        size="small"
         id="outlined-adornment-password"
         type={values.showPassword ? "text" : "password"}
         value={values.password}
@@ -61,7 +63,7 @@ const CustomPasswordField = ({ label, required, ...props }) => {
         }
         sx={{
           "& .MuiInputBase-input": {
-            height: "50px",
+            height: "40px",
           },
         }}
         label={label}

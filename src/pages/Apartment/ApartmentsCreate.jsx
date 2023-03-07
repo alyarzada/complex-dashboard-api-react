@@ -3,7 +3,7 @@ import { Typography, Box, Button } from "@mui/material";
 import CustomTextField from "../../components/Form/CustomTextField";
 import Header from "../../components/UI/Header";
 import ApartmentOutlinedIcon from "@mui/icons-material/ApartmentOutlined";
-import CustomSelect from "../../components/Form/CustomSelect";
+import CustomSelectNew from "../../components/Form/CustomSelectNew";
 import CustomFile from "../../components/Form/CustomFile";
 import PublicIcon from "@mui/icons-material/Public";
 import PanoramaOutlinedIcon from "@mui/icons-material/PanoramaOutlined";
@@ -11,7 +11,9 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ReplyIcon from "@mui/icons-material/Reply";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import LightIcon from '@mui/icons-material/Light';
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
+import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 
 const inputTextLabels = [
   {
@@ -81,7 +83,19 @@ const AddApartment = () => {
   return (
     <Box className="w-full">
       <Header
-        currentPage={{ title: t(["Apartments"]), icon: ApartmentOutlinedIcon }}
+        currentPage={{
+          title: t(["Create new"]),
+          icon: AddCircleOutlinedIcon,
+        }}
+        extra={"Apartments"}
+        to="apartments"
+        icon={
+          <LightIcon
+            sx={{ mr: 0.5, mt: -0.3 }}
+            className="text-logoColor align-middle"
+            fontSize="inherit"
+          />
+        }
       />
       <Box className="my-4 py-4 px-6 rounded bg-bgLight dark:bg-bgMain w-full drop-shadow-lg">
         <Box className="flex">
@@ -89,8 +103,7 @@ const AddApartment = () => {
             initialValues={{
               date: ["sad", "dasd"],
             }}
-            onSubmit={(values) => {
-            }}
+            onSubmit={(values) => {}}
           >
             {() => (
               <Form className="w-full flex flex-col gap-3">
@@ -102,7 +115,7 @@ const AddApartment = () => {
                       </Typography>
                     </Box>
                     <Box className="w-full md:w-[70%]">
-                      <CustomSelect
+                      <CustomSelectNew
                         className="w-full"
                         label={t(["Please select"])}
                         name="date"
@@ -116,7 +129,7 @@ const AddApartment = () => {
                       </Typography>
                     </Box>
                     <Box className="w-full md:w-[70%]">
-                      <CustomSelect
+                      <CustomSelectNew
                         className="w-full"
                         label={t(["Please select"])}
                         name="date"
@@ -130,7 +143,7 @@ const AddApartment = () => {
                       </Typography>
                     </Box>
                     <Box className="w-full md:w-[70%]">
-                      <CustomSelect
+                      <CustomSelectNew
                         className="w-full"
                         label={t(["Please select"])}
                         name="date"
@@ -144,7 +157,7 @@ const AddApartment = () => {
                       </Typography>
                     </Box>
                     <Box className="w-full md:w-[70%]">
-                      <CustomSelect
+                      <CustomSelectNew
                         className="w-full"
                         label={t(["Please select"])}
                         name="date"

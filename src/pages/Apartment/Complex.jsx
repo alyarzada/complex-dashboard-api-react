@@ -14,7 +14,7 @@ import {
   useGridApiContext,
   useGridSelector,
 } from "@mui/x-data-grid";
-import EmojiObjectsOutlinedIcon from "@mui/icons-material/EmojiObjectsOutlined";
+import LocationCityIcon from '@mui/icons-material/LocationCity';
 
 const columns = [
   { field: "id", headerName: "ID", width: 80 },
@@ -78,8 +78,8 @@ const SurveyManage = () => {
     <Box className="w-full">
       <Header
         currentPage={{
-          title: t(["Survey Manage"]),
-          icon: EmojiObjectsOutlinedIcon,
+          title: t(["Complex"]),
+          icon: LocationCityIcon,
         }}
       />
       <Box className="my-4 py-4 px-6 flex flex-col gap-5 rounded drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">

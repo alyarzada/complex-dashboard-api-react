@@ -2,6 +2,7 @@ import { Box, Typography, Stack } from "@mui/material";
 import Header from "../../components/UI/Header";
 import { useTranslation } from "react-i18next";
 import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import { Formik, Form } from "formik";
 import SuccessButton from "../../components/UI/Buttons/SuccessButton";
 import CustomTextField from "../../components/Form/CustomTextField";
@@ -20,7 +21,7 @@ const MTKUserCreate = () => {
         extra={"Employees"}
         to="employees"
         icon={
-          <AddCircleOutlinedIcon
+          <PeopleAltIcon
             sx={{ mr: 0.5, mt: -0.5 }}
             className="text-logoColor align-middle"
             fontSize="inherit"
@@ -50,7 +51,7 @@ const MTKUserCreate = () => {
                 </Typography>
                 <Box className="md:w-[70%] w-[100%]">
                   <CustomTextField
-                    required
+                    // required
                     className="w-full"
                     label={t(["Name"])}
                   />

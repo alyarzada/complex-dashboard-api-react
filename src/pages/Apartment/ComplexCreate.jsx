@@ -8,6 +8,8 @@ import CustomSelectNew from "../../components/Form/CustomSelectNew";
 import CustomFile from "../../components/Form/CustomFile";
 import { Formik, Form, FieldArray } from "formik";
 import { useTranslation } from "react-i18next";
+import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
+import LocationCityIcon from "@mui/icons-material/LocationCity";
 
 const photoInputLabels = [
   {
@@ -41,7 +43,7 @@ const ComplexCreate = () => {
         extra={"Complex"}
         to="surveymanage"
         icon={
-          <AddCircleOutlinedIcon
+          <LocationCityIcon
             sx={{ mr: 0.5, mt: -0.5 }}
             className="text-logoColor align-middle"
             fontSize="inherit"
@@ -56,6 +58,9 @@ const ComplexCreate = () => {
             requestform_dep_employess: [],
             title: "",
             message: "",
+          }}
+          onSubmit={(values) => {
+            console.log(values);
           }}
         >
           <Form>

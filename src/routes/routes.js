@@ -195,10 +195,8 @@ const routes = [
         ),
       },
       {
-        path: "add-apartment",
-        element: (
-          <AddApartment fallback={<LinearProgress color="logocolor" />} />
-        ),
+        path: "apartments/create",
+        element: <ApartmentsCreate />,
       },
       {
         path: "myinvoice/payment",
@@ -367,6 +365,10 @@ const routes = [
         element: <Permission fallback={<LinearProgress color="logocolor" />} />,
       },
       {
+        path: "permission",
+        element: <Permission />,
+      },
+      {
         path: "user-card-request/access/create",
         element: (
           <NewEntryCard fallback={<LinearProgress color="logocolor" />} />
@@ -381,12 +383,6 @@ const routes = [
       {
         path: "reports",
         element: <Reports fallback={<LinearProgress color="logocolor" />} />,
-      },
-      {
-        path: "add-apartment",
-        element: (
-          <AddApartment fallback={<LinearProgress color="logocolor" />} />
-        ),
       },
       {
         path: "hc-users",
@@ -457,6 +453,10 @@ const routes = [
         element: <Building fallback={<LinearProgress color="logocolor" />} />,
       },
       {
+        path: "building/create",
+        element: <BuildingCreate />,
+      },
+      {
         path: "group-of-apartments",
         element: (
           <GroupOfApartments fallback={<LinearProgress color="logocolor" />} />
@@ -481,10 +481,12 @@ const routes = [
         ),
       },
       {
-        path: "mtk-users/create",
-        element: (
-          <MTKUserCreate fallback={<LinearProgress color="logocolor" />} />
-        ),
+        path: "residents/create",
+        element: <ResidentsCreate />,
+      },
+      {
+        path: "hc-users/create",
+        element: <MTKUserCreate />,
       },
       {
         path: "/requests",
@@ -543,6 +545,10 @@ const routes = [
         element: (
           <ComplexSelect fallback={<LinearProgress color="logocolor" />} />
         ),
+      },
+      {
+        path: "/complex-select",
+        element: <ComplexSelect />,
       },
     ],
   },

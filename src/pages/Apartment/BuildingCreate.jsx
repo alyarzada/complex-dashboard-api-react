@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import Header from "../../components/UI/Header";
 import { useTranslation } from "react-i18next";
 import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
+import ApartmentIcon from '@mui/icons-material/Apartment';
 
 const MTKUserCreate = () => {
   const { t } = useTranslation();
@@ -9,13 +10,13 @@ const MTKUserCreate = () => {
     <Box className="w-full">
       <Header
         currentPage={{
-          title: t(["Survey Manage"]),
+          title: t(["Create new"]),
           icon: AddCircleOutlinedIcon,
         }}
-        extra={"Survey Manage"}
-        to="surveymanage"
+        extra={"Building"}
+        to="building"
         icon={
-          <AddCircleOutlinedIcon
+          <ApartmentIcon
             sx={{ mr: 0.5, mt: -0.5 }}
             className="text-logoColor align-middle"
             fontSize="inherit"
