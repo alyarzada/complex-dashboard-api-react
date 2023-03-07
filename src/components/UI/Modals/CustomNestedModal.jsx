@@ -5,21 +5,19 @@ import ClearIcon from "@mui/icons-material/Clear";
 
 const dropIn = {
   hidden: {
-    y: "-100vh",
+    y: "-10vh",
     opacity: 0,
   },
   visible: {
     y: "0",
     opacity: 1,
     transition: {
-      duration: 1,
-      type: "spring",
-      damping: 20,
-      stiffness: 300,
+      duration: 0.3,
+      type: "easeIn",
     },
   },
   exit: {
-    y: "100vh",
+    y: "10vh",
     opacity: 0,
   },
 };
@@ -35,7 +33,7 @@ const CustomNestedModal = ({ children, name, handleClose }) => {
       exit={{ opacity: 0 }}
     >
       <motion.div
-        className="w-[94%] sm:max-w-[500px] relative bg-bgLight dark:bg-[#020a15]
+        className="w-[94%] sm:max-w-[500px] relative bg-bgLight dark:bg-bgSecond
         shadow-lg rounded-xl overflow-y-auto"
         initial="hidden"
         animate="visible"

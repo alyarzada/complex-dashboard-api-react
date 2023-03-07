@@ -66,7 +66,7 @@ const ControlPanel = () => {
         <Box>
           <Stack direction="row" spacing={3}>
             <Box className="w-full">
-              <Box className="mt-4 py-4 px-6 rounded bg-bgLight dark:bg-bgMain w-full drop-shadow-lg ">
+              <Box className="mt-4 py-4 px-6 rounded  dark:bg-bgMain  bg-bgLight w-full drop-shadow-lg ">
                 <Typography className="font-bold text-textDark2 dark:text-text2 text-[14px] mb-1 capitalize">
                   {t(["Paid invoices by services"])}
                 </Typography>
@@ -265,9 +265,9 @@ const ControlPanel = () => {
               direction="column"
               justifyContent="center"
               alignItems="center"
-              className="bg-bgMain rounded p-3"
+              className="dark:bg-bgMain  bg-bgLight rounded p-3 shadow-lg"
             >
-              <Typography className="text-text1">
+              <Typography className="text-textDark3 dark:text-text1">
                 Təhlükəsizlik baxımından çatdırılma xidmətlərinin hər gün saat
                 22:00-dan sonra binaya daxil olmaqlarına qadağa qoyulmasına nece
                 baxırsınız?
@@ -278,9 +278,9 @@ const ControlPanel = () => {
               direction="column"
               justifyContent="center"
               alignItems="center"
-              className="bg-bgMain rounded p-3"
+              className="dark:bg-bgMain  bg-bgLight rounded p-3 shadow-lg"
             >
-              <Typography className="text-text1">
+              <Typography className="text-textDark3 dark:text-text1">
                 Təhlükəsizlik baxımından çatdırılma xidmətlərinin hər gün saat
                 22:00-dan sonra binaya daxil olmaqlarına qadağa qoyulmasına nece
                 baxırsınız?
@@ -289,20 +289,20 @@ const ControlPanel = () => {
             </Stack>
           </Stack>
           <Stack direction="row" justifyContent="center" gap={3}>
-            <Box className="bg-bgMain rounded p-3">
-              <Typography className="text-text1 font-semibold">
+            <Box className="dark:bg-bgMain  bg-bgLight rounded p-3 shadow-lg">
+              <Typography className="text-textDark3 dark:text-text1 font-semibold ">
                 Kinozal
               </Typography>
               <Piechart />
             </Box>
-            <Box className="bg-bgMain rounded p-3">
-              <Typography className="text-text1 font-semibold">
+            <Box className="dark:bg-bgMain  bg-bgLight rounded p-3 shadow-lg">
+              <Typography className="text-textDark3 dark:text-text1 font-semibold ">
                 Masaj
               </Typography>
               <Piechart />
             </Box>
-            <Box className="bg-bgMain rounded p-3">
-              <Typography className="text-text1 font-semibold">
+            <Box className="dark:bg-bgMain  bg-bgLight rounded p-3 shadow-lg">
+              <Typography className="text-textDark3 dark:text-text1 font-semibold ">
                 İclas otağı
               </Typography>
               <Piechart />

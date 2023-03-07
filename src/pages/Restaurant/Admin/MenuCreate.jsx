@@ -194,7 +194,7 @@ const MenuCreate = () => {
                   {t(["About the menu [Azerbaijan]"])}
                 </Box>
                 <CustomTextField
-                  className="w-full"
+                  className="w-full shadow-xl"
                   label={t([
                     "Enter information about the content of the menu in Azerbaijani",
                   ])}
@@ -207,7 +207,7 @@ const MenuCreate = () => {
                   <AccountCircleOutlinedIcon /> {t(["About the menu [Rus]"])}
                 </Box>
                 <CustomTextField
-                  className="w-full"
+                  className="w-full shadow-xl"
                   label={t([
                     "Enter information about the content of the menu in Russian",
                   ])}
@@ -216,12 +216,12 @@ const MenuCreate = () => {
                 />
               </Box>
               <Box>
-                <Box className="mb-7 mt-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
+                <Box className="mb-7 mt-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full shadow-xl">
                   <AccountCircleOutlinedIcon />{" "}
                   {t(["About the menu [English]"])}
                 </Box>
                 <CustomTextField
-                  className="w-full"
+                  className="w-full shadow-xl"
                   label={t([
                     "Enter information about the content of the menu in English",
                   ])}

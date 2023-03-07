@@ -26,7 +26,6 @@ const UserMenu = () => {
     user: {
       has_role: { role_name },
       name,
-      username,
     },
     status,
   } = useSelector((state) => state.auth);
@@ -38,7 +37,7 @@ const UserMenu = () => {
 
   const userMenu = [
     {
-      icon: <PersonIcon className="text-lg mr-2" />,
+      icon: <PersonIcon className="text-lg mr-2 " />,
       content: "Profile",
       path: "/profile",
     },
@@ -75,7 +74,7 @@ const UserMenu = () => {
         alignItems="center"
         justifyContent="center"
         spacing={1}
-        className="bg-slate-200 dark:bg-bgSecond p-2 rounded cursor-pointer"
+        className="bg-transparent bg-slate-200 dark:bg-bgSecond p-2 rounded cursor-pointer"
         onClick={() => setOpenMenu((prev) => !prev)}
         ref={btnRef}
       >
@@ -117,7 +116,7 @@ const UserMenu = () => {
                   }
                   setOpenMenu(false);
                 }}
-                className="text-sm text-text1 mb-1"
+                className="text-sm dark:text-text1 text-textDark8 mb-1"
               >
                 {list.icon}
                 {t(list.content)}

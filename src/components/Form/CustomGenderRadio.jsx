@@ -38,8 +38,9 @@ const CustomGenderRadio = (props) => {
           value="female"
           control={<Radio />}
           label={t("Female")}
+          className="dark:text-text1 text-textDark8"
         />
-        <FormControlLabel value="male" control={<Radio />} label={t("Male")} />
+        <FormControlLabel value="male" control={<Radio />} label={t("Male")} className="dark:text-text1 text-textDark8"/>
       </RadioGroup>
     </FormControl>
   );

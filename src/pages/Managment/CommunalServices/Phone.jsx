@@ -54,7 +54,7 @@ const Phone = () => {
             lg={2.8}
             xlg={2.9}
             item
-            className="rounded cursor-pointer bg-slate-50 px-6 py-12 xs:h-52 gap-1 flex items-center justify-center flex-col group drop-shadow-lg bg-white"
+            className="rounded-xl cursor-pointer bg-slate-50 px-6 py-12 xs:h-52 gap-1 flex items-center justify-center flex-col group drop-shadow-lg bg-white"
           >
             <Box className="max-w-[12rem] h-[100px] m-auto flex items-center justify-center">
               <img

@@ -53,7 +53,7 @@ const Calendar = ({ eventClick, dateClick, events }) => {
   return (
     <Box className="mb-10 aaa">
       <Header currentPage={{ title: "Calendar", icon: CalendarMonthIcon }} />
-      <Box className="demo-app-calendar w-full" id="mycalendartest">
+      <Box className="demo-app-calendar w-full shadow-xl" id="mycalendartest">
         <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin, listPlugin]}
           selectable={true}

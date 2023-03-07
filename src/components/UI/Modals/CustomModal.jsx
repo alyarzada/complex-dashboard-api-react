@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from "react";
+        import { forwardRef, useEffect } from "react";
 import { Box, Typography, IconButton, Stack } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -8,21 +8,19 @@ import ClearIcon from "@mui/icons-material/Clear";
 
 const dropIn = {
   hidden: {
-    y: "-100vh",
+    y: "-10vh",
     opacity: 0,
   },
   visible: {
     y: "0",
     opacity: 1,
     transition: {
-      duration: 1,
-      type: "spring",
-      damping: 20,
-      stiffness: 300,
+      duration: 0.3,
+      type: "easeIn",
     },
   },
   exit: {
-    y: "100vh",
+    y: "10vh",
     opacity: 0,
   },
 };
@@ -81,7 +79,7 @@ const CustomModal = (
     >
       <motion.div
         ref={ref}
-        className={`w-[94%] sm:w-[80%] md:w-[48%] bg-[#fff] dark:bg-[#020a15]
+        className={`w-[94%] sm:w-[80%] md:w-[48%] bg-[#fff] dark:bg-bgSecond
         shadow-lg rounded-xl modalScrollLight dark:modalScroll my-10 ${
           className && className
         }`}

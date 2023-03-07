@@ -58,7 +58,6 @@ const DeleteBookedRooms = ({ params }) => {
             },
           })
         );
-        console.log("aye click");
       }}
     >
       <DeleteIcon />

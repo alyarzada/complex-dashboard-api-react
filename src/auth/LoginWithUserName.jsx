@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Stack, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { Formik, Form } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -36,50 +36,47 @@ const LoginWithUserName = () => {
         validationSchema={LoginSchema}
       >
         {({ errors, touched }) => (
-          <Form>
-            <CustomTextField
-              name="username"
-              label="İstifadəçi adı və ya e-poçt ünvanı"
-              variant="outlined"
-            />
+          <Form className="h-[200px] flex flex-col justify-between items-center">
+            <Box className="mb-3 w-full">
+              <CustomTextField
+                name="username"
+                label="İstifadəçi adı və ya e-poçt ünvanı"
+                variant="outlined"
+              />
 
-            <CustomTextField
-              label="Şifrənizi daxil edin"
-              type="password"
-              name="password"
-              variant="outlined"
-              className="mb-3  rounded"
-            />
-            {(errors.username || errors.password) &&
-            (touched.username || touched.password) ? (
-              <Typography component="span" className="text-[#f44336] text-xs">
-                Zəhmət olmasa bütün xanaları doldurun{" "}
-              </Typography>
-            ) : null}
+              <CustomTextField
+                label="Şifrənizi daxil edin"
+                type="password"
+                name="password"
+                variant="outlined"
+                className=" rounded"
+              />
 
-            {!isAuth && status === "failed" ? (
-              <Typography component="span" className="text-[#f44336] text-xs">
-                İstifadəçi və ya şifrə səhvdir
-              </Typography>
-            ) : null}
+              {(errors.username || errors.password) &&
+              (touched.username || touched.password) ? (
+                <Typography component="span" className="text-[#f44336] text-xs">
+                  Zəhmət olmasa bütün xanaları doldurun{" "}
+                </Typography>
+              ) : null}
 
-            <Stack
-              direction="row"
-              justifyContent="center"
-              className="mt-3 mb-[16px]"
+              {!isAuth && status === "failed" ? (
+                <Typography component="span" className="text-[#f44336] text-xs">
+                  İstifadəçi və ya şifrə səhvdir
+                </Typography>
+              ) : null}
+            </Box>
+
+            <LoadingButton
+              size="small"
+              className="bg-logoColor capitalize text-textDark4"
+              type="submit"
+              loading={status === "loading"}
+              loadingPosition="start"
+              startIcon={<LoginIcon />}
+              variant="contained"
             >
-              <LoadingButton
-                size="small"
-                className="bg-logoColor capitalize text-textDark4"
-                type="submit"
-                loading={status === "loading"}
-                loadingPosition="start"
-                startIcon={<LoginIcon />}
-                variant="contained"
-              >
-                Daxil olun
-              </LoadingButton>
-            </Stack>
+              Daxil olun
+            </LoadingButton>
           </Form>
         )}
       </Formik>

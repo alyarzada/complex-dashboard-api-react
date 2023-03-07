@@ -21,7 +21,7 @@ const News = () => {
 
   return (
     <Box>
-      <Box className="mb-4 dark:bg-bgMain rounded p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
+      <Box className="mb-4 dark:bg-bgMain rounded-xl p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
         <Box>
           <Typography>
             <BorderColorOutlinedIcon /> {t(["Create New Post"])}
@@ -36,7 +36,6 @@ const News = () => {
           >
             <Form>
               <Box>
-                name
                 <CustomTextField
                   name="title"
                   rows="3"
@@ -49,7 +48,7 @@ const News = () => {
           </Formik>
         </Box>
 
-        <Box className="flex justify-between mb-4 dark:bg-bgMain rounded p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
+        <Box className="flex justify-between mb-4 dark:bg-bgMain rounded-xl p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
           <Box>
             <IconButton>
               <ImageOutlinedIcon />

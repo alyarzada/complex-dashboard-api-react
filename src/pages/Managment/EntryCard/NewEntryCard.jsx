@@ -135,14 +135,7 @@ const NewEntryCard = () => {
                 direction="row"
                 justifyContent="space-between"
               >
-                <BackButton
-                  variant="contained"
-                  startIcon=<ReplyOutlinedIcon />
-                  onClick={() => navigate(-1)}
-                  margin="mb-0"
-                >
-                  {t("Back")}
-                </BackButton>
+               
                 <SuccessButton
                   variant="contained"
                   startIcon=<TaskAltOutlinedIcon />

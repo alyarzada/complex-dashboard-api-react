@@ -81,7 +81,7 @@ const SurveyManage = () => {
     <Box className="w-full">
       <Header
         currentPage={{
-          title: t(["Survey Manage"]),
+          title: t(["HC Users"]),
           icon: EmojiObjectsOutlinedIcon,
         }}
       />

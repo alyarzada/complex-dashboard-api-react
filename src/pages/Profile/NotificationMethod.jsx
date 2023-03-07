@@ -23,8 +23,8 @@ const NotificationMethod = () => {
   return (
     <Box>
       <Box className="flex gap-x-2">
-        <NotificationsActiveOutlinedIcon className="text-text1" />
-        <Typography className="text-text1 mb-4">
+        <NotificationsActiveOutlinedIcon className="dark:text-text1 text-textDark8" />
+        <Typography className=" mb-4 dark:text-text1 text-textDark8">
           {t("Notification method")}
         </Typography>
       </Box>
@@ -33,15 +33,15 @@ const NotificationMethod = () => {
         {() => (
           <Form>
             <Box className="mb-2 flex items-center text-text1 gap-x-1">
-              <EmailOutlinedIcon className="text-xs" />
-              <Typography className="text-xs">
+              <EmailOutlinedIcon className="text-xs dark:text-text1 text-textDark8" />
+              <Typography className="text-xs dark:text-text1 text-textDark8" >
                 {t("Email address for receive notification")}
               </Typography>
             </Box>
             <CustomTextField label={t("Email address")} name="email" />
-            <Box className="mb-2 flex items-center text-text1 gap-x-1">
-              <LocalPhoneOutlinedIcon className="text-xs" />
-              <Typography className="text-xs">
+            <Box className="mb-2 flex items-center text-text1 gap-x-1 ">
+              <LocalPhoneOutlinedIcon className="text-xs dark:text-text1 text-textDark8" />
+              <Typography className="text-xs dark:text-text1 text-textDark8">
                 {t("Phone number for receive notification")}
               </Typography>
             </Box>

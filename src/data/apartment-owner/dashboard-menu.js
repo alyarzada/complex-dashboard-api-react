@@ -1,12 +1,12 @@
-import clean from "../../assets/menu-panel/housekeeping.png";
-import maintenance from "../../assets/menu-panel/maintenance.png";
-import reception from "../../assets/menu-panel/reception.png";
-import security from "../../assets/menu-panel/security.png";
-import leisureClub from "../../assets/menu-panel/leisure-club.png";
-import roomService from "../../assets/menu-panel/room-service.png";
-import tenantRegistration from "../../assets/menu-panel/tenant-registration.png";
-import notifications from "../../assets/menu-panel/notifications.png";
-import cardRequest from "../../assets/menu-panel/card-request.png";
+import housekeeping from "../../assets/svg/housekeeping.svg";
+import crosswrench from "../../assets/svg/cross-wrench.svg";
+import reception from "../../assets/svg/reception.svg";
+import officer from "../../assets/svg/officer.svg";
+import team from "../../assets/svg/team.svg";
+import restaurant from "../../assets/svg/restaurant.svg";
+import addfriend from "../../assets/svg/add-friend.svg";
+import subscribe from "../../assets/svg/subscribe.svg";
+import idcard from "../../assets/svg/id-card.svg";
 import portmaniaLogo from "../../assets/menu-panel/portmania_logo.png";
 import call from "../../assets/menu-panel/call.png";
 import complaint from "../../assets/menu-panel/complaint.png";
@@ -21,9 +21,9 @@ import meeting from "../../assets/menu-panel/meeting.png";
 import car from "../../assets/menu-panel/car.png";
 import door from "../../assets/menu-panel/door.png";
 import servicePayment from "../../assets/menu-panel/pbrlogo.png";
-import utilities from "../../assets/menu-panel/utilities.svg";
-import phone from "../../assets/menu-panel/telephone.svg";
-import internet from "../../assets/menu-panel/internet.svg";
+import money from "../../assets/svg/money.svg";
+import phone from "../../assets/svg/phone.svg";
+import wifisignal from "../../assets/svg/wifi-signal.svg";
 import cableTv from "../../assets/menu-panel/tv.svg";
 
 export const dashboardPanels = [
@@ -39,7 +39,7 @@ export const dashboardPanels = [
       },
       {
         id: 2,
-        img: clean,
+        img: housekeeping,
         title: "Housekeeping",
         subCategory: [
           {
@@ -66,7 +66,7 @@ export const dashboardPanels = [
       },
       {
         id: 3,
-        img: maintenance,
+        img: crosswrench,
         title: "Maintenance",
         subCategory: [
           {
@@ -124,7 +124,7 @@ export const dashboardPanels = [
       },
       {
         id: 5,
-        img: security,
+        img: officer,
         title: "Security",
         subCategory: [
           {
@@ -149,7 +149,7 @@ export const dashboardPanels = [
       },
       {
         id: 6,
-        img: leisureClub,
+        img: team,
         title: "Leisure club",
         subCategory: [
           {
@@ -171,26 +171,26 @@ export const dashboardPanels = [
       },
       {
         id: 7,
-        img: roomService,
+        img: restaurant,
         title: "Room Service",
         link: "/restaurant-menu-orders",
       },
       {
         id: 8,
-        img: tenantRegistration,
+        img: addfriend,
         title: "Tenant Registration",
         category: "tenant",
         type: "form",
       },
       {
         id: 9,
-        img: notifications,
+        img: subscribe,
         title: "Notifications",
         link: "/notifications",
       },
       {
         id: 10,
-        img: cardRequest,
+        img: idcard,
         title: "Card Request",
         subCategory: [
           {
@@ -225,7 +225,7 @@ export const dashboardPanels = [
     panels: [
       {
         id: 1,
-        img: utilities,
+        img: money,
         title: "Communal",
         link: "/communalservices/utilities",
       },
@@ -237,7 +237,7 @@ export const dashboardPanels = [
       },
       {
         id: 3,
-        img: internet,
+        img: wifisignal,
         title: "Internet",
         link: "/communalservices/internet",
       },

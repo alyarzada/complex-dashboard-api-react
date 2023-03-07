@@ -36,14 +36,14 @@ const EachTab = ({ datas }) => {
       transition={{ duration: 0.8 }}
     >
       <Stack direction={{ xs: "column", lg: "row" }} spacing={4}>
-        <Box className="w-full  lg:w-[38%]">
+        <Box className="w-full  lg:w-[50%]">
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             slidesPerView={1}
             navigation
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log("slide change")}
-            className="select-none h-[auto] rounded cursor-pointer"
+            className="select-none h-full rounded-xl cursor-pointer"
           >
             <SwiperSlide>
               <img
@@ -68,7 +68,15 @@ const EachTab = ({ datas }) => {
             </SwiperSlide>
 
             <SwiperSlide>
-              <img src={imageNotFound} alt="image 2" className="relative" />
+              <img
+                src={imageNotFound}
+                alt="image 2"
+                className="object-center object-cover w-full h-full relative cursor-pointer peer hover:opacity-[0.6] transition-all duration-300"
+                onClick={() => {
+                  setShowModal(true);
+                  setFullImage("w-[40%] h-[70%]");
+                }}
+              />
               <Button
                 onClick={() => navigate("/information/photoedit")}
                 className="bg-logoColor absolute bottom-2 right-2 "
@@ -77,7 +85,15 @@ const EachTab = ({ datas }) => {
               </Button>
             </SwiperSlide>
             <SwiperSlide>
-              <img src={imageNotFound} alt="image 3" className="relative" />
+              <img
+                src={imageNotFound}
+                alt="image 3"
+                className="object-center object-cover w-full h-full relative cursor-pointer peer hover:opacity-[0.6] transition-all duration-300"
+                onClick={() => {
+                  setShowModal(true);
+                  setFullImage("w-[40%] h-[70%]");
+                }}
+              />
               <Button
                 onClick={() => navigate("/information/photoedit")}
                 className="bg-logoColor absolute bottom-2 right-2"
@@ -89,25 +105,25 @@ const EachTab = ({ datas }) => {
         </Box>
 
         {showModal && (
-          <div className="fixed top-0 left-[-34px] w-full h-full bg-black z-[99999] flex items-center justify-center">
+          <div className="fixed top-0 left-0 m-0 w-full h-full bg-black z-[99999] flex items-center justify-center ">
             <img
-              className={`photo-transition ${fullImage}  block`}
+              className={`photo-transition ${fullImage} w-[77%] h-[38%] block xs:w-[78%] h-[38%] sm:w-[77%] h-[48%] md:w-[65%] h-[65%]  `}
               src={imageNotFound}
               alt=""
             />
             <button
-              className="absolute top-[10px] right-[10px] bg-none color-white py-[10px] px-[20px] border-none rounded cursor-pointer"
+              className="absolute top-[10px] right-[10px] bg-none dark:text-[#fff] text-[#fff] py-[10px] px-[20px] border-none rounded-xl cursor-pointer"
               id="close-modal"
               onClick={() => {
                 setShowModal(false);
               }}
             >
-              <CloseOutlinedIcon color="action" />
+              <CloseOutlinedIcon color="action" className="dark:text-[#fff] text-[#fff]" />
             </button>
           </div>
         )}
 
-        <Box className=" w-full lg:w-1/2 shadow-2xl flex-1 p-3 bg-bgLight dark:bg-bgMain rounded ">
+        <Box className=" w-full lg:w-1/2 shadow-2xl flex-1 p-3 bg-bgLight dark:bg-bgMain rounded-xl overflow-hidden">
           <Typography className="uppercase dark:text-text1 text-textDark2">
             {t(["Detail information"])}
           </Typography>

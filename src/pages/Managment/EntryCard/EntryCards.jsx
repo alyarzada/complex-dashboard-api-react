@@ -63,19 +63,19 @@ const EntryCards = () => {
       render: (value) => {
         if (value === 1) {
           return (
-            <Typography className="text-xs bg-yellow-600 text-white py-1 px-2 rounded">
+            <Typography className="text-xs bg-yellow-600 text-white py-1 px-2 rounded-xl">
               Aşağı
             </Typography>
           );
         } else if (value === 2) {
           return (
-            <Typography className="text-xs bg-red-500 text-white py-1 px-2 rounded">
+            <Typography className="text-xs bg-red-500 text-white py-1 px-2 rounded-xl">
               Yüksək
             </Typography>
           );
         } else {
           return (
-            <Typography className="text-xs bg-green-600 text-white py-1 px-2 rounded">
+            <Typography className="text-xs bg-green-600 text-white py-1 px-2 rounded-xl">
               Normal
             </Typography>
           );
@@ -103,7 +103,7 @@ const EntryCards = () => {
         currentPage={{ title: "Access card", icon: CreditCardOutlinedIcon }}
       />
 
-      <Box className="rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
+      <Box className="rounded-xl  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="py-4 px-6">
           {role_id === 2 || role_id === 4 ? <CustomSearchFilter /> : null}
           <Box className="flex flex-col mb-6 sm:flex-row justify-end gap-3 pt-6">

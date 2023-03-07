@@ -1,4 +1,4 @@
-  import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import {
   DataGrid,
@@ -34,8 +34,8 @@ import NotificationSubject from "./NotificationSubject";
 import CustomDataGrid from "../../components/UI/CustomDataGrid";
 
 import MarkChatReadOutlinedIcon from "@mui/icons-material/MarkChatReadOutlined";
-import MarkunreadOutlinedIcon from '@mui/icons-material/MarkunreadOutlined';
-import DraftsOutlinedIcon from '@mui/icons-material/DraftsOutlined';
+import MarkunreadOutlinedIcon from "@mui/icons-material/MarkunreadOutlined";
+import DraftsOutlinedIcon from "@mui/icons-material/DraftsOutlined";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 
 import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlined";
@@ -150,7 +150,7 @@ const Notifications = () => {
           icon: NotificationsOutlinedIcon,
         }}
       />
-      <Box className="py-6 px-6  rounded bg-bgLight dark:bg-bgMain  drop-shadow-lg w-full">
+      <Box className="py-6 px-6 rounded-xl bg-bgLight dark:bg-bgMain  drop-shadow-lg w-full">
         <Stack
           justifyContent="space-between"
           alignItems="center"
@@ -168,9 +168,6 @@ const Notifications = () => {
                   onChange={handleChange}
                   className="h-[30px] pb-3"
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
                   <MenuItem value={10}>10</MenuItem>
                   <MenuItem value={20}>20</MenuItem>
                   <MenuItem value={30}>30</MenuItem>
@@ -193,49 +190,55 @@ const Notifications = () => {
 
             {openMenu ? (
               <CustomMenu
-                className="top-20 right-4 width-40"
+                className="top-20 right-4 width-40 text-text1"
                 ref={btnRef}
                 openMenu={openMenu}
                 setOpenMenu={setOpenMenu}
               >
-                <MenuItem>
-                  <Link to="/profile">
-                  <MarkAsUnreadOutlinedIcon className="mr-2" />
-                    {t("Oxundu kimi qeyd edin")}
-                  </Link>
+                <MenuItem
+                  onClick={() => {
+                    setOpenMenu(false);
+                  }}
+                  className="text-text1"
+                >
+                  <MarkAsUnreadOutlinedIcon className="mr-2 text-[19px]" />
+                  {t("Oxundu kimi qeyd edin")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
+                  className="text-text1"
                 >
-                  <MarkEmailReadOutlinedIcon className="mr-2" />
-                
+                  <MarkEmailReadOutlinedIcon className="mr-2 text-[19px]" />
                   {t("Oxunulmayıb kimi qeyd edin")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
+                  className="text-text1"
                 >
-                  <DraftsOutlinedIcon className="mr-2"/>
-                  
+                  <DraftsOutlinedIcon className="mr-2 text-[19px]" />
+
                   {t("Oxunanlara baxın")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
+                  className="text-text1"
                 >
-                    <MarkunreadOutlinedIcon className="mr-2" />
+                  <MarkunreadOutlinedIcon className="mr-2 text-[19px]" />
                   {t("Oxunmayanlara baxın")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
+                  className="text-text1"
                 >
-                  <DeleteForeverOutlinedIcon className="mr-2" />
+                  <DeleteForeverOutlinedIcon className="mr-2 text-[19px]" />
                   {t("Seçilmişləri silin")}
                 </MenuItem>
               </CustomMenu>
