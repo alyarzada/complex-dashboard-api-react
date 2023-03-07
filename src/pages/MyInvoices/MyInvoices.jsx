@@ -8,7 +8,6 @@ import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import { useDispatch, useSelector } from "react-redux";
 import { setModal } from "../../app/Slicers/modals";
 import { getSelectedInvoices } from "../../app/Slicers/invoices";
-import DefaultButton from "../../components/UI/Buttons/DefaultButton";
 import HoverLogoButton from "../../components/UI/Buttons/HoverLogoButton";
 import CustomDataGrid from "../../components/UI/CustomDataGrid";
 
@@ -101,7 +100,7 @@ const Myİnvoices = () => {
       align: "center",
       headerAlign: "center",
       renderCell: (params) => (
-        <Typography className="bg-logoColor rounded-xl p-1 text-sm">
+        <Typography className="bg-logoColor rounded-md font-bold text-textDark4 uppercase p-1 text-[9px]">
           {t(params.row.status)}
         </Typography>
       ),

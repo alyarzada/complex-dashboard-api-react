@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import { withStyles } from '@mui/styles';
+import { Component } from "react";
+import ReactDOM from "react-dom";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import { withStyles } from "@mui/styles";
 
 const styles = {
   summaryText: {
-    width: '100%',
+    width: "100%",
   },
   detailsText: {
     opacity: 0.5,
-    width: '100%',
+    width: "100%",
   },
 };
 
@@ -25,7 +25,9 @@ class ExpandableListItem extends Component {
     if (nextProps.selected && nextProps.scrollToSelected) {
       // @material-ui/core encourages ReactDOM until React find better way
       // https://@material-ui/core.com/getting-started/frequently-asked-questions/#how-can-i-access-the-dom-element-
-      ReactDOM.findDOMNode(this).scrollIntoView(nextProps.scrollOptions || { behavior: 'smooth', block: 'center' })
+      ReactDOM.findDOMNode(this).scrollIntoView(
+        nextProps.scrollOptions || { behavior: "smooth", block: "center" }
+      );
     }
   }
 
@@ -50,7 +52,7 @@ class ExpandableListItem extends Component {
       : ExpansionPanelProps;
 
     return (
-      <Accordion className={panelClass && panelClass} {...rootProps} >
+      <Accordion className={panelClass && panelClass} {...rootProps}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon {...ExpansionPanelMoreIconProps} />}
           {...ExpansionPanelSummaryProps}
@@ -79,8 +81,8 @@ class ExpandableListItem extends Component {
           </Typography>
         </AccordionDetails>
       </Accordion>
-    )
+    );
   }
 }
 
-export default withStyles(styles)(ExpandableListItem)
+export default withStyles(styles)(ExpandableListItem);

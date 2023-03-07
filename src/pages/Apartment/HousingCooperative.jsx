@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Box, Button, Typography, Pagination } from "@mui/material";
 import Header from "../../components/UI/Header";
 import { useTranslation } from "react-i18next";
@@ -14,6 +14,7 @@ import {
   useGridSelector,
 } from "@mui/x-data-grid";
 import EmojiObjectsOutlinedIcon from "@mui/icons-material/EmojiObjectsOutlined";
+import ViewInArIcon from '@mui/icons-material/ViewInAr';
 
 const columns = [
   { field: "id", headerName: "ID", width: 80 },
@@ -89,7 +90,7 @@ const SurveyManage = () => {
       <Header
         currentPage={{
           title: t(["Housing cooperative"]),
-          icon: EmojiObjectsOutlinedIcon,
+          icon: ViewInArIcon,
         }}
       />
       <Box className="my-4 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">

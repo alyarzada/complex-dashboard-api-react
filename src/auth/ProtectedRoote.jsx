@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 const LoginProtectedRoote = ({ children }) => {
   useEffect(() => {
-    console.log = console.warn = console.error = () => {};
+    console.warn = console.error = () => {};
   });
 
   if (Cookies.get("token")) {

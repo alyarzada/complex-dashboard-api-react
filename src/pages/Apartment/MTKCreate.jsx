@@ -238,6 +238,16 @@ const MTKUserCreate = () => {
                   </Box>
                 </Box>
               </Box>
+              
+            <Box className="py-3 flex justify-end">
+              <SuccessButton
+                variant="contained"
+                startIcon=<CheckCircleOutlineIcon />
+                type="submit"
+              >
+                {t("Submit")}
+              </SuccessButton>
+            </Box>
             </Form>
           )}
         </Formik>

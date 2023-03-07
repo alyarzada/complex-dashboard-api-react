@@ -73,7 +73,7 @@ export const adminSidebarMenu = [
     id: 4,
     title: "Requests Board",
     icon: CommentOutlinedIcon,
-    path: "/",
+    path: "/request-panel",
   },
   {
     id: 5,

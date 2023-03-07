@@ -118,7 +118,10 @@ const EachTab = ({ datas }) => {
                 setShowModal(false);
               }}
             >
-              <CloseOutlinedIcon color="action" className="dark:text-[#fff] text-[#fff]" />
+              <CloseOutlinedIcon
+                color="action"
+                className="dark:text-[#fff] text-[#fff]"
+              />
             </button>
           </div>
         )}

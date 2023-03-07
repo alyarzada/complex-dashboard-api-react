@@ -12,6 +12,7 @@ import {
   useGridApiContext,
   useGridSelector,
 } from "@mui/x-data-grid";
+import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
 import EmojiObjectsOutlinedIcon from "@mui/icons-material/EmojiObjectsOutlined";
 
 const columns = [
@@ -81,8 +82,8 @@ const SurveyManage = () => {
     <Box className="w-full">
       <Header
         currentPage={{
-          title: t(["Survey Manage"]),
-          icon: EmojiObjectsOutlinedIcon,
+          title: t(["Apartments Group"]),
+          icon: HolidayVillageIcon,
         }}
       />
       <Box className="my-4 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">

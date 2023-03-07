@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 import CustomSearchFilter from "../../components/UI/CustomSearchFilter";
 import { Link } from "react-router-dom";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import {
   DataGrid,
   gridPageCountSelector,
@@ -82,13 +83,13 @@ const SurveyManage = () => {
       <Header
         currentPage={{
           title: t(["HC Users"]),
-          icon: EmojiObjectsOutlinedIcon,
+          icon: PeopleAltIcon,
         }}
       />
       <Box className="my-4 py-4 px-6 rounded drop-shadow-lg  bg-bgLight dark:bg-bgMain w-full">
         <CustomSearchFilter flex={true} />
         <Box className="w-full flex justify-end">
-          <Link to="/mtk-users/create">
+          <Link to="/hc-users/create">
             <Button
               variant="contained"
               startIcon={<AddCircleOutlinedIcon />}

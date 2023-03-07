@@ -18,7 +18,7 @@ const CommunalServices = () => {
 
       <Box className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-5 exl:grid-cols-5 gap-4">
         {mockData.map((item) => (
-          <CommunalServicesPanel key={item.id} {...item} />
+          <CommunalServicesPanel key={item.id} {...item} path={item.path} />
         ))}
       </Box>
     </Box>

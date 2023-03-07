@@ -9,9 +9,7 @@ const SubSidebarItem = ({ sublistItem }) => {
     (state) => state.themes
   );
 
-  const { leftLight } = useSelector(
-    (state) => state.themes
-  )
+  const { leftLight } = useSelector((state) => state.themes);
   const { t } = useTranslation();
   const matches = useMediaQuery("(max-width:768px)");
   const dispatch = useDispatch();
@@ -21,7 +19,11 @@ const SubSidebarItem = ({ sublistItem }) => {
     <li className="relative text-white">
       <NavLink
         style={({ isActive }) =>
-          isActive ? activeStyle : leftLight === "light"?{ color: "#000" }:{ color: "#ced4da" } 
+          isActive
+            ? activeStyle
+            : leftLight === "light"
+            ? { color: "#000" }
+            : { color: "#ced4da" }
         }
         to={sublistItem.path ? sublistItem.path : ""}
         onClick={(e) => {
@@ -33,7 +35,7 @@ const SubSidebarItem = ({ sublistItem }) => {
         }}
         className={`${
           openedSidebar
-            ? "px-4 group mx-auto w-[90%] rounded"
+            ? "px-4 group mx-auto w-[90%] rounded-lg"
             : "w-[140px] pl-[3px]"
         } py-2 flex justify-between cursor-pointer`}
       >

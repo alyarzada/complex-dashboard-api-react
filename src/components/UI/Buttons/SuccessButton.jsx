@@ -26,7 +26,7 @@ const DefaultButton = ({
         <Button
           className={`capitalize ${
             variant === "contained"
-              ? "bg-[#178803] shadow-lg shadow-[#18E700]/40 hover:shadow-[#18E700]/60"
+              ? "bg-[#178803] shadow-lg shadow-[#18E700]/40 hover:shadow-[#18E700]/60 text-[#fff]"
               : variant === "outlined"
               ? "shadow-lg shadow-[#18E700]/60 hover:shadow-[#18E700]/80"
               : ""

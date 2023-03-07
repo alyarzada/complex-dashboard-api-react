@@ -50,7 +50,7 @@ const NotificationMethod = () => {
               <Button
                 type="submit"
                 variant="contained"
-                className="bg-logoColor shadow-lg shadow-[#C9B26D]/50 hover:shadow-[#C9B26D]/70"
+                className="bg-logoColor shadow-lg shadow-[#C9B26D]/50 hover:shadow-[#C9B26D]/70 capitalize"
                 startIcon={<SaveIcon className="dark:text-white" />}
               >
                 {t(["Save"])}

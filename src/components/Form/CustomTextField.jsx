@@ -15,7 +15,9 @@ const CustomTextField = ({
   mask,
   masseur,
   readyAnswer,
-  adornments,
+  endAdornment,
+  startAdornment,
+  startIcon,
   ...props
 }) => {
   const [field, meta, helpers] = useField(props);
@@ -44,6 +46,7 @@ const CustomTextField = ({
           id="outlined-basic"
           multiline={multiline}
           label={label}
+          size="small"
           value={readyAnswer && readyAnswer}
           error={meta.error && meta.touched}
           onChange={(e) =>
@@ -56,9 +59,9 @@ const CustomTextField = ({
               height: "50px",
             },
           }}
-          type={adornments ? (showPassword ? "text" : "password") : "text"}
+          type={endAdornment ? (showPassword ? "text" : "password") : "text"}
           InputProps={
-            adornments
+            endAdornment
               ? {
                   endAdornment: (
                     <InputAdornment position="end">
@@ -68,6 +71,20 @@ const CustomTextField = ({
                       >
                         {showPassword ? <VisibilityOff /> : <Visibility />}
                       </IconButton>
+                    </InputAdornment>
+                  ),
+                }
+              : startAdornment
+              ? {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      {/* <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={() => setShowPassword((show) => !show)}
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton> */}
+                      {startIcon}
                     </InputAdornment>
                   ),
                 }
@@ -84,6 +101,7 @@ const CustomTextField = ({
               id="outlined-basic"
               multiline={multiline}
               label={label}
+              size="small"
               error={meta.error && meta.touched}
               onChange={(e) =>
                 number
@@ -92,7 +110,7 @@ const CustomTextField = ({
               }
               sx={{
                 "& .MuiInputBase-input": {
-                  height: "50px",
+                  height: "40px",
                 },
               }}
               {...props}

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setOpenedSidebar,
@@ -15,9 +14,7 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
   const { openedSidebar, sidebarSubmenu } = useSelector(
     (state) => state.themes
   );
-  const { leftLight } = useSelector(
-    (state) => state.themes
-  )
+  const { leftLight } = useSelector((state) => state.themes);
   const [linksHeight, setLinksHeight] = useState("");
   const activeStyle = { backgroundColor: "#c9b26d", color: "#23272c" };
 
@@ -42,7 +39,11 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
     <li className={`${!openedSidebar && "group relative"}`}>
       <NavLink
         style={({ isActive }) =>
-          isActive && sidebarItem.path ? activeStyle : leftLight === "light"?{ color: "#000" }:{ color: "#ced4da" } 
+          isActive && sidebarItem.path
+            ? activeStyle
+            : leftLight === "light"
+            ? { color: "#000" }
+            : { color: "#ced4da" }
         }
         to={sidebarItem.path ? sidebarItem.path : ""}
         onClick={(e) => {
@@ -53,7 +54,7 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
             matches && dispatch(setOpenedSidebar());
           }
         }}
-        className={`group px-[24px] py-3 flex gap-x-3 rounded-xl mx-auto w-[90%] flex-nowrap whitespace-nowrap items-center  ${
+        className={`group px-[24px] py-3 flex gap-x-3 rounded-lg mx-auto w-[90%] flex-nowrap whitespace-nowrap items-center   ${
           !openedSidebar && "relative"
         }`}
       >
