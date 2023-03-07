@@ -16,7 +16,6 @@ const DeleteBookedRooms = ({ params }) => {
 
   useEffect(() => {
     if (deleteBookedRoomStatus === "succeeded") {
-      console.log("hellooooo");
       toast.success(t("Deleted"), {
         position: "top-right",
         autoClose: 5000,
@@ -59,7 +58,6 @@ const DeleteBookedRooms = ({ params }) => {
             },
           })
         );
-        console.log("aye click");
       }}
     >
       <DeleteIcon />

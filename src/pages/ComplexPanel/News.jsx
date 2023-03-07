@@ -1,7 +1,14 @@
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, IconButton, Divider } from "@mui/material";
+import CustomTextField from "../../components/Form/CustomTextField";
+import SuccessButton from "../../components/UI/Buttons/SuccessButton";
+import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
+import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
+import SentimentSatisfiedAltOutlinedIcon from "@mui/icons-material/SentimentSatisfiedAltOutlined";
+import { Formik, Form } from "formik";
 import EachNews from "./EachNews";
+import { useTranslation } from "react-i18next";
 
 const variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
@@ -10,23 +17,68 @@ const variants = {
 
 const News = () => {
   const { news, status } = useSelector((state) => state.news);
+  const { t } = useTranslation();
 
   return (
-    <motion.div variants={variants} initial="hidden" animate="visible">
-      {status === "loading" ? (
+    <Box>
+      <Box className="mb-4 dark:bg-bgMain rounded-xl p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
         <Box>
-          <EachNews />
-          <EachNews />
-          <EachNews />
+          <Typography>
+            <BorderColorOutlinedIcon /> {t(["Create New Post"])}
+          </Typography>
         </Box>
-      ) : status === "succeeded" && news.length > 0 ? (
-        news.map((news) => <EachNews key={news.id} news={news} />)
-      ) : (
-        <Box className="p-3">
-          <Typography className="text-text1">Şərh yoxdur</Typography>
+        <Divider className="my-4" />
+        <Box className=" rounded p-4 text-textDark4 dark:text-text1">
+          <Formik
+            initialValues={{
+              title: "",
+            }}
+          >
+            <Form>
+              <Box>
+                <CustomTextField
+                  name="title"
+                  rows="3"
+                  multiline
+                  className="mb-0"
+                  placeholder={t(["Write your post text"])}
+                />
+              </Box>
+            </Form>
+          </Formik>
         </Box>
-      )}
-    </motion.div>
+
+        <Box className="flex justify-between mb-4 dark:bg-bgMain rounded-xl p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
+          <Box>
+            <IconButton>
+              <ImageOutlinedIcon />
+            </IconButton>
+            <IconButton>
+              <SentimentSatisfiedAltOutlinedIcon />
+            </IconButton>
+          </Box>
+          <Box>
+            <SuccessButton>{t(["Post"])}</SuccessButton>
+          </Box>
+        </Box>
+      </Box>
+
+      <motion.div variants={variants} initial="hidden" animate="visible">
+        {status === "loading" ? (
+          <Box>
+            <EachNews />
+            <EachNews />
+            <EachNews />
+          </Box>
+        ) : status === "succeeded" && news.length > 0 ? (
+          news.map((news) => <EachNews key={news.id} news={news} />)
+        ) : (
+          <Box className="p-3">
+            <Typography className="text-text1">Şərh yoxdur</Typography>
+          </Box>
+        )}
+      </motion.div>
+    </Box>
   );
 };
 

@@ -25,7 +25,7 @@ const Tv = () => {
             xs={5.7}
             lg={3}
             item
-            className="rounded cursor-pointer bg-slate-50 px-6 py-12 xs:h-52 flex items-center justify-center flex-col group"
+            className="rounded-xl cursor-pointer bg-slate-50 px-6 py-12 xs:h-52 flex items-center justify-center flex-col group"
           >
             <Box className="max-w-[12rem] h-[100px] m-auto flex items-center justify-center">
               <img

@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import SideBar from "./sidebar/Sidebar";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
+import MobileNavigation from "./MobileNavigation";
 import "./styles/styles.css";
 import { useScrollToUp } from "../hooks/useScrollToUp";
 import { getDashboardPanels, getSidebarData } from "../app/Slicers/data";
@@ -16,10 +17,10 @@ import { restaurantsidebarMenu } from "../data/restaurant-admin/sidebar-menu";
 import { restaurantDashboard } from "../data/restaurant-admin/restaurant-dashboard";
 import { setLight } from "../app/Slicers/themes";
 import Modals from "./Modals";
-import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
 
 const Home = () => {
   useScrollToUp();
+  const matches = useMediaQuery("(min-width:768px)");
   const { openedSidebar } = useSelector((state) => state.themes);
   const {
     user: {
@@ -31,6 +32,10 @@ const Home = () => {
   const index = 0;
 
   useEffect(() => {
+    console.log = console.warn = console.error = () => {};
+  });
+
+  useEffect(() => {
     if (role_id === 8) {
       dispatch(getDashboardPanels(dashboardPanels));
       dispatch(getSidebarData(sidebarMenu));
@@ -40,16 +45,18 @@ const Home = () => {
     } else if (role_id === 2) {
       dispatch(getDashboardPanels(restaurantDashboard));
       dispatch(
-        getSidebarData([
-          ...adminSidebarMenu.slice(0, index + 1),
-          {
-            id: 20,
-            title: "Flash Reports",
-            icon: SignalCellularAltIcon,
-            path: "/",
-          },
-          ...adminSidebarMenu.slice(index + 1),
-        ])
+        getSidebarData(
+          adminSidebarMenu.map((item) => {
+            if (item.title === "Complex Wall") {
+              return {
+                ...item,
+                path: "/complex-select",
+              };
+            }
+
+            return item;
+          })
+        )
       );
     } else if (role_id === 9) {
       dispatch(getDashboardPanels(restaurantDashboard));
@@ -64,11 +71,11 @@ const Home = () => {
   }, []);
 
   return (
-    <Box>
+    <Box className="bg-bgSecond">
       <Header />
-      <SideBar />
+      {matches ? <SideBar /> : null}
       <Box
-        className={`bg-bgLight dark:bg-bgSecond px-4 lg:px-8 pt-24 transition-all flex flex-col justify-between min-h-screen overflow-x-hidden ease-in-out "
+        className={`bg-bgLight dark:bg-bgSecond px-4 lg:px-8 pt-24 duration-500 ease-in-both flex flex-col justify-between min-h-screen overflow-x-hidden"
      ${
        openedSidebar
          ? "content-wrapper-width-open ml-0 md:ml-[250px] exl:ml-[300px]"
@@ -76,6 +83,7 @@ const Home = () => {
      }`}
       >
         <Outlet />
+        <MobileNavigation />
         <Footer />
       </Box>
       <Modals />

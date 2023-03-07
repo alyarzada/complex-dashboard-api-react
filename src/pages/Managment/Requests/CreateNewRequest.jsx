@@ -84,7 +84,7 @@ const CreateNewRequest = () => {
   if (user.has_role.role_id === 8) {
     return (
       <motion.div
-        className="w-full p-6 rounded flex-1 text-textDark   drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain dark:text-white"
+        className="w-full p-6 rounded-xl flex-1 text-textDark   drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain dark:text-white"
         variants={variants}
         initial="hidden"
         animate="visible"
@@ -377,7 +377,7 @@ const CreateNewRequest = () => {
             {t(["Your request"])}
           </tyography>
           <TextareaAutosize
-            className="w-full bg-bgLight dark:bg-bgMain rounded-lg dark:text-text2 p-1 px-3 mt-2"
+            className="w-full bg-bgLight dark:bg-bgMain rounded-xl dark:text-text2 p-1 px-3 mt-2"
             aria-label="minimum height"
             minRows={3}
             placeholder={t(["Message"])}

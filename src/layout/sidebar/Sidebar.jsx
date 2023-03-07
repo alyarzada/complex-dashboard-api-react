@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Box, Stack, Typography } from "@mui/material";
 import SidebarItem from "./SidebarItem";
@@ -18,6 +18,7 @@ const SideBar = () => {
     },
   } = useSelector((state) => state.auth);
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const months = [
     t(["January"]),
@@ -36,31 +37,34 @@ const SideBar = () => {
 
   return (
     <Box
-      className={`print:hidden transition-all duration-400 text-sm scroll-design z-[500] select-none h-screen fixed left-0 top-[70px] md:top-0 ${
-        openedSidebar
-          ? "translate-x-0 md:w-[250px] exl:w-[300px] overflow-auto"
-          : "-translate-x-full md:translate-x-0 md:w-[80px] exl:w-[100px] overflow-hidden md:overflow-visible"
+      className={`h-[94vh] top-4 left-4 overflow-auto print:hidden duration-500 ease-in-both text-sm scroll-design z-[500] select-none rounded-xl fixed ${
+        openedSidebar ? "w-[250px] exl:w-[300px] " : "w-[80px] exl:w-[100px]"
       } ${leftLight === "light" ? "bg-bgLight drop-shadow-lg" : "bg-bgMain"}`}
     >
-      <Box className="mb-6 mt-3 h-16" onClick={() => window.scrollTo(0, 0)}>
-        <Link to="/">
-          <img
-            className={`mx-auto ${openedSidebar ? "w-20" : "w-12"}`}
-            alt="logo"
-            src={openedSidebar ? logoDark : logo}
-          />
-        </Link>
-      </Box>
+      <Box
+        className="mb-6 mt-3 h-28"
+        onClick={() => {
+          window.scrollTo(0, 0);
+          navigate("/");
+        }}
+      >
+        <img
+          className={`mx-auto block mb-6 h-14 whitespace-nowrap overflow-hidden object-cover ${
+            openedSidebar ? "w-20" : "w-12"
+          }`}
+          alt="logo"
+          src={openedSidebar ? logoDark : logo}
+        />
 
-      {/* today date */}
-      {openedSidebar ? (
-        <Box className="mb-2">
-          <Typography className="mx-auto mb-6 text-sm text-center text-text1">
+        {openedSidebar && (
+          <Typography className="mx-auto mb-6 text-sm text-center text-text1 whitespace-nowrap overflow-hidden">
             {t(["Today"])}, {new Date().getDate()}{" "}
             {months[new Date().getMonth()]} {new Date().getFullYear()}
           </Typography>
-        </Box>
-      ) : null}
+        )}
+      </Box>
+
+      {/* today date */}
 
       {/* sidebar navigation list */}
       <nav className="sidebar-nav">

@@ -81,7 +81,6 @@ export const massageSlice = createSlice({
         state.bookMassageStatus = "loading";
       })
       .addCase(bookMassage.fulfilled, (state, { payload: { data } }) => {
-        console.log(data);
         state.bookMassageStatus = "succeeded";
         state.bookedMassage = [...state.bookedMassage, data];
       })
@@ -92,7 +91,6 @@ export const massageSlice = createSlice({
         state.deletedMassageStatus = "loading";
       })
       .addCase(deleteMassageReservation.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.bookedMassage = state.bookedMassage.filter(
           (item) => item.id !== payload.id
         );

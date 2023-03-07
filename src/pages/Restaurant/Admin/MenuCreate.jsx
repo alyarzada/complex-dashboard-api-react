@@ -5,14 +5,14 @@ import Header from "../../../components/UI/Header";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import SuccessButton from "../../../components/UI/Buttons/SuccessButton"
+import SuccessButton from "../../../components/UI/Buttons/SuccessButton";
 import { Formik, Form } from "formik";
 import CustomTextField from "../../../components/Form/CustomTextField";
 import CustomFile from "../../../components/Form/CustomFile";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import PhotoSizeSelectActualOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActualOutlined';
+import PhotoSizeSelectActualOutlinedIcon from "@mui/icons-material/PhotoSizeSelectActualOutlined";
 import IndeterminateCheckBoxOutlinedIcon from "@mui/icons-material/IndeterminateCheckBoxOutlined";
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
 const MenuCreate = () => {
   const { t } = useTranslation();
@@ -66,7 +66,7 @@ const MenuCreate = () => {
           />
         }
       />
-      <Box className="py-6 px-6 my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="py-6 px-6 my-4 rounded bg-bgLight drop-shadow-lg dark:bg-bgMain w-full">
         <Box>
           <Stack
             justifyContent="space-between"
@@ -157,7 +157,7 @@ const MenuCreate = () => {
               </Stack>
 
               <Box className="w-full flex-wrap md:flex">
-                <Box className="mb-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
+                <Box className="mb-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D]  text-white dark:text-text2 text-[16px] capitalize w-full">
                   <PhotoSizeSelectActualOutlinedIcon /> {t(["Photos"])}
                 </Box>
                 {photoInputLabels.map((item) => {
@@ -168,7 +168,7 @@ const MenuCreate = () => {
                           {t(["Photo"])} {item.id}
                         </Typography>
                       </Box>
-                      <Box className="flex  items-center rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize dark:to-mainSecondary w-full">
+                      <Box className="flex  items-center rounded bg-bgLight drop-shadow-lg dark:bg-bgMain font-semibold text-textDark2 dark:text-text2 text-[16px] mb-1 capitalize w-full">
                         <Button className="capitalize" variant="contained">
                           <CustomFile
                             className="mb-0"
@@ -189,34 +189,42 @@ const MenuCreate = () => {
                 })}
               </Box>
               <Box>
-              <Box className="mb-7 mt-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
-                  <AccountCircleOutlinedIcon /> {t(["About the menu [Azerbaijan]"])}
+                <Box className="mb-7 mt-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
+                  <AccountCircleOutlinedIcon />{" "}
+                  {t(["About the menu [Azerbaijan]"])}
                 </Box>
-              <CustomTextField
+                <CustomTextField
                   className="w-full"
-                  label={t(["Enter information about the content of the menu in Azerbaijani"])}
+                  label={t([
+                    "Enter information about the content of the menu in Azerbaijani",
+                  ])}
                   multiline
                   rows={5}
                 />
               </Box>
               <Box>
-              <Box className="mb-7 mt-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
+                <Box className="mb-7 mt-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
                   <AccountCircleOutlinedIcon /> {t(["About the menu [Rus]"])}
                 </Box>
-              <CustomTextField
+                <CustomTextField
                   className="w-full"
-                  label={t(["Enter information about the content of the menu in Russian"])}
+                  label={t([
+                    "Enter information about the content of the menu in Russian",
+                  ])}
                   multiline
                   rows={5}
                 />
               </Box>
               <Box>
-              <Box className="mb-7 mt-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
-                  <AccountCircleOutlinedIcon /> {t(["About the menu [English]"])}
+                <Box className="mb-7 mt-7 pl-3 flex items-center gap-3 py-3 px-6 rounded drop-shadow-lg dark:bg-[#404954] bg-[#C9B26D] dark:from-mainPrimary text-white dark:text-text2 text-[16px] capitalize dark:to-mainSecondary w-full">
+                  <AccountCircleOutlinedIcon />{" "}
+                  {t(["About the menu [English]"])}
                 </Box>
-              <CustomTextField
+                <CustomTextField
                   className="w-full"
-                  label={t(["Enter information about the content of the menu in English"])}
+                  label={t([
+                    "Enter information about the content of the menu in English",
+                  ])}
                   multiline
                   rows={5}
                 />
@@ -224,7 +232,7 @@ const MenuCreate = () => {
             </Form>
           </Formik>
         </Box>
-          <Box className="flex justify-end mt-4">
+        <Box className="flex justify-end mt-4">
           <SuccessButton variant="contained">{t(["Create"])}</SuccessButton>
         </Box>
       </Box>

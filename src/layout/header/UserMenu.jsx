@@ -26,7 +26,6 @@ const UserMenu = () => {
     user: {
       has_role: { role_name },
       name,
-      username,
     },
     status,
   } = useSelector((state) => state.auth);
@@ -75,7 +74,7 @@ const UserMenu = () => {
         alignItems="center"
         justifyContent="center"
         spacing={1}
-        className="bg-slate-200 dark:bg-bgSecond p-2 rounded cursor-pointer"
+        className="bg-transparent bg-slate-200 dark:bg-bgSecond p-2 rounded cursor-pointer"
         onClick={() => setOpenMenu((prev) => !prev)}
         ref={btnRef}
       >

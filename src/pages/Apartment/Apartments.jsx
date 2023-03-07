@@ -13,6 +13,7 @@ import {
   useGridSelector,
 } from "@mui/x-data-grid";
 import EmojiObjectsOutlinedIcon from "@mui/icons-material/EmojiObjectsOutlined";
+import LightIcon from '@mui/icons-material/Light';
 
 const columns = [
   { field: "id", headerName: "ID", width: 80 },
@@ -81,8 +82,8 @@ const SurveyManage = () => {
     <Box className="w-full">
       <Header
         currentPage={{
-          title: t(["Survey Manage"]),
-          icon: EmojiObjectsOutlinedIcon,
+          title: t(["Apartments"]),
+          icon: LightIcon,
         }}
       />
       <Box className="my-4 py-4 px-6 rounded drop-shadow-lg  bg-bgLight dark:bg-bgMain w-full">
@@ -97,7 +98,7 @@ const SurveyManage = () => {
               menzil sahiblerinin hesabi
             </Button>
           </Link>
-          <Link to="/add-apartment">
+          <Link to="/apartments/create">
             <Button
               variant="contained"
               startIcon={<AddCircleOutlinedIcon />}

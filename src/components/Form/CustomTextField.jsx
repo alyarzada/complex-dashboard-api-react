@@ -15,8 +15,9 @@ const CustomTextField = ({
   mask,
   masseur,
   readyAnswer,
-  adornments,
-  endAdornmentIcon,
+  endAdornment,
+  startAdornment,
+  startIcon,
   ...props
 }) => {
   const [field, meta, helpers] = useField(props);
@@ -45,36 +46,45 @@ const CustomTextField = ({
           id="outlined-basic"
           multiline={multiline}
           label={label}
+          size="small"
           value={readyAnswer && readyAnswer}
-          // error={meta.error && meta.touched}
+          error={meta.error && meta.touched}
           onChange={(e) =>
             number
               ? helpers.setValue(Number(e.target.value))
               : helpers.setValue(e.target.value)
           }
-          // InputLabelProps={{
-          //   style: { transform: "translateY(9.5px)" },
-          // }}
-          
           sx={{
             "& .MuiInputBase-input": {
               height: "40px",
             },
           }}
-          size="small"
-          type={adornments ? (showPassword ? "text" : "password") : "text"}
+          type={endAdornment ? (showPassword ? "text" : "password") : "text"}
           InputProps={
-            adornments
+            endAdornment
               ? {
                   endAdornment: (
                     <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={() => setShowPassword((show) => !show)}
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }
+              : startAdornment
+              ? {
+                  startAdornment: (
+                    <InputAdornment position="start">
                       {/* <IconButton
                         aria-label="toggle password visibility"
                         onClick={() => setShowPassword((show) => !show)}
                       >
                         {showPassword ? <VisibilityOff /> : <Visibility />}
                       </IconButton> */}
-                      {endAdornmentIcon}
+                      {startIcon}
                     </InputAdornment>
                   ),
                 }
@@ -91,17 +101,18 @@ const CustomTextField = ({
               id="outlined-basic"
               multiline={multiline}
               label={label}
+              size="small"
               error={meta.error && meta.touched}
               onChange={(e) =>
                 number
                   ? helpers.setValue(Number(e.target.value))
                   : helpers.setValue(e.target.value)
               }
-                // sx={{
-                //   "& .MuiInputBase-input": {
-                //     height: "40px",
-                //   },
-                // }}
+              sx={{
+                "& .MuiInputBase-input": {
+                  height: "40px",
+                },
+              }}
               {...props}
               {...inputProps}
             />

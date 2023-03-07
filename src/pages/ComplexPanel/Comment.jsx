@@ -103,7 +103,7 @@ const Comment = ({ comment, postId }) => {
       </Stack>
 
       {openEdit ? (
-        <Box className="p-4 bg-slate-600 rounded">
+        <Box className="p-4 bg-slate-600 rounded-xl">
           <TextField
             multiline
             className="mb-4 w-full"

@@ -13,11 +13,13 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   Box,
   Stack,
+  Select,
   IconButton,
   Pagination,
   Typography,
-  Input,
+  InputLabel,
   MenuItem,
+  FormControl,
 } from "@mui/material";
 import { useScrollToUp } from "../../hooks/useScrollToUp";
 import Header from "../../components/UI/Header";
@@ -25,13 +27,19 @@ import {
   getAllNotifications,
   deleteNotifications,
 } from "../../app/Slicers/notifications";
+import MarkAsUnreadOutlinedIcon from "@mui/icons-material/MarkAsUnreadOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import NotificationType from "./NotificationType";
 import NotificationSubject from "./NotificationSubject";
 import CustomDataGrid from "../../components/UI/CustomDataGrid";
 
-import DraftsOutlinedIcon from "@mui/icons-material/DraftsOutlined";
+import MarkChatReadOutlinedIcon from "@mui/icons-material/MarkChatReadOutlined";
 import MarkunreadOutlinedIcon from "@mui/icons-material/MarkunreadOutlined";
+import DraftsOutlinedIcon from "@mui/icons-material/DraftsOutlined";
+import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
+
+import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlined";
+import MarkUnreadChatAltOutlinedIcon from "@mui/icons-material/MarkUnreadChatAltOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Cookies from "js-cookie";
@@ -51,36 +59,6 @@ const Notifications = () => {
 
   const btnRef = useRef(null);
 
-  const isOpenedMobileTable = document.querySelectorAll(
-    ".MuiAccordionSummary-root"
-  );
-  // useEffect(() => {
-
-  //   isOpenedMobileTable.forEach(item => {
-  //     item.addEventListener('click',()=>{
-
-  //     if(item.classList.contains('Mui-expanded')) {
-  //       setExpand(!expand);
-  //     console.log(item.classList.contains('Mui-expanded'))
-
-  //     }
-  //     })
-  //   })
-
-  //   // isOpenedMobileTable?.foreach((element, i) => {
-  //   //   setActive(i)
-  //   //   element?.addEventListener('click', () => {
-  //   //     element.setAttribute('open',true)
-  //   //     if (element.getAttribute("open")) {
-  //   //       setExpand(!expand)
-  //   //       console.log("asdasd")
-  //   //     }
-  //   //   })
-  //   //   // console.log(element);
-  //   //   // console.log(typeof element.getAttribute("aria-expanded"))
-  //   // });
-
-  // }, [isOpenedMobileTable])
   const columns = [
     {
       field: "type",
@@ -172,7 +150,7 @@ const Notifications = () => {
           icon: NotificationsOutlinedIcon,
         }}
       />
-      <Box className="py-6 px-6 my-4 rounded bg-bgLight dark:bg-bgMain  drop-shadow-lg w-full">
+      <Box className="py-6 px-6 rounded-xl bg-bgLight dark:bg-bgMain  drop-shadow-lg w-full">
         <Stack
           justifyContent="space-between"
           alignItems="center"
@@ -182,9 +160,22 @@ const Notifications = () => {
           <Box className="md:flex justify-between items-center hidden">
             <Typography className="font-semibold text-textDark2 dark:text-text2 text-[16px] my-5 flex gap-1 items-center">
               Sehifede
-              <Input className="w-10" defaultValue={10} onChange={handleChange}>
-                10
-              </Input>
+              <FormControl variant="filled">
+                <Select
+                  labelId="demo-simple-select-filled-label"
+                  id="demo-simple-select-filled"
+                  value={tableRows}
+                  onChange={handleChange}
+                  className="h-[30px] pb-3"
+                >
+                  <MenuItem value={10}>10</MenuItem>
+                  <MenuItem value={20}>20</MenuItem>
+                  <MenuItem value={30}>30</MenuItem>
+                  <MenuItem value={100}>100</MenuItem>
+                  <MenuItem value={250}>250</MenuItem>
+                  <MenuItem value={500}>500</MenuItem>
+                </Select>
+              </FormControl>
               netice goster
             </Typography>
           </Box>
@@ -199,40 +190,55 @@ const Notifications = () => {
 
             {openMenu ? (
               <CustomMenu
-                className="top-20 right-4 width-40"
+                className="top-20 right-4 width-40 text-text1"
                 ref={btnRef}
                 openMenu={openMenu}
                 setOpenMenu={setOpenMenu}
               >
-                <MenuItem>
-                  <Link to="/profile">{t("Oxunmuş kimi qeyd edin")}</Link>
+                <MenuItem
+                  onClick={() => {
+                    setOpenMenu(false);
+                  }}
+                  className="text-text1"
+                >
+                  <MarkAsUnreadOutlinedIcon className="mr-2 text-[19px]" />
+                  {t("Oxundu kimi qeyd edin")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
+                  className="text-text1"
                 >
-                  {t("Oxunmamış kimi qeyd edin")}
+                  <MarkEmailReadOutlinedIcon className="mr-2 text-[19px]" />
+                  {t("Oxunulmayıb kimi qeyd edin")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
+                  className="text-text1"
                 >
-                  {t("Oxunmuşlara baxın")}
+                  <DraftsOutlinedIcon className="mr-2 text-[19px]" />
+
+                  {t("Oxunanlara baxın")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
+                  className="text-text1"
                 >
-                  {t("Oxunmamışlara baxın")}
+                  <MarkunreadOutlinedIcon className="mr-2 text-[19px]" />
+                  {t("Oxunmayanlara baxın")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
+                  className="text-text1"
                 >
+                  <DeleteForeverOutlinedIcon className="mr-2 text-[19px]" />
                   {t("Seçilmişləri silin")}
                 </MenuItem>
               </CustomMenu>

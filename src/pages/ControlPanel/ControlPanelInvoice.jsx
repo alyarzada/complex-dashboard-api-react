@@ -22,7 +22,7 @@ import { Services } from "../MyInvoices/MyInvoices";
 import BackButton from "../../components/UI/Buttons/BackButton";
 import DefaultButton from "../../components/UI/Buttons/DefaultButton";
 import PreviewIcon from "@mui/icons-material/Preview";
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 
 const ControlPanelInvoice = () => {
   const { invoices } = useSelector((state) => state.invoice);
@@ -56,7 +56,7 @@ const ControlPanelInvoice = () => {
     <Box className="mb-6">
       <Stack direction={{ xs: "column", lg: "row" }} spacing={2}>
         {/* Current invoices */}
-        <Box className="flex-1 bg-bgLight dark:bg-bgMain p-3  rounded">
+        <Box className="flex-1 bg-bgLight dark:bg-bgMain p-3  rounded-xl">
           <Box className="mb-3 flex justify-between items-center">
             <Typography className="dark:text-logoColor text-logoColor capitalize font-medium">
               {t(["Current invoices (debts)"])}
@@ -71,22 +71,28 @@ const ControlPanelInvoice = () => {
           </Box>
           <TableContainer
             className="bg-transparent h-[240px] overflow-auto"
-            component={Paper}
             sx={{
+              border: "none",
               "&::-webkit-scrollbar": {
-                width: 3.5
+                width: 3.5,
               },
               "&::-webkit-scrollbar-track": {
                 backgroundColor: "transparent",
-                borderRadius: 2
+                borderRadius: 2,
               },
               "&::-webkit-scrollbar-thumb": {
                 backgroundColor: "gray",
-                borderRadius: 2
-              }
+                borderRadius: 2,
+              },
+              "& .MuiTableCell-root": {
+                borderBottom: "1px solid #ffffff26",
+              },
+              "& .MuiTableColumnHeaders-root": {
+                borderBottom: "1px solid #f0f2f566",
+              },
             }}
           >
-            <Table size="small" aria-label="a dense table" >
+            <Table size="small" aria-label="a dense table">
               <TableHead>
                 <TableRow>
                   <TableCell className=" dark:text-text1 text-textDark2">
@@ -136,7 +142,7 @@ const ControlPanelInvoice = () => {
           </TableContainer>
         </Box>
         {/* Paid invoices */}
-        <Box className="flex-1 p-2 dark:bg-bgMain bg-white rounded">
+        <Box className="flex-1 p-2 dark:bg-bgMain bg-white rounded-xl">
           <Box className="mb-3 flex justify-between items-center">
             <Typography className="dark:text-logoColor text-logoColor capitalize font-medium">
               {t(["Paid invoices"])}
@@ -151,19 +157,25 @@ const ControlPanelInvoice = () => {
           </Box>
           <TableContainer
             className="bg-transparent h-[240px] overflow-auto"
-            component={Paper}
             sx={{
+              border: "none",
               "&::-webkit-scrollbar": {
                 width: 3.5,
               },
               "&::-webkit-scrollbar-track": {
                 backgroundColor: "transparent",
-                borderRadius: 2
+                borderRadius: 2,
               },
               "&::-webkit-scrollbar-thumb": {
                 backgroundColor: "gray",
-                borderRadius: 2
-              }
+                borderRadius: 2,
+              },
+              "& .MuiTableCell-root": {
+                borderBottom: "1px solid #ffffff26",
+              },
+              "& .MuiTableColumnHeaders-root": {
+                borderBottom: "1px solid #f0f2f566",
+              },
             }}
           >
             <Table size="small" aria-label="a dense table">

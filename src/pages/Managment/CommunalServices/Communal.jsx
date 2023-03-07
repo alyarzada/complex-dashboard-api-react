@@ -39,7 +39,7 @@ const Communal = () => {
         {communals.map(({ id, image, title }) => (
           <Box
             key={id}
-            className="w-2/5 xs:[w-47%] lg:w-1/4 flex items-center justify-center flex-col py-6 px-10 rounded bg-slate-50 gap-y-4 drop-shadow-lg"
+            className="w-2/5 xs:[w-47%] lg:w-1/4 flex items-center justify-center flex-col py-6 px-10 rounded-xl bg-slate-50 gap-y-4 drop-shadow-lg"
           >
             <img className="w-40" src={image} alt="azerisiq" />
             <Typography className="mt-4">{title}</Typography>

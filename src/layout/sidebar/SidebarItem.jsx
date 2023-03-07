@@ -1,23 +1,22 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setOpenedSidebar,
-  setSideabarSubmenu,
   toggleSidebarSubmenu,
 } from "../../app/Slicers/themes";
 import { useMediaQuery, Box } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SubSidebarItem from "./SubSidebarItem";
-import { QrCodeScannerOutlined } from "@mui/icons-material";
 
 const SidebarItem = ({ sidebarItem, Icon }) => {
   const { openedSidebar, sidebarSubmenu } = useSelector(
     (state) => state.themes
   );
   const [linksHeight, setLinksHeight] = useState("");
+  const activeStyle = { backgroundColor: "#c9b26d", color: "#23272c" };
 
   const matches = useMediaQuery("(max-width:768px)");
   const dispatch = useDispatch();
@@ -25,52 +24,40 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
   const linksContainerRef = useRef(null);
   const { t } = useTranslation();
 
-  // console.log(sidebarSubmenu);
-  // console.log(typeof sidebarItem.id);
-
-  console.log(sidebarSubmenu);
-
   useEffect(() => {
     if (sidebarItem.sublist) {
       const linksHeight = linksRef.current.getBoundingClientRect().height;
       if (sidebarSubmenu.open && sidebarSubmenu.id == sidebarItem.id) {
         linksContainerRef.current.style.height = `${linksHeight}px`;
       } else {
-        console.log(sidebarSubmenu.open);
-
         linksContainerRef.current.style.height = "0px";
       }
     }
   }, [sidebarSubmenu]);
 
   return (
-    <li className={`text-gray-400 ${!openedSidebar && "group relative"}`}>
-      <Link
+    <li className={`${!openedSidebar && "group relative"}`}>
+      <NavLink
+        style={({ isActive }) =>
+          isActive && sidebarItem.path ? activeStyle : { color: "#ced4da" }
+        }
         to={sidebarItem.path ? sidebarItem.path : ""}
         onClick={(e) => {
           if (!sidebarItem.path) {
             e.preventDefault();
             dispatch(toggleSidebarSubmenu(sidebarItem.id));
           } else {
-            console.log("fucke");
             matches && dispatch(setOpenedSidebar());
           }
         }}
-        className={`hover:text-text1 group flex gap-x-3 shrink-0 flex-nowrap basis-0 whitespace-nowrap items-center py-3  ${
-          openedSidebar
-            ? "text-text2 hover-effect rounded w-[90%] mx-auto px-4"
-            : "relative px-7"
+        className={`group px-[24px] py-3 flex gap-x-3 rounded-xl mx-auto w-[90%] flex-nowrap whitespace-nowrap items-center   ${
+          !openedSidebar && "relative"
         }`}
       >
-        <Icon className="w-[20px] group-hover:text-white" />
-        {openedSidebar ? (
-          <motion.div
-            className="text-[15px] w-full flex items-center justify-between"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            {t(sidebarItem.title)}
+        <Icon className="w-[20px]" />
+        {openedSidebar && (
+          <div className="flex">
+            <span>{t(sidebarItem.title)}</span>
             {!sidebarItem.path && (
               <ChevronRightIcon
                 className={
@@ -80,13 +67,9 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
                 }
               />
             )}
-          </motion.div>
-        ) : !sidebarItem.sublist ? (
-          <Box className="text-[15px] opacity-0 invisible -translate-x-5  text-center text-white bg-logoColor w-40 p-3 h-[44px] absolute top-0 left-[85px] rounded group-hover:translate-x-0 group-hover:visible group-hover:ease-out group-hover:opacity-100 group-hover:transition-all group-hover:duration-[400ms]">
-            {t(sidebarItem.title)}
-          </Box>
-        ) : null}
-      </Link>
+          </div>
+        )}
+      </NavLink>
       {sidebarItem.sublist ? (
         <Box
           ref={linksContainerRef}
@@ -103,7 +86,7 @@ const SidebarItem = ({ sidebarItem, Icon }) => {
               !openedSidebar
                 ? `invisible fit-content opacity-0 -translate-x-5 ${
                     sidebarItem.sublist.length > 0 &&
-                    "group-hover:visible group-hover:transition-all group-hover:ease-out group-hover:opacity-100 group-hover:duration-[400ms] group-hover:translate-x-0 absolute rounded top-0 left-[85px] w-fit p-2 bg-logoColor"
+                    "group-hover:visible group-hover:transition-all group-hover:ease-out group-hover:opacity-100 group-hover:duration-[400ms] group-hover:translate-x-0 absolute rounded-xl top-0 left-[85px] w-fit p-2 bg-logoColor"
                   }`
                 : null
             }

@@ -8,31 +8,26 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  ListItemAvatar,
   IconButton,
   Typography,
   MenuItem,
-  Divider,
+  Button,
 } from "@mui/material";
-import { Link, useNavigate, Outlet } from "react-router-dom";
+import Cookies from "js-cookie";
+import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
-import { setOpenedSettingBar } from "../../app/Slicers/themes";
-import CustomMenu from "../../components/UI/Modals/CustomMenu";
+import { Link, useNavigate, Outlet } from "react-router-dom";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
-import portBakuImg from "../../assets/port-baku-residence_16406207114647.jpg";
+import { setOpenedSettingBar } from "../../app/Slicers/themes";
+import CustomMenu from "../../components/UI/Modals/CustomMenu";
+import { getAllNews } from "../../app/Slicers/news";
 import LeafletMap from "./LeafletMap";
 import "leaflet/dist/leaflet.css";
-import { getAllNews } from "../../app/Slicers/news";
-import { useTranslation } from "react-i18next";
-import Cookies from "js-cookie";
-import { setModal } from "../../app/Slicers/modals";
-import ApartmentIcon from "@mui/icons-material/Apartment";
 
 const Body = () => {
   const { openedSettingBar } = useSelector((state) => state.themes);
   const { user } = useSelector((state) => state.auth);
-  const { news } = useSelector((state) => state.news);
   const [active, setActive] = useState(1);
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -40,6 +35,12 @@ const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  const {
+    user: {
+      has_role: { role_id },
+    },
+  } = useSelector((state) => state.auth);
 
   const lists = [
     {
@@ -59,69 +60,6 @@ const Body = () => {
     },
   ];
 
-  const modalList = [
-    {
-      id: 1,
-      title: t("Housing cooperative"),
-      name: "PORT BAKU Residence",
-    },
-    {
-      id: 2,
-      title: t("Complex"),
-      name: "PORT BAKU Residence",
-    },
-    {
-      id: 3,
-      title: t("Building manager"),
-      name: "PORT BAKU Residence",
-    },
-    {
-      id: 4,
-      title: t("Sales consultant"),
-      name: "PORT BAKU Residence",
-    },
-    {
-      id: 5,
-      title: t("Leisure Club Administrator"),
-      name: "PORT BAKU Residence",
-    },
-    {
-      id: 6,
-      title: t("Leisure Club Administrator"),
-      name: "PORT BAKU Residence",
-    },
-    {
-      id: 7,
-      title: t("Logistic coordinator"),
-      name: "PORT BAKU Residence",
-    },
-    {
-      id: 8,
-      title: t("Fit-out field inspector"),
-      name: "PORT BAKU Residence",
-    },
-    {
-      id: 9,
-      title: t("Maintenance manager"),
-      name: "PORT BAKU Residence",
-    },
-    {
-      id: 10,
-      title: t("Cleaning Services Supervisor"),
-      name: "PORT BAKU Residence",
-    },
-    {
-      id: 11,
-      title: t("Cleaning Services Supervisor"),
-      name: "PORT BAKU Residence",
-    },
-    {
-      id: 12,
-      title: t("Notes"),
-      name: "PORT BAKU Residence",
-    },
-  ];
-
   const words = user?.name.split(" ");
   const firstLetters = words
     .map((word) => word.charAt(0))
@@ -131,32 +69,6 @@ const Body = () => {
     dispatch(getAllNews(Cookies.get("token")));
   }, []);
 
-  const modalData = (
-    <Box>
-      <Box>
-        <img
-          className="h-[320px] w-full object-cover object-center"
-          src={portBakuImg}
-          alt="port-baku-image"
-        />
-      </Box>
-      <Box>
-        {modalList.map((item) => (
-          <Stack
-            key={item.id}
-            justifyContent="space-between"
-            direction="row"
-            alignItems="center"
-            className="dark:text-text1 p-3"
-          >
-            <Typography>{item.title}</Typography>
-            <Typography>{item.name}</Typography>
-          </Stack>
-        ))}
-      </Box>
-    </Box>
-  );
-
   return (
     <Box>
       <Stack
@@ -164,7 +76,19 @@ const Body = () => {
         justifyContent="space-between"
       >
         <Box className="w-full md:w-[40%]">
-          <Box className="rounded p-4 mb-4 dark:text-text1 bg-bgLight dark:bg-bgMain  drop-shadow-lg">
+          {role_id === 2 && (
+            <Box className="pb-4">
+              <Button
+                variant="contained"
+                className="bg-rose-500 capitalize w-full hover:bg-rose-600 py-3 tracking-wider text-base	"
+                onClick={() => navigate("/complex-select")}
+              >
+                {t("Change Complex")}
+              </Button>
+            </Box>
+          )}
+
+          <Box className="rounded-xl p-4 mb-4 dark:text-text1 bg-bgLight dark:bg-bgMain  drop-shadow-lg">
             <Stack
               direction="row"
               justifyContent="space-between"
@@ -223,7 +147,7 @@ const Body = () => {
                       }}
                       className={`${
                         active === list.id ? "bg-[#ffffff14]" : ""
-                      } rounded`}
+                      } rounded-xl`}
                     >
                       <ListItemIcon>
                         <NewspaperIcon />
@@ -236,7 +160,7 @@ const Body = () => {
             </Box>
           </Box>
 
-          <Box className="rounded mb-6 dark:bg-bgMain bg-white drop-shadow-lg">
+          <Box className="rounded-xl mb-6 dark:bg-bgMain bg-white drop-shadow-lg">
             <LeafletMap />
           </Box>
         </Box>

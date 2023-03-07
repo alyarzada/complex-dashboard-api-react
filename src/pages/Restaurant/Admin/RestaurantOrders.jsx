@@ -3,7 +3,7 @@ import Header from "../../../components/UI/Header";
 import IndeterminateCheckBoxOutlinedIcon from "@mui/icons-material/IndeterminateCheckBoxOutlined";
 import { useTranslation } from "react-i18next";
 import { Box, Stack, Typography, Input } from "@mui/material";
-import {  useState } from "react";
+import { useState } from "react";
 import CustomDataGrid from "../../../components/UI/CustomDataGrid";
 
 const RestaurantOrders = () => {
@@ -18,49 +18,45 @@ const RestaurantOrders = () => {
     {
       field: "customerdAdress",
       headerName: t("Customer address"),
-      flex:1,
-      headerAlign: "center"
+      flex: 1,
+      headerAlign: "center",
     },
     {
       field: "theAmountToBePaid",
       headerName: t("The amount to be paid"),
-      flex:1,
-      headerAlign: "center"
-      
+      flex: 1,
+      headerAlign: "center",
     },
     {
       field: "orderCode",
       headerName: t("Order code"),
-      flex:1,
-      headerAlign: "center"
-      
+      flex: 1,
+      headerAlign: "center",
     },
     {
       field: "orderDate",
       headerName: t("Order date"),
-      flex:1,
-      headerAlign: "center"
-
+      flex: 1,
+      headerAlign: "center",
     },
     {
       field: "orderType",
       headerName: t("Order type"),
-      flex:1,
-      headerAlign: "center"
-
+      flex: 1,
+      headerAlign: "center",
     },
   ];
 
   return (
     <Box>
       <Header
-      className="md:flex-column"
+        className="md:flex-column"
         currentPage={{
           title: t("Orders"),
           icon: IndeterminateCheckBoxOutlinedIcon,
         }}
       />
-      <Box className="py-6 px-6 my-4 rounded bg-bgLight drop-shadow-lg dark:bg-gradient-to-r dark:from-mainPrimary dark:to-mainSecondary w-full">
+      <Box className="py-6 px-6 my-4 rounded bg-bgLight drop-shadow-lg dark:bg-bgMain w-full">
         <Stack
           justifyContent="space-between"
           alignItems="center"
@@ -80,8 +76,7 @@ const RestaurantOrders = () => {
             </Typography>
           </Box>
         </Stack>
-        <CustomDataGrid rows={[]} desktopColumns={columns}   />
-
+        <CustomDataGrid rows={[]} desktopColumns={columns} />
       </Box>
     </Box>
   );

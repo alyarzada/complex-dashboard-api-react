@@ -61,8 +61,6 @@ const Profile = () => {
     },
   ];
 
-  console.log(gender);
-
   const reverseBirthday = (birthdayDate) => {
     return format(new Date(birthdayDate), "dd/MM/yyyy");
   };
@@ -81,7 +79,7 @@ const Profile = () => {
       <Header
         currentPage={{ title: t(["Profile"]), icon: PersonOutlineOutlinedIcon }}
       />
-      <Box className="flex flex-col md:flex-row justify-between mt-4">
+      <Box className="flex flex-col md:flex-row justify-between">
         <Box className=" drop-shadow-lg bg-bgLight dark:bg-bgMain p-8 rounded w-full   md:w-[38%]">
           {/* first row */}
           <Box className="flex flex-col items-center">

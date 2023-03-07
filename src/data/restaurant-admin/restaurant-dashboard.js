@@ -24,7 +24,7 @@ export const restaurantDashboard = [
         img: <HomeOutlinedIcon />,
         title: "Count of complexes",
         link: "/",
-        color: "text-[#C9B26D]",
+        color: "text-[#f04a67]",
       },
       {
         id: 3,

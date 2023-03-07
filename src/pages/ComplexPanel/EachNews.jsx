@@ -107,7 +107,7 @@ const EachNews = ({ news }) => {
   };
 
   return (
-    <Box className="mb-4 dark:bg-bgMain rounded p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
+    <Box className="mb-4 dark:bg-bgMain rounded-xl p-4 text-textDark4 dark:text-text1 bg-white drop-shadow-lg">
       <Stack
         direction="row"
         justifyContent="space-between"
@@ -265,7 +265,7 @@ const EachNews = ({ news }) => {
             >
               <Picker
                 data={data}
-                onEmojiSelect={""}
+                onEmojiSelect={console.log}
                 previewPosition="none"
                 theme={light ? "light" : "dark"}
               />

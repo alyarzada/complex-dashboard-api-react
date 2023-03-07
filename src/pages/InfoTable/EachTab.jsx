@@ -43,7 +43,7 @@ const EachTab = ({ datas }) => {
             navigation
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log("slide change")}
-            className="select-none h-[auto] rounded cursor-pointer"
+            className="select-none h-[auto] rounded-xl cursor-pointer"
           >
             <SwiperSlide>
               <img
@@ -96,7 +96,7 @@ const EachTab = ({ datas }) => {
               alt=""
             />
             <button
-              className="absolute top-[10px] right-[10px] bg-none color-white py-[10px] px-[20px] border-none rounded cursor-pointer"
+              className="absolute top-[10px] right-[10px] bg-none color-white py-[10px] px-[20px] border-none rounded-xl cursor-pointer"
               id="close-modal"
               onClick={() => {
                 setShowModal(false);
@@ -107,7 +107,7 @@ const EachTab = ({ datas }) => {
           </div>
         )}
 
-        <Box className=" w-full lg:w-1/2 shadow-2xl flex-1 p-3 bg-bgLight dark:bg-bgMain rounded ">
+        <Box className=" w-full lg:w-1/2 shadow-2xl flex-1 p-3 bg-bgLight dark:bg-bgMain rounded-xl">
           <Typography className="uppercase dark:text-text1 text-textDark2">
             {t(["Detail information"])}
           </Typography>

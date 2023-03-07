@@ -48,7 +48,6 @@ export const themes = createSlice({
       state.sidebarSubmenu = action.payload;
     },
     toggleSidebarSubmenu: (state, { payload }) => {
-      console.log(payload);
       state.sidebarSubmenu = {
         open: !state.sidebarSubmenu.open,
         id: payload,

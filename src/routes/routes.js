@@ -1,77 +1,522 @@
-import { lazy } from "react";
+import loadable from "@loadable/component";
+import LoadingComponent from "../layout/LoadingComponent";
 
 // main components
-import Home from "../layout/Home";
-import PrivateRoute from "../layout/PrivateRoute";
-import LoginProtectedRoote from "../auth/ProtectedRoote";
-import ControlPanel from "../pages/ControlPanel/ControlPanel";
-import LoginPage from "../auth/Login";
-import Payment from "../pages/MyInvoices/Payment";
+const Home = loadable(
+  () => import(/* webpackChunkName: "Home" */ "../layout/Home"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const PrivateRoute = loadable(
+  () => import(/* webpackChunkName: "PrivateRoute" */ "../layout/PrivateRoute"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const LoginProtectedRoote = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "LoginProtectedRoote" */ "../auth/ProtectedRoote"
+    ),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const ControlPanel = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "ControlPanel" */ "../pages/ControlPanel/ControlPanel"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const LoginPage = loadable(
+  () => import(/* webpackChunkName: "LoginPage" */ "../auth/Login"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const Payment = loadable(
+  () => import(/* webpackChunkName: "Payment" */ "../pages/MyInvoices/Payment"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
 
 // children components
-import ComplexPanel from "../pages/ComplexPanel/ComplexPanel";
-import CalendarPage from "../pages/FullCalendar/CalendarPage";
-import Profile from "../pages/Profile/Profile";
-import Notifications from "../pages/Notifications/Notifications";
-import NotFound404 from "../pages/NotFound404";
-import Contacts from "../pages/Contact/Contacts";
-import MyInvoices from "../pages/MyInvoices/MyInvoices";
-import InfoTable from "../pages/InfoTable/InfoTable";
-import PhotoEdit from "../pages/InfoTable/PhotoEdit";
-import Requests from "../pages/Managment/Requests/Requests";
-import RequestPanel from "../pages/RequestPanel/RequestPanel";
-import CreateNewRequest from "../pages/Managment/Requests/CreateNewRequest";
-import CommunalServices from "../pages/Managment/CommunalServices/CommunalServices";
-import Communal from "../pages/Managment/CommunalServices/Communal";
-import EntryCards from "../pages/Managment/EntryCard/EntryCards";
-import RenterRegistration from "../pages/Managment/RenterRegistration/RenterRegistration";
-import AdminCreateNew from "../pages/Managment/RenterRegistration/ComplexAdmin/AdminCreateNew";
-import News from "../pages/ComplexPanel/News";
-import Chat from "../pages/Chat/Chat";
-import SavedPosts from "../pages/ComplexPanel/SavedPosts";
-import Phone from "../pages/Managment/CommunalServices/Phone";
-import AllRequests from "../pages/Managment/Requests/AllRequests";
-import RequestComponent from "../pages/Managment/Requests/RequestComponent";
-import MeetingRoom from "../pages/Managment/LocalClub/Main/MeetingRoom";
-import Massage from "../pages/Managment/LocalClub/Main/Massage";
-import Cinema from "../pages/Managment/LocalClub/Main/Cinema";
-import NewEntryCard from "../pages/Managment/EntryCard/NewEntryCard";
-import NewParkingCard from "../pages/Managment/EntryCard/NewParkingCard";
-import Menu from "../pages/Restaurant/Menu";
-import Card from "../pages/Restaurant/Card";
-import TenantRegistration from "../pages/ControlPanel/TenantRegistration";
-import Internet from "../pages/Managment/CommunalServices/Internet";
-import Tv from "../pages/Managment/CommunalServices/Tv";
-import RequestDetails from "../pages/Managment/Requests/RequestDetails";
-import SendNotifications from "../pages/Notifications/complexAdmin/SendNotifications";
-import Reports from "../pages/Managment/Reports/reports";
-import AddApartment from "../pages/AddApartment/AddApartment";
-import SurveyManage from "../pages/Notifications/complexAdmin/SurveyManage";
-import CreateInvoice from "../pages/CreateInvoice/CreateInvoice";
-import NotificationsArchive from "../pages/Notifications/complexAdmin/NotificationsArchive";
-import SentNotifications from "../pages/Notifications/complexAdmin/SentNotifications";
-import SurveyCreate from "../pages/Notifications/complexAdmin/SurveyCreate/SurveyCreate";
-import MTKUsers from "../pages/Apartment/MTKUsers";
-import Tasks from "../pages/Tasks/Tasks";
-import TaskCreate from "../pages/Tasks/TaskCreate";
-import Apartments from "../pages/Apartment/Apartments";
-import Building from "../pages/Apartment/Building";
-import Residents from "../pages/Apartment/Residents";
-import GroupOfApartments from "../pages/Apartment/GroupOfApartments";
-import GroupOfApartmentsCreate from "../pages/Apartment/GroupOfApartmentsCreate";
-import Employees from "../pages/Apartment/Employees";
-import EmployeesCreate from "../pages/Apartment/EmployeesCreate";
-import HousingCooperative from "../pages/Apartment/HousingCooperative";
-import HousingCooperativeCreate from "../pages/Apartment/HousingCooperativeCreate";
-import Complex from "../pages/Apartment/Complex";
-import ComplexCreate from "../pages/Apartment/ComplexCreate";
-import MTKUserCreate from "../pages/Apartment/MTKUserCreate/MTKUserCreate";
-import MenuCategories from "../pages/Restaurant/Admin/MenuCategories";
-import MenuNewCreate from "../pages/Restaurant/Admin/MenuNewCreate";
-import RestaurantMenu from "../pages/Restaurant/Admin/RestaurantMenu";
-import MenuCreate from "../pages/Restaurant/Admin/MenuCreate";
-import RestaurantOrders from "../pages/Restaurant/Admin/RestaurantOrders";
-import InvoiceBill from "../pages/MyInvoices/InvoiceBill";
+const ComplexPanel = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "ComplexPanel" */ "../pages/ComplexPanel/ComplexPanel"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const ComplexSelect = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "ComplexSelect" */ "../pages/ComplexSelect/ComplexSelect"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const CalendarPage = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "CalendarPage" */ "../pages/FullCalendar/CalendarPage"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const Profile = loadable(
+  () => import(/* webpackChunkName: "Profile" */ "../pages/Profile/Profile"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const Notifications = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "Notifications" */ "../pages/Notifications/Notifications"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const NotFound404 = loadable(
+  () => import(/* webpackChunkName: "NotFound404" */ "../pages/NotFound404"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const Contacts = loadable(
+  () => import(/* webpackChunkName: "Contacts" */ "../pages/Contact/Contacts"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const MyInvoices = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "MyInvoices" */ "../pages/MyInvoices/MyInvoices"
+    ),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const InfoTable = loadable(
+  () =>
+    import(/* webpackChunkName: "InfoTable" */ "../pages/InfoTable/InfoTable"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const PhotoEdit = loadable(
+  () =>
+    import(/* webpackChunkName: "PhotoEdit" */ "../pages/InfoTable/PhotoEdit"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const Requests = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "Requests" */ "../pages/Managment/Requests/Requests"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const RequestPanel = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "RequestPanel" */ "../pages/RequestPanel/RequestPanel"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const CreateNewRequest = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "CreateNewRequest" */ "../pages/Managment/Requests/CreateNewRequest"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const CommunalServices = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "CommunalServices" */ "../pages/Managment/CommunalServices/CommunalServices"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const Communal = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "Communal" */ "../pages/Managment/CommunalServices/Communal"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const EntryCards = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "EntryCards" */ "../pages/Managment/EntryCard/EntryCards"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const RenterRegistration = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "RenterRegistration" */ "../pages/Managment/RenterRegistration/RenterRegistration"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const AdminCreateNew = loadable(
+  () =>
+    import("../pages/Managment/RenterRegistration/ComplexAdmin/AdminCreateNew"),
+  { fallback: <LoadingComponent /> }
+);
+const News = loadable(
+  () => import(/* webpackChunkName: "News" */ "../pages/ComplexPanel/News"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const Chat = loadable(
+  () => import(/* webpackChunkName: "Chat" */ "../pages/Chat/Chat"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const SavedPosts = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "SavedPosts" */ "../pages/ComplexPanel/SavedPosts"
+    ),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const Phone = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "Phone" */ "../pages/Managment/CommunalServices/Phone"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const AllRequests = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "AllRequests" */ "../pages/Managment/Requests/AllRequests"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const RequestComponent = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "RequestComponent" */ "../pages/Managment/Requests/RequestComponent"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const MeetingRoom = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "MeetingRoom" */ "../pages/Managment/LocalClub/Main/MeetingRoom"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const Massage = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "Massage" */ "../pages/Managment/LocalClub/Main/Massage"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const Cinema = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "Cinema" */ "../pages/Managment/LocalClub/Main/Cinema"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const NewEntryCard = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "NewEntryCard" */ "../pages/Managment/EntryCard/NewEntryCard"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const NewParkingCard = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "NewParkingCard" */ "../pages/Managment/EntryCard/NewParkingCard"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const Menu = loadable(
+  () => import(/* webpackChunkName: "Menu" */ "../pages/Restaurant/Menu"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const Card = loadable(
+  () => import(/* webpackChunkName: "Card" */ "../pages/Restaurant/Card"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const TenantRegistration = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "TenantRegistration" */ "../pages/ControlPanel/TenantRegistration"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const Internet = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "Internet" */ "../pages/Managment/CommunalServices/Internet"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const Tv = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "Tv" */ "../pages/Managment/CommunalServices/Tv"
+    ),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const RequestDetails = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "RequestDetails" */ "../pages/Managment/Requests/RequestDetails"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const SendNotifications = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "SendNotifications" */ "../pages/Notifications/complexAdmin/SendNotifications"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const Reports = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "Reports" */ "../pages/Managment/Reports/reports"
+    ),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const ApartmentsCreate = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "AddApartment" */ "../pages/Apartment/ApartmentsCreate"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const SurveyManage = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "SurveyManage" */ "../pages/Notifications/complexAdmin/SurveyManage"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const CreateInvoice = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "CreateInvoice" */ "../pages/CreateInvoice/CreateInvoice"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const NotificationsArchive = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "NotificationsArchive" */ "../pages/Notifications/complexAdmin/NotificationsArchive"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const SentNotifications = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "SentNotifications" */ "../pages/Notifications/complexAdmin/SentNotifications"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const SurveyCreate = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "SurveyCreate" */ "../pages/Notifications/complexAdmin/SurveyCreate/SurveyCreate"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const MTKUsers = loadable(
+  () =>
+    import(/* webpackChunkName: "MTKUsers" */ "../pages/Apartment/MTKUsers"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const Permission = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "Permission" */ "../pages/Apartment/Permission"
+    ),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+
+const Tasks = loadable(
+  () => import(/* webpackChunkName: "Tasks" */ "../pages/Tasks/Tasks"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const TaskCreate = loadable(
+  () =>
+    import(/* webpackChunkName: "TaskCreate" */ "../pages/Tasks/TaskCreate"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const Apartments = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "Apartments" */ "../pages/Apartment/Apartments"
+    ),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const Building = loadable(
+  () =>
+    import(/* webpackChunkName: "Building" */ "../pages/Apartment/Building"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const BuildingCreate = loadable(
+  () =>
+    import(/* webpackChunkName: "Building" */ "../pages/Apartment/BuildingCreate"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const Residents = loadable(
+  () =>
+    import(/* webpackChunkName: "Residents" */ "../pages/Apartment/Residents"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const ResidentsCreate = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "ResidentsCreate" */ "../pages/Apartment/ResidentsCreate"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const GroupOfApartments = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "GroupOfApartments" */ "../pages/Apartment/GroupOfApartments"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const GroupOfApartmentsCreate = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "GroupOfApartmentsCreate" */ "../pages/Apartment/GroupOfApartmentsCreate"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const Employees = loadable(
+  () =>
+    import(/* webpackChunkName: "Employees" */ "../pages/Apartment/Employees"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const EmployeesCreate = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "EmployeesCreate" */ "../pages/Apartment/EmployeesCreate"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const HousingCooperative = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "HousingCooperative" */ "../pages/Apartment/HousingCooperative"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const HousingCooperativeCreate = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "HousingCooperativeCreate" */ "../pages/Apartment/HousingCooperativeCreate"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const Complex = loadable(
+  () => import(/* webpackChunkName: "Complex" */ "../pages/Apartment/Complex"),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
+const ComplexCreate = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "ComplexCreate" */ "../pages/Apartment/ComplexCreate"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const MTKUserCreate = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "MTKUserCreate" */ "../pages/Apartment/MTKUserCreate"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const MenuCategories = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "MenuCategories" */ "../pages/Restaurant/Admin/MenuCategories"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const MenuNewCreate = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "MenuNewCreate" */ "../pages/Restaurant/Admin/MenuNewCreate"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const RestaurantMenu = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "RestaurantMenu" */ "../pages/Restaurant/Admin/RestaurantMenu"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const MenuCreate = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "MenuCreate" */ "../pages/Restaurant/Admin/MenuCreate"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const RestaurantOrders = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "RestaurantOrders" */ "../pages/Restaurant/Admin/RestaurantOrders"
+    ),
+  { fallback: <LoadingComponent /> }
+);
+const InvoiceBill = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "InvoiceBill" */ "../pages/MyInvoices/InvoiceBill"
+    ),
+  {
+    fallback: <LoadingComponent />,
+  }
+);
 
 const routes = [
   {
@@ -99,8 +544,8 @@ const routes = [
         element: <RequestPanel />,
       },
       {
-        path: "add-apartment",
-        element: <AddApartment />,
+        path: "apartments/create",
+        element: <ApartmentsCreate />,
       },
       {
         path: "myinvoice/payment",
@@ -231,6 +676,10 @@ const routes = [
         element: <TenantRegistration />,
       },
       {
+        path: "permission",
+        element: <Permission />,
+      },
+      {
         path: "user-card-request/access/create",
         element: <NewEntryCard />,
       },
@@ -241,10 +690,6 @@ const routes = [
       {
         path: "reports",
         element: <Reports />,
-      },
-      {
-        path: "add-apartment",
-        element: <AddApartment />,
       },
       {
         path: "hc-users",
@@ -275,10 +720,6 @@ const routes = [
         element: <Complex />,
       },
       {
-        path: "complex",
-        element: <Complex />,
-      },
-      {
         path: "complex/create",
         element: <ComplexCreate />,
       },
@@ -303,6 +744,10 @@ const routes = [
         element: <Building />,
       },
       {
+        path: "building/create",
+        element: <BuildingCreate />,
+      },
+      {
         path: "group-of-apartments",
         element: <GroupOfApartments />,
       },
@@ -315,7 +760,11 @@ const routes = [
         element: <Residents />,
       },
       {
-        path: "mtk-users/create",
+        path: "residents/create",
+        element: <ResidentsCreate />,
+      },
+      {
+        path: "hc-users/create",
         element: <MTKUserCreate />,
       },
       {
@@ -353,6 +802,10 @@ const routes = [
       {
         path: "/informing-residents",
         element: <SendNotifications />,
+      },
+      {
+        path: "/complex-select",
+        element: <ComplexSelect />,
       },
     ],
   },
