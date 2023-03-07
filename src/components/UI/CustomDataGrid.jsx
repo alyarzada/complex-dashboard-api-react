@@ -74,6 +74,18 @@ const CustomDataGrid = ({
             components={{
               Pagination: CustomPagination,
             }}
+            sx={{
+              borderColor: "transparent",
+              "& .MuiDataGrid-cell": {
+                borderColor: "#ffffff26",
+              },
+              "& .MuiDataGrid-columnHeaders": {
+                borderColor: "#f0f2f566",
+              },
+              "& .MuiDataGrid-columnSeparator ": {
+                display: "none",
+              },
+            }}
             {...props}
           />
         ) : (

@@ -8,7 +8,6 @@ import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import { useDispatch, useSelector } from "react-redux";
 import { setModal } from "../../app/Slicers/modals";
 import { getSelectedInvoices } from "../../app/Slicers/invoices";
-import DefaultButton from "../../components/UI/Buttons/DefaultButton";
 import HoverLogoButton from "../../components/UI/Buttons/HoverLogoButton";
 import CustomDataGrid from "../../components/UI/CustomDataGrid";
 
@@ -101,7 +100,7 @@ const Myİnvoices = () => {
       align: "center",
       headerAlign: "center",
       renderCell: (params) => (
-        <Typography className="bg-logoColor rounded p-1 text-sm">
+        <Typography className="bg-logoColor rounded-xl p-1 text-sm">
           {t(params.row.status)}
         </Typography>
       ),
@@ -149,7 +148,7 @@ const Myİnvoices = () => {
       render: (value, data) => {
         if (data.status === "Not paid") {
           return (
-            <Typography className="bg-logoColor rounded p-1 text-sm flex justify-center capitalize w-[70px]">
+            <Typography className="bg-logoColor rounded-xl p-1 text-sm flex justify-center capitalize w-[70px]">
               {data.status}
             </Typography>
           );
@@ -175,7 +174,7 @@ const Myİnvoices = () => {
   return (
     <Box>
       <Header currentPage={{ title: "My Invoices", icon: ReceiptLongIcon }} />
-      <Box className="my-4 rounded s drop-shadow-lg  bg-bgLight dark:bg-bgMain w-full">
+      <Box className=" rounded-xl s drop-shadow-lg  bg-bgLight dark:bg-bgMain w-full">
         <Stack
           direction={{ sm: "row", xs: "column" }}
           justifyContent="space-between"

@@ -120,7 +120,7 @@ const Body = () => {
   ];
 
   return (
-    <Box className="rounded bg-bgLight dark:bg-bgMain">
+    <Box className="rounded-xl bg-bgLight dark:bg-bgMain">
       <Box className="p-1 lg:p-4">
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
@@ -184,12 +184,12 @@ const Body = () => {
           <EachTab datas={tabFourData} />
         </TabPanel>
 
-        <Box className="rounded mb-6 bg-bgLight dark:bg-bgMain">
+        <Box className="rounded-xl mb-6 bg-bgLight dark:bg-bgMain">
           <MapContainer
             center={[40.37665543757066, 49.85999537195368]}
             zoom={13}
             scrollWheelZoom={false}
-            className="h-[500px] rounded z-10"
+            className="h-[500px] rounded-xl z-10"
           >
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <Marker position={[40.37665543757066, 49.85999537195368]}>

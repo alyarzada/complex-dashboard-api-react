@@ -1,4 +1,4 @@
-  import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import {
   DataGrid,
@@ -27,13 +27,19 @@ import {
   getAllNotifications,
   deleteNotifications,
 } from "../../app/Slicers/notifications";
+import MarkAsUnreadOutlinedIcon from "@mui/icons-material/MarkAsUnreadOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import NotificationType from "./NotificationType";
 import NotificationSubject from "./NotificationSubject";
 import CustomDataGrid from "../../components/UI/CustomDataGrid";
 
-import DraftsOutlinedIcon from "@mui/icons-material/DraftsOutlined";
+import MarkChatReadOutlinedIcon from "@mui/icons-material/MarkChatReadOutlined";
 import MarkunreadOutlinedIcon from "@mui/icons-material/MarkunreadOutlined";
+import DraftsOutlinedIcon from "@mui/icons-material/DraftsOutlined";
+import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
+
+import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlined";
+import MarkUnreadChatAltOutlinedIcon from "@mui/icons-material/MarkUnreadChatAltOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Cookies from "js-cookie";
@@ -144,7 +150,7 @@ const Notifications = () => {
           icon: NotificationsOutlinedIcon,
         }}
       />
-      <Box className="py-6 px-6 my-4 rounded bg-bgLight dark:bg-bgMain  drop-shadow-lg w-full">
+      <Box className="py-6 px-6 rounded-xl bg-bgLight dark:bg-bgMain  drop-shadow-lg w-full">
         <Stack
           justifyContent="space-between"
           alignItems="center"
@@ -153,7 +159,7 @@ const Notifications = () => {
         >
           <Box className="md:flex justify-between items-center hidden">
             <Typography className="font-semibold text-textDark2 dark:text-text2 text-[16px] my-5 flex gap-1 items-center">
-              Sehifede
+              {t("On the page")}
               <FormControl variant="filled">
                 <Select
                   labelId="demo-simple-select-filled-label"
@@ -162,9 +168,6 @@ const Notifications = () => {
                   onChange={handleChange}
                   className="h-[30px] pb-3"
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
                   <MenuItem value={10}>10</MenuItem>
                   <MenuItem value={20}>20</MenuItem>
                   <MenuItem value={30}>30</MenuItem>
@@ -173,7 +176,7 @@ const Notifications = () => {
                   <MenuItem value={500}>500</MenuItem>
                 </Select>
               </FormControl>
-              netice goster
+              {t("show results")}
             </Typography>
           </Box>
 
@@ -187,41 +190,56 @@ const Notifications = () => {
 
             {openMenu ? (
               <CustomMenu
-                className="top-20 right-4 width-40"
+                className="top-20 right-4 width-40 text-text1"
                 ref={btnRef}
                 openMenu={openMenu}
                 setOpenMenu={setOpenMenu}
               >
-                <MenuItem>
-                  <Link to="/profile">{t("Oxunmuş kimi qeyd edin")}</Link>
+                <MenuItem
+                  onClick={() => {
+                    setOpenMenu(false);
+                  }}
+                  className="dark:text-text1 text-textDark2"
+                >
+                  <MarkAsUnreadOutlinedIcon className="mr-2 text-[19px]" />
+                  {t("Mark as read")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
+                  className="dark:text-text1 text-textDark2"
                 >
-                  {t("Oxunmamış kimi qeyd edin")}
+                  <MarkEmailReadOutlinedIcon className="mr-2 text-[19px]" />
+                  {t("Mark as unread")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
+                  className="dark:text-text1 text-textDark2"
                 >
-                  {t("Oxunmuşlara baxın")}
+                  <DraftsOutlinedIcon className="mr-2 text-[19px]" />
+
+                  {t("See what's been read")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
+                  className="dark:text-text1 text-textDark2"
                 >
-                  {t("Oxunmamışlara baxın")}
+                  <MarkunreadOutlinedIcon className="mr-2 text-[19px]" />
+                  {t("See unread")}
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     setOpenMenu(false);
                   }}
+                  className="dark:text-text1 text-textDark2"
                 >
-                  {t("Seçilmişləri silin")}
+                  <DeleteForeverOutlinedIcon className="mr-2 text-[19px]" />
+                  {t("Delete selected")}
                 </MenuItem>
               </CustomMenu>
             ) : null}

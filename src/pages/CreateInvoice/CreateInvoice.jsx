@@ -20,7 +20,7 @@ const CreateInvoice = () => {
       <Header
         currentPage={{ title: t(["Invoices"]), icon: ApartmentOutlinedIcon }}
       />
-      <Box className="my-4 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
+      <Box className="my-4 py-4 px-6 rounded-xl  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="flex">
           <Formik
             initialValues={{
@@ -90,7 +90,7 @@ const CreateInvoice = () => {
                     </Box>
                   </Box>
 
-                  <Box className="my-4 pl-3 flex items-center gap-3 py-4 px-6 rounded  drop-shadow-lg bg-[#256D85] font-semibold text-white text-[16px] mb-1 capitalize w-full">
+                  <Box className="my-4 pl-3 flex items-center gap-3 py-4 px-6 rounded-xl  drop-shadow-lg bg-[#256D85] font-semibold text-white text-[16px] mb-1 capitalize w-full">
                     <ReceiptLongIcon /> {t(["Service"])}
                   </Box>
                   <Box className=" md:flex mb-5 md:mb-0 h-[50px] w-full justify-between">
@@ -152,7 +152,7 @@ const CreateInvoice = () => {
                       />
                     </Box>
                   </Box>
-                  <Box className="my-4 pl-3 flex items-center gap-3 py-4 px-6 rounded  drop-shadow-lg bg-[#256D85] font-semibold text-white text-[16px] mb-1 capitalize w-full">
+                  <Box className="my-4 pl-3 flex items-center gap-3 py-4 px-6 rounded-xl  drop-shadow-lg bg-[#256D85] font-semibold text-white text-[16px] mb-1 capitalize w-full">
                     <AccountCircleIcon /> {t(["Additional information"])}
                   </Box>
                   <Box className="w-full">
@@ -175,7 +175,7 @@ const CreateInvoice = () => {
           </Formik>
         </Box>
       </Box>
-      <Box className="flex justify-between items-center gap-x-1 bg-bgLight dark:bg-[#404954] py-5 px-3 sm:px-6 rounded mt-2">
+      <Box className="flex justify-between items-center gap-x-1 bg-bgLight dark:bg-[#404954] py-5 px-3 sm:px-6 rounded-xl mt-2">
         <Link to="/">
           <Button
             startIcon={<ReplyIcon className="text-white dark:text-black" />}

@@ -125,18 +125,18 @@ const ComplexPanel = () => {
           }}
         />
         <Box>
-          <Box className="rounded mb-6">
-            <Box className="flex gap-[10px] p-[10px] h-[100%] flex-col lg:flex-row">
+          <Box className="rounded-xl mb-6">
+            <Box className="flex gap-[10px] h-[100%] flex-col lg:flex-row">
               <Box className="w-full lg:w-[70%]">
                 <Box className="w-[100%] h-[284px]">
                   <img
-                    className="rounded-t w-full object-fit h-full"
+                    className="rounded-t-xl w-full object-fit h-full"
                     src={portBakuImage}
                     alt="port-baku"
                   />
                 </Box>
 
-                <Box className="relative rounded-b h-[138px] bg-bgLight dark:bg-bgMain  drop-shadow-lg ">
+                <Box className="relative rounded-b-xl h-[138px] bg-bgLight dark:bg-bgMain  drop-shadow-lg ">
                   <Box className="absolute -top-5 left-1 md:left-7">
                     <img
                       className="w-36 h-36 border-4 rounded-[50%]"
@@ -158,7 +158,7 @@ const ComplexPanel = () => {
                   </Box>
                 </Box>
               </Box>
-              <Box className="rounded p-6 dark:text-text1 dark:bg-bgMain bg-white drop-shadow-lg flex-1">
+              <Box className="rounded-xl p-6 dark:text-text1 dark:bg-bgMain bg-white drop-shadow-lg flex-1">
                 <Typography
                   className="cursor-pointer select-none text-logoColor hover:text-yellow-600 text-lg w-fit font-semibold"
                   onClick={() =>
@@ -248,7 +248,7 @@ const ComplexPanel = () => {
                       className="text-textDark2 dark:text-text1 "
                       primary={t("Total posts")}
                     />
-                    <Typography className="bg-logoColor rounded text-sm text-white text-center w-[25px]">
+                    <Typography className="bg-logoColor rounded-xl text-sm text-white text-center w-[25px]">
                       {news.length}
                     </Typography>
                   </ListItem>

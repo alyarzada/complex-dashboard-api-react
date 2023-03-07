@@ -102,7 +102,7 @@ const EachPanel = ({
           className="text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain  ela transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group flex flex-col rounded after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full aye hoverbefore after:transition-all after:duration-1000 items-center justify-center relative gap-y-3 w-full"
         >
           <img
-            className={`imgscale z-30 w-[24%] sm:w-[30%] xmd:w-[26%] md:w-[28%] xxl:w-[20%] exl:w-[15%] rounded-[50%] group-hover:border group-hover:border-black transition-all duration-1000 p-2 ${
+            className={`imgscale z-30 w-[44%] xmd:w-[26%] md:w-[28%] xxl:w-[20%] exl:w-[15%] rounded-[50%] group-hover:border group-hover:border-black transition-all duration-1000 p-2 ${
               role_id === 4 && "bg-bgLight dark:bg-logoColor"
             }`}
             src={img}
@@ -110,7 +110,7 @@ const EachPanel = ({
             style={{ border: role_id === 4 ? "2px solid #C9B26D" : "none" }}
           />
           <Typography
-            className={`z-30 h-5 font-medium ${
+            className={`z-30 text-center font-medium ${
               role_id === 4 && "text-[#C9B26D]"
             } group-hover:text-lg group-hover:text-[#2b2b2b] group-hover:font-medium transition-all duration-1000`}
           >
@@ -136,10 +136,10 @@ const EachPanel = ({
               );
             }
           }}
-          className="text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain ela transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group flex flex-col rounded after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full aye hoverbefore after:transition-all after:duration-1000 items-center justify-center relative gap-y-3 w-full"
+          className="text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain ela transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group flex flex-col rounded-xl after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full aye hoverbefore after:transition-all after:duration-1000 items-center justify-center relative gap-y-3 w-full"
         >
           <LazyLoadImage
-            className={`imgscale z-30 w-[27%] sm:w-[44%] xmd:w-[27%] xxl:w-[34%] exl:w-[24%] rounded-[50%] group-hover:border group-hover:border-black transition-all duration-1000 p-2 ${
+            className={`imgscale z-30 w-[44%] xmd:w-[27%] xxl:w-[34%] exl:w-[24%] rounded-[50%] group-hover:border group-hover:border-black transition-all duration-1000 p-2 ${
               role_id === 4 && "bg-bgLight dark:bg-logoColor"
             }`}
             // effect='blur'
@@ -149,7 +149,7 @@ const EachPanel = ({
             style={{ border: role_id === 4 ? "2px solid #C9B26D" : "none" }}
           />
           <Typography
-            className={`z-30 h-5 font-medium ${
+            className={`z-30 text-center font-medium ${
               role_id === 4 && "text-[#C9B26D]"
             } group-hover:text-lg group-hover:text-[#2b2b2b] group-hover:font-medium transition-all duration-1000`}
           >

@@ -16,7 +16,7 @@ import DeleteBookedMassage from "../Components/DeleteBookedMassage";
 import CustomTextField from "../../../../components/Form/CustomTextField";
 import CustomSelect from "../../../../components/Form/CustomSelect";
 import { BronMassageSchema } from "../../../../validations/leisureclub/massageVal";
-import CustomDataGrid from "../../../../components/UI/CustomDataGrid"
+import CustomDataGrid from "../../../../components/UI/CustomDataGrid";
 
 // redux;
 import { useDispatch, useSelector } from "react-redux";
@@ -236,7 +236,7 @@ const Massage = () => {
       key: "delete",
       label: t("Delete"),
       width: 150,
-      render: (value,data) => {
+      render: (value, data) => {
         return <DeleteBookedMassage params={data} />;
       },
     },
@@ -316,25 +316,25 @@ const Massage = () => {
             <CustomTextField label="Şərhiniz" name="message" multiline />
             <Box className="flex gap-x-2 my-3 justify-end">
               <BackButton
-              onClick={() =>
-                dispatch(
-                  setModal({
-                    ...modal,
-                    isOpen: false,
-                  })
-                )
-              }
-              type="button"
-              variant="outlined"
+                onClick={() =>
+                  dispatch(
+                    setModal({
+                      ...modal,
+                      isOpen: false,
+                    })
+                  )
+                }
+                type="button"
+                variant="outlined"
               >
-              {t("Close")}
+                {t("Close")}
               </BackButton>
               <SuccessButton
-              loading={bookMassageStatus === "loading"}
-              type="submit"
+                loading={bookMassageStatus === "loading"}
+                type="submit"
                 variant="contained"
               >
-              {t("Save")}
+                {t("Save")}
               </SuccessButton>
             </Box>
           </Form>
@@ -391,7 +391,7 @@ const Massage = () => {
         currentPage={{ title: "Massage", icon: AdminPanelSettingsOutlinedIcon }}
       />
       <Box className="rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
-        <Box className="py-6 px-6 my-4">
+        <Box className="py-6 px-6">
           <Box className="flex justify-between mb-6">
             <Box>
               <Button
@@ -485,11 +485,6 @@ const Massage = () => {
               desktopColumns={columns}
               mobileColumns={mobileColumns}
               rows={bookedMassage.map((item) => {
-                console.log(
-                  item?.created_at
-                    ? item?.created_at?.replace("T", " ").slice(0, -11)
-                    : null
-                );
                 return {
                   id: item.id,
                   start_date: item.start_date,
@@ -506,7 +501,6 @@ const Massage = () => {
               })}
               width={630}
               status={bookedMassage.status}
-
             />
           </Box>
         </Box>

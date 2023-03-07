@@ -1,16 +1,17 @@
 import loadable from "@loadable/component";
+import LoadingComponent from "../layout/LoadingComponent";
 
 // main components
 const Home = loadable(
   () => import(/* webpackChunkName: "Home" */ "../layout/Home"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const PrivateRoute = loadable(
   () => import(/* webpackChunkName: "PrivateRoute" */ "../layout/PrivateRoute"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const LoginProtectedRoote = loadable(
@@ -19,7 +20,7 @@ const LoginProtectedRoote = loadable(
       /* webpackChunkName: "LoginProtectedRoote" */ "../auth/ProtectedRoote"
     ),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const ControlPanel = loadable(
@@ -27,18 +28,18 @@ const ControlPanel = loadable(
     import(
       /* webpackChunkName: "ControlPanel" */ "../pages/ControlPanel/ControlPanel"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const LoginPage = loadable(
   () => import(/* webpackChunkName: "LoginPage" */ "../auth/Login"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const Payment = loadable(
   () => import(/* webpackChunkName: "Payment" */ "../pages/MyInvoices/Payment"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 
@@ -48,26 +49,26 @@ const ComplexPanel = loadable(
     import(
       /* webpackChunkName: "ComplexPanel" */ "../pages/ComplexPanel/ComplexPanel"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const ComplexSelect = loadable(
   () =>
     import(
       /* webpackChunkName: "ComplexSelect" */ "../pages/ComplexSelect/ComplexSelect"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const CalendarPage = loadable(
   () =>
     import(
       /* webpackChunkName: "CalendarPage" */ "../pages/FullCalendar/CalendarPage"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const Profile = loadable(
   () => import(/* webpackChunkName: "Profile" */ "../pages/Profile/Profile"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const Notifications = loadable(
@@ -75,18 +76,18 @@ const Notifications = loadable(
     import(
       /* webpackChunkName: "Notifications" */ "../pages/Notifications/Notifications"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const NotFound404 = loadable(
   () => import(/* webpackChunkName: "NotFound404" */ "../pages/NotFound404"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const Contacts = loadable(
   () => import(/* webpackChunkName: "Contacts" */ "../pages/Contact/Contacts"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const MyInvoices = loadable(
@@ -95,21 +96,21 @@ const MyInvoices = loadable(
       /* webpackChunkName: "MyInvoices" */ "../pages/MyInvoices/MyInvoices"
     ),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const InfoTable = loadable(
   () =>
     import(/* webpackChunkName: "InfoTable" */ "../pages/InfoTable/InfoTable"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const PhotoEdit = loadable(
   () =>
     import(/* webpackChunkName: "PhotoEdit" */ "../pages/InfoTable/PhotoEdit"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const Requests = loadable(
@@ -117,65 +118,65 @@ const Requests = loadable(
     import(
       /* webpackChunkName: "Requests" */ "../pages/Managment/Requests/Requests"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const RequestPanel = loadable(
   () =>
     import(
       /* webpackChunkName: "RequestPanel" */ "../pages/RequestPanel/RequestPanel"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const CreateNewRequest = loadable(
   () =>
     import(
       /* webpackChunkName: "CreateNewRequest" */ "../pages/Managment/Requests/CreateNewRequest"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const CommunalServices = loadable(
   () =>
     import(
       /* webpackChunkName: "CommunalServices" */ "../pages/Managment/CommunalServices/CommunalServices"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const Communal = loadable(
   () =>
     import(
       /* webpackChunkName: "Communal" */ "../pages/Managment/CommunalServices/Communal"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const EntryCards = loadable(
   () =>
     import(
       /* webpackChunkName: "EntryCards" */ "../pages/Managment/EntryCard/EntryCards"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const RenterRegistration = loadable(
   () =>
     import(
       /* webpackChunkName: "RenterRegistration" */ "../pages/Managment/RenterRegistration/RenterRegistration"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const AdminCreateNew = loadable(
   () =>
     import("../pages/Managment/RenterRegistration/ComplexAdmin/AdminCreateNew"),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const News = loadable(
   () => import(/* webpackChunkName: "News" */ "../pages/ComplexPanel/News"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const Chat = loadable(
   () => import(/* webpackChunkName: "Chat" */ "../pages/Chat/Chat"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const SavedPosts = loadable(
@@ -184,7 +185,7 @@ const SavedPosts = loadable(
       /* webpackChunkName: "SavedPosts" */ "../pages/ComplexPanel/SavedPosts"
     ),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const Phone = loadable(
@@ -192,67 +193,67 @@ const Phone = loadable(
     import(
       /* webpackChunkName: "Phone" */ "../pages/Managment/CommunalServices/Phone"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const AllRequests = loadable(
   () =>
     import(
       /* webpackChunkName: "AllRequests" */ "../pages/Managment/Requests/AllRequests"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const RequestComponent = loadable(
   () =>
     import(
       /* webpackChunkName: "RequestComponent" */ "../pages/Managment/Requests/RequestComponent"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const MeetingRoom = loadable(
   () =>
     import(
       /* webpackChunkName: "MeetingRoom" */ "../pages/Managment/LocalClub/Main/MeetingRoom"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const Massage = loadable(
   () =>
     import(
       /* webpackChunkName: "Massage" */ "../pages/Managment/LocalClub/Main/Massage"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const Cinema = loadable(
   () =>
     import(
       /* webpackChunkName: "Cinema" */ "../pages/Managment/LocalClub/Main/Cinema"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const NewEntryCard = loadable(
   () =>
     import(
       /* webpackChunkName: "NewEntryCard" */ "../pages/Managment/EntryCard/NewEntryCard"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const NewParkingCard = loadable(
   () =>
     import(
       /* webpackChunkName: "NewParkingCard" */ "../pages/Managment/EntryCard/NewParkingCard"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const Menu = loadable(
   () => import(/* webpackChunkName: "Menu" */ "../pages/Restaurant/Menu"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const Card = loadable(
   () => import(/* webpackChunkName: "Card" */ "../pages/Restaurant/Card"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const TenantRegistration = loadable(
@@ -260,14 +261,14 @@ const TenantRegistration = loadable(
     import(
       /* webpackChunkName: "TenantRegistration" */ "../pages/ControlPanel/TenantRegistration"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const Internet = loadable(
   () =>
     import(
       /* webpackChunkName: "Internet" */ "../pages/Managment/CommunalServices/Internet"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const Tv = loadable(
   () =>
@@ -275,7 +276,7 @@ const Tv = loadable(
       /* webpackChunkName: "Tv" */ "../pages/Managment/CommunalServices/Tv"
     ),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const RequestDetails = loadable(
@@ -283,14 +284,14 @@ const RequestDetails = loadable(
     import(
       /* webpackChunkName: "RequestDetails" */ "../pages/Managment/Requests/RequestDetails"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const SendNotifications = loadable(
   () =>
     import(
       /* webpackChunkName: "SendNotifications" */ "../pages/Notifications/complexAdmin/SendNotifications"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const Reports = loadable(
   () =>
@@ -298,7 +299,7 @@ const Reports = loadable(
       /* webpackChunkName: "Reports" */ "../pages/Managment/Reports/reports"
     ),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const AddApartment = loadable(
@@ -306,48 +307,48 @@ const AddApartment = loadable(
     import(
       /* webpackChunkName: "AddApartment" */ "../pages/AddApartment/AddApartment"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const SurveyManage = loadable(
   () =>
     import(
       /* webpackChunkName: "SurveyManage" */ "../pages/Notifications/complexAdmin/SurveyManage"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const CreateInvoice = loadable(
   () =>
     import(
       /* webpackChunkName: "CreateInvoice" */ "../pages/CreateInvoice/CreateInvoice"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const NotificationsArchive = loadable(
   () =>
     import(
       /* webpackChunkName: "NotificationsArchive" */ "../pages/Notifications/complexAdmin/NotificationsArchive"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const SentNotifications = loadable(
   () =>
     import(
       /* webpackChunkName: "SentNotifications" */ "../pages/Notifications/complexAdmin/SentNotifications"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const SurveyCreate = loadable(
   () =>
     import(
       /* webpackChunkName: "SurveyCreate" */ "../pages/Notifications/complexAdmin/SurveyCreate/SurveyCreate"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const MTKUsers = loadable(
   () =>
     import(/* webpackChunkName: "MTKUsers" */ "../pages/Apartment/MTKUsers"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const Permission = loadable(
@@ -356,21 +357,21 @@ const Permission = loadable(
       /* webpackChunkName: "Permission" */ "../pages/Apartment/Permission"
     ),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 
 const Tasks = loadable(
   () => import(/* webpackChunkName: "Tasks" */ "../pages/Tasks/Tasks"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const TaskCreate = loadable(
   () =>
     import(/* webpackChunkName: "TaskCreate" */ "../pages/Tasks/TaskCreate"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const Apartments = loadable(
@@ -379,21 +380,21 @@ const Apartments = loadable(
       /* webpackChunkName: "Apartments" */ "../pages/Apartment/Apartments"
     ),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const Building = loadable(
   () =>
     import(/* webpackChunkName: "Building" */ "../pages/Apartment/Building"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const Residents = loadable(
   () =>
     import(/* webpackChunkName: "Residents" */ "../pages/Apartment/Residents"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const ResidentsCreate = loadable(
@@ -401,27 +402,27 @@ const ResidentsCreate = loadable(
     import(
       /* webpackChunkName: "ResidentsCreate" */ "../pages/Apartment/ResidentsCreate"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const GroupOfApartments = loadable(
   () =>
     import(
       /* webpackChunkName: "GroupOfApartments" */ "../pages/Apartment/GroupOfApartments"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const GroupOfApartmentsCreate = loadable(
   () =>
     import(
       /* webpackChunkName: "GroupOfApartmentsCreate" */ "../pages/Apartment/GroupOfApartmentsCreate"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const Employees = loadable(
   () =>
     import(/* webpackChunkName: "Employees" */ "../pages/Apartment/Employees"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const EmployeesCreate = loadable(
@@ -429,26 +430,26 @@ const EmployeesCreate = loadable(
     import(
       /* webpackChunkName: "EmployeesCreate" */ "../pages/Apartment/EmployeesCreate"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const HousingCooperative = loadable(
   () =>
     import(
       /* webpackChunkName: "HousingCooperative" */ "../pages/Apartment/HousingCooperative"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const HousingCooperativeCreate = loadable(
   () =>
     import(
       /* webpackChunkName: "HousingCooperativeCreate" */ "../pages/Apartment/HousingCooperativeCreate"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const Complex = loadable(
   () => import(/* webpackChunkName: "Complex" */ "../pages/Apartment/Complex"),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 const ComplexCreate = loadable(
@@ -456,49 +457,49 @@ const ComplexCreate = loadable(
     import(
       /* webpackChunkName: "ComplexCreate" */ "../pages/Apartment/ComplexCreate"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const MTKUserCreate = loadable(
   () =>
     import(
       /* webpackChunkName: "MTKUserCreate" */ "../pages/Apartment/MTKUserCreate/MTKUserCreate"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const MenuCategories = loadable(
   () =>
     import(
       /* webpackChunkName: "MenuCategories" */ "../pages/Restaurant/Admin/MenuCategories"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const MenuNewCreate = loadable(
   () =>
     import(
       /* webpackChunkName: "MenuNewCreate" */ "../pages/Restaurant/Admin/MenuNewCreate"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const RestaurantMenu = loadable(
   () =>
     import(
       /* webpackChunkName: "RestaurantMenu" */ "../pages/Restaurant/Admin/RestaurantMenu"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const MenuCreate = loadable(
   () =>
     import(
       /* webpackChunkName: "MenuCreate" */ "../pages/Restaurant/Admin/MenuCreate"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const RestaurantOrders = loadable(
   () =>
     import(
       /* webpackChunkName: "RestaurantOrders" */ "../pages/Restaurant/Admin/RestaurantOrders"
     ),
-  { fallback: <div>loading...</div> }
+  { fallback: <LoadingComponent /> }
 );
 const InvoiceBill = loadable(
   () =>
@@ -506,7 +507,7 @@ const InvoiceBill = loadable(
       /* webpackChunkName: "InvoiceBill" */ "../pages/MyInvoices/InvoiceBill"
     ),
   {
-    fallback: <div>loading...</div>,
+    fallback: <LoadingComponent />,
   }
 );
 

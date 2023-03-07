@@ -91,7 +91,7 @@ const RenterRegistration = () => {
         }}
       />
 
-      <Box className="my-4 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
+      <Box className=" rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
         <Box className="py-6 px-6">
           {role_id === 4 ? <CustomSearchFilter /> : null}
           <Box className="flex flex-col mb-6 sm:flex-row justify-end pt-3">

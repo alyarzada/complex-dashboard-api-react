@@ -121,6 +121,7 @@ const Payment = () => {
               desktopColumns={columns}
               mobileColumns={mobileColumns}
               rows={selectedInvoices.map((item) => ({
+                
                 id: item.id,
                 service: item.service,
                 amount: item.amount + " " + "AZN",
@@ -145,7 +146,7 @@ const Payment = () => {
                     "AZN"
                   : 0 + " " + "azn"}
               </Typography>
-              <SuccessButton variant="contained">{t("Pay")}</SuccessButton>
+              <SuccessButton variant="contained">{t("Pay")}sdfsd</SuccessButton>
             </Stack>
           </Box>
         </Box>

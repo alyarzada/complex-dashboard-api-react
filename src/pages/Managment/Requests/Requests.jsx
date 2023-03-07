@@ -47,8 +47,6 @@ const Requests = () => {
     }
   }, []);
 
-  console.log(requestPanels);
-
   return (
     <Box className="w-full">
       <Header currentPage={{ title: "Requests", icon: CommentOutlinedIcon }} />

@@ -12,12 +12,14 @@ const SubSidebarItem = ({ sublistItem }) => {
   const { t } = useTranslation();
   const matches = useMediaQuery("(max-width:768px)");
   const dispatch = useDispatch();
-  const activeStyle = { backgroundColor: "#c9b26d", color: "white" };
+  const activeStyle = { backgroundColor: "#c9b26d", color: "#23272c" };
 
   return (
     <li className="relative text-white">
       <NavLink
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        style={({ isActive }) =>
+          isActive ? activeStyle : { color: "#ced4da" }
+        }
         to={sublistItem.path ? sublistItem.path : ""}
         onClick={(e) => {
           if (!sublistItem.path) {
@@ -28,7 +30,7 @@ const SubSidebarItem = ({ sublistItem }) => {
         }}
         className={`${
           openedSidebar
-            ? "px-4 group mx-auto w-[90%]  rounded hover:text-white"
+            ? "px-4 group mx-auto w-[90%] rounded"
             : "w-[140px] pl-[3px]"
         } py-2 flex justify-between cursor-pointer`}
       >
