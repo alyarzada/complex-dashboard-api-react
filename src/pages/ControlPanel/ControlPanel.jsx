@@ -33,7 +33,6 @@ import ControlPanelRequestsArchive from "./ControlPanelRequestsArchive";
 import Piechart from "../../components/UI/Charts/PieChart";
 import LineCharts from "../../components/UI/Charts/LineCharts";
 import Stackedbarchart from "../../components/UI/Charts/StackedBarChart";
-import { AnimatePresence } from "framer-motion";
 
 const ControlPanel = () => {
   useScrollToUp();
@@ -200,31 +199,31 @@ const ControlPanel = () => {
                   <TableHead>
                     <TableRow>
                       <TableCell
-                        className="dark:text-text1 text-textDark2"
+                        className=" dark:text-text1 text-textDark2"
                         align="center"
                       >
                         {t(["Housing cooperative"])}
                       </TableCell>
                       <TableCell
-                        className="dark:text-text1 text-textDark2"
+                        className=" dark:text-text1 text-textDark2"
                         align="center"
                       >
                         {t(["Complex"])}
                       </TableCell>
                       <TableCell
-                        className="dark:text-text1 text-textDark2"
+                        className=" dark:text-text1 text-textDark2"
                         align="center"
                       >
                         {t(["Building"])}
                       </TableCell>
                       <TableCell
-                        className="dark:text-text1 text-textDark2"
+                        className=" dark:text-text1 text-textDark2"
                         align="center"
                       >
                         {t(["Apartment"])}
                       </TableCell>
                       <TableCell
-                        className="dark:text-text1 text-textDark2"
+                        className=" dark:text-text1 text-textDark2"
                         align="center"
                       >
                         {t(["Total debt"])}
@@ -311,28 +310,27 @@ const ControlPanel = () => {
           </Stack>
         </Box>
       ) : null}
-      <AnimatePresence>
-        {modals.length > 0
-          ? modals.map((modal, index) => (
-              <CustomNestedModal
-                handleClose={() => dispatch(destroyModal())}
-                key={index}
-                modal={modal}
-                name={modal.name}
-              >
-                {modal.role === "children" && modal.type !== "form" ? (
-                  <ConfirmModal modal={modal} />
-                ) : modal.role === "children" && modal.type === "form" ? (
-                  <FormModal modal={modal} />
-                ) : modal.type === "form" && modal.category === "tenant" ? (
-                  <TenantRegistrationModal modal={modal} />
-                ) : (
-                  <OtherModal modal={modal} />
-                )}
-              </CustomNestedModal>
-            ))
-          : null}
-      </AnimatePresence>
+
+      {modals.length > 0
+        ? modals.map((modal, index) => (
+            <CustomNestedModal
+              handleClose={() => dispatch(destroyModal())}
+              key={index}
+              modal={modal}
+              name={modal.name}
+            >
+              {modal.role === "children" && modal.type !== "form" ? (
+                <ConfirmModal modal={modal} />
+              ) : modal.role === "children" && modal.type === "form" ? (
+                <FormModal modal={modal} />
+              ) : modal.type === "form" && modal.category === "tenant" ? (
+                <TenantRegistrationModal modal={modal} />
+              ) : (
+                <OtherModal modal={modal} />
+              )}
+            </CustomNestedModal>
+          ))
+        : null}
     </Box>
   );
 };

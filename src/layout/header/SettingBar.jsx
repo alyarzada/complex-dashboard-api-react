@@ -17,25 +17,24 @@ import {
   IconButton,
   Switch,
   Typography,
-  Button,
-  Divider,
+  Button
 } from "@mui/material";
 import HighlightOffRoundedIcon from "@mui/icons-material/HighlightOffRounded";
 import { useTranslation } from "react-i18next";
-import ResetButton from "../../components/UI/Buttons/ResetButton";
-import CustomSwitch from "../../components/Form/CustomSwitch";
+import ResetButton from "../../components/UI/Buttons/ResetButton"
 
 const SettingBar = (props, ref) => {
   const { openedSettingBar } = useSelector((state) => state.themes);
   const dispatch = useDispatch();
   const barRef = useRef(null);
   const { t } = useTranslation();
+  
 
   useEffect(() => {
     const handleClose = (e) => {
       if (
-        !e?.composedPath()?.includes(barRef.current) &&
-        !e?.composedPath()?.includes(ref.current)
+        !e?.path?.includes(barRef.current) &&
+        !e?.path?.includes(ref.current)
       ) {
         dispatch(setOpenedSettingBar(false));
       }
@@ -72,25 +71,123 @@ const SettingBar = (props, ref) => {
           <h5 className="text-textDark dark:text-text3 text-[.9rem] font-bold">
             {t("Color Scheme")}
           </h5>
-          <Divider className="my-2" />
-          <CustomSwitch
-            label="Light Mode"
-            onChange={(param) => dispatch(setLight(param))}
-          />
-          <Divider className="my-2" />
-          <CustomSwitch
-            label="Light Mode"
-            onChange={(param) => dispatch(setLeftLight(param))}
-          />
-          <Divider className="my-2" />
-          <CustomSwitch
-            label={t("Displacement of panels")}
-            onChange={(param) => dispatch(setDraggable(param))}
-          />
+          <hr className="h-[1px] text-text2 dark:opacity-25 my-4" />
+
+          <FormControl>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="darkmode"
+              name="radio-buttons-group"
+            >
+              <FormControlLabel
+                value="lightmode"
+                control={
+                  <Radio
+                    className="text-logoColor dark:text-logoColor"
+                    onChange={() => dispatch(setLight(true))}
+                  />
+                }
+                label={
+                  <span className="text-textDark dark:text-text1">
+                    {t("Light Mode")}
+                  </span>
+                }
+                className="text-text1"
+              />
+              <FormControlLabel
+                value="darkmode"
+                control={
+                  <Radio
+                    className="text-logoColor dark:text-logoColor"
+                    onChange={() => dispatch(setLight(false))}
+                  />
+                }
+                label={
+                  <span className="text-textDark dark:text-text1">
+                    {t("Dark Mode")}
+                  </span>
+                }
+                className="text-text1"
+              />
+            </RadioGroup>
+          </FormControl>
         </Box>
 
+        
+
         <Box className="px-4 mb-10">
-          <ResetButton variant="contained">{t("Reset to Default")}</ResetButton>
+          <h5 className="text-textDark dark:text-text3 text-[.9rem] font-bold">
+            {t("Left Sidebar")}
+          </h5>
+          <hr className="h-[1px] text-text3 dark:opacity-25 my-4" />
+          <FormControl>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="dark"
+              name="radio-buttons-group"
+            >
+              <FormControlLabel
+                value="light"
+                control={
+                  <Radio
+                    className="text-logoColor dark:text-logoColor"
+                    onChange={() => dispatch(setLeftLight("light"))}
+                  />
+                }
+                className="text-text1"
+                label={
+                  <span className="text-textDark dark:text-text1">
+                    {t("Light")}
+                  </span>
+                }
+              />
+              <FormControlLabel
+                value="dark"
+                control={
+                  <Radio
+                    className="text-logoColor dark:text-logoColor"
+                    onChange={() => dispatch(setLeftLight("dark"))}
+                  />
+                }
+                className="text-text1"
+                label={
+                  <span className="text-textDark dark:text-text1">
+                    {t("Dark")}
+                  </span>
+                }
+              />
+            </RadioGroup>
+          </FormControl>
+
+          <br />
+          <br />
+
+
+          <Box>
+            <h5 className="text-textDark dark:text-text3 text-[.9rem] font-bold">
+              {t("Functionality")}
+            </h5>
+            <hr className="h-3 text-text3 dark:opacity-25 my-4" />
+            <FormControlLabel
+              className="dark:text-text1"
+              control={
+                <Switch
+                  onChange={(e) => {
+                    dispatch(setDraggable(e.target.checked));
+                  }}
+                />
+              }
+              label={t("Displacement of panels")}
+            />
+          </Box>
+          <br />
+          <Box>
+              <ResetButton
+                variant="contained"
+              >
+                {t("Reset to Default")}
+              </ResetButton>
+          </Box>
         </Box>
       </Box>
     </Box>

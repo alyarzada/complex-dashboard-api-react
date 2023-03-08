@@ -1,12 +1,12 @@
-import { Component } from "react";
-import Hidden from "@mui/material/Hidden";
-import { withStyles } from "@mui/styles";
-import DataList from "./DataList";
-import DataTable from "./DataTable";
+import React, { Component } from 'react'
+import Hidden from '@mui/material/Hidden'
+import { withStyles } from '@mui/styles'
+import DataList from './DataList'
+import DataTable from './DataTable'
 
 const styles = {
   root: {},
-};
+}
 
 /**
  * Responsive read-only table (desktop devices) <-> read-only expandable list (tablet/mobile devices) for material-ui 1.0-beta.
@@ -50,10 +50,7 @@ class ResponsiveTable extends Component {
       <div className={classes.root}>
         {/* DESKTOP BIG TABLE */}
 
-        <Hidden
-          only={tableBreakpoints || ["xs", "sm", "md"]}
-          implementation={implementation || "js"}
-        >
+        <Hidden only={tableBreakpoints || ['xs', 'sm', 'md']} implementation={implementation || 'js'}>
           <DataTable
             enableShouldComponentUpdate={enableShouldComponentUpdate}
             columns={columns}
@@ -78,10 +75,7 @@ class ResponsiveTable extends Component {
 
         {/* MOBILE EXPANDABLE LIST OF CARDS */}
 
-        <Hidden
-          only={listBreakpoints || ["lg", "xl"]}
-          implementation={implementation || "js"}
-        >
+        <Hidden only={listBreakpoints || ['lg', 'xl']} implementation={implementation || 'js'}>
           <DataList
             enableShouldComponentUpdate={enableShouldComponentUpdate}
             columns={columns}
@@ -108,8 +102,8 @@ class ResponsiveTable extends Component {
           />
         </Hidden>
       </div>
-    );
+    )
   }
 }
 
-export default withStyles(styles)(ResponsiveTable);
+export default withStyles(styles)(ResponsiveTable)

@@ -12,7 +12,11 @@ import qrcode from "../../assets/logo/qrcode.png";
 const SideBar = () => {
   const { openedSidebar, leftLight } = useSelector((state) => state.themes);
   const { sidebar } = useSelector((state) => state.data);
-
+  const {
+    user: {
+      has_role: { role_id },
+    },
+  } = useSelector((state) => state.auth);
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -31,16 +35,11 @@ const SideBar = () => {
     t(["December"]),
   ];
 
-  // open olanda: 16px + 250px = 266px
-  // close olanda: 16px + 80px = 96px
-  // open olanda: exl: 16px + 300px = 316px
-  // close olanda: exl: 16px + 100px = 116px
-
   return (
     <Box
-      className={`bg-bgLight dark:bg-bgMain h-[94vh] top-4 left-4 overflow-auto print:hidden duration-500 ease-in-both text-sm scroll-design z-[500] select-none rounded-xl fixed ${
-        openedSidebar ? "w-[250px] exl:w-[300px]" : "w-[80px] exl:w-[100px]"
-      }`}
+      className={`h-[94vh] top-4 left-4 overflow-auto print:hidden duration-500 ease-in-both text-sm scroll-design z-[500] select-none rounded-xl fixed ${
+        openedSidebar ? "w-[250px] exl:w-[300px] " : "w-[80px] exl:w-[100px]"
+      } ${leftLight === "light" ? "bg-bgLight drop-shadow-lg" : "bg-bgMain"}`}
     >
       <Box
         className="mb-6 mt-3 h-28"
@@ -50,14 +49,13 @@ const SideBar = () => {
         }}
       >
         <img
-          className={`mx-auto block mb-6 h-16 whitespace-nowrap overflow-hidden object-cover ${
-            openedSidebar ? "w-22" : "w-12"
+          className={`mx-auto block mb-6 h-14 whitespace-nowrap overflow-hidden object-cover ${
+            openedSidebar ? "w-20" : "w-12"
           }`}
           alt="logo"
           src={openedSidebar ? logoDark : logo}
         />
 
-        {/* today date */}
         {openedSidebar && (
           <Typography className="mx-auto mb-6 text-sm text-center text-text1 whitespace-nowrap overflow-hidden">
             {t(["Today"])}, {new Date().getDate()}{" "}
@@ -65,6 +63,8 @@ const SideBar = () => {
           </Typography>
         )}
       </Box>
+
+      {/* today date */}
 
       {/* sidebar navigation list */}
       <nav className="sidebar-nav">

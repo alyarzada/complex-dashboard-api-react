@@ -18,9 +18,6 @@ import "../style/styles.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 
-import CloseIcon from "@mui/icons-material/Close";
-import { gridColumnsTotalWidthSelector } from "@mui/x-data-grid";
-
 const Calendar = ({ eventClick, dateClick, events }) => {
   const light = useSelector((state) => state.light);
   const matches = useMediaQuery("(min-width: 640px)");
@@ -53,19 +50,6 @@ const Calendar = ({ eventClick, dateClick, events }) => {
     document.querySelector(".fc-dayGridMonth-button").textContent = t("Month");
   }, [i18n.language]);
 
-  function renderEventContent(eventInfo) {
-    console.log(new Date());
-    if (eventInfo.date < new Date().setHours(0, 0, 0, 0)) {
-      return (
-        <div className="bg-red-900 rounded">
-          <CloseIcon className="block w-full " />
-        </div>
-      );
-    }
-
-    return;
-  }
-
   return (
     <Box className="mb-10 aaa">
       <Header currentPage={{ title: "Calendar", icon: CalendarMonthIcon }} />
@@ -91,7 +75,6 @@ const Calendar = ({ eventClick, dateClick, events }) => {
           firstDay={1}
           className={theme}
           timeZone="local"
-          dayCellContent={renderEventContent}
         />
       </Box>
     </Box>

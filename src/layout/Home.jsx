@@ -71,15 +71,15 @@ const Home = () => {
   }, []);
 
   return (
-    <Box className="bg-bgLight dark:bg-bgSecond">
+    <Box className="bg-bgSecond">
       <Header />
       {matches ? <SideBar /> : null}
       <Box
-        className={` px-3 pt-24 duration-500 ease-in-both flex flex-col justify-between min-h-screen overflow-x-hidden"
+        className={`bg-bgLight dark:bg-bgSecond px-4 lg:px-8 pt-24 duration-500 ease-in-both flex flex-col justify-between min-h-screen overflow-x-hidden"
      ${
        openedSidebar
-         ? "ml-0 md:ml-[266px] exl:ml-[300px]"
-         : "ml-0 md:ml-[96px] exl:ml-[100px]"
+         ? "content-wrapper-width-open ml-0 md:ml-[250px] exl:ml-[300px]"
+         : "content-wrapper-width-close ml-0 md:ml-[80px] exl:ml-[100px]"
      }`}
       >
         <Outlet />

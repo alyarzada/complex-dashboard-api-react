@@ -1,3 +1,4 @@
+import React from "react";
 import Header from "../../../components/UI/Header";
 import { Box, Stack, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
@@ -5,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import SuccessButton from "../../../components/UI/Buttons/SuccessButton";
 import IndeterminateCheckBoxOutlinedIcon from "@mui/icons-material/IndeterminateCheckBoxOutlined";
 import CustomTextField from "../../../components/Form/CustomTextField";
+import EmojiObjectsOutlinedIcon from "@mui/icons-material/EmojiObjectsOutlined";
 
 const MenuNewCreate = () => {
   const { t } = useTranslation();

@@ -17,7 +17,6 @@ const CustomDatePicker = ({
   const { t } = useTranslation();
   const [field, meta, helpers] = useField(props);
   const [date, setDate] = useState(defaultValue ? defaultValue : "");
-  // const [open, setOpen] = useState(false);
 
   useEffect(() => {
     helpers.setValue(date);
@@ -30,6 +29,7 @@ const CustomDatePicker = ({
       }-${value.$D.toString().length == 1 ? `0${value.$D}` : value.$D}`
     );
   };
+
   return (
     <Box className={`mb-6 ${className}`}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -37,12 +37,10 @@ const CustomDatePicker = ({
           className="w-full"
           label={label}
           value={date}
-          // open={open}
           onChange={dataStartHandler}
           inputFormat="DD/MM/YYYY"
           renderInput={(params) => (
             <TextField
-              // onFocus={() => setOpen(true)}
               sx={{
                 "& .MuiInputBase-input": {
                   paddingTop: "28px",

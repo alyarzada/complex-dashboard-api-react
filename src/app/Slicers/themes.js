@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit/";
-const mediaQuery = window.matchMedia("(max-width: 768px)");
 
-// linear-gradient(135deg,#8f75da 0,#c9b26d 60%)
+const mediaQuery = window.matchMedia("(max-width: 768px)");
 
 export const themes = createSlice({
   name: "themes",
@@ -10,7 +9,9 @@ export const themes = createSlice({
     openedSettingBar: false,
     sidebarSubmenu: { open: false, id: null },
     light: false,
-    leftLight: false,
+    boxed: false,
+    leftLight: "dark",
+    scrollable: false,
     disableTransform: false,
     isDraggable: false,
     showCardIcon: false,

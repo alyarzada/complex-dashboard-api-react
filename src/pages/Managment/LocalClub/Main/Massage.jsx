@@ -143,7 +143,7 @@ const Massage = () => {
 
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const today = new Date().setHours(0, 0, 0, 0);
+  const today = new Date();
 
   const handleEventClick = (e) => {
     setEventData(e.event._def);

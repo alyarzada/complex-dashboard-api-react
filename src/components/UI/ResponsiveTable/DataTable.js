@@ -1,22 +1,22 @@
-import { Component } from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableFooter from "@mui/material/TableFooter";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import { CellRenderer, LabelRenderer } from "./Renderer";
-import NoContent from "./NoContent";
-import Pagination from "./Pagination";
-import _isEqual from "lodash.isequal";
+import React, { Component } from 'react'
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableFooter from '@mui/material/TableFooter';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import { CellRenderer, LabelRenderer } from './Renderer'
+import NoContent from './NoContent'
+import Pagination from './Pagination'
+import _isEqual from 'lodash.isequal';
 /**
  * Simple read only table with header and body
  */
 export default class DataTable extends Component {
   shouldComponentUpdate(nextProps) {
-    const { enableShouldComponentUpdate, data } = this.props;
+    const {enableShouldComponentUpdate, data} = this.props;
     if (enableShouldComponentUpdate) {
-      return !_isEqual(nextProps.data, data);
+      return (!_isEqual(nextProps.data, data));
     }
     return true;
   }
@@ -24,9 +24,9 @@ export default class DataTable extends Component {
   handleChangePage = (event, page) => this.props.onChangePage(event, page);
 
   getRowClass = (index) => {
-    const { rowsClassArray } = this.props;
-    return rowsClassArray && rowsClassArray[index] ? rowsClassArray[index] : "";
-  };
+    const {rowsClassArray} = this.props;
+    return rowsClassArray && rowsClassArray[index] ? rowsClassArray[index] : '';
+  }
 
   render() {
     const {
@@ -53,7 +53,7 @@ export default class DataTable extends Component {
       !Array.isArray(columns) ||
       columns.length === 0
     ) {
-      return <NoContent text={noContentText} />;
+      return <NoContent text={noContentText} />
     }
 
     return (
@@ -72,11 +72,7 @@ export default class DataTable extends Component {
         </TableHead>
         <TableBody {...TableBodyProps}>
           {data.map((row, rowIndex) => (
-            <TableRow
-              key={rowIndex}
-              className={this.getRowClass(rowIndex)}
-              {...TableBodyRowProps}
-            >
+            <TableRow key={rowIndex} className={this.getRowClass(rowIndex)} {...TableBodyRowProps}>
               {columns.map((column, columnIndex) => (
                 <TableCell
                   key={`${rowIndex}-${columnIndex}`}
@@ -88,7 +84,8 @@ export default class DataTable extends Component {
             </TableRow>
           ))}
         </TableBody>
-        {showPagination && (
+        {
+          showPagination &&
           <TableFooter>
             <TableRow>
               <Pagination
@@ -100,8 +97,8 @@ export default class DataTable extends Component {
               />
             </TableRow>
           </TableFooter>
-        )}
+        }
       </Table>
-    );
+    )
   }
 }

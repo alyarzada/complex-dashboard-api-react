@@ -1,3 +1,4 @@
+import React from "react";
 import ResponsiveTable from "./ResponsiveTable/index";
 
 const ResponsivePagination = ({ data, columns, page }) => {

@@ -171,7 +171,7 @@ const MeetingRoom = () => {
   const [defaultDate, setDefaultDate] = useState(null);
   const [date, setDate] = useState(null);
 
-  const today = new Date().setHours(0, 0, 0, 0);
+  const today = new Date();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -424,7 +424,7 @@ const MeetingRoom = () => {
             eventClick={handleEventClick}
             dateClick={handleDateClick}
             events={bookedRooms.map((item) => {
-              if (new Date(item.start_date) < new Date()) return {};
+              if (new Date(item.start_date) <= new Date()) return {};
 
               return {
                 id: item.id,

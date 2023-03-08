@@ -22,7 +22,6 @@ import { format } from "date-fns";
 export default function Notifications() {
   const [openMenu, setOpenMenu] = useState(false);
   const { notifications } = useSelector((state) => state.notifications);
-
   const { t } = useTranslation();
   const navigate = useNavigate();
   const btnRef = useRef(null);
@@ -35,7 +34,7 @@ export default function Notifications() {
   return (
     <Box className="relative">
       <Tooltip title={t("Notifications")} arrow>
-        <IconButton ref={btnRef} onClick={() => setOpenMenu((prev) => !prev)}>
+        <IconButton onClick={() => setOpenMenu(true)}>
           <Badge badgeContent={notifications.length} color="error">
             <NotificationsIcon />
           </Badge>

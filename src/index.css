@@ -10,7 +10,6 @@
 body {
   scroll-behavior: smooth;
   font-family: "Nunito", sans-serif !important;
-  background-color: #051139;
 }
 
 ::-webkit-calendar-picker-indicator {

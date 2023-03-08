@@ -1,5 +1,11 @@
+import React from 'react';
+
 const CreateInvoice = () => {
-  return <div>asdasdasds</div>;
-};
+    return (
+        <div>
+            asdasdasds
+        </div>
+    );
+}
 
 export default CreateInvoice;

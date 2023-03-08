@@ -7,12 +7,12 @@ import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import AndroidOutlinedIcon from "@mui/icons-material/AndroidOutlined";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import AppleIcon from "@mui/icons-material/Apple";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import EastIcon from "@mui/icons-material/East";
 import { IconButton } from "@mui/material";
-import { motion, useAnimationControls } from "framer-motion";
-import { useState } from "react";
 
 const EachPanel = ({
+  id,
   img,
   title,
   subCategory,
@@ -31,12 +31,10 @@ const EachPanel = ({
       has_role: { role_id },
     },
   } = useSelector((state) => state.auth);
-  const [hover, setHover] = useState(false);
 
   const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const controls = useAnimationControls();
 
   if (role_id === 9 || role_id === 2) {
     return (
@@ -44,21 +42,21 @@ const EachPanel = ({
         {type === 1 ? (
           <Box
             id="restoran-home"
-            className=" text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain hover:after:scale-[3] transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group rounded relative w-full p-5 z-30"
+            className=" text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain  ela transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group rounded after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full aye hoverbefore after:transition-all after:duration-1000  relative w-full p-5 z-30"
           >
             <Box>
               <Stack direction="column" spacing={1}>
-                <Typography className="flex gap-[10px] font-bold text-[#aab8c5] text-[0.9rem] text-center z-30  transition-all duration-1000">
+                <Typography className="flex gap-[10px] font-bold text-[#aab8c5] text-[0.9rem] text-center z-30 group-hover:text-black transition-all duration-1000">
                   <RemoveRedEyeOutlinedIcon fontSize="small" />
                   {t(active)} : 387
                 </Typography>
-                <Typography className="flex gap-[10px] font-bold text-[#aab8c5] text-[0.9rem] text-center z-30  transition-all duration-1000">
+                <Typography className="flex gap-[10px] font-bold text-[#aab8c5] text-[0.9rem] text-center z-30 group-hover:text-black transition-all duration-1000">
                   <AndroidOutlinedIcon fontSize="small" /> {android} : 94
                 </Typography>
-                <Typography className="flex gap-[10px] font-bold text-[#aab8c5] text-[0.9rem] text-center z-30  transition-all duration-1000">
+                <Typography className="flex gap-[10px] font-bold text-[#aab8c5] text-[0.9rem] text-center z-30 group-hover:text-black transition-all duration-1000">
                   <AppleIcon fontSize="small" /> {ios} : 273
                 </Typography>
-                <Typography className="flex gap-[10px] font-bold text-[#aab8c5] text-[0.9rem] text-center z-30  transition-all duration-1000">
+                <Typography className="flex gap-[10px] font-bold text-[#aab8c5] text-[0.9rem] text-center z-30 group-hover:text-black transition-all duration-1000">
                   <LanguageOutlinedIcon fontSize="small" /> {web} : 40
                 </Typography>
               </Stack>
@@ -67,20 +65,20 @@ const EachPanel = ({
         ) : (
           <Box
             id="restoran-home"
-            className="text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain  hover:after:scale-[3]  dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group rounded relative w-full p-5 z-30 "
+            className=" text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain  ela transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group rounded after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full aye hoverbefore after:transition-all after:duration-1000  relative w-full p-5 z-30 "
           >
             <Stack direction="row" justifyContent="space-between">
-              <Typography className="z-30 text-[#8391a2] font-bold">
+              <Typography className="z-30 text-[#8391a2] font-bold group-hover:text-black transition-all duration-1000">
                 {t(title)}
               </Typography>
               <IconButton className={`z-30 ${color}`}>{img}</IconButton>
             </Stack>
             <Box>
-              <Typography className="mb-4 font-[800] text-[1.5rem] text-[tex1] relative z-30 ">
+              <Typography className="mb-4 font-[800] text-[1.5rem] text-[tex1] relative z-30 group-hover:text-black transition-all duration-1000">
                 1
               </Typography>
               <Link
-                className={`capitalize relative z-30 font-bold ${color} transition-all duration-1000`}
+                className={`capitalize relative z-30 font-bold ${color} group-hover:text-black transition-all duration-1000`}
               >
                 Etrafli{" "}
                 <EastIcon
@@ -96,57 +94,31 @@ const EachPanel = ({
     );
   }
 
-  // after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full after:scale-0 hover:after:scale-[3] after:transition-all after:duration-1000
-
   return (
     <Box>
       {title === "Portmania" ? (
         <a
-          onMouseEnter={() => {
-            setHover(true);
-          }}
-          onMouseLeave={() => {
-            setHover(false);
-          }}
           href={link}
-          className=" text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain transition-all duration-500 dark:text-white text-text5 overflow-hidden h-[170px]  cursor-pointer group flex flex-col rounded  items-center justify-center relative gap-y-3 w-full"
+          className="text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain  ela transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group flex flex-col rounded after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full aye hoverbefore after:transition-all after:duration-1000 items-center justify-center relative gap-y-3 w-full"
         >
-          <motion.img
-            className={`z-30 w-[90px] xxl:w-[100px] exl:w-[110px] rounded-[50%] p-2 ${
+          <img
+            className={`imgscale z-30 w-[44%] xmd:w-[26%] md:w-[28%] xxl:w-[20%] exl:w-[15%] rounded-[50%] group-hover:border group-hover:border-black transition-all duration-1000 p-2 ${
               role_id === 4 && "bg-bgLight dark:bg-logoColor"
             }`}
             src={img}
             alt="image"
             style={{ border: role_id === 4 ? "2px solid #C9B26D" : "none" }}
-            animate={
-              hover
-                ? {
-                    y: -10,
-                    transition: {
-                      duration: 0.4,
-                      type: "spring",
-                      damping: 3,
-                    },
-                  }
-                : null
-            }
           />
           <Typography
             className={`z-30 text-center font-medium ${
               role_id === 4 && "text-[#C9B26D]"
-            }`}
+            } group-hover:text-lg group-hover:text-[#2b2b2b] group-hover:font-medium transition-all duration-1000`}
           >
             {t(title)}
           </Typography>
         </a>
       ) : (
         <Box
-          onMouseEnter={() => {
-            setHover(true);
-          }}
-          onMouseLeave={() => {
-            setHover(false);
-          }}
           onClick={() => {
             if (link) {
               navigate(link);
@@ -164,25 +136,14 @@ const EachPanel = ({
               );
             }
           }}
-          className="text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain  dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer flex flex-col rounded-xl  items-center justify-center relative gap-y-3 w-full"
+          className="text-textDark drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain ela transition-all duration-700 dark:text-white text-text5 overflow-hidden h-[170px] cursor-pointer group flex flex-col rounded-xl after:content-[''] after:bg-logoColor after:absolute after:-left-1/2 after:top-0 after:pt-[100%] after:rounded-[50%] after:w-full aye hoverbefore after:transition-all after:duration-1000 items-center justify-center relative gap-y-3 w-full"
         >
-          <motion.img
-            initial={{ y: 0 }}
-            animate={
-              hover
-                ? {
-                    y: -10,
-                    transition: {
-                      duration: 0.4,
-                      type: "spring",
-                      damping: 3,
-                    },
-                  }
-                : null
-            }
-            className={`z-30 w-[80px] xxl:w-[90px] exl:w-[100px] rounded-[50%] p-2 ${
+          <LazyLoadImage
+            className={`imgscale z-30 w-[44%] xmd:w-[27%] xxl:w-[34%] exl:w-[24%] rounded-[50%] group-hover:border group-hover:border-black transition-all duration-1000 p-2 ${
               role_id === 4 && "bg-bgLight dark:bg-logoColor"
             }`}
+            // effect='blur'
+
             src={img}
             alt="image"
             style={{ border: role_id === 4 ? "2px solid #C9B26D" : "none" }}
@@ -190,7 +151,7 @@ const EachPanel = ({
           <Typography
             className={`z-30 text-center font-medium ${
               role_id === 4 && "text-[#C9B26D]"
-            }`}
+            } group-hover:text-lg group-hover:text-[#2b2b2b] group-hover:font-medium transition-all duration-1000`}
           >
             {t(title)}
           </Typography>
