@@ -10,7 +10,7 @@ import android from "../../assets/logo/android.png";
 import qrcode from "../../assets/logo/qrcode.png";
 
 const SideBar = () => {
-  const { openedSidebar, leftLight } = useSelector((state) => state.themes);
+  const { openedSidebar } = useSelector((state) => state.themes);
   const { sidebar } = useSelector((state) => state.data);
 
   const { t } = useTranslation();

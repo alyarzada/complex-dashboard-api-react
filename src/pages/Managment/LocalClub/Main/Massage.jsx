@@ -21,8 +21,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   bookMassage,
   getBookedMassage,
-} from "../../../../app/Slicers/dataFetching/massage";
-import { changeBookedMassageStatus } from "../../../../app/Slicers/dataFetching/massage";
+  changeBookedMassageStatus,
+} from "../../../../app/Slicers/dataFetching/leisure/massage";
 
 // icons
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";

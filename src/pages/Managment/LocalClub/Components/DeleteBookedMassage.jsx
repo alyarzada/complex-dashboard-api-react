@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { IconButton } from "@mui/material";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
@@ -7,8 +7,8 @@ import Cookies from "js-cookie";
 import DeleteIcon from "@mui/icons-material/Delete";
 // redux
 import { useDispatch, useSelector } from "react-redux";
-import { changeDeletedMassageStatus } from "../../../../app/Slicers/dataFetching/massage";
-import { deleteMassageReservation } from "../../../../app/Slicers/dataFetching/massage";
+import { changeDeletedMassageStatus } from "../../../../app/Slicers/dataFetching/leisure/massage";
+import { deleteMassageReservation } from "../../../../app/Slicers/dataFetching/leisure/massage";
 // component
 import { setDialogModal } from "../../../../app/Slicers/localStates/modals";
 

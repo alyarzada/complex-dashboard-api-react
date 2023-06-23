@@ -1,16 +1,16 @@
 import { Typography, Box, Avatar, Skeleton } from "@mui/material";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
-const Contact = ({ contact }) => {
-  const { loading } = useSelector((state) => state.contacts);
+const Contact = ({ contact, isLoading }) => {
+  // const { loading } = useSelector((state) => state.contacts);
 
   return (
     <Box
       className={`rounded-xl px-3 ${
-        loading && "py-6"
+        isLoading && "py-6"
       }  dark:text-text1 bg-bgLight drop-shadow-lg hover:drop-shadow-xl flex flex-col justify-center items-center dark:bg-bgMain`}
     >
-      {loading ? (
+      {isLoading ? (
         <Skeleton
           animation="wave"
           className="my-auto rounded-[50%] h-44 w-32"
@@ -18,19 +18,19 @@ const Contact = ({ contact }) => {
       ) : (
         <Avatar className="w-28 h-28 border-4 border-slate-400 mb-3" />
       )}
-      {loading ? (
+      {isLoading ? (
         <Skeleton animation="wave" className="w-1/3 h-6 mb-2 my-auto" />
       ) : (
         <Typography>{contact.name}</Typography>
       )}
-      {loading ? (
+      {isLoading ? (
         <Skeleton animation="wave" className="w-1/3 h-6 mb-4 my-auto" />
       ) : (
         <Typography className="text-sm mb-2 text-textmuted">
           {contact.position}
         </Typography>
       )}
-      {loading ? (
+      {isLoading ? (
         <Skeleton animation="wave" className="w-4/5 h-6 mb-2 my-auto" />
       ) : (
         <Typography className="text-[13px]">

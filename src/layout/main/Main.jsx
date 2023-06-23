@@ -2,41 +2,49 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { Box, useMediaQuery } from "@mui/material";
-import SideBar from "./sidebar/Sidebar";
-import Header from "./header/Header";
-import Footer from "./footer/Footer";
-import MobileNavigation from "./MobileNavigation";
-import "./styles/styles.css";
-import { useScrollToUp } from "../hooks/useScrollToUp";
+import SideBar from "../sidebar/Sidebar";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
+import MobileNavigation from "../MobileNavigation";
+import "../styles/styles.css";
+import { useScrollToUp } from "../../hooks/useScrollToUp";
 import {
   getDashboardPanels,
   getSidebarData,
-} from "../app/Slicers/localStates/data";
-import { sidebarMenu } from "../data/apartment-owner/sidebar-menu";
-import { dashboardPanels } from "../data/apartment-owner/dashboard-menu";
-import { adminSidebarMenu } from "../data/admin/sidebar-menu";
-import { adminDashboardPanels } from "../data/admin/dashboard-menu";
-import { restaurantsidebarMenu } from "../data/restaurant-admin/sidebar-menu";
-import { restaurantDashboard } from "../data/restaurant-admin/restaurant-dashboard";
-import { setLight } from "../app/Slicers/localStates/themes";
-import Modals from "./Modals";
+} from "../../app/Slicers/localStates/data";
+import { sidebarMenu } from "../../data/apartment-owner/sidebar-menu";
+import { dashboardPanels } from "../../data/apartment-owner/dashboard-menu";
+import { adminSidebarMenu } from "../../data/admin/sidebar-menu";
+import { adminDashboardPanels } from "../../data/admin/dashboard-menu";
+import { restaurantsidebarMenu } from "../../data/restaurant-admin/sidebar-menu";
+import { restaurantDashboard } from "../../data/restaurant-admin/restaurant-dashboard";
+import { setLight } from "../../app/Slicers/localStates/themes";
+import Modals from "../Modals";
+import { useQuery } from "@tanstack/react-query";
+import { getUserInfo } from "../../servers/getRequests";
 
-const Home = () => {
+const Main = () => {
   useScrollToUp();
   const matches = useMediaQuery("(min-width:768px)");
   const { openedSidebar } = useSelector((state) => state.themes);
-  const {
-    user: {
-      has_role: { role_id },
-      user_layout_settings,
-    },
-  } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
-  const index = 0;
 
-  useEffect(() => {
-    console.warn = console.error = () => {};
+  // data: {
+  //   user: {
+  //     has_role: { role_id },
+  //     user_layout_settings,
+  //   },
+  // },
+
+  const { data: role_id, isSuccess } = useQuery({
+    queryKey: ["userinfo"],
+    queryFn: getUserInfo,
+    select: (data) => {
+      return data.has_role.role_id;
+    },
   });
+  const dispatch = useDispatch();
+
+  console.log(role_id);
 
   useEffect(() => {
     if (role_id === 8) {
@@ -66,12 +74,12 @@ const Home = () => {
       dispatch(getSidebarData(restaurantsidebarMenu));
     }
 
-    if (user_layout_settings.darkMode) {
-      dispatch(setLight(false));
-    } else {
-      dispatch(setLight(true));
-    }
-  }, []);
+    // if (user_layout_settings.darkMode) {
+    //   dispatch(setLight(false));
+    // } else {
+    //   dispatch(setLight(true));
+    // }
+  });
 
   return (
     <Box className="bg-bgLight dark:bg-bgSecond">
@@ -94,4 +102,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Main;

@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { IconButton, Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { deleteBookedRoom } from "../../../../app/Slicers/dataFetching/meetingRoom";
+import { deleteBookedRoom } from "../../../../app/Slicers/dataFetching/leisure/meetingRoom";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { changeDeleteBookedRoomStatus } from "../../../../app/Slicers/dataFetching/meetingRoom";
+import { changeDeleteBookedRoomStatus } from "../../../../app/Slicers/dataFetching/leisure/meetingRoom";
 import { setDialogModal } from "../../../../app/Slicers/localStates/modals";
 
 const DeleteBookedRooms = ({ params }) => {

@@ -21,10 +21,10 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   bookCinemaRoom,
   getBookedCinemaRooms,
-} from "../../../../app/Slicers/dataFetching/cinema";
+  changeBookedCinemaStatus,
+} from "../../../../app/Slicers/dataFetching/leisure/cinema";
 import DeleteBookedCinemaRoom from "../Components/DeleteBookedCinemaRoom";
 import { setModal } from "../../../../app/Slicers/localStates/modals";
-import { changeBookedCinemaStatus } from "../../../../app/Slicers/dataFetching/cinema";
 import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
 import { BronCinemaSchema } from "../../../../validations/leisureclub/cinemaVal";
 import DefaultButton from "../../../../components/UI/Buttons/DefaultButton";

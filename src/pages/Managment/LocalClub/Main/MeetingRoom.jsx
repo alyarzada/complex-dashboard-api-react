@@ -23,10 +23,12 @@ import CustomTextField from "../../../../components/Form/CustomTextField";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { getBookedRooms } from "../../../../app/Slicers/dataFetching/meetingRoom";
-import { bookRoom } from "../../../../app/Slicers/dataFetching/meetingRoom";
 import { setModal } from "../../../../app/Slicers/localStates/modals";
-import { changeBookRoomStatus } from "../../../../app/Slicers/dataFetching/meetingRoom";
+import {
+  changeBookRoomStatus,
+  bookRoom,
+  getBookedRooms,
+} from "../../../../app/Slicers/dataFetching/leisure/meetingRoom";
 import CustomDatePicker from "../../../../components/Form/CustomDatePicker";
 import CustomDigitalTimePicker from "../../../../components/Form/CustomDigitalTimePicker";
 import { BronMeetingRoomSchema } from "../../../../validations/leisureclub/meetinRoomVal";

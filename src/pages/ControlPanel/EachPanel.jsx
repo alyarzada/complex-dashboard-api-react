@@ -12,6 +12,8 @@ import EastIcon from "@mui/icons-material/East";
 import { IconButton } from "@mui/material";
 import { motion, useAnimationControls } from "framer-motion";
 import { useState } from "react";
+import { getUserInfo } from "../../servers/getRequests";
+import { useQuery } from "@tanstack/react-query";
 
 const EachPanel = ({
   img,
@@ -27,11 +29,13 @@ const EachPanel = ({
   color,
   type,
 }) => {
-  const {
-    user: {
-      has_role: { role_id },
+  const { data: role_id, isSuccess } = useQuery({
+    queryKey: ["userinfo"],
+    queryFn: getUserInfo,
+    select: (data) => {
+      return data.has_role.role_id;
     },
-  } = useSelector((state) => state.auth);
+  });
   const [hover, setHover] = useState(false);
 
   const { t } = useTranslation();

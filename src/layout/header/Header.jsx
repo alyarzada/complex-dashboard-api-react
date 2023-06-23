@@ -11,10 +11,20 @@ import RestaurantCard from "./RestaurantCard";
 import { setSideabarSubmenu } from "../../app/Slicers/localStates/themes";
 import logo from "../../assets/logo/logo_sm.png";
 
+import { useQuery } from "@tanstack/react-query";
+import { getUserInfo } from "../../servers/getRequests";
+
 const Header = () => {
   const { openedSidebar, showCardIcon } = useSelector((state) => state.themes);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const query = useQuery({
+    queryKey: ["userinfo"],
+    queryFn: getUserInfo,
+  });
+
+  console.log(query);
 
   return (
     <header
@@ -53,7 +63,7 @@ const Header = () => {
           <Notifications />
           <Settings />
           {showCardIcon ? <RestaurantCard /> : null}
-          <UserMenu />
+          {/* <UserMenu {...query} /> */}
         </Box>
       </nav>
     </header>

@@ -44,11 +44,11 @@ const ControlPanel = () => {
   const { isDraggable } = useSelector((state) => state.themes);
   const { modals } = useSelector((state) => state.modals);
   const { controlPanel } = useSelector((state) => state.data);
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
+  // const {
+  //   user: {
+  //     has_role: { role_id },
+  //   },
+  // } = useSelector((state) => state.auth);
 
   return (
     <Box className="w-full">
@@ -61,9 +61,9 @@ const ControlPanel = () => {
           {t("Dashboard")}
         </Typography>
       </Box>
-      {role_id === 8 ? <ControlPanelInvoice /> : null}
+      {10 === 8 ? <ControlPanelInvoice /> : null}
 
-      {role_id === 2 ? (
+      {10 === 2 ? (
         <Box>
           <Stack direction="row" spacing={3}>
             <Box className="w-full">
@@ -251,7 +251,7 @@ const ControlPanel = () => {
         ))}
       </ReactSortable>
 
-      {role_id === 4 ? (
+      {10 === 4 ? (
         <Box>
           <ControlPanelRequests />
           <ControlPanelRequestsArchive />

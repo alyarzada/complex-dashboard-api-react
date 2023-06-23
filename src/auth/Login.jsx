@@ -1,36 +1,95 @@
-import LoginTabPanel from "./LoginTabPanel";
-import LoginImage from "../assets/others/login_photo.jpg";
-import androidIcon from "../assets/logo/android.png";
-import iosIcon from "../assets/logo/ios.png";
-import qrcodeIcon from "../assets/logo/qrcode.png";
-import { Box } from "@mui/material";
+import { Formik, Form } from "formik";
+import { useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import { Box, Typography } from "@mui/material";
+import LoadingButton from "@mui/lab/LoadingButton";
+import LoginIcon from "@mui/icons-material/Login";
+import { LoginSchema } from "../validations/login_validation";
+import CustomTextField from "../components/Form/CustomTextField";
+import { loginHandler } from "../servers/authRequests";
+import Cookies from "js-cookie";
 
 const LoginPage = () => {
-  return (
-    <Box className="flex h-screen overflow-hidden">
-      <Box className="lg:hidden">
-        <img
-          className="w-screen h-screen object-cover object-top absolute block"
-          src={LoginImage}
-          alt="port-baku-img"
-        />
-      </Box>
-      <Box className="lg:w-[450px] w-full lg:bg-bgMain h-screen flex flex-col items-center justify-center relative p-8">
-        <LoginTabPanel />
-        <Box className=" hidden lg:flex justify-between items-center relative z-10">
-          <img className="w-1/4" src={androidIcon} alt="android" />
-          <img className="w-1/4" src={qrcodeIcon} alt="qrcode" />
-          <img className="w-1/4" src={iosIcon} alt="ios" />
-        </Box>
-      </Box>
+  const navigate = useNavigate();
+  const { mutate, isLoading, isSuccess, isError, data } = useMutation({
+    mutationFn: (payload) => loginHandler(payload),
+    onSuccess: async (payload) => {
+      if (payload.success && payload.token) {
+        Cookies.set("token", payload.token, { expires: 7 });
+        navigate("/");
+      }
+    },
+  });
 
-      <Box className="flex-1 h-full">
-        <img
-          className="w-full h-full object-cover object-top block"
-          src={LoginImage}
-          alt="port-baku-img"
-        />
-      </Box>
+  return (
+    <Box className="flex bg-slate-50 items-center justify-center h-screen overflow-hidden">
+      <div className="w-1/3">
+        <div className="mb-4">
+          <h2>Daxil ol</h2>
+          <p>Giriş etmək üçün email və şifrənizi daxil edin</p>
+        </div>
+
+        <div>
+          <Formik
+            initialValues={{ username: "", password: "" }}
+            onSubmit={(values) => mutate(values)}
+            validateOnChange={true}
+            validateOnBlur={false}
+            validateOnFocus={false}
+            validationSchema={LoginSchema}
+          >
+            {({ errors, touched }) => (
+              <Form className="h-[200px] flex flex-col justify-between items-center">
+                <Box className="mb-3 w-full">
+                  <CustomTextField
+                    name="username"
+                    label="İstifadəçi adı və ya e-poçt ünvanı"
+                    variant="outlined"
+                  />
+
+                  <CustomTextField
+                    label="Şifrənizi daxil edin"
+                    type="password"
+                    name="password"
+                    variant="outlined"
+                    className=" rounded"
+                  />
+
+                  {(errors.username || errors.password) &&
+                  (touched.username || touched.password) ? (
+                    <Typography
+                      component="span"
+                      className="text-[#f44336] text-xs"
+                    >
+                      Zəhmət olmasa bütün xanaları doldurun{" "}
+                    </Typography>
+                  ) : null}
+
+                  {isError ? (
+                    <Typography
+                      component="span"
+                      className="text-[#f44336] text-xs"
+                    >
+                      İstifadəçi və ya şifrə səhvdir
+                    </Typography>
+                  ) : null}
+                </Box>
+
+                <LoadingButton
+                  className="bg-logoColor capitalize text-textDark4 w-full"
+                  type="submit"
+                  loading={isLoading}
+                  loadingPosition="start"
+                  startIcon={<LoginIcon />}
+                  variant="contained"
+                >
+                  Daxil olun
+                </LoadingButton>
+              </Form>
+            )}
+          </Formik>
+        </div>
+      </div>
     </Box>
   );
 };

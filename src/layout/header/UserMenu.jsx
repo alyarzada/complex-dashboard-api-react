@@ -1,37 +1,27 @@
 import { useRef, useState, useEffect } from "react";
-import {
-  Box,
-  MenuItem,
-  Avatar,
-  Stack,
-  Typography,
-  Divider,
-} from "@mui/material";
-import { deepOrange, deepPurple } from "@mui/material/colors";
+import { Box, MenuItem, Avatar, Stack, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 import CustomMenu from "../../components/UI/Modals/CustomMenu";
-import { logoutHandler } from "../../app/Slicers/dataFetching/auth";
-import Cookies from "js-cookie";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+import Cookies from "js-cookie";
+import { useMutation } from "@tanstack/react-query";
+import { logoutHandler } from "../../servers/authRequests";
 
-const UserMenu = () => {
+const UserMenu = ({ data, isLoading, isError, error }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [firstLetters, setFirstLetters] = useState(null);
   const [randomColor, setRandomColor] = useState("");
-  const {
-    user: {
-      has_role: { role_name },
-      name,
+  const { mutate } = useMutation({
+    mutationFn: logoutHandler,
+    onSuccess: () => {
+      Cookies.remove("token");
     },
-    loading,
-  } = useSelector((state) => state.auth);
+  });
 
   const { t } = useTranslation();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const btnRef = useRef(null);
 
@@ -54,12 +44,12 @@ const UserMenu = () => {
 
   useEffect(() => {
     setFirstLetters(() => {
-      const words = name?.split(" ");
+      const words = data.user.name?.split(" ");
       return words
         ?.map((word) => word.charAt(0))
         ?.reduce((acc, item) => acc + item, "");
     });
-  }, [loading]);
+  }, [isLoading, data.user.name]);
 
   useEffect(() => {
     let hex = Math.floor(Math.random() * 0xffffff);
@@ -89,10 +79,10 @@ const UserMenu = () => {
         </Avatar>
         <Box className="hidden md:flex md:flex-col md:items-center md:justify-center">
           <Typography className="text-xs text-textDark2 dark:text-text1">
-            {name}
+            {data.user.name}
           </Typography>
           <Typography className="text-xs text-textDark2 dark:text-text2">
-            {t([role_name])}
+            {t([data.user.has_role.role_name])}
           </Typography>
         </Box>
       </Stack>
@@ -112,7 +102,7 @@ const UserMenu = () => {
                   if (list.path) {
                     navigate(list.path);
                   } else {
-                    dispatch(logoutHandler(Cookies.get("token")));
+                    mutate();
                   }
                   setOpenMenu(false);
                 }}

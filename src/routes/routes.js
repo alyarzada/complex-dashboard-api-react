@@ -1,11 +1,12 @@
 import loadable from "@loadable/component";
-import LoadingComponent from "../layout/LoadingComponent";
 import LinearProgress from "@mui/material/LinearProgress";
 
 // main components
-const Home = loadable(() => import("../layout/Home"));
-const PrivateRoute = loadable(() => import("../layout/PrivateRoute"));
-const LoginProtectedRoote = loadable(() => import("../auth/ProtectedRoote"));
+const Main = loadable(() => import("../layout/main/Main"));
+const PrivateMainRoute = loadable(() =>
+  import("../layout/main/PrivateMainRoute")
+);
+const PrivateLoginRoute = loadable(() => import("../auth/PrivateLoginRoute"));
 const ControlPanel = loadable(() =>
   import("../pages/ControlPanel/ControlPanel")
 );
@@ -175,9 +176,9 @@ const routes = [
   {
     path: "/",
     element: (
-      <PrivateRoute>
-        <Home fallback={<LinearProgress color="logocolor" />} />
-      </PrivateRoute>
+      <PrivateMainRoute>
+        <Main fallback={<LinearProgress color="logocolor" />} />
+      </PrivateMainRoute>
     ),
     children: [
       {
@@ -561,9 +562,9 @@ const routes = [
   {
     path: "/login",
     element: (
-      <LoginProtectedRoote>
+      <PrivateLoginRoute>
         <LoginPage fallback={<LinearProgress color="logocolor" />} />
-      </LoginProtectedRoote>
+      </PrivateLoginRoute>
     ),
   },
   {

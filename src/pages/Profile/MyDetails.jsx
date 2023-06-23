@@ -1,21 +1,23 @@
 import { Box, IconButton, Button } from "@mui/material";
 import { Formik, Form, FieldArray } from "formik";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import SaveIcon from "@mui/icons-material/Save";
+import { useMutation } from "@tanstack/react-query";
+import { updateUserInfo } from "../../servers/patchRequests";
+import { useTranslation } from "react-i18next";
+
 import CustomTextField from "../../components/Form/CustomTextField";
 import CustomDatePicker from "../../components/Form/CustomDatePicker";
 import CustomGenderRadio from "../../components/Form/CustomGenderRadio";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
+import SaveIcon from "@mui/icons-material/Save";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import { useDispatch } from "react-redux";
-import { updateUser } from "../../app/Slicers/dataFetching/auth";
-import { useTranslation } from "react-i18next";
+
 import Cookies from "js-cookie";
-import DefaultButton from "../../components/UI/Buttons/DefaultButton";
 
 const MyDetails = ({ user }) => {
-  const dispatch = useDispatch();
   const { t } = useTranslation();
+  const { mutate } = useMutation({
+    mutationFn: updateUserInfo,
+  });
 
   return (
     <Box>
@@ -29,7 +31,7 @@ const MyDetails = ({ user }) => {
             gender: "",
           }}
           onSubmit={(values) => {
-            dispatch(updateUser({ body: values, token: Cookies.get("token") }));
+            mutate({ body: values, token: Cookies.get("token") });
           }}
         >
           {({ values }) => (

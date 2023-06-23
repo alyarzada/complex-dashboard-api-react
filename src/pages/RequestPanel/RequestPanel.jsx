@@ -4,22 +4,18 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   MenuItem,
   Select,
-  Button,
   FormControl,
   Box,
   Typography,
   InputLabel,
   Pagination,
-  useMediaQuery,
 } from "@mui/material";
 import {
-  DataGrid,
   gridPageCountSelector,
   gridPageSelector,
   useGridApiContext,
   useGridSelector,
 } from "@mui/x-data-grid";
-import { useDemoData } from "@mui/x-data-grid-generator";
 import { getAllRequests } from "../../app/Slicers/dataFetching/requests";
 import { Folder, NewspaperOutlined } from "@mui/icons-material";
 import CustomDataGrid from "../../components/UI/CustomDataGrid";
@@ -30,21 +26,20 @@ import Cookies from "js-cookie";
 import { mobileColumns, desktopColumns } from "./data";
 import { useScrollToUp } from "../../hooks/useScrollToUp";
 
-function CustomPagination() {
-  const apiRef = useGridApiContext();
-  const page = useGridSelector(apiRef, gridPageSelector);
-  const pageCount = useGridSelector(apiRef, gridPageCountSelector);
-  {
-  }
-  return (
-    <Pagination
-      color="primary"
-      count={pageCount}
-      page={page + 1}
-      onChange={(event, value) => apiRef.current.setPage(value - 1)}
-    />
-  );
-}
+// function CustomPagination() {
+//   const apiRef = useGridApiContext();
+//   const page = useGridSelector(apiRef, gridPageSelector);
+//   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
+
+//   return (
+//     <Pagination
+//       color="primary"
+//       count={pageCount}
+//       page={page + 1}
+//       onChange={(event, value) => apiRef.current.setPage(value - 1)}
+//     />
+//   );
+// }
 
 const RequestPanel = () => {
   const { allRequests, loading } = useSelector((state) => state.requests);

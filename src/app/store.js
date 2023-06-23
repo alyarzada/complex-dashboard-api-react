@@ -11,15 +11,13 @@ import modalReducer from "./Slicers/localStates/modals";
 
 // data-fetching
 import notificationReducer from "./Slicers/dataFetching/notifications";
-import authReducer from "./Slicers/dataFetching/auth";
 import requestReducer from "./Slicers/dataFetching/requests";
 import newsReducer from "./Slicers/dataFetching/news";
-import contactsReducer from "./Slicers/dataFetching/contacts";
-import informationReducer from "./Slicers/dataFetching/infoTable";
-import meetingRoomReducer from "./Slicers/dataFetching/meetingRoom";
-import massageReducer from "./Slicers/dataFetching/massage";
-import cinemaReducer from "./Slicers/dataFetching/cinema";
 import emojiReducer from "./Slicers/dataFetching/emoji";
+import informationReducer from "./Slicers/dataFetching/infoTable";
+import meetingRoomReducer from "./Slicers/dataFetching/leisure/meetingRoom";
+import massageReducer from "./Slicers/dataFetching/leisure/massage";
+import cinemaReducer from "./Slicers/dataFetching/leisure/cinema";
 
 export const store = configureStore({
   reducer: {
@@ -30,12 +28,10 @@ export const store = configureStore({
     entryCards: entryCardsReducer,
     tenants: tenantReducer,
 
-    auth: authReducer,
     notifications: notificationReducer,
     requests: requestReducer,
     news: newsReducer,
     modals: modalReducer,
-    contacts: contactsReducer,
     informations: informationReducer,
     meetingRoom: meetingRoomReducer,
     massage: massageReducer,
