@@ -11,5 +11,4 @@ const tenantSlicer = createSlice({
   reducer: {},
 });
 
-export const {} = tenantSlicer.actions;
 export default tenantSlicer.reducer;

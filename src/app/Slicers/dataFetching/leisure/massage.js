@@ -1,8 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = "https://pbr.rahatbina.az/api/v1/";
-
 const initialState = {
   bookedMassage: [],
   loading: false,
@@ -15,9 +13,12 @@ export const getBookedMassage = createAsyncThunk(
   "massage/getBookedMassage",
   async (data) => {
     try {
-      const response = await axios.get(BASE_URL + "massage", {
-        headers: { token: data },
-      });
+      const response = await axios.get(
+        process.env.REACT_APP_API_URL + "massage",
+        {
+          headers: { token: data },
+        }
+      );
       return response.data;
     } catch (error) {
       return error.message;
@@ -29,9 +30,13 @@ export const bookMassage = createAsyncThunk(
   "massage/bookMassage",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await axios.post(BASE_URL + "massage", data.data, {
-        headers: { token: data.token },
-      });
+      const response = await axios.post(
+        process.env.REACT_APP_API_URL + "massage",
+        data.data,
+        {
+          headers: { token: data.token },
+        }
+      );
       return response.data;
     } catch (error) {
       return rejectWithValue(error);
@@ -43,10 +48,13 @@ export const deleteMassageReservation = createAsyncThunk(
   "massage/deleteMassageReservation",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await axios.delete(BASE_URL + "massage", {
-        data: { id: data.id },
-        headers: { token: data.token },
-      });
+      const response = await axios.delete(
+        process.env.REACT_APP_API_URL + "massage",
+        {
+          data: { id: data.id },
+          headers: { token: data.token },
+        }
+      );
       return { response: response.data, id: data.id };
     } catch (error) {
       return rejectWithValue(error);

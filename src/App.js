@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useRoutes } from "react-router-dom";
+import { useSelector } from "react-redux";
 import routes from "./routes/routes";
 
 function App() {

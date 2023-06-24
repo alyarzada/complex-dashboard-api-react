@@ -8,7 +8,7 @@ import CustomMenu from "../../components/UI/Modals/CustomMenu";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import Cookies from "js-cookie";
 import { useMutation } from "@tanstack/react-query";
-import { logoutHandler } from "../../servers/authRequests";
+import { logoutHandler } from "../../services/authRequests";
 
 const UserMenu = ({ data, isLoading, isError, error }) => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -44,12 +44,12 @@ const UserMenu = ({ data, isLoading, isError, error }) => {
 
   useEffect(() => {
     setFirstLetters(() => {
-      const words = data.user.name?.split(" ");
+      const words = data.name?.split(" ");
       return words
         ?.map((word) => word.charAt(0))
         ?.reduce((acc, item) => acc + item, "");
     });
-  }, [isLoading, data.user.name]);
+  }, [isLoading, data.name]);
 
   useEffect(() => {
     let hex = Math.floor(Math.random() * 0xffffff);
@@ -79,10 +79,10 @@ const UserMenu = ({ data, isLoading, isError, error }) => {
         </Avatar>
         <Box className="hidden md:flex md:flex-col md:items-center md:justify-center">
           <Typography className="text-xs text-textDark2 dark:text-text1">
-            {data.user.name}
+            {data.name}
           </Typography>
           <Typography className="text-xs text-textDark2 dark:text-text2">
-            {t([data.user.has_role.role_name])}
+            {t([data.has_role.role_name])}
           </Typography>
         </Box>
       </Stack>

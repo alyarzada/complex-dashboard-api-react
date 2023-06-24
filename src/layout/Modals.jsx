@@ -3,8 +3,8 @@ import CustomDialogModal from "../components/UI/Modals/CustomDialogModal";
 import CustomModal from "../components/UI/Modals/CustomModal";
 import { setDialogModal, setModal } from "../app/Slicers/localStates/modals";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { AnimatePresence } from "framer-motion";
+import "react-toastify/dist/ReactToastify.css";
 
 const Modals = () => {
   const { dialogModal, modal } = useSelector((state) => state.modals);

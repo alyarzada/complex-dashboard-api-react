@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = "https://pbr.rahatbina.az/api/v1/";
-
 const initialState = {
   notifications: [],
   loading: false,
@@ -14,9 +12,12 @@ export const getAllNotifications = createAsyncThunk(
   "notifications/getAllNotifications",
   async (data) => {
     try {
-      const response = await axios.get(BASE_URL + "notifications", {
-        headers: { token: data },
-      });
+      const response = await axios.get(
+        process.env.REACT_APP_API_URL + "notifications",
+        {
+          headers: { token: data },
+        }
+      );
       return response.data;
     } catch (error) {
       return error;
@@ -28,9 +29,12 @@ export const deleteNotifications = createAsyncThunk(
   "notifications/deleteNotifications",
   async (data) => {
     try {
-      const response = await axios.delete(BASE_URL + "notifications", {
-        headers: { token: data },
-      });
+      const response = await axios.delete(
+        process.env.REACT_APP_API_URL + "notifications",
+        {
+          headers: { token: data },
+        }
+      );
       return response;
     } catch (error) {
       return error;

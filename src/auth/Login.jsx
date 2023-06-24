@@ -6,20 +6,28 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import LoginIcon from "@mui/icons-material/Login";
 import { LoginSchema } from "../validations/login_validation";
 import CustomTextField from "../components/Form/CustomTextField";
-import { loginHandler } from "../servers/authRequests";
+import { loginHandler } from "../services/authRequests";
 import Cookies from "js-cookie";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const { mutate, isLoading, isSuccess, isError, data } = useMutation({
+  const { mutate, isLoading, isError } = useMutation({
     mutationFn: (payload) => loginHandler(payload),
-    onSuccess: async (payload) => {
-      if (payload.success && payload.token) {
-        Cookies.set("token", payload.token, { expires: 7 });
-        navigate("/");
-      }
-    },
+    onSuccess: successHandler,
   });
+
+  async function successHandler(payload) {
+    const { success, token } = payload;
+
+    if (success && token) {
+      Cookies.set("token", token, {
+        expires: 7,
+        secure: true,
+        sameSite: "strict",
+      });
+      navigate("/");
+    }
+  }
 
   return (
     <Box className="flex bg-slate-50 items-center justify-center h-screen overflow-hidden">

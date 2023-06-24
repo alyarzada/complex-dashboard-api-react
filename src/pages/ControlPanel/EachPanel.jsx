@@ -1,18 +1,17 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate, Link } from "react-router-dom";
 import { Typography, Box, Stack } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { appendModal } from "../../app/Slicers/localStates/modals";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import AndroidOutlinedIcon from "@mui/icons-material/AndroidOutlined";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import AppleIcon from "@mui/icons-material/Apple";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import EastIcon from "@mui/icons-material/East";
 import { IconButton } from "@mui/material";
 import { motion, useAnimationControls } from "framer-motion";
 import { useState } from "react";
-import { getUserInfo } from "../../servers/getRequests";
+import { getUserInfo } from "../../services/getRequests";
 import { useQuery } from "@tanstack/react-query";
 
 const EachPanel = ({
@@ -29,19 +28,18 @@ const EachPanel = ({
   color,
   type,
 }) => {
-  const { data: role_id, isSuccess } = useQuery({
-    queryKey: ["userinfo"],
-    queryFn: getUserInfo,
+  const { data: role_id } = useQuery({
+    queryKey: ["auth"],
     select: (data) => {
       return data.has_role.role_id;
     },
+    refetchOnWindowFocus: false,
   });
   const [hover, setHover] = useState(false);
 
   const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const controls = useAnimationControls();
 
   if (role_id === 9 || role_id === 2) {
     return (

@@ -1,25 +1,9 @@
 import { forwardRef, useEffect, useRef } from "react";
-import {
-  setLight,
-  setBoxed,
-  setLeftLight,
-  setScrollable,
-} from "../../app/Slicers/localStates/themes";
+import { setLight, setLeftLight } from "../../app/Slicers/localStates/themes";
 import { useDispatch, useSelector } from "react-redux";
 import { setOpenedSettingBar } from "../../app/Slicers/localStates/themes";
 import { setDraggable } from "../../app/Slicers/localStates/themes";
-import {
-  Radio,
-  RadioGroup,
-  FormControlLabel,
-  FormControl,
-  Box,
-  IconButton,
-  Switch,
-  Typography,
-  Button,
-  Divider,
-} from "@mui/material";
+import { Box, IconButton, Typography, Divider } from "@mui/material";
 import HighlightOffRoundedIcon from "@mui/icons-material/HighlightOffRounded";
 import { useTranslation } from "react-i18next";
 import ResetButton from "../../components/UI/Buttons/ResetButton";
@@ -43,7 +27,7 @@ const SettingBar = (props, ref) => {
     document.addEventListener("mousedown", handleClose);
 
     return () => document.removeEventListener("mousedown", handleClose);
-  }, []);
+  });
 
   return (
     <Box

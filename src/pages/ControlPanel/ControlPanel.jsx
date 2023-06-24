@@ -12,7 +12,10 @@ import {
   Paper,
 } from "@mui/material";
 import { ReactSortable } from "react-sortablejs";
-import { reOrderMenus } from "../../app/Slicers/localStates/data";
+import {
+  getDashboardPanels,
+  reOrderMenus,
+} from "../../app/Slicers/localStates/data";
 import { destroyModal } from "../../app/Slicers/localStates/modals";
 import { useScrollToUp } from "../../hooks/useScrollToUp";
 import { useTranslation } from "react-i18next";
@@ -34,21 +37,47 @@ import Piechart from "../../components/UI/Charts/PieChart";
 import LineCharts from "../../components/UI/Charts/LineCharts";
 import Stackedbarchart from "../../components/UI/Charts/StackedBarChart";
 import { AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
+import { getUserInfo } from "../../services/getRequests";
+import { useQuery } from "@tanstack/react-query";
+
+import { dashboardPanels } from "../../data/apartment-owner/dashboard-menu";
+import { adminDashboardPanels } from "../../data/admin/dashboard-menu";
+import { restaurantDashboard } from "../../data/restaurant-admin/restaurant-dashboard";
 
 const ControlPanel = () => {
   useScrollToUp();
 
-  const dispatch = useDispatch();
-  const { t } = useTranslation();
-
   const { isDraggable } = useSelector((state) => state.themes);
   const { modals } = useSelector((state) => state.modals);
   const { controlPanel } = useSelector((state) => state.data);
-  // const {
-  //   user: {
-  //     has_role: { role_id },
-  //   },
-  // } = useSelector((state) => state.auth);
+
+  const { data: role_id } = useQuery({
+    queryKey: ["auth"],
+    select: (data) => {
+      return data.has_role.role_id;
+    },
+    refetchOnWindowFocus: false,
+  });
+
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (role_id === 8) {
+      dispatch(getDashboardPanels(dashboardPanels));
+    } else if (role_id === 4) {
+      dispatch(getDashboardPanels(adminDashboardPanels));
+    } else if (role_id === 2 || role_id === 9) {
+      dispatch(getDashboardPanels(restaurantDashboard));
+    }
+
+    // if (user_layout_settings.darkMode) {
+    //   dispatch(setLight(false));
+    // } else {
+    //   dispatch(setLight(true));
+    // }
+  });
 
   return (
     <Box className="w-full">

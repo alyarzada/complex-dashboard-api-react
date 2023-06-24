@@ -1,8 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = "https://pbr.rahatbina.az/api/v1/";
-
 const initialState = {
   informations: [],
   loading: false,
@@ -13,9 +11,12 @@ export const getInformations = createAsyncThunk(
   "informations/getInformations",
   async (data) => {
     try {
-      const response = await axios.get(BASE_URL + "information", {
-        headers: { token: data.token },
-      });
+      const response = await axios.get(
+        process.env.REACT_APP_API_URL + "information",
+        {
+          headers: { token: data.token },
+        }
+      );
       return response.data;
     } catch (error) {
       return error.message;

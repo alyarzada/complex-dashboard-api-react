@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = "https://pbr.rahatbina.az/api/v1/";
-
 const initialState = {
   news: [],
   loading: false,
@@ -11,7 +9,7 @@ const initialState = {
 
 export const getAllNews = createAsyncThunk("news/getAllNews", async (data) => {
   try {
-    const response = await axios.get(BASE_URL + "wall", {
+    const response = await axios.get(process.env.REACT_APP_API_URL + "wall", {
       headers: { token: data },
     });
     return response.data;
@@ -24,9 +22,13 @@ export const postComment = createAsyncThunk(
   "news/postComment",
   async (data) => {
     try {
-      const response = await axios.post(BASE_URL + "wall/comment", data.body, {
-        headers: { token: data.token },
-      });
+      const response = await axios.post(
+        process.env.REACT_APP_API_URL + "wall/comment",
+        data.body,
+        {
+          headers: { token: data.token },
+        }
+      );
       return response.data.data.post_saved_data;
     } catch (error) {
       return error;
@@ -38,10 +40,13 @@ export const deleteComment = createAsyncThunk(
   "news/deleteComment",
   async (data) => {
     try {
-      const response = await axios.delete(BASE_URL + "wall/comment", {
-        data: data.id,
-        headers: { token: data.token },
-      });
+      const response = await axios.delete(
+        process.env.REACT_APP_API_URL + "wall/comment",
+        {
+          data: data.id,
+          headers: { token: data.token },
+        }
+      );
       return response.data.data;
     } catch (error) {
       return error.message;
@@ -53,9 +58,13 @@ export const editComment = createAsyncThunk(
   "news/editComment",
   async (data) => {
     try {
-      const response = await axios.patch(BASE_URL + "wall/comment", data.body, {
-        headers: { token: data.token },
-      });
+      const response = await axios.patch(
+        process.env.REACT_APP_API_URL + "wall/comment",
+        data.body,
+        {
+          headers: { token: data.token },
+        }
+      );
       return response.data.data;
     } catch (error) {
       return error.message;
@@ -65,9 +74,13 @@ export const editComment = createAsyncThunk(
 
 export const likePost = createAsyncThunk("news/editComment", async (data) => {
   try {
-    const response = await axios.post(BASE_URL + "wall/like", data.body, {
-      headers: { token: data.token },
-    });
+    const response = await axios.post(
+      process.env.REACT_APP_API_URL + "wall/like",
+      data.body,
+      {
+        headers: { token: data.token },
+      }
+    );
     return response;
   } catch (error) {
     return error.message;

@@ -11,5 +11,4 @@ const entryCardsSlicer = createSlice({
   reducer: {},
 });
 
-export const {} = entryCardsSlicer.actions;
 export default entryCardsSlicer.reducer;

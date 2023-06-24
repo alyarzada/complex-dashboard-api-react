@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
-import { getContacts } from "../../servers/getRequests";
+import { getContacts } from "../../services/getRequests";
 import { Box } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import Contact from "./Contact";

@@ -10,6 +10,8 @@ import { setModal } from "../../app/Slicers/localStates/modals";
 import { getSelectedInvoices } from "../../app/Slicers/localStates/invoices";
 import HoverLogoButton from "../../components/UI/Buttons/HoverLogoButton";
 import CustomDataGrid from "../../components/UI/CustomDataGrid";
+import { useQuery } from "@tanstack/react-query";
+import { getUserInfo } from "../../services/getRequests";
 
 export const Services = ({ params }) => {
   const ref = useRef(null);
@@ -68,6 +70,15 @@ const Myİnvoices = () => {
   const { t } = useTranslation();
   const { invoices } = useSelector((state) => state.invoice);
   const [selectionModel, setSelectionModel] = useState([]);
+
+  const { data: role_id, isLoading } = useQuery({
+    queryKey: ["auth"],
+    select: (data) => {
+      return data.has_role.role_id;
+    },
+  });
+
+  console.log(role_id, isLoading);
 
   useEffect(() => {
     dispatch(getSelectedInvoices(selectionModel));
@@ -199,7 +210,6 @@ const Myİnvoices = () => {
             {t(["Pay selected invoices"])}
           </HoverLogoButton>
         </Stack>
-
         <Box className="px-6 mt-3" style={{ width: "100%" }}>
           <CustomDataGrid
             desktopColumns={columns}

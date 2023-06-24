@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Box, Stack, Typography } from "@mui/material";
@@ -8,13 +8,24 @@ import logoDark from "../../assets/logo/logo.png";
 import ios from "../../assets/logo/ios.png";
 import android from "../../assets/logo/android.png";
 import qrcode from "../../assets/logo/qrcode.png";
+import { useEffect } from "react";
+import { getSidebarData } from "../../app/Slicers/localStates/data";
+import { useQuery } from "@tanstack/react-query";
+import { adminSidebarMenu } from "../../data/admin/sidebar-menu";
+import { sidebarMenu } from "../../data/apartment-owner/sidebar-menu";
+import { restaurantsidebarMenu } from "../../data/restaurant-admin/sidebar-menu";
 
 const SideBar = () => {
   const { openedSidebar } = useSelector((state) => state.themes);
   const { sidebar } = useSelector((state) => state.data);
 
+  const { data: user } = useQuery({
+    queryKey: ["auth"],
+  });
+
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const months = [
     t(["January"]),
@@ -30,6 +41,37 @@ const SideBar = () => {
     t(["November"]),
     t(["December"]),
   ];
+
+  useEffect(() => {
+    if (user.has_role.role_id === 8) {
+      dispatch(getSidebarData(sidebarMenu));
+    } else if (user.has_role.role_id === 4) {
+      dispatch(getSidebarData(adminSidebarMenu));
+    } else if (user.has_role.role_id === 2) {
+      dispatch(
+        getSidebarData(
+          adminSidebarMenu.map((item) => {
+            if (item.title === "Complex Wall") {
+              return {
+                ...item,
+                path: "/complex-select",
+              };
+            }
+
+            return item;
+          })
+        )
+      );
+    } else if (user.has_role.role_id === 9) {
+      dispatch(getSidebarData(restaurantsidebarMenu));
+    }
+
+    // if (user_layout_settings.darkMode) {
+    //   dispatch(setLight(false));
+    // } else {
+    //   dispatch(setLight(true));
+    // }
+  });
 
   // open olanda: 16px + 250px = 266px
   // close olanda: 16px + 80px = 96px

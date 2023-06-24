@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = "https://pbr.rahatbina.az/api/v1/";
-
 const initialState = {
   allRequests: [],
   myRequests: [],
@@ -17,9 +15,13 @@ export const sendConfirmRequest = createAsyncThunk(
   "requests/sendConfirmRequest",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await axios.post(BASE_URL + "rform", data.body, {
-        headers: { token: data.token },
-      });
+      const response = await axios.post(
+        process.env.REACT_APP_API_URL + "rform",
+        data.body,
+        {
+          headers: { token: data.token },
+        }
+      );
       return response;
     } catch (err) {
       return rejectWithValue(err.response.data);
@@ -31,9 +33,13 @@ export const sendFormRequest = createAsyncThunk(
   "requests/sendFormRequest",
   async (data) => {
     try {
-      const response = await axios.post(BASE_URL + "rform", data.body, {
-        headers: { token: data.token },
-      });
+      const response = await axios.post(
+        process.env.REACT_APP_API_URL + "rform",
+        data.body,
+        {
+          headers: { token: data.token },
+        }
+      );
       return response;
     } catch (error) {
       return error;
@@ -45,9 +51,13 @@ export const sendCardRequest = createAsyncThunk(
   "requests/sendCardRequest",
   async (data) => {
     try {
-      const response = await axios.post(BASE_URL + "card", data.body, {
-        headers: { token: data.token },
-      });
+      const response = await axios.post(
+        process.env.REACT_APP_API_URL + "card",
+        data.body,
+        {
+          headers: { token: data.token },
+        }
+      );
       return response;
     } catch (error) {
       return error;
@@ -59,9 +69,12 @@ export const getMyRequests = createAsyncThunk(
   "requests/getMyRequests",
   async (data) => {
     try {
-      const response = await axios.get(BASE_URL + "rform", {
-        headers: { token: data },
-      });
+      const response = await axios.get(
+        process.env.REACT_APP_API_URL + "rform",
+        {
+          headers: { token: data },
+        }
+      );
       return response.data.data;
     } catch (error) {
       return error;
@@ -73,9 +86,12 @@ export const getAllRequests = createAsyncThunk(
   "requests/getAllRequests",
   async (data) => {
     try {
-      const response = await axios.get(BASE_URL + "rform", {
-        headers: { token: data, limit: 200 },
-      });
+      const response = await axios.get(
+        process.env.REACT_APP_API_URL + "rform",
+        {
+          headers: { token: data, limit: 200 },
+        }
+      );
       return response.data.data;
     } catch (error) {
       return error;
@@ -87,9 +103,13 @@ export const createNewRequest = createAsyncThunk(
   "requests/createNewRequest",
   async (data) => {
     try {
-      const response = await axios.post(BASE_URL + "rform", data.body, {
-        headers: { token: data.token },
-      });
+      const response = await axios.post(
+        process.env.REACT_APP_API_URL + "rform",
+        data.body,
+        {
+          headers: { token: data.token },
+        }
+      );
       return response.data;
     } catch (error) {
       return error;
@@ -101,9 +121,13 @@ export const sendRequestComment = createAsyncThunk(
   "requests/sendRequestComment",
   async (data) => {
     try {
-      const response = await axios.post(BASE_URL + "rform/comment", data.body, {
-        headers: { token: data.token },
-      });
+      const response = await axios.post(
+        process.env.REACT_APP_API_URL + "rform/comment",
+        data.body,
+        {
+          headers: { token: data.token },
+        }
+      );
       return response.data;
     } catch (error) {
       return error;
@@ -115,9 +139,12 @@ export const getRequestDetails = createAsyncThunk(
   "requests/getRequestDetails",
   async (data) => {
     try {
-      const response = await axios.get(BASE_URL + "rform/details", {
-        headers: { token: data.token, reqId: data.body.reqId },
-      });
+      const response = await axios.get(
+        process.env.REACT_APP_API_URL + "rform/details",
+        {
+          headers: { token: data.token, reqId: data.body.reqId },
+        }
+      );
       return response.data;
     } catch (error) {
       return error;

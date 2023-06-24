@@ -1,18 +1,19 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Settings } from "../sidebar/Settings";
-import { setOpenedSidebar } from "../../app/Slicers/localStates/themes";
-import { Box, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import LanguageSwitcher from "./LanguageSwitcher";
+import { useQuery } from "@tanstack/react-query";
+import { Settings } from "../sidebar/Settings";
+import {
+  setOpenedSidebar,
+  setSideabarSubmenu,
+} from "../../app/Slicers/localStates/themes";
+import { Box, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import logo from "../../assets/logo/logo_sm.png";
+
+import LanguageSwitcher from "./LanguageSwitcher";
 import Notifications from "./Notifications";
 import UserMenu from "./UserMenu";
 import RestaurantCard from "./RestaurantCard";
-import { setSideabarSubmenu } from "../../app/Slicers/localStates/themes";
-import logo from "../../assets/logo/logo_sm.png";
-
-import { useQuery } from "@tanstack/react-query";
-import { getUserInfo } from "../../servers/getRequests";
 
 const Header = () => {
   const { openedSidebar, showCardIcon } = useSelector((state) => state.themes);
@@ -20,11 +21,8 @@ const Header = () => {
   const navigate = useNavigate();
 
   const query = useQuery({
-    queryKey: ["userinfo"],
-    queryFn: getUserInfo,
+    queryKey: ["auth"],
   });
-
-  console.log(query);
 
   return (
     <header
@@ -63,7 +61,7 @@ const Header = () => {
           <Notifications />
           <Settings />
           {showCardIcon ? <RestaurantCard /> : null}
-          {/* <UserMenu {...query} /> */}
+          <UserMenu {...query} />
         </Box>
       </nav>
     </header>
