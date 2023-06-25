@@ -1,13 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Box,
-  Stack,
-  Button,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-} from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useNavigate, Outlet } from "react-router-dom";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
@@ -26,7 +18,6 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import SearchIcon from "@mui/icons-material/Search";
 import DefaultButton from "../../../components/UI/Buttons/DefaultButton";
 
 const Requests = () => {
@@ -34,11 +25,7 @@ const Requests = () => {
   const navigate = useNavigate();
   const [active, setActive] = useState(1);
   const [panel, setPanel] = useState("");
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
+  const { role_id } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
 

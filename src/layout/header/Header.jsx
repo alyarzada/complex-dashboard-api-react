@@ -22,6 +22,7 @@ const Header = () => {
 
   const query = useQuery({
     queryKey: ["auth"],
+    staleTime: 60 * 1000,
   });
 
   return (

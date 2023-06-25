@@ -32,14 +32,8 @@ const optionsProj = [
 ];
 
 const NewParkingCard = () => {
+  const { role_id } = useSelector((state) => state.user);
   const { t } = useTranslation();
-  const {
-    user: {
-      user: {
-        has_role: { role_id },
-      },
-    },
-  } = useSelector((state) => state.auth);
 
   return (
     <Box>

@@ -42,11 +42,8 @@ const RequestDetails = () => {
   const [firstLetters, setFirstLetters] = useState("");
   const [files, setFiles] = useState([]);
   const { myRequestDetails } = useSelector((state) => state.requests);
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
+  const { role_id } = useSelector((state) => state.user);
+
   const { t } = useTranslation();
 
   const handleDelete = (index) => {
@@ -62,7 +59,7 @@ const RequestDetails = () => {
           ?.reduce((acc, item) => acc + item, "");
       });
     }
-  }, [myRequestDetails]);
+  }, [myRequestDetails, role_id]);
 
   useEffect(() => {
     dispatch(

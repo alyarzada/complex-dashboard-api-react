@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
-import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Typography } from "@mui/material";
 import CustomDataGrid from "../../../components/UI/CustomDataGrid";
 
 const variants = {
@@ -17,12 +15,9 @@ const AllRequests = () => {
     (state) => state.requests
   );
   const [allData, setAllData] = useState([]);
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
-  const { t, i18n } = useTranslation();
+  const { role_id } = useSelector((state) => state.user);
+
+  const { t } = useTranslation();
 
   const columns = [
     // { field: "id", headerName: "#", width: 200 },

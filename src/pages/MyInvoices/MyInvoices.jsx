@@ -1,17 +1,16 @@
 import { useState, useRef, useEffect } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { setModal } from "../../app/Slicers/localStates/modals";
+import { getSelectedInvoices } from "../../app/Slicers/localStates/invoices";
+
 import Header from "../../components/UI/Header";
 import PayButton from "./PayButton";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
-import { useDispatch, useSelector } from "react-redux";
-import { setModal } from "../../app/Slicers/localStates/modals";
-import { getSelectedInvoices } from "../../app/Slicers/localStates/invoices";
 import HoverLogoButton from "../../components/UI/Buttons/HoverLogoButton";
 import CustomDataGrid from "../../components/UI/CustomDataGrid";
-import { useQuery } from "@tanstack/react-query";
-import { getUserInfo } from "../../services/getRequests";
 
 export const Services = ({ params }) => {
   const ref = useRef(null);
@@ -65,24 +64,17 @@ export const Services = ({ params }) => {
 };
 
 const Myİnvoices = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { role_id } = useSelector((state) => state.user);
   const { invoices } = useSelector((state) => state.invoice);
   const [selectionModel, setSelectionModel] = useState([]);
 
-  const { data: role_id, isLoading } = useQuery({
-    queryKey: ["auth"],
-    select: (data) => {
-      return data.has_role.role_id;
-    },
-  });
-
-  console.log(role_id, isLoading);
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getSelectedInvoices(selectionModel));
-  }, [selectionModel]);
+  }, [selectionModel, dispatch]);
 
   const columns = [
     {

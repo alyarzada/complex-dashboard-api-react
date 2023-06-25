@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate, Link } from "react-router-dom";
 import { Typography, Box, Stack } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { appendModal } from "../../app/Slicers/localStates/modals";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import AndroidOutlinedIcon from "@mui/icons-material/AndroidOutlined";
@@ -28,14 +28,8 @@ const EachPanel = ({
   color,
   type,
 }) => {
-  const { data: role_id } = useQuery({
-    queryKey: ["auth"],
-    select: (data) => {
-      return data.has_role.role_id;
-    },
-    refetchOnWindowFocus: false,
-  });
   const [hover, setHover] = useState(false);
+  const { role_id } = useSelector((state) => state.user);
 
   const { t } = useTranslation();
   const navigate = useNavigate();

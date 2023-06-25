@@ -14,7 +14,7 @@ import {
   useGridApiContext,
   useGridSelector,
 } from "@mui/x-data-grid";
-import LocationCityIcon from '@mui/icons-material/LocationCity';
+import LocationCityIcon from "@mui/icons-material/LocationCity";
 
 const columns = [
   { field: "id", headerName: "ID", width: 80 },
@@ -49,11 +49,7 @@ const rows = [{ id: 1, lastName: "Snow", firstName: "Jon", age: 35 }];
 const SurveyManage = () => {
   const { t } = useTranslation();
   const [tableRows, setTableRows] = useState(10);
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
+  const { role_id } = useSelector((state) => state.user);
   function CustomPagination() {
     const apiRef = useGridApiContext();
     const page = useGridSelector(apiRef, gridPageSelector);

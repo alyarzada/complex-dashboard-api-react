@@ -26,21 +26,15 @@ import LeafletMap from "./LeafletMap";
 import "leaflet/dist/leaflet.css";
 
 const Body = () => {
-  const { openedSettingBar } = useSelector((state) => state.themes);
-  const { user } = useSelector((state) => state.auth);
   const [active, setActive] = useState(1);
   const [openMenu, setOpenMenu] = useState(false);
+  const { openedSettingBar } = useSelector((state) => state.themes);
+  const { role_id, user } = useSelector((state) => state.user);
 
+  const { t } = useTranslation();
   const btnRef = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { t } = useTranslation();
-
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
 
   const lists = [
     {

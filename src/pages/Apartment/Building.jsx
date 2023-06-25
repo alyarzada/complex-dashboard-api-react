@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Box, Typography, Pagination, Button } from "@mui/material";
-import Header from "../../components/UI/Header";
-import { useTranslation } from "react-i18next";
-import CustomSearchFilter from "../../components/UI/CustomSearchFilter";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { Box, Typography, Pagination, Button } from "@mui/material";
+
+import Header from "../../components/UI/Header";
+import CustomSearchFilter from "../../components/UI/CustomSearchFilter";
 import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 import Input from "@mui/material/Input";
 import {
@@ -14,7 +15,7 @@ import {
   useGridApiContext,
   useGridSelector,
 } from "@mui/x-data-grid";
-import ApartmentIcon from '@mui/icons-material/Apartment';
+import ApartmentIcon from "@mui/icons-material/Apartment";
 
 const columns = [
   { field: "id", headerName: "ID", width: 80 },
@@ -47,14 +48,9 @@ const columns = [
 const rows = [{ id: 1, lastName: "Snow", firstName: "Jon", age: 35 }];
 
 const SurveyManage = () => {
-  const { t } = useTranslation();
   const [tableRows, setTableRows] = useState(10);
-
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
+  const { role_id } = useSelector((state) => state.user);
+  const { t } = useTranslation();
 
   function CustomPagination() {
     const apiRef = useGridApiContext();

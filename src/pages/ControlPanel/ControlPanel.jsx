@@ -1,4 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
+import { AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
 import {
   Box,
   Typography,
@@ -19,8 +21,7 @@ import {
 import { destroyModal } from "../../app/Slicers/localStates/modals";
 import { useScrollToUp } from "../../hooks/useScrollToUp";
 import { useTranslation } from "react-i18next";
-import "react-toastify/dist/ReactToastify.css";
-import "./styles/style.css";
+
 import ConfirmModal from "./modals/ConfirmModal";
 import FormModal from "./modals/FormModal";
 import OtherModal from "./modals/OtherModal";
@@ -36,29 +37,22 @@ import ControlPanelRequestsArchive from "./ControlPanelRequestsArchive";
 import Piechart from "../../components/UI/Charts/PieChart";
 import LineCharts from "../../components/UI/Charts/LineCharts";
 import Stackedbarchart from "../../components/UI/Charts/StackedBarChart";
-import { AnimatePresence } from "framer-motion";
-import { useEffect } from "react";
-import { getUserInfo } from "../../services/getRequests";
-import { useQuery } from "@tanstack/react-query";
 
 import { dashboardPanels } from "../../data/apartment-owner/dashboard-menu";
 import { adminDashboardPanels } from "../../data/admin/dashboard-menu";
 import { restaurantDashboard } from "../../data/restaurant-admin/restaurant-dashboard";
+
+import "react-toastify/dist/ReactToastify.css";
+import "./styles/style.css";
 
 const ControlPanel = () => {
   useScrollToUp();
 
   const { isDraggable } = useSelector((state) => state.themes);
   const { modals } = useSelector((state) => state.modals);
-  const { controlPanel } = useSelector((state) => state.data);
+  const { role_id } = useSelector((state) => state.user);
 
-  const { data: role_id } = useQuery({
-    queryKey: ["auth"],
-    select: (data) => {
-      return data.has_role.role_id;
-    },
-    refetchOnWindowFocus: false,
-  });
+  const { controlPanel } = useSelector((state) => state.data);
 
   const { t } = useTranslation();
   const dispatch = useDispatch();

@@ -8,6 +8,7 @@ import invoiceReducer from "./Slicers/localStates/invoices";
 import entryCardsReducer from "./Slicers/localStates/entryCards";
 import tenantReducer from "./Slicers/localStates/tenantRegistration";
 import modalReducer from "./Slicers/localStates/modals";
+import userReducer from "./Slicers/localStates/user";
 
 // data-fetching
 import notificationReducer from "./Slicers/dataFetching/notifications";
@@ -27,6 +28,7 @@ export const store = configureStore({
     invoice: invoiceReducer,
     entryCards: entryCardsReducer,
     tenants: tenantReducer,
+    user: userReducer,
 
     notifications: notificationReducer,
     requests: requestReducer,

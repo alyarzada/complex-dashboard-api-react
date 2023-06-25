@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { DataGrid } from "@mui/x-data-grid";
 import { Box, Typography } from "@mui/material";
 import { useScrollToUp } from "../../../hooks/useScrollToUp";
 import { useTranslation } from "react-i18next";
@@ -17,11 +16,7 @@ const EntryCards = () => {
   useScrollToUp();
   const { entryCards } = useSelector((state) => state.entryCards);
   const { t } = useTranslation();
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
+  const { role_id } = useSelector((state) => state.user);
 
   const navigate = useNavigate();
 

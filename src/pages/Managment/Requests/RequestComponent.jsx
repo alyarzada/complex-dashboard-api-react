@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import CustomDataGrid from "../../../components/UI/CustomDataGrid";
 import { useTranslation } from "react-i18next";
@@ -44,17 +43,13 @@ const columns = [
 ];
 
 const RequestComponent = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const params = useParams();
   const { myRequests, allRequests, loading } = useSelector(
     (state) => state.requests
   );
   const [filteredRequests, setFilteredRequests] = useState([]);
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
+  const { role_id } = useSelector((state) => state.user);
 
   const mobileColumns = [
     {

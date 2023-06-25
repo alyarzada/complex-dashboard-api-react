@@ -38,9 +38,10 @@ function a11yProps(index) {
 }
 
 const Body = () => {
-  const { t } = useTranslation();
   const [value, setValue] = useState(0);
   const { informations } = useSelector((state) => state.informations);
+
+  const { t } = useTranslation();
 
   const handleChange = (e, newValue) => {
     setValue(newValue);

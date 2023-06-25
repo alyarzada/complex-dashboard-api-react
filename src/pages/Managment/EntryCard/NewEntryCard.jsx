@@ -11,7 +11,6 @@ import {
   FormControl,
   FormLabel,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Link } from "react-router-dom";
 import CustomTextField from "../../../components/Form/CustomTextField";
@@ -19,9 +18,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 import CustomComplexSelection from "../../../components/UI/CustomComplexSelection";
 import { useTranslation } from "react-i18next";
-import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
-import BackButton from "../../../components/UI/Buttons/BackButton";
 import SuccessButton from "../../../components/UI/Buttons/SuccessButton";
 import { useScrollToUp } from "../../../hooks/useScrollToUp";
 
@@ -38,12 +35,7 @@ const optionsProj = [
 const NewEntryCard = () => {
   useScrollToUp();
   const { t } = useTranslation();
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
-  const navigate = useNavigate();
+  const { role_id } = useSelector((state) => state.user);
 
   return (
     <Box>

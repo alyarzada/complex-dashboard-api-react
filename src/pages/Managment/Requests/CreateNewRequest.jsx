@@ -37,7 +37,7 @@ const variants = {
 
 const CreateNewRequest = () => {
   const { allRequests } = useSelector((state) => state.requests);
-  const { user } = useSelector((state) => state.auth);
+  const { role_id } = useSelector((state) => state.user);
   const [open, setOpen] = useState(false);
   const [isSubmit, setIsSubmit] = useState(false);
   const { new_request } = allRequests;
@@ -81,7 +81,7 @@ const CreateNewRequest = () => {
     </>
   );
 
-  if (user.has_role.role_id === 8) {
+  if (role_id === 8) {
     return (
       <motion.div
         className="w-full p-6 rounded-xl flex-1 text-textDark   drop-shadow-lg hover:drop-shadow-xl bg-bgLight dark:bg-bgMain dark:text-white"

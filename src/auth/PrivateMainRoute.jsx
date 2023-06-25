@@ -1,10 +1,17 @@
+import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getUserInfo } from "../../services/getRequests";
+import { getUserInfo } from "../services/getRequests";
+import { useDispatch } from "react-redux";
+import { getUserData } from "../app/Slicers/localStates/user";
+
 import LinearProgress from "@mui/material/LinearProgress";
 import Cookies from "js-cookie";
 
 const PrivateMainRoute = ({ children }) => {
+  const [isFethced, setIsFetched] = useState(false);
+  const dispatch = useDispatch();
+
   const {
     refetch,
     isLoading,
@@ -21,7 +28,10 @@ const PrivateMainRoute = ({ children }) => {
   if (!Cookies.get("token")) return <Navigate to="/login" replace />;
 
   // if there is token
-  if (Cookies.get("token")) refetch();
+  if (Cookies.get("token") && !isFethced) {
+    refetch();
+    setIsFetched(true);
+  }
 
   // Loading...
   if (isLoading) return <LinearProgress color="logocolor" />;
@@ -33,7 +43,10 @@ const PrivateMainRoute = ({ children }) => {
   }
 
   // if token is valid
-  if (isSuccess && user.id) return children;
+  if (isSuccess && user.id) {
+    dispatch(getUserData(user));
+    return children;
+  }
 };
 
 export default PrivateMainRoute;

@@ -1,28 +1,25 @@
 import { useSelector } from "react-redux";
-import { DataGrid } from "@mui/x-data-grid";
-import { Box, Button, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useScrollToUp } from "../../../hooks/useScrollToUp";
+import { useTranslation } from "react-i18next";
+
 import Header from "../../../components/UI/Header";
 import ActionButtons from "../../../components/UI/Buttons/ActionButtons";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import CustomSearchFilter from "../../../components/UI/CustomSearchFilter";
-import { useTranslation } from "react-i18next";
 import DefaultButton from "../../../components/UI/Buttons/DefaultButton";
 import CustomDataGrid from "../../../components/UI/CustomDataGrid";
-import { Link } from "react-router-dom";
 
 const RenterRegistration = () => {
+  useScrollToUp();
+
   const { tenants } = useSelector((state) => state.tenants);
+  const { role_id } = useSelector((state) => state.user);
+
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
-  useScrollToUp();
 
   const columns = [
     { field: "startTime", headerName: t("Start date"), width: 150 },

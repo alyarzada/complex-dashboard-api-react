@@ -4,7 +4,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 // main components
 const Main = loadable(() => import("../layout/main/Main"));
 const PrivateMainRoute = loadable(() =>
-  import("../layout/main/PrivateMainRoute")
+  import("../auth/PrivateMainRoute")
 );
 const PrivateLoginRoute = loadable(() => import("../auth/PrivateLoginRoute"));
 const ControlPanel = loadable(() =>

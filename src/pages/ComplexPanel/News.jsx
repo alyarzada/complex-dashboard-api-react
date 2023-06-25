@@ -17,13 +17,9 @@ const variants = {
 
 const News = () => {
   const { news, loading } = useSelector((state) => state.news);
-  const { t } = useTranslation();
+  const { role_id } = useSelector((state) => state.user);
 
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
+  const { t } = useTranslation();
 
   return (
     <Box>

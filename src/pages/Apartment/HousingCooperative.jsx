@@ -14,7 +14,7 @@ import {
   useGridSelector,
 } from "@mui/x-data-grid";
 import EmojiObjectsOutlinedIcon from "@mui/icons-material/EmojiObjectsOutlined";
-import ViewInArIcon from '@mui/icons-material/ViewInAr';
+import ViewInArIcon from "@mui/icons-material/ViewInAr";
 
 const columns = [
   { field: "id", headerName: "ID", width: 80 },
@@ -58,8 +58,9 @@ const rows = [
 
 const SurveyManage = () => {
   const { t } = useTranslation();
-  const [dataTableRequests, setDataTableRequests] = useState([]);
+  const { role_id } = useSelector((state) => state.user);
   const [tableRows, setTableRows] = useState(10);
+
   function CustomPagination() {
     const apiRef = useGridApiContext();
     const page = useGridSelector(apiRef, gridPageSelector);
@@ -80,11 +81,6 @@ const SurveyManage = () => {
     else setTableRows(100);
   };
 
-  const {
-    user: {
-      has_role: { role_id },
-    },
-  } = useSelector((state) => state.auth);
   return (
     <Box className="w-full">
       <Header
@@ -94,7 +90,7 @@ const SurveyManage = () => {
         }}
       />
       <Box className="my-4 py-4 px-6 rounded  drop-shadow-lg bg-bgLight dark:bg-bgMain w-full">
-        {role_id == 2 ? (
+        {role_id === 2 ? (
           <Box className="w-full flex justify-end">
             <Link to="/housing-cooperative/create">
               <Button

@@ -22,9 +22,10 @@ import portBakuAzerbaijan from "../../assets/logo/port-baku_azerbaijan.jpg";
 
 const ComplexPanel = () => {
   useScrollToUp();
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
   const { news } = useSelector((state) => state.news);
+
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const modalList = [
     {
