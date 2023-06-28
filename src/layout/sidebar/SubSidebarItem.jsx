@@ -1,10 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  setOpenedSidebar,
-  setSideabarSubmenu,
-} from "../../app/Slicers/localStates/themes";
+import { setOpenedSidebar, setSideabarSubmenu } from "../../app/Slicers/themes";
 import { useMediaQuery } from "@mui/material";
 
 const SubSidebarItem = ({ sublistItem }) => {

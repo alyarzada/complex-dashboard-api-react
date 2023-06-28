@@ -1,7 +1,7 @@
 import { Button, Stack, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setModal } from "../../app/Slicers/localStates/modals";
+import { setModal } from "../../app/Slicers/modals";
 import { useTranslation } from "react-i18next";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";

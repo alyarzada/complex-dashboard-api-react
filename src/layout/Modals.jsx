@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import CustomDialogModal from "../components/UI/Modals/CustomDialogModal";
 import CustomModal from "../components/UI/Modals/CustomModal";
-import { setDialogModal, setModal } from "../app/Slicers/localStates/modals";
+import { setDialogModal, setModal } from "../app/Slicers/modals";
 import { ToastContainer } from "react-toastify";
 import { AnimatePresence } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";

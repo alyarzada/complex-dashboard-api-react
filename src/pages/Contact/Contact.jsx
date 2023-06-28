@@ -1,9 +1,6 @@
 import { Typography, Box, Avatar, Skeleton } from "@mui/material";
-// import { useSelector } from "react-redux";
 
 const Contact = ({ contact, isLoading }) => {
-  // const { loading } = useSelector((state) => state.contacts);
-
   return (
     <Box
       className={`rounded-xl px-3 ${

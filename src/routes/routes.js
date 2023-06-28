@@ -3,109 +3,65 @@ import LinearProgress from "@mui/material/LinearProgress";
 
 // main components
 const Main = loadable(() => import("../layout/main/Main"));
-const PrivateMainRoute = loadable(() =>
-  import("../auth/PrivateMainRoute")
-);
+const PrivateMainRoute = loadable(() => import("../auth/PrivateMainRoute"));
 const PrivateLoginRoute = loadable(() => import("../auth/PrivateLoginRoute"));
-const ControlPanel = loadable(() =>
-  import("../pages/ControlPanel/ControlPanel")
-);
 const LoginPage = loadable(() => import("../auth/Login"));
-const Payment = loadable(() => import("../pages/MyInvoices/Payment"));
+const Payment = loadable(() => import("../pages/Invoices/Payment"));
 
 // children components
-const ComplexPanel = loadable(() =>
-  import("../pages/ComplexPanel/ComplexPanel")
-);
-const ComplexSelect = loadable(() =>
-  import("../pages/ComplexSelect/ComplexSelect")
-);
-const CalendarPage = loadable(() =>
-  import("../pages/FullCalendar/CalendarPage")
-);
-const Profile = loadable(() => import("../pages/Profile/Profile"));
-const Notifications = loadable(() =>
-  import("../pages/Notifications/Notifications")
-);
+const ComplexPanel = loadable(() => import("../pages/ComplexPanel"));
+
+const Profile = loadable(() => import("../pages/Profile"));
+const Notifications = loadable(() => import("../pages/Notifications"));
 const NotFound404 = loadable(() => import("../pages/NotFound404"));
-const Contacts = loadable(() => import("../pages/Contact/Contacts"));
-const MyInvoices = loadable(() => import("../pages/MyInvoices/MyInvoices"));
-const InfoTable = loadable(() => import("../pages/InfoTable/InfoTable"));
-const PhotoEdit = loadable(() => import("../pages/InfoTable/PhotoEdit"));
-const Requests = loadable(() => import("../pages/Managment/Requests/Requests"));
-const RequestPanel = loadable(() =>
-  import("../pages/RequestPanel/RequestPanel")
-);
+const Contacts = loadable(() => import("../pages/Contact"));
+const MyInvoices = loadable(() => import("../pages/Invoices"));
+
+const Requests = loadable(() => import("../pages/Requests"));
+
 const CreateNewRequest = loadable(() =>
-  import("../pages/Managment/Requests/CreateNewRequest")
+  import("../pages/Requests/CreateNewRequest")
 );
-const CommunalServices = loadable(() =>
-  import("../pages/Managment/CommunalServices/CommunalServices")
-);
-const Communal = loadable(() =>
-  import("../pages/Managment/CommunalServices/Communal")
-);
-const EntryCards = loadable(() =>
-  import("../pages/Managment/EntryCard/EntryCards")
-);
+const CommunalServices = loadable(() => import("../pages/CommunalServices"));
+const Communal = loadable(() => import("../pages/CommunalServices/Communal"));
+const EntryCards = loadable(() => import("../pages/EntryCard/EntryCards"));
 const RenterRegistration = loadable(() =>
-  import("../pages/Managment/RenterRegistration/RenterRegistration")
+  import("../pages/RenterRegistration/RenterRegistration")
 );
 const AdminCreateNew = loadable(() =>
-  import("../pages/Managment/RenterRegistration/ComplexAdmin/AdminCreateNew")
+  import("../pages/RenterRegistration/ComplexAdmin/AdminCreateNew")
 );
-const News = loadable(() => import("../pages/ComplexPanel/News"));
-const Chat = loadable(() => import("../pages/Chat/Chat"));
+const Posts = loadable(() => import("../pages/ComplexPanel/Posts"));
+const Chat = loadable(() => import("../pages/Chat"));
 const SavedPosts = loadable(() => import("../pages/ComplexPanel/SavedPosts"));
-const Phone = loadable(() =>
-  import("../pages/Managment/CommunalServices/Phone")
-);
-const AllRequests = loadable(() =>
-  import("../pages/Managment/Requests/AllRequests")
-);
+const Phone = loadable(() => import("../pages/CommunalServices/Phone"));
+const AllRequests = loadable(() => import("../pages/Requests/AllRequests"));
 const RequestComponent = loadable(() =>
-  import("../pages/Managment/Requests/RequestComponent")
+  import("../pages/Requests/RequestComponent")
 );
 const MeetingRoom = loadable(() =>
-  import("../pages/Managment/LocalClub/Main/MeetingRoom")
+  import("../pages/LocalClub/Main/MeetingRoom")
 );
-const Massage = loadable(() =>
-  import("../pages/Managment/LocalClub/Main/Massage")
-);
-const Cinema = loadable(() =>
-  import("../pages/Managment/LocalClub/Main/Cinema")
-);
-const NewEntryCard = loadable(() =>
-  import("../pages/Managment/EntryCard/NewEntryCard")
-);
+const Massage = loadable(() => import("../pages/LocalClub/Main/Massage"));
+const Cinema = loadable(() => import("../pages/LocalClub/Main/Cinema"));
+const NewEntryCard = loadable(() => import("../pages/EntryCard/NewEntryCard"));
 const NewParkingCard = loadable(() =>
-  import("../pages/Managment/EntryCard/NewParkingCard")
+  import("../pages/EntryCard/NewParkingCard")
 );
-const Menu = loadable(() => import("../pages/Restaurant/Menu"));
-const Card = loadable(() => import("../pages/Restaurant/Card"));
-const TenantRegistration = loadable(() =>
-  import("../pages/ControlPanel/TenantRegistration")
-);
-const Internet = loadable(() =>
-  import("../pages/Managment/CommunalServices/Internet")
-);
-const Tv = loadable(() => import("../pages/Managment/CommunalServices/Tv"));
+const Internet = loadable(() => import("../pages/CommunalServices/Internet"));
+const Tv = loadable(() => import("../pages/CommunalServices/Tv"));
 const RequestDetails = loadable(() =>
-  import("../pages/Managment/Requests/RequestDetails")
+  import("../pages/Requests/RequestDetails")
 );
 const SendNotifications = loadable(() =>
   import("../pages/Notifications/complexAdmin/SendNotifications")
 );
-const Reports = loadable(() => import("../pages/Managment/Reports/reports"));
-// const AddApartment = loadable(() =>
-//   import("../pages/AddApartment/AddApartment")
-// );
+const InvoiceBill = loadable(() => import("../pages/Invoices/InvoiceBill"));
+
 const SurveyManage = loadable(() =>
   import("../pages/Notifications/complexAdmin/SurveyManage")
 );
-const CreateInvoice = loadable(() =>
-  import("../pages/CreateInvoice/CreateInvoice")
-);
+const CreateInvoice = loadable(() => import("../pages/Invoices/CreateInvoice"));
 const NotificationsArchive = loadable(() =>
   import("../pages/Notifications/complexAdmin/NotificationsArchive")
 );
@@ -115,62 +71,91 @@ const SentNotifications = loadable(() =>
 const SurveyCreate = loadable(() =>
   import("../pages/Notifications/complexAdmin/SurveyCreate/SurveyCreate")
 );
-const MTKUsers = loadable(() => import("../pages/Apartment/MTKUsers"));
-const Permission = loadable(() => import("../pages/Apartment/Permission"));
 
-const Tasks = loadable(() => import("../pages/Tasks/Tasks"));
-const TaskCreate = loadable(() => import("../pages/Tasks/TaskCreate"));
-const Apartments = loadable(() => import("../pages/Apartment/Apartments"));
-const Building = loadable(() => import("../pages/Apartment/Building"));
-const Residents = loadable(() => import("../pages/Apartment/Residents"));
+// otherPages
+const TenantRegistration = loadable(() =>
+  import("../pages/otherPages/ControlPanel/TenantRegistration")
+);
+const RequestPanel = loadable(() => import("../pages/otherPages/RequestPanel"));
+const ControlPanel = loadable(() => import("../pages/otherPages/ControlPanel"));
+const AboutComplex = loadable(() => import("../pages/AboutComplex"));
+const PhotoEdit = loadable(() => import("../pages/AboutComplex/PhotoEdit"));
+const CalendarPage = loadable(() =>
+  import("../pages/otherPages/FullCalendar/CalendarPage")
+);
+
+// adminPages
+const ComplexSelect = loadable(() =>
+  import("../pages/adminPages/ComplexSelect")
+);
+const Reports = loadable(() => import("../pages/adminPages/Reports/reports"));
+const MTKUsers = loadable(() =>
+  import("../pages/adminPages/Apartment/MTKUsers")
+);
+const Permission = loadable(() =>
+  import("../pages/adminPages/Apartment/Permission")
+);
+const ApartmentsCreate = loadable(() =>
+  import("../pages/adminPages/Apartment/ApartmentsCreate")
+);
+const Tasks = loadable(() => import("../pages/adminPages/Tasks"));
+const TaskCreate = loadable(() =>
+  import("../pages/adminPages/Tasks/TaskCreate")
+);
+const Apartments = loadable(() => import("../pages/adminPages/Apartment"));
+const Building = loadable(() =>
+  import("../pages/adminPages/Apartment/Building")
+);
+const Residents = loadable(() =>
+  import("../pages/adminPages/Apartment/Residents")
+);
 const ResidentsCreate = loadable(() =>
-  import("../pages/Apartment/ResidentsCreate")
+  import("../pages/adminPages/Apartment/ResidentsCreate")
 );
 const GroupOfApartments = loadable(() =>
-  import("../pages/Apartment/GroupOfApartments")
+  import("../pages/adminPages/Apartment/GroupOfApartments")
 );
 const GroupOfApartmentsCreate = loadable(() =>
-  import("../pages/Apartment/GroupOfApartmentsCreate")
+  import("../pages/adminPages/Apartment/GroupOfApartmentsCreate")
 );
-const Employees = loadable(() => import("../pages/Apartment/Employees"));
+const Employees = loadable(() =>
+  import("../pages/adminPages/Apartment/Employees")
+);
 const EmployeesCreate = loadable(() =>
-  import("../pages/Apartment/EmployeesCreate")
+  import("../pages/adminPages/Apartment/EmployeesCreate")
 );
 const HousingCooperative = loadable(() =>
-  import("../pages/Apartment/HousingCooperative")
+  import("../pages/adminPages/Apartment/HousingCooperative")
 );
 const HousingCooperativeCreate = loadable(() =>
-  import("../pages/Apartment/HousingCooperativeCreate")
+  import("../pages/adminPages/Apartment/HousingCooperativeCreate")
 );
-const Complex = loadable(() => import("../pages/Apartment/Complex"));
+const Complex = loadable(() => import("../pages/adminPages/Apartment/Complex"));
 const ComplexCreate = loadable(() =>
-  import("../pages/Apartment/ComplexCreate")
+  import("../pages/adminPages/Apartment/ComplexCreate")
 );
 const MTKUserCreate = loadable(() =>
-  import("../pages/Apartment/MTKUserCreate/MTKUserCreate")
+  import("../pages/adminPages/Apartment/MTKUserCreate/MTKUserCreate")
 );
+
+// restaurantPages
+const Menu = loadable(() => import("../pages/restaurantPages/Restaurant/Menu"));
+const Card = loadable(() => import("../pages/restaurantPages/Restaurant/Card"));
 const MenuCategories = loadable(() =>
-  import("../pages/Restaurant/Admin/MenuCategories")
+  import("../pages/restaurantPages/Restaurant/Admin/MenuCategories")
 );
 const MenuNewCreate = loadable(() =>
-  import("../pages/Restaurant/Admin/MenuNewCreate")
+  import("../pages/restaurantPages/Restaurant/Admin/MenuNewCreate")
 );
 const RestaurantMenu = loadable(() =>
-  import("../pages/Restaurant/Admin/RestaurantMenu")
+  import("../pages/restaurantPages/Restaurant/Admin/RestaurantMenu")
 );
 const MenuCreate = loadable(() =>
-  import("../pages/Restaurant/Admin/MenuCreate")
+  import("../pages/restaurantPages/Restaurant/Admin/MenuCreate")
 );
 const RestaurantOrders = loadable(() =>
-  import("../pages/Restaurant/Admin/RestaurantOrders")
+  import("../pages/restaurantPages/Restaurant/Admin/RestaurantOrders")
 );
-const InvoiceBill = loadable(() => import("../pages/MyInvoices/InvoiceBill"));
-const ApartmentsCreate = loadable(() =>
-  import("../pages/Apartment/ApartmentsCreate")
-);
-// const BuildingCreate = loadable(() =>
-//   import("../pages/Apartment/BuildingCreate ")
-// );
 
 const routes = [
   {
@@ -211,7 +196,9 @@ const routes = [
       },
       {
         path: "information",
-        element: <InfoTable fallback={<LinearProgress color="logocolor" />} />,
+        element: (
+          <AboutComplex fallback={<LinearProgress color="logocolor" />} />
+        ),
       },
       {
         path: "information/photoedit",
@@ -531,7 +518,7 @@ const routes = [
         children: [
           {
             index: true,
-            element: <News fallback={<LinearProgress color="logocolor" />} />,
+            element: <Posts fallback={<LinearProgress color="logocolor" />} />,
           },
           {
             path: "savedposts",

@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   setOpenedSidebar,
   toggleSidebarSubmenu,
-} from "../../app/Slicers/localStates/themes";
+} from "../../app/Slicers/themes";
 import { useMediaQuery, Box } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SubSidebarItem from "./SubSidebarItem";

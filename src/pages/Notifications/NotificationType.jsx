@@ -4,7 +4,7 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setModal } from "../../app/Slicers/localStates/modals";
+import { setModal } from "../../app/Slicers/modals";
 import { useTranslation } from "react-i18next";
 
 const NotificationType = ({ row: { type, subject, content } }) => {

@@ -1,24 +1,14 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 
 // local states
-import themesReducer from "./Slicers/localStates/themes";
-import dataReducer from "./Slicers/localStates/data";
-import menuReducer from "./Slicers/localStates/menus";
-import invoiceReducer from "./Slicers/localStates/invoices";
-import entryCardsReducer from "./Slicers/localStates/entryCards";
-import tenantReducer from "./Slicers/localStates/tenantRegistration";
-import modalReducer from "./Slicers/localStates/modals";
-import userReducer from "./Slicers/localStates/user";
-
-// data-fetching
-import notificationReducer from "./Slicers/dataFetching/notifications";
-import requestReducer from "./Slicers/dataFetching/requests";
-import newsReducer from "./Slicers/dataFetching/news";
-import emojiReducer from "./Slicers/dataFetching/emoji";
-import informationReducer from "./Slicers/dataFetching/infoTable";
-import meetingRoomReducer from "./Slicers/dataFetching/leisure/meetingRoom";
-import massageReducer from "./Slicers/dataFetching/leisure/massage";
-import cinemaReducer from "./Slicers/dataFetching/leisure/cinema";
+import themesReducer from "./Slicers/themes";
+import dataReducer from "./Slicers/data";
+import menuReducer from "./Slicers/menus";
+import invoiceReducer from "./Slicers/invoices";
+import entryCardsReducer from "./Slicers/entryCards";
+import tenantReducer from "./Slicers/tenantRegistration";
+import modalReducer from "./Slicers/modals";
+import userReducer from "./Slicers/user";
 
 export const store = configureStore({
   reducer: {
@@ -29,16 +19,7 @@ export const store = configureStore({
     entryCards: entryCardsReducer,
     tenants: tenantReducer,
     user: userReducer,
-
-    notifications: notificationReducer,
-    requests: requestReducer,
-    news: newsReducer,
     modals: modalReducer,
-    informations: informationReducer,
-    meetingRoom: meetingRoomReducer,
-    massage: massageReducer,
-    cinema: cinemaReducer,
-    emojies: emojiReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -17,39 +17,83 @@ import {
   QuestionAnswerOutlined,
   SentimentSatisfiedAlt,
 } from "@mui/icons-material";
+
 import { useTranslation } from "react-i18next";
-import EmojiesContainer from "../../components/UI/ReactionEmojies/EmojiesContainer";
-import CustomMenu from "../../components/UI/Modals/CustomMenu";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteComment,
-  editComment,
-} from "../../app/Slicers/dataFetching/news";
+import { useSelector } from "react-redux";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { deleteComment, editComment } from "../../services/postsReqs";
 import Cookies from "js-cookie";
 
+import EmojiesContainer from "../../components/UI/ReactionEmojies/EmojiesContainer";
+import CustomMenu from "../../components/UI/Modals/CustomMenu";
+
 const Comment = ({ comment, postId }) => {
+  const queryClient = useQueryClient();
+
+  const { mutate: mutateDeleteComment } = useMutation({
+    mutationFn: deleteComment,
+    onSuccess: (data) => {
+      queryClient.setQueryData(["posts"], (posts) => {
+        return posts.map((post) => {
+          if (post.id === postId) {
+            return {
+              ...post,
+              comments: post.comments.filter(
+                (comment) => comment.id !== data.comment_id
+              ),
+            };
+          }
+
+          return post;
+        });
+      });
+    },
+  });
+
+  const { mutate: mutateEditComment } = useMutation({
+    mutationFn: editComment,
+    onSuccess: (data) => {
+      queryClient.setQueryData(["posts"], (posts) => {
+        return posts.map((post) => {
+          if (post.id === postId) {
+            return {
+              ...post,
+              comments: post.comments.map((comment) => {
+                if (comment.id === data.post_id) {
+                  return {
+                    ...comment,
+                    comment: data.post_saved_data,
+                  };
+                }
+                return comment;
+              }),
+            };
+          }
+          return post;
+        });
+      });
+    },
+  });
+  const { user } = useSelector((state) => state.user);
+  const { t } = useTranslation();
+
   const [openMenu, setOpenMenu] = useState(false);
   const [expand, setExpand] = useState(false);
-  const { user } = useSelector((state) => state.auth);
   const [editCommentValue, setEditCommentValue] = useState("");
   const [openEdit, setOpenEdit] = useState(false);
 
   const btnRef = useRef(null);
-  const dispatch = useDispatch();
-  const { t } = useTranslation();
-
+  const token = Cookies.get("token");
   const words = comment?.user_name.split(" ");
   const firstLetters = words
     .map((word) => word.charAt(0))
     .reduce((acc, item) => acc + item, "");
 
   const onDelete = () => {
-    dispatch(
-      deleteComment({
-        id: { comment_id: comment.id },
-        token: Cookies.get("token"),
-      })
-    );
+    mutateDeleteComment({
+      id: { comment_id: comment.id },
+      token,
+    });
     setOpenMenu(false);
   };
 
@@ -60,16 +104,14 @@ const Comment = ({ comment, postId }) => {
   };
 
   const updateComment = () => {
-    dispatch(
-      editComment({
-        body: {
-          commentId: comment.id,
-          post_id: postId,
-          comment: editCommentValue,
-        },
-        token: Cookies.get("token"),
-      })
-    );
+    mutateEditComment({
+      body: {
+        commentId: comment.id,
+        post_id: postId,
+        comment: editCommentValue,
+      },
+      token,
+    });
     setOpenEdit(false);
   };
 

@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { Box, IconButton, Tooltip } from "@mui/material";
-import { setOpenedSettingBar } from "../../app/Slicers/localStates/themes";
+import { setOpenedSettingBar } from "../../app/Slicers/themes";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import SettingBar from "../header/SettingBar";
 import { useTranslation } from "react-i18next";

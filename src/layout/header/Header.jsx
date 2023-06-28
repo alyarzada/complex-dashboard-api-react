@@ -2,10 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Settings } from "../sidebar/Settings";
-import {
-  setOpenedSidebar,
-  setSideabarSubmenu,
-} from "../../app/Slicers/localStates/themes";
+import { setOpenedSidebar, setSideabarSubmenu } from "../../app/Slicers/themes";
 import { Box, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../../assets/logo/logo_sm.png";

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import {
   Box,
   IconButton,
@@ -10,33 +10,31 @@ import {
   Tooltip,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { format } from "date-fns";
+import { useQuery } from "@tanstack/react-query";
+import { getAllNotifications } from "../../services/notificationsReqs";
+
 import CustomMenu from "../../components/UI/Modals/CustomMenu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
-import { getAllNotifications } from "../../app/Slicers/dataFetching/notifications";
-import Cookies from "js-cookie";
-import { format } from "date-fns";
 
 export default function Notifications() {
   const [openMenu, setOpenMenu] = useState(false);
-  const { notifications } = useSelector((state) => state.notifications);
+  const { data: notifications } = useQuery({
+    queryKey: ["notifications"],
+    queryFn: getAllNotifications,
+  });
 
   const { t } = useTranslation();
   const navigate = useNavigate();
   const btnRef = useRef(null);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllNotifications(Cookies.get("token")));
-  }, []);
 
   return (
     <Box className="relative">
       <Tooltip title={t("Notifications")} arrow>
         <IconButton ref={btnRef} onClick={() => setOpenMenu((prev) => !prev)}>
-          <Badge badgeContent={notifications.length} color="error">
+          <Badge badgeContent={notifications?.length} color="error">
             <NotificationsIcon />
           </Badge>
         </IconButton>
@@ -57,11 +55,11 @@ export default function Notifications() {
           >
             <Typography>{t(["Notifications"])}</Typography>
             <Typography className="bg-logoColor rounded px-2 py-[2px] text-xs">
-              {notifications.length}
+              {notifications?.length}
             </Typography>
           </Stack>
           <Box className="h-[230px] overflow-auto scroll-design">
-            {notifications.length > 0 ? (
+            {notifications?.length > 0 ? (
               notifications
                 ?.map((item) => {
                   return {

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Box, Stack, Typography } from "@mui/material";
-import { getSidebarData } from "../../app/Slicers/localStates/data";
+import { getSidebarData } from "../../app/Slicers/data";
 import { adminSidebarMenu } from "../../data/admin/sidebar-menu";
 import { sidebarMenu } from "../../data/apartment-owner/sidebar-menu";
 import { restaurantsidebarMenu } from "../../data/restaurant-admin/sidebar-menu";

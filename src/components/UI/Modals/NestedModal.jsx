@@ -2,7 +2,7 @@ import { useEffect, forwardRef } from "react";
 import { Box, Typography, Stack, IconButton } from "@mui/material";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
-import { setTransform } from "../../../app/Slicers/localStates/themes";
+import { setTransform } from "../../../app/Slicers/themes";
 import ClearIcon from "@mui/icons-material/Clear";
 
 const dropIn = {

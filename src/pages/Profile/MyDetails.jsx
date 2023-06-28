@@ -1,7 +1,7 @@
 import { Box, IconButton, Button } from "@mui/material";
 import { Formik, Form, FieldArray } from "formik";
 import { useMutation } from "@tanstack/react-query";
-import { updateUserInfo } from "../../services/patchRequests";
+import { updateUserInfo } from "../../services/userInfoReqs";
 import { useTranslation } from "react-i18next";
 
 import CustomTextField from "../../components/Form/CustomTextField";

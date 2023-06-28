@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
 import { Box, Pagination, useMediaQuery, Stack } from "@mui/material";
 import {
   DataGrid,
@@ -9,9 +7,7 @@ import {
   useGridApiContext,
   useGridSelector,
 } from "@mui/x-data-grid";
-import { getAllRequests } from "../../app/Slicers/dataFetching/requests";
 import ResponsivePagination from "./ResponsivePagination";
-import Cookies from "js-cookie";
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
@@ -43,18 +39,12 @@ const CustomDataGrid = ({
     setPaginationPage(value);
   };
   const matches = useMediaQuery("(min-width:768px)");
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllRequests(Cookies.get("token")));
-  }, []);
 
   return (
     <Box>
       <Box
         style={
-          matches == false
+          matches === false
             ? { height: "auto", width: "100%" }
             : { width: "100%" }
         }

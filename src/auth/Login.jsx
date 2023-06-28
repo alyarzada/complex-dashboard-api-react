@@ -6,7 +6,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import LoginIcon from "@mui/icons-material/Login";
 import { LoginSchema } from "../validations/login_validation";
 import CustomTextField from "../components/Form/CustomTextField";
-import { loginHandler } from "../services/authRequests";
+import { loginHandler } from "../services/authReqs";
 import Cookies from "js-cookie";
 
 const LoginPage = () => {

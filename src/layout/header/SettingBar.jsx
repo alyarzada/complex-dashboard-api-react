@@ -1,8 +1,8 @@
 import { forwardRef, useEffect, useRef } from "react";
-import { setLight, setLeftLight } from "../../app/Slicers/localStates/themes";
+import { setLight, setLeftLight } from "../../app/Slicers/themes";
 import { useDispatch, useSelector } from "react-redux";
-import { setOpenedSettingBar } from "../../app/Slicers/localStates/themes";
-import { setDraggable } from "../../app/Slicers/localStates/themes";
+import { setOpenedSettingBar } from "../../app/Slicers/themes";
+import { setDraggable } from "../../app/Slicers/themes";
 import { Box, IconButton, Typography, Divider } from "@mui/material";
 import HighlightOffRoundedIcon from "@mui/icons-material/HighlightOffRounded";
 import { useTranslation } from "react-i18next";

@@ -2,22 +2,25 @@ import { useRef, useState, useEffect } from "react";
 import { Box, MenuItem, Avatar, Stack, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import { logoutHandler } from "../../services/authReqs";
+import Cookies from "js-cookie";
+
+import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 import CustomMenu from "../../components/UI/Modals/CustomMenu";
-import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
-import Cookies from "js-cookie";
-import { useMutation } from "@tanstack/react-query";
-import { logoutHandler } from "../../services/authRequests";
 
-const UserMenu = ({ data, isLoading, isError, error }) => {
+const UserMenu = ({ data, isLoading }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [firstLetters, setFirstLetters] = useState(null);
   const [randomColor, setRandomColor] = useState("");
+
   const { mutate } = useMutation({
     mutationFn: logoutHandler,
     onSuccess: () => {
       Cookies.remove("token");
+      navigate("/login");
     },
   });
 
