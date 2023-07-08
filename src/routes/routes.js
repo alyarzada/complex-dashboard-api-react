@@ -42,7 +42,7 @@ const RequestComponent = loadable(() =>
 const MeetingRoom = loadable(() =>
   import("../pages/LocalClub/Main/MeetingRoom")
 );
-const Massage = loadable(() => import("../pages/LocalClub/Main/Massage"));
+// const Massage = loadable(() => import("../pages/LocalClub/Main/Massage"));
 const Cinema = loadable(() => import("../pages/LocalClub/Main/Cinema"));
 const NewEntryCard = loadable(() => import("../pages/EntryCard/NewEntryCard"));
 const NewParkingCard = loadable(() =>
@@ -328,10 +328,10 @@ const routes = [
           <MeetingRoom fallback={<LinearProgress color="logocolor" />} />
         ),
       },
-      {
-        path: "massage",
-        element: <Massage fallback={<LinearProgress color="logocolor" />} />,
-      },
+      // {
+      //   path: "massage",
+      //   element: <Massage fallback={<LinearProgress color="logocolor" />} />,
+      // },
       {
         path: "cinema",
         element: <Cinema fallback={<LinearProgress color="logocolor" />} />,

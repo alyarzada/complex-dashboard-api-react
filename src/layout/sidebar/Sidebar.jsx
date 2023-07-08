@@ -82,23 +82,31 @@ const SideBar = () => {
       }`}
     >
       <Box
-        className="mb-6 mt-3 h-28"
+        className="mb-8 mt-3 "
         onClick={() => {
           window.scrollTo(0, 0);
           navigate("/");
         }}
       >
-        <img
+        {/* <img
           className={`mx-auto block mb-6 h-16 whitespace-nowrap overflow-hidden object-cover ${
             openedSidebar ? "w-22" : "w-12"
           }`}
           alt="logo"
           src={openedSidebar ? logoDark : logo}
-        />
+        /> */}
+
+        <h2
+          className={`${
+            openedSidebar ? "block" : "hidden"
+          } text-center font-semibold text-logoColor mb-1 whitespace-nowrap overflow-hidden`}
+        >
+          Dashboard
+        </h2>
 
         {/* today date */}
         {openedSidebar && (
-          <Typography className="mx-auto mb-6 text-sm text-center text-text1 whitespace-nowrap overflow-hidden">
+          <Typography className="mx-auto mb-4 text-sm text-center text-text1 whitespace-nowrap overflow-hidden">
             {t(["Today"])}, {new Date().getDate()}{" "}
             {months[new Date().getMonth()]} {new Date().getFullYear()}
           </Typography>
