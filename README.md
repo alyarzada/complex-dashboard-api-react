@@ -6,18 +6,23 @@ During my work, i successfully undertook the task of transforming a "Dashboard" 
 
 To run this project locally, ensure that you have the following software installed on your machine:
 
-```bash
 - Node.js (version 18.14.1)
 - NPM (version 9.3.1)
-```
+
 
 ## Getting Started
 
 1. Clone the repository:
-- git clone https://github.com/alyarzada/react-advanced-dashboard
+```bash
+git clone https://github.com/alyarzada/react-advanced-dashboard
+```
 
 2. Install node modules and start development server:
+```bash
 - npm install && npm run dev
+```
+
+3. Open http://localhost:3000 with your browser to see the result.
 
 ## Technology Stack
 
