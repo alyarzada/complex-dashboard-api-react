@@ -6,8 +6,10 @@ During my work, i successfully undertook the task of transforming a "Dashboard" 
 
 To run this project locally, ensure that you have the following software installed on your machine:
 
+```bash
 - Node.js (version 18.14.1)
 - NPM (version 9.3.1)
+```
 
 ## Getting Started
 
