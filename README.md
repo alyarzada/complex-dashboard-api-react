@@ -14,23 +14,21 @@ To run this project locally, ensure that you have the following software install
 1. Clone the repository:
 - git clone https://github.com/alyarzada/react-advanced-dashboard
 
-3. Install node modules and start development server:
+2. Install node modules and start development server:
 - npm install && npm run dev
 
 ## Technology Stack
 
-React: A JavaScript library for building user interfaces.
-Material-UI: A popular React UI framework for creating beautiful and responsive designs.
-Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
-Redux-Toolkit: A predictable state container for JavaScript apps, used for managing application state.
-React Query: A library for managing and caching server state in React applications
-React Router: A library for routing in React applications, allowing for easy navigation between pages.
-Formik: A form library for React that helps with form validation, handling, and submission.
-Framer Motion: A production-ready motion library for React that allows for creating smooth animations and transitions.
-i18next: A localization library for internationalization (i18n) in JavaScript applications.
-FullCalendar: A JavaScript event calendar library for displaying and interacting with calendar events.
-ApexCharts: A modern charting library for creating interactive charts and graphs.
-Jest: A JavaScript testing framework for writing and running unit tests.
-Webpack: A module bundler for JavaScript applications, used for bundling and optimizing the code.
+- React: A JavaScript library for building user interfaces.
+- Material-UI: A popular React UI framework for creating beautiful and responsive designs.
+- Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
+- Redux-Toolkit: A predictable state container for JavaScript apps, used for managing application state.
+- React Query: A library for managing and caching server state in React applications
+- React Router: A library for routing in React applications, allowing for easy navigation between pages.
+- Formik: A form library for React that helps with form validation, handling, and submission.
+- Framer Motion: A production-ready motion library for React that allows for creating smooth animations and transitions.
+- i18next: A localization library for internationalization (i18n) in JavaScript applications.
+- FullCalendar: A JavaScript event calendar library for displaying and interacting with calendar events.
+- ApexCharts: A modern charting library for creating interactive charts and graphs.
 
 P.S To see all, please check out package.json file
