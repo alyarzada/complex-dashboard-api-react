@@ -12,10 +12,10 @@ To run this project locally, ensure that you have the following software install
 ## Getting Started
 
 1. Clone the repository:
-git clone https://github.com/alyarzada/react-advanced-dashboard
+- git clone https://github.com/alyarzada/react-advanced-dashboard
 
-2. Install node modules and start development server
-npm install && npm run dev
+3. Install node modules and start development server:
+- npm install && npm run dev
 
 ## Technology Stack
 
@@ -33,4 +33,4 @@ ApexCharts: A modern charting library for creating interactive charts and graphs
 Jest: A JavaScript testing framework for writing and running unit tests.
 Webpack: A module bundler for JavaScript applications, used for bundling and optimizing the code.
 
-## P.S To see all, please check out package.json file
+P.S To see all, please check out package.json file
