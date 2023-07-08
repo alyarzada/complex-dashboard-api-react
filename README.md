@@ -19,16 +19,16 @@ To run this project locally, ensure that you have the following software install
 
 ## Technology Stack
 
-- React: A JavaScript library for building user interfaces.
-- Material-UI: A popular React UI framework for creating beautiful and responsive designs.
-- Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
-- Redux-Toolkit: A predictable state container for JavaScript apps, used for managing application state.
-- React Query: A library for managing and caching server state in React applications
-- React Router: A library for routing in React applications, allowing for easy navigation between pages.
-- Formik: A form library for React that helps with form validation, handling, and submission.
-- Framer Motion: A production-ready motion library for React that allows for creating smooth animations and transitions.
-- i18next: A localization library for internationalization (i18n) in JavaScript applications.
-- FullCalendar: A JavaScript event calendar library for displaying and interacting with calendar events.
-- ApexCharts: A modern charting library for creating interactive charts and graphs.
+- React
+- Material-UI  
+- Tailwind CSS
+- Redux-Toolkit
+- React Query
+- React Router
+- Formik & Yup
+- Framer Motion
+- i18next
+- FullCalendar
+- ApexCharts
 
 P.S To see all, please check out package.json file
